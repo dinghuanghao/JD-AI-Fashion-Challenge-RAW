@@ -2,12 +2,12 @@ from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D
 from keras.models import Sequential
 
 
-def alexnet(input_shape: tuple):
+def alexnet(input_shape: tuple) -> Sequential:
     """
     对AlexNet进行了简单修改，使其支持多标签分类
 
     :param input_shape: 输入图片的尺寸
-    :return: alexnet
+    :return Sequential: alexnet
     """
     model = Sequential()
     model.add(Conv2D(96, (11, 11), strides=(4, 4), input_shape=input_shape, padding='valid', activation='relu',
@@ -31,6 +31,7 @@ def alexnet(input_shape: tuple):
     # 多标签分类问题，因此将categorical_crossentropy改为binary_crossentropy
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.summary()
+    return model
 
 
 if __name__ == '__main__':
