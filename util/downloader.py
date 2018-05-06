@@ -10,10 +10,12 @@ DEMO_PHOTOS_PATH = "../data/demo/photos"
 TEST_SUBDIR = "test"
 TRAINING_SUBDIR = "train"
 
+DEMO_TRAINING_PHOTOS_PATH = DEMO_PHOTOS_PATH + "/" + TRAINING_SUBDIR
+DEMO_TEST_PHOTOS_PATH = DEMO_PHOTOS_PATH + "/" + TEST_SUBDIR
 
 def parse_data_line(line: str):
     pieces = line.strip().split(",")
-    return pieces[0], pieces[1], "".join(pieces[2:])
+    return pieces[0], pieces[1], "_".join(pieces[2:])
 
 
 def do_download(names: list(), photo_save_dir: str, photo_save_subdir: str, is_test: bool):
@@ -29,7 +31,8 @@ def do_download(names: list(), photo_save_dir: str, photo_save_subdir: str, is_t
 
 
 def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, is_test: bool, thread_number: int = 2):
-    """ 使用多线程下载可以成倍的提高下载速度，但是线程数过多后，服务器端会拒绝访问，本地测试结果是最多开2个线程 """
+    """ 使用多线程下载可以成倍的提高下载速度，但是线程数过多后，服务器端会拒绝访问，本地测试结果是最多开2个线程
+     如果图片已下载则不会反复下载，因此如果被服务器拒绝了，那么直接重试"""
     with open(txt_dir) as f:
         lst = []
         for i in range(thread_number):
