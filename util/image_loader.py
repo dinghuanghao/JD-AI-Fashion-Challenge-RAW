@@ -36,7 +36,7 @@ def devide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
     return result
 
 
-def load_image(dictionary, image_size):
+def load_image(dictionary, image_size=(227, 227)):
     """
     导入一个路径下的所有图片，并生成可用直接训练的数据集
 

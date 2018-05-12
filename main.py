@@ -18,9 +18,9 @@ flow_train = kimage.ImageDataGenerator().flow(x_train, y_train, batch_size=32)
 flow_val = kimage.ImageDataGenerator().flow(x_val, y_val, batch_size=32)
 flow_test = kimage.ImageDataGenerator().flow(x_test, y_test, batch_size=1)
 
-model.fit_generator(flow_train, epochs=EPOCHS, validation_data=flow_val)
-loss, accuracy = model.evaluate_generator(flow_test)
-print("loss is %f, accuracy is %f" % (loss, accuracy))
+#model.fit_generator(flow_train, epochs=EPOCHS, validation_data=flow_val)
+#loss, accuracy = model.evaluate_generator(flow_test)
+#print("loss is %f, accuracy is %f" % (loss, accuracy))
 
 x, _ = util.image_loader.load_image(DEMO_TEST_PHOTOS_PATH, IMAGE_SIZE)
 predicts = model.predict(x, batch_size=1, verbose=1)

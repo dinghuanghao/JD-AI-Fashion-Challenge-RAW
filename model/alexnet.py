@@ -26,6 +26,7 @@ def alexnet(input_shape: tuple) -> Sequential:
     model.add(Dropout(0.5))
 
     # 多标签问题使用sigmoid更好
+    #TODO： 使用xavier初始化可能好一些
     model.add(Dense(13, activation='sigmoid'))
 
     # 多标签分类问题，因此将categorical_crossentropy改为binary_crossentropy
