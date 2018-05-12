@@ -1,8 +1,10 @@
 import math
+import os
 import random
+import re
 
-import keras.preprocessing.image as kimage
 import numpy as np
+import tensorflow as tf
 
 import util
 
@@ -36,6 +38,12 @@ def devide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
     return result
 
 
+def list_image(directory, ext='jpg|jpeg|bmp|png|ppm'):
+    return [os.path.join(root, f)
+            for root, _, files in os.walk(directory) for f in files
+            if re.match(r'([\w]+\.(?:' + ext + '))', f)]
+
+
 def load_image(dictionary, image_size=(227, 227)):
     """
     导入一个路径下的所有图片，并生成可用直接训练的数据集
@@ -47,13 +55,14 @@ def load_image(dictionary, image_size=(227, 227)):
     :return: 可直接用于keras模型训练的数据集
     """
 
-    paths = kimage.list_pictures(dictionary)
+    paths = list_image(dictionary)
     random.shuffle(paths)
 
     labels = []
     images = []
     for p in paths:
-        images.append(kimage.img_to_array(kimage.load_img(p, target_size=image_size)))
+        images.append(
+            tf.keras.preprocessing.image.img_to_array(tf.keras.preprocessing.image.load_img(p, target_size=image_size)))
         label = p.split(".")[-2].split("_")[1:]
         labels.append(list(map(int, label)))
     x = np.array(images)

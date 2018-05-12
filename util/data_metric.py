@@ -126,4 +126,3 @@ def label_analysis(label):
 if __name__ == '__main__':
     x, y = image_loader.load_image(downloader.DEMO_TRAINING_PHOTOS_PATH)
     label_analysis(y)
-

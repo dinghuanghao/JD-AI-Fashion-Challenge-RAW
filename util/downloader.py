@@ -1,7 +1,7 @@
 import concurrent.futures
 import time
 
-import keras.utils as kutil
+import tensorflow as tf
 
 DEMO_TRAINING_TXT_PATH = "../data/demo/txt/sample-train.txt"
 DEMO_TEST_TXT_PATH = "../data/demo/txt/sample-test.txt"
@@ -41,11 +41,11 @@ def do_download(lines: list(), photo_save_dir: str, photo_save_subdir: str, is_t
     for n in lines:
         name, url, label = parse_data_line(n)
         if is_test:
-            kutil.get_file(fname=name + ".jpg", origin=url, cache_dir=photo_save_dir,
-                           cache_subdir=photo_save_subdir)
+            tf.keras.utils.get_file(fname=name + ".jpg", origin=url, cache_dir=photo_save_dir,
+                                    cache_subdir=photo_save_subdir)
         else:
-            kutil.get_file(fname=name + "_" + label + ".jpg", origin=url, cache_dir=photo_save_dir,
-                           cache_subdir=photo_save_subdir)
+            tf.keras.utils.get_file(fname=name + "_" + label + ".jpg", origin=url, cache_dir=photo_save_dir,
+                                    cache_subdir=photo_save_subdir)
 
 
 def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, is_test: bool, thread_number: int = 2):
