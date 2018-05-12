@@ -1,6 +1,6 @@
 from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D
 from keras.models import Sequential
-
+from model import metrics
 
 def alexnet(input_shape: tuple) -> Sequential:
     """
@@ -30,6 +30,7 @@ def alexnet(input_shape: tuple) -> Sequential:
     model.add(Dense(13, activation='sigmoid'))
 
     # 多标签分类问题，因此将categorical_crossentropy改为binary_crossentropy
+    # 此处没有办法计算F2-Score，因为输出仍然是一个概率，还未转化为真正的标签
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.summary()
     return model
