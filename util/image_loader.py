@@ -56,7 +56,7 @@ def load_image(dictionary, image_size=(224, 224)):
     """
 
     paths = list_image(dictionary)
-    
+
     #TODO: 将数据划分为K个符合要求的部分，然后将分割方式保存到文件，在这之后不再变化，用于进行K折交叉验证，并确保成员之间的模型评估等效性
     random.shuffle(paths)
 

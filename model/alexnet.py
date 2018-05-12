@@ -2,12 +2,12 @@ from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D
 from keras.models import Sequential
 from model import metrics
 
-def alexnet(input_shape: tuple) -> Sequential:
+def get_model(input_shape: tuple) -> Sequential:
     """
     对AlexNet进行了简单修改，使其支持多标签分类
 
     :param input_shape: 输入图片的尺寸
-    :return Sequential: alexnet
+    :return Sequential: get_model
     """
     model = Sequential()
     model.add(Conv2D(96, (11, 11), strides=(4, 4), input_shape=input_shape, padding='valid', activation='relu',
@@ -37,4 +37,4 @@ def alexnet(input_shape: tuple) -> Sequential:
 
 
 if __name__ == '__main__':
-    model = alexnet((800, 800, 3))
+    model = get_model((800, 800, 3))
