@@ -110,18 +110,18 @@ def image_masking(image, boxes, masks, class_ids, class_names, class_used):
     white = np.ones(image.shape) * 255
     N = boxes.shape[0]
 
-    flag = 0
+    person_num = 0
     mask = 0
     for i in range(N):
         if class_names[class_ids[i]] not in class_used:
             continue
-        if flag == 0:
-            flag = 1
+        if person_num == 0:
+            person_num += 1
             mask = masks[:, :, i]
         else:
             mask = masks[:, :, i] | mask
 
-    if mask.shape[0] > 0:
+    if person_num != 0 and mask.shape[0] > 0:
         for c in range(3):
             masked_image[:, :, c] = np.where(mask == 1, masked_image[:, :, c], white[:, :, c])
 
