@@ -6,6 +6,7 @@ from model import resnet_lib
 
 
 def get_model(image_shape):
+    model = tf.keras.applications.resnet50.ResNet50(include_top=True, weights='imagenet', classes=1000)
     model = resnet_lib.ResNet50(include_top=False, weights='imagenet', input_shape=image_shape, classes=1000)
     model.summary()
 

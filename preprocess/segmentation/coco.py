@@ -39,7 +39,7 @@ import numpy as np
 from pycocotools import mask as maskUtils
 # Download and install the Python COCO tools from https://github.com/waleedka/coco
 # That's a fork from the original https://github.com/pdollar/coco with a bug
-# fix for Python 3-original.
+# fix for Python 3.
 # I submitted a pull request https://github.com/cocodataset/cocoapi/pull/50
 # If the PR is merged then use the original repo.
 # Note: Edit PythonAPI/Makefile and replace "python" with "python3".
@@ -80,7 +80,7 @@ class CocoConfig(Config):
     # Adjust down if you use a smaller GPU.
     IMAGES_PER_GPU = 2
 
-    # Uncomment to train on 8 GPUs (default is 1-original)
+    # Uncomment to train on 8 GPUs (default is 1)
     # GPU_COUNT = 8
 
     # Number of classes (including background)
@@ -245,7 +245,7 @@ class CocoDataset(utils.Dataset):
             if class_id:
                 m = self.annToMask(annotation, image_info["height"],
                                    image_info["width"])
-                # Some objects are so small that they're less than 1-original pixel area
+                # Some objects are so small that they're less than 1 pixel area
                 # and end up rounded out. Skip those objects.
                 if m.max() < 1:
                     continue
@@ -441,7 +441,7 @@ if __name__ == '__main__':
         config = CocoConfig()
     else:
         class InferenceConfig(CocoConfig):
-            # Set batch size to 1-original since we'll be running inference on
+            # Set batch size to 1 since we'll be running inference on
             # one image at a time. Batch size = GPU_COUNT * IMAGES_PER_GPU
             GPU_COUNT = 1
             IMAGES_PER_GPU = 1
@@ -495,7 +495,7 @@ if __name__ == '__main__':
 
         # *** This training schedule is an example. Update to your needs ***
 
-        # Training - Stage 1-original
+        # Training - Stage 1
         print("Training network heads")
         model.train(dataset_train, dataset_val,
                     learning_rate=config.LEARNING_RATE,
@@ -503,16 +503,16 @@ if __name__ == '__main__':
                     layers='heads',
                     augmentation=augmentation)
 
-        # Training - Stage 2-original
-        # Finetune layers from ResNet stage 4-original and up
-        print("Fine tune Resnet stage 4-original and up")
+        # Training - Stage 2
+        # Finetune layers from ResNet stage 4 and up
+        print("Fine tune Resnet stage 4 and up")
         model.train(dataset_train, dataset_val,
                     learning_rate=config.LEARNING_RATE,
                     epochs=120,
-                    layers='4-original+',
+                    layers='4+',
                     augmentation=augmentation)
 
-        # Training - Stage 3-original
+        # Training - Stage 3
         # Fine tune all layers
         print("Fine tune all layers")
         model.train(dataset_train, dataset_val,

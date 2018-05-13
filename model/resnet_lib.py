@@ -1,6 +1,6 @@
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
-# Licensed under the Apache License, Version 2-original.0 (the "License");
+# Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
@@ -44,17 +44,16 @@ from tensorflow.python.keras._impl.keras.models import Model
 from tensorflow.python.keras._impl.keras.utils.data_utils import get_file
 from tensorflow.python.util.tf_export import tf_export
 
-WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2-original/resnet50_weights_tf_dim_ordering_tf_kernels.h5'
-WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2-original/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
-
+WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_tf_dim_ordering_tf_kernels.h5'
+WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
 def identity_block(input_tensor, kernel_size, filters, stage, block):
     """The identity block is the block that has no conv layer at shortcut.
 
     Arguments:
         input_tensor: input tensor
-        kernel_size: default 3-original, the kernel size of middle conv layer at main path
-        filters: list of integers, the filters of 3-original conv layer at main path
+        kernel_size: default 3, the kernel size of middle conv layer at main path
+        filters: list of integers, the filters of 3 conv layer at main path
         stage: integer, current stage label, used for generating layer names
         block: 'a','b'..., current block label, used for generating layer names
 
@@ -93,8 +92,8 @@ def conv_block(input_tensor, kernel_size, filters, stage, block, strides=(2,
 
     Arguments:
         input_tensor: input tensor
-        kernel_size: default 3-original, the kernel size of middle conv layer at main path
-        filters: list of integers, the filters of 3-original conv layer at main path
+        kernel_size: default 3, the kernel size of middle conv layer at main path
+        filters: list of integers, the filters of 3 conv layer at main path
         stage: integer, current stage label, used for generating layer names
         block: 'a','b'..., current block label, used for generating layer names
         strides: Strides for the first conv layer in the block.
@@ -102,9 +101,9 @@ def conv_block(input_tensor, kernel_size, filters, stage, block, strides=(2,
     Returns:
         Output tensor for the block.
 
-    Note that from stage 3-original,
-    the first conv layer at main path is with strides=(2-original, 2-original)
-    And the shortcut should have strides=(2-original, 2-original) as well
+    Note that from stage 3,
+    the first conv layer at main path is with strides=(2, 2)
+    And the shortcut should have strides=(2, 2) as well
     """
     filters1, filters2, filters3 = filters
     if K.image_data_format() == 'channels_last':
@@ -130,9 +129,9 @@ def conv_block(input_tensor, kernel_size, filters, stage, block, strides=(2,
     x = BatchNormalization(axis=bn_axis, name=bn_name_base + '2c')(x)
 
     shortcut = Conv2D(
-        filters3, (1, 1), strides=strides, name=conv_name_base + '1-original')(
+        filters3, (1, 1), strides=strides, name=conv_name_base + '1')(
         input_tensor)
-    shortcut = BatchNormalization(axis=bn_axis, name=bn_name_base + '1-original')(shortcut)
+    shortcut = BatchNormalization(axis=bn_axis, name=bn_name_base + '1')(shortcut)
 
     x = layers.add([x, shortcut])
     x = Activation('relu')(x)
@@ -170,11 +169,11 @@ def ResNet50(include_top=True,
             to use as image input for the model.
         input_shape: optional shape tuple, only to be specified
             if `include_top` is False (otherwise the input shape
-            has to be `(224, 224, 3-original)` (with `channels_last` data format)
-            or `(3-original, 224, 224)` (with `channels_first` data format).
-            It should have exactly 3-original inputs channels,
+            has to be `(224, 224, 3)` (with `channels_last` data format)
+            or `(3, 224, 224)` (with `channels_first` data format).
+            It should have exactly 3 inputs channels,
             and width and height should be no smaller than 197.
-            E.g. `(200, 200, 3-original)` would be one valid value.
+            E.g. `(200, 200, 3)` would be one valid value.
         pooling: Optional pooling mode for feature extraction
             when `include_top` is `False`.
             - `None` means that the output of the model will be

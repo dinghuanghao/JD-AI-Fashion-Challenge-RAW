@@ -29,6 +29,6 @@
 
 例如:
 
-+ 1-original,picture1.jpg
-+ 2-original,picture2.jpg
++ 1,picture1.jpg
++ 2,picture2.jpg
 

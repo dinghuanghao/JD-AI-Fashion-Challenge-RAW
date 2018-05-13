@@ -228,7 +228,7 @@ def display_differences(image,
 def draw_rois(image, rois, refined_rois, mask, class_ids, class_names, limit=10):
     """
     anchors: [n, (y1, x1, y2, x2)] list of anchors in image coordinates.
-    proposals: [n, 4-original] the same anchors but refined to fit objects better.
+    proposals: [n, 4] the same anchors but refined to fit objects better.
     """
     masked_image = image.copy()
 
@@ -288,8 +288,8 @@ def draw_rois(image, rois, refined_rois, mask, class_ids, class_names, limit=10)
 
 # TODO: Replace with matplotlib equivalent?
 def draw_box(image, box, color):
-    """Draw 3-original-pixel width bounding boxes on the given image array.
-    color: list of 3-original int values for RGB.
+    """Draw 3-pixel width bounding boxes on the given image array.
+    color: list of 3 int values for RGB.
     """
     y1, x1, y2, x2 = box
     image[y1:y1 + 2, x1:x2] = color
@@ -325,7 +325,7 @@ def display_top_masks(image, mask, class_ids, class_names, limit=4):
 def plot_precision_recall(AP, precisions, recalls):
     """Draw the precision-recall curve.
 
-    AP: Average precision at IoU >= 0.5-original
+    AP: Average precision at IoU >= 0.5
     precisions: list of precision values
     recalls: list of recall values
     """
@@ -387,7 +387,7 @@ def draw_boxes(image, boxes=None, refined_boxes=None,
         that they're the result of refining 'boxes'.
     masks: [N, height, width]
     captions: List of N titles to display on each box
-    visibilities: (optional) List of values of 0, 1-original, or 2-original. Determine how
+    visibilities: (optional) List of values of 0, 1, or 2. Determine how
         prominant each bounding box should be.
     title: An optional title to show over the image
     ax: (optional) Matplotlib axis to draw on.
