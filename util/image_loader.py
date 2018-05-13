@@ -6,7 +6,7 @@ import re
 import numpy as np
 import tensorflow as tf
 
-import util
+from util import path
 
 
 def devide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
@@ -38,13 +38,18 @@ def devide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
     return result
 
 
-def list_image(directory, ext='jpg|jpeg|bmp|png|ppm'):
+def list_image_dir(directory, ext='jpg|jpeg|bmp|png|ppm'):
     return [os.path.join(root, f)
             for root, _, files in os.walk(directory) for f in files
             if re.match(r'([\w]+\.(?:' + ext + '))', f)]
 
 
-def load_image(dictionary, image_size=(224, 224)):
+def list_image_name(directory, ext='jpg|jpeg|bmp|png|ppm'):
+    return [f for root, _, files in os.walk(directory)
+            for f in files if re.match(r'([\w]+\.(?:' + ext + '))', f)]
+
+
+def load_image(dictionary, image_size=(800, 800)):
     """
     导入一个路径下的所有图片，并生成可用直接训练的数据集
 
@@ -55,9 +60,9 @@ def load_image(dictionary, image_size=(224, 224)):
     :return: 可直接用于keras模型训练的数据集
     """
 
-    paths = list_image(dictionary)
+    paths = list_image_dir(dictionary)
 
-    #TODO: 将数据划分为K个符合要求的部分，然后将分割方式保存到文件，在这之后不再变化，用于进行K折交叉验证，并确保成员之间的模型评估等效性
+    # TODO: 将数据划分为K个符合要求的部分，然后将分割方式保存到文件，在这之后不再变化，用于进行K折交叉验证，并确保成员之间的模型评估等效性
     random.shuffle(paths)
 
     labels = []
@@ -74,6 +79,6 @@ def load_image(dictionary, image_size=(224, 224)):
 
 
 if __name__ == '__main__':
-    x, y = load_image(util.downloader.DEMO_TRAINING_PHOTOS_PATH, (227, 227))
+    x, y = load_image(path.ORIGINAL_TEST_IMAGES_PATH, (227, 227))
     a, b = list(devide_data(x, y, (0.5, 0.5)))
     print(a, b)

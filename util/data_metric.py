@@ -1,5 +1,5 @@
-from util import downloader
 from util import image_loader
+from util import path
 
 """多标签分类数据集度量指标，可用于判断数据集划分是否正确"""
 
@@ -124,5 +124,5 @@ def label_analysis(label):
 
 
 if __name__ == '__main__':
-    x, y = image_loader.load_image(downloader.DEMO_TRAINING_PHOTOS_PATH)
+    x, y = image_loader.load_image(path.ORIGINAL_TRAIN_IMAGES_PATH)
     label_analysis(y)

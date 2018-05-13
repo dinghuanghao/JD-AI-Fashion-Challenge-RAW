@@ -105,3 +105,6 @@ ENV/
 
 # Photo
 *.jpg
+
+# model weights
+*.h5

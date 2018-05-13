@@ -3,15 +3,7 @@ import time
 
 import tensorflow as tf
 
-DEMO_TRAINING_TXT_PATH = "../data/demo/txt/sample-train.txt"
-DEMO_TEST_TXT_PATH = "../data/demo/txt/sample-test.txt"
-
-DEMO_PHOTOS_PATH = "../data/demo/photos"
-TEST_SUBDIR = "test"
-TRAINING_SUBDIR = "train"
-
-DEMO_TRAINING_PHOTOS_PATH = DEMO_PHOTOS_PATH + "/" + TRAINING_SUBDIR
-DEMO_TEST_PHOTOS_PATH = DEMO_PHOTOS_PATH + "/" + TEST_SUBDIR
+from util import path
 
 
 def parse_data_line(line: str):
@@ -78,5 +70,7 @@ def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, i
 
 
 if __name__ == '__main__':
-    download_photos(DEMO_TRAINING_TXT_PATH, DEMO_PHOTOS_PATH, TRAINING_SUBDIR, is_test=False, thread_number=2)
-    download_photos(DEMO_TEST_TXT_PATH, DEMO_PHOTOS_PATH, TEST_SUBDIR, is_test=True, thread_number=2)
+    download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR,
+                    is_test=False, thread_number=2)
+    download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR,
+                    is_test=True, thread_number=2)

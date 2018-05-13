@@ -1,6 +1,6 @@
 from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D
 from keras.models import Sequential
-from model import metrics
+
 
 def get_model(input_shape: tuple) -> Sequential:
     """
@@ -26,7 +26,7 @@ def get_model(input_shape: tuple) -> Sequential:
     model.add(Dropout(0.5))
 
     # 多标签问题使用sigmoid更好
-    #TODO： 使用xavier初始化可能好一些
+    # TODO： 使用xavier初始化可能好一些
     model.add(Dense(13, activation='sigmoid'))
 
     # 多标签分类问题，因此将categorical_crossentropy改为binary_crossentropy

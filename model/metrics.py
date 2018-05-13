@@ -14,7 +14,7 @@ def fbeta_score(precision, recall, beta):
 
 def f2_score(y_true, y_pred):
     """
-    计算F2-Score，要求y_true 和 y_pred 都是 0/1，而非概率
+    计算F2-Score，要求y_true 和 y_pred 都是 0/1-original，而非概率
     :param y_true: 实际的标签
     :param y_pred: 预测的标签
     :return:
