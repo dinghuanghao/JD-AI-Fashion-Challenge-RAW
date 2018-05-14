@@ -10,17 +10,34 @@ from util import path
 
 
 def list_image_dir(directory, ext='jpg|jpeg|bmp|png|ppm'):
+    """
+    列出目录下的所有图片的路径
+    :param directory:
+    :param ext:
+    :return:
+    """
     return [os.path.join(root, f)
             for root, _, files in os.walk(directory) for f in files
             if re.match(r'([\w]+\.(?:' + ext + '))', f)]
 
 
 def list_image_name(directory, ext='jpg|jpeg|bmp|png|ppm'):
+    """
+    列出目录下的所有图片的名称
+    :param directory:
+    :param ext:
+    :return:
+    """
     return [f for root, _, files in os.walk(directory)
             for f in files if re.match(r'([\w]+\.(?:' + ext + '))', f)]
 
 
 def load_label(directory):
+    """
+    导入指定目录的所有图片的标签，不导入图片
+    :param directory:
+    :return:
+    """
     names = list_image_name(directory)
     random.shuffle(names)
     labels = []
@@ -30,25 +47,24 @@ def load_label(directory):
     return np.array(labels), np.array(names)
 
 
-def load_image(dictionary, image_size=(800, 800)):
+def load_image(directory, image_size=(800, 800)):
     """
     导入一个路径下的所有图片，并生成可用直接训练的数据集
-
-    :param dictionary: 图片所在文件夹
+    :param directory: 图片所在文件夹
     :param image_size: 最终加载的图片尺寸，用于图片变形
     :param batch_size: 批量尺寸
     :param data_split: 数据集划分，会根据给出的比例返回三个数据集
     :return: 可直接用于keras模型训练的数据集
     """
 
-    names = list_image_name(dictionary)
+    names = list_image_name(directory)
 
     random.shuffle(names)
 
     labels = []
     images = []
     for name in names:
-        image_path = os.path.join(dictionary, name)
+        image_path = os.path.join(directory, name)
         images.append(
             tf.keras.preprocessing.image.img_to_array(
                 tf.keras.preprocessing.image.load_img(image_path, target_size=image_size)))
