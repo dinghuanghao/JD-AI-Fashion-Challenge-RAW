@@ -7,7 +7,7 @@ import preprocess.segmentation.mrcnn.model as modellib
 from preprocess.segmentation import coco  # Import COCO config
 from preprocess.segmentation.mrcnn import utils  # Import Mask RCNN
 from preprocess.segmentation.mrcnn import visualize
-from util import image_loader
+from util import data_loader
 from util import path
 
 ROOT_DIR = os.path.abspath(".")  # Root directory of the project
@@ -130,7 +130,7 @@ def image_masking(image, boxes, masks, class_ids, class_names, class_used):
 
 if __name__ == "__main__":
     model = get_mrcnn_model()
-    image_names = image_loader.list_image_name(path.ORIGINAL_TEST_IMAGES_PATH)
+    image_names = data_loader.list_image_name(path.ORIGINAL_TEST_IMAGES_PATH)
 
     # 测试单张图片
     # image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, ["582f0f9eNbc1d2a40.jpg"],path.SEGMENTED_TEST_IMAGES_PATH, True)

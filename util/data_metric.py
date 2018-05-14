@@ -1,4 +1,4 @@
-from util import image_loader
+from util import data_loader
 from util import path
 
 """多标签分类数据集度量指标，可用于判断数据集划分是否正确"""
@@ -123,6 +123,27 @@ def label_analysis(label):
     print("不同的标签组合密度: %f" % label_diversity_norm(label))
 
 
+def labels_analysis(labels: []):
+    print("对象平均标签数量:\t", "  ".join(str(i) for i in [label_cardinality(l) for l in labels]))
+    print("================================================================")
+
+    print("对象平均标签数量:\t", "  ".join(str(i) for i in [label_cardinality(l) for l in labels]))
+    print("================================================================")
+
+    print("单个标签的平均出现次数:")
+    print("----------------------------------------------------------------")
+    each_class = [label_density_for_each_class(l) for l in labels]
+    for i in range(len(label_class_name)):
+        print("    %s:\t" % label_class_name[i], "\t".join(str(j) for j in [value[i] for value in each_class]))
+        print("----------------------------------------------------------------")
+
+    print("================================================================")
+    print("不同的标签组合数量:\t", "  ".join(str(i) for i in [label_diversity(l) for l in labels]))
+
+    print("================================================================")
+    print("不同的标签组合密度:\t", "  ".join(str(i) for i in [label_diversity_norm(l) for l in labels]))
+
+
 if __name__ == '__main__':
-    x, y = image_loader.load_image(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    x, y, names = data_loader.load_image(path.ORIGINAL_TRAIN_IMAGES_PATH)
     label_analysis(y)

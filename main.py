@@ -1,17 +1,18 @@
 import keras.preprocessing.image as kimage
 
 from model import resnet50
-from util import image_loader
+from util import data_loader
 from util import path
 
-IMAGE_SIZE = (48, 48)
-IMAGE_SHAPE = (48, 48, 3)
+
+IMAGE_SIZE = (224, 224)
+IMAGE_SHAPE = (224, 224, 3)
 BATCH_SIZE = 32
-EPOCHS = 20
+EPOCHS = 50
 
 model = resnet50.get_model(IMAGE_SHAPE)
-x, y = image_loader.load_image(path.ORIGINAL_TRAIN_IMAGES_PATH, IMAGE_SIZE)
-(x_train, y_train), (x_val, y_val), (x_test, y_test) = image_loader.devide_data(x, y, (0.6, 0.2, 0.2))
+x, y, names = data_loader.load_image(path.ORIGINAL_TRAIN_IMAGES_PATH, IMAGE_SIZE)
+(x_train, y_train), (x_val, y_val), (x_test, y_test) = data_loader.divide_data(x, y, (0.6, 0.2, 0.2))
 
 flow_train = kimage.ImageDataGenerator().flow(x_train, y_train, batch_size=32)
 flow_val = kimage.ImageDataGenerator().flow(x_val, y_val, batch_size=32)
@@ -30,12 +31,14 @@ batch_num = 0
 for test_batch_x, test_batch_y in flow_test:
     predicts = model.predict(test_batch_x, batch_size=1, verbose=1)
     batch_num += 1
+    if batch_num > 10:
+        break
     print("start %d samples: " % batch_num)
     print("    true:", "".join(str(e) for e in test_batch_y))
     print("    pred:", "".join(str(e) for e in predicts))
 
 # DEMO中的测试数据集是没有标签的，只能进行预测
-x, _ = image_loader.load_image(path.ORIGINAL_TEST_IMAGES_PATH, IMAGE_SIZE)
+x, _ = data_loader.load_image(path.ORIGINAL_TEST_IMAGES_PATH, IMAGE_SIZE)
 
 predicts = model.predict(x, batch_size=1, verbose=1)
 print(predicts)
