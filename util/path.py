@@ -1,5 +1,8 @@
 import os
 import shutil
+import pathlib
+
+import config
 import util
 
 root_path = "\\".join(util.__file__.split("\\")[:-2])
@@ -8,13 +11,9 @@ DATA_PATH = os.path.join(ROOT_PATH, "data")
 
 IMAGES_PATH = os.path.join(DATA_PATH, "images")
 K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")
-ORIGINAL_IMAGES_PATH = os.path.join(IMAGES_PATH, "original")
-SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, "segmented")
-AUGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, "augmented")
-
-DATA_TYPE_ORIGINAL = "original"
-DATA_TYPE_SEGMENTED = "segmented"
-DATA_TYPE_AUGMENTED = "augmented"
+ORIGINAL_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_ORIGINAL)
+SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_SEGMENTED)
+AUGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_AUGMENTED)
 
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
@@ -33,7 +32,7 @@ TEST_DATA_TXT = os.path.join(TXT_PATH, "test.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 
 
-def get_k_fold_data_path(data_type: str, batch: str, index:str=None):
+def get_k_fold_data_path(data_type: str, batch: str, index: str = None):
     """
     获得K-FOLD DataSets例如：
     original, 1, 2：根据original数据和1.txt划分的第二份数据
@@ -55,46 +54,33 @@ def get_k_fold_txt_path(batch: str):
     """
     return os.path.join(K_FOLD_TXT_PATH, batch + ".txt")
 
+
 def image_path_init():
 
-    os.mkdir(IMAGES_PATH) if not os.path.exists(IMAGES_PATH) else None
-    os.mkdir(SEGMENTED_IMAGES_PATH) if not os.path.exists(SEGMENTED_IMAGES_PATH) else None
-    os.mkdir(SEGMENTED_TRAIN_IMAGES_PATH) if not os.path.exists(SEGMENTED_TRAIN_IMAGES_PATH) else None
-    os.mkdir(SEGMENTED_TEST_IMAGES_PATH) if not os.path.exists(SEGMENTED_TEST_IMAGES_PATH) else None
+    pathlib.Path(SEGMENTED_TRAIN_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(SEGMENTED_TEST_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(AUGMENTED_TRAIN_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(AUGMENTED_TEST_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(ORIGINAL_TRAIN_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(ORIGINAL_TEST_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
 
-    os.mkdir(AUGMENTED_IMAGES_PATH) if not os.path.exists(AUGMENTED_IMAGES_PATH) else None
-    os.mkdir(AUGMENTED_TRAIN_IMAGES_PATH) if not os.path.exists(AUGMENTED_TRAIN_IMAGES_PATH) else None
-    os.mkdir(AUGMENTED_TEST_IMAGES_PATH) if not os.path.exists(AUGMENTED_TEST_IMAGES_PATH) else None
-
-    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
-    os.mkdir(ORIGINAL_TRAIN_IMAGES_PATH) if not os.path.exists(ORIGINAL_TRAIN_IMAGES_PATH) else None
-    os.mkdir(ORIGINAL_TEST_IMAGES_PATH) if not os.path.exists(ORIGINAL_TEST_IMAGES_PATH) else None
+    pathlib.Path(os.path.join(K_FOLD_IMAGE_PATH, config.DATA_TYPE_ORIGINAL)).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(os.path.join(K_FOLD_IMAGE_PATH, config.DATA_TYPE_SEGMENTED)).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(os.path.join(K_FOLD_IMAGE_PATH, config.DATA_TYPE_AUGMENTED)).mkdir(parents=True, exist_ok=True)
 
 
-    os.mkdir(K_FOLD_IMAGE_PATH) if not os.path.exists(K_FOLD_IMAGE_PATH) else None
-    os.mkdir(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_ORIGINAL)) \
-        if not os.path.exists(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_ORIGINAL)) else None
-    os.mkdir(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_AUGMENTED)) \
-        if not os.path.exists(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_AUGMENTED)) else None
-    os.mkdir(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_SEGMENTED)) \
-        if not os.path.exists(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_SEGMENTED)) else None
-
-    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
-    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
-    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
-    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
-    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
-
-
-def clear_k_fold_data(data_type:str, batch:str):
+def refresh_k_fold_data(data_type: str, batch: str):
     if os.path.exists(get_k_fold_data_path(data_type, batch)):
         shutil.rmtree(get_k_fold_data_path(data_type, batch))
     os.mkdir(get_k_fold_data_path(data_type, batch))
-    os.mkdir(get_k_fold_data_path(data_type, batch, "1"))
-    os.mkdir(get_k_fold_data_path(data_type, batch, "2"))
-    os.mkdir(get_k_fold_data_path(data_type, batch, "3"))
-    os.mkdir(get_k_fold_data_path(data_type, batch, "4"))
-    os.mkdir(get_k_fold_data_path(data_type, batch, "5"))
+
+    for i in range(config.K_FOLD):
+        os.mkdir(get_k_fold_data_path(data_type, batch, str(i)))
+        os.mkdir(get_k_fold_data_path(data_type, batch, str(i)))
+        os.mkdir(get_k_fold_data_path(data_type, batch, str(i)))
+        os.mkdir(get_k_fold_data_path(data_type, batch, str(i)))
+        os.mkdir(get_k_fold_data_path(data_type, batch, str(i)))
+
 
 if __name__ == "__main__":
     image_path_init()

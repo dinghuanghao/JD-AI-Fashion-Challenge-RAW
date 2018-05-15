@@ -1,9 +1,10 @@
+
 import concurrent.futures
 import time
 
 import tensorflow as tf
-
 from util import path
+import config
 
 
 def parse_data_line(line: str):
@@ -36,7 +37,7 @@ def do_download(lines: list(), photo_save_dir: str, photo_save_subdir: str, is_t
             tf.keras.utils.get_file(fname=name + ".jpg", origin=url, cache_dir=photo_save_dir,
                                     cache_subdir=photo_save_subdir)
         else:
-            tf.keras.utils.get_file(fname=name + "_" + label + ".jpg", origin=url, cache_dir=photo_save_dir,
+            tf.keras.utils.get_file(fname="_".join([config.DATA_TYPE_ORIGINAL, name, label]) + ".jpg", origin=url, cache_dir=photo_save_dir,
                                     cache_subdir=photo_save_subdir)
 
 

@@ -47,9 +47,10 @@ def load_label(directory):
     return np.array(labels), np.array(names)
 
 
-def load_image(directory, image_size=(800, 800)):
+def load_image(directory, image_size=(800, 800), train_set:bool=True):
     """
     导入一个路径下的所有图片，并生成可用直接训练的数据集
+    图片名称
     :param directory: 图片所在文件夹
     :param image_size: 最终加载的图片尺寸，用于图片变形
     :param batch_size: 批量尺寸
@@ -68,8 +69,10 @@ def load_image(directory, image_size=(800, 800)):
         images.append(
             tf.keras.preprocessing.image.img_to_array(
                 tf.keras.preprocessing.image.load_img(image_path, target_size=image_size)))
-        label = name.split(".")[-2].split("_")[1:]
-        labels.append(list(map(int, label)))
+        if train_set:
+            #训练数据的必须符合xx_xxx_label.xxx的格式
+            label = name.split(".")[-2].split("_")[2:]
+            labels.append(list(map(int, label)))
     x = np.array(images)
     y = np.array(labels)
 

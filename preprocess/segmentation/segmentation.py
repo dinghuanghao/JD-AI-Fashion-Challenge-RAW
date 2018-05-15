@@ -2,6 +2,7 @@ import os
 
 import numpy as np
 import skimage.io
+import config
 
 import preprocess.segmentation.mrcnn.model as modellib
 from preprocess.segmentation import coco  # Import COCO config
@@ -74,7 +75,7 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
     """
 
     image_paths = [os.path.join(image_dir, name) for name in image_names]
-    image_save_paths = [os.path.join(save_dir, name) for name in image_names]
+    image_save_paths = [os.path.join(save_dir, "_".join([config.DATA_TYPE_SEGMENTED, name])) for name in image_names]
 
     for i in range(len(image_names)):
         image = skimage.io.imread(image_paths[i])
@@ -136,5 +137,4 @@ if __name__ == "__main__":
     # image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, ["582f0f9eNbc1d2a40.jpg"],path.SEGMENTED_TEST_IMAGES_PATH, True)
 
     # 将原始数据进行人像分割并保存
-    image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, image_names, path.SEGMENTED_TEST_IMAGES_PATH, ['person'],
-                       False)
+    image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, image_names, path.SEGMENTED_TEST_IMAGES_PATH, ['person'], False)
