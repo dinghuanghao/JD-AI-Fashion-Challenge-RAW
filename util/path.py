@@ -10,6 +10,7 @@ IMAGES_PATH = os.path.join(DATA_PATH, "images")
 K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")
 ORIGINAL_IMAGES_PATH = os.path.join(IMAGES_PATH, "original")
 SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, "segmented")
+AUGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, "augmented")
 
 DATA_TYPE_ORIGINAL = "original"
 DATA_TYPE_SEGMENTED = "segmented"
@@ -17,10 +18,13 @@ DATA_TYPE_AUGMENTED = "augmented"
 
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
+
 ORIGINAL_TRAIN_IMAGES_PATH = os.path.join(ORIGINAL_IMAGES_PATH, TRAIN_IMAGES_SUBDIR)
 ORIGINAL_TEST_IMAGES_PATH = os.path.join(ORIGINAL_IMAGES_PATH, TEST_IMAGES_SUBDIR)
 SEGMENTED_TRAIN_IMAGES_PATH = os.path.join(SEGMENTED_IMAGES_PATH, TRAIN_IMAGES_SUBDIR)
 SEGMENTED_TEST_IMAGES_PATH = os.path.join(SEGMENTED_IMAGES_PATH, TEST_IMAGES_SUBDIR)
+AUGMENTED_TRAIN_IMAGES_PATH = os.path.join(AUGMENTED_IMAGES_PATH, TRAIN_IMAGES_SUBDIR)
+AUGMENTED_TEST_IMAGES_PATH = os.path.join(AUGMENTED_IMAGES_PATH, TEST_IMAGES_SUBDIR)
 
 TXT_PATH = os.path.join(DATA_PATH, "txt")
 K_FOLD_TXT_PATH = os.path.join(TXT_PATH, "k-fold")
@@ -51,6 +55,37 @@ def get_k_fold_txt_path(batch: str):
     """
     return os.path.join(K_FOLD_TXT_PATH, batch + ".txt")
 
+def image_path_init():
+
+    os.mkdir(IMAGES_PATH) if not os.path.exists(IMAGES_PATH) else None
+    os.mkdir(SEGMENTED_IMAGES_PATH) if not os.path.exists(SEGMENTED_IMAGES_PATH) else None
+    os.mkdir(SEGMENTED_TRAIN_IMAGES_PATH) if not os.path.exists(SEGMENTED_TRAIN_IMAGES_PATH) else None
+    os.mkdir(SEGMENTED_TEST_IMAGES_PATH) if not os.path.exists(SEGMENTED_TEST_IMAGES_PATH) else None
+
+    os.mkdir(AUGMENTED_IMAGES_PATH) if not os.path.exists(AUGMENTED_IMAGES_PATH) else None
+    os.mkdir(AUGMENTED_TRAIN_IMAGES_PATH) if not os.path.exists(AUGMENTED_TRAIN_IMAGES_PATH) else None
+    os.mkdir(AUGMENTED_TEST_IMAGES_PATH) if not os.path.exists(AUGMENTED_TEST_IMAGES_PATH) else None
+
+    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
+    os.mkdir(ORIGINAL_TRAIN_IMAGES_PATH) if not os.path.exists(ORIGINAL_TRAIN_IMAGES_PATH) else None
+    os.mkdir(ORIGINAL_TEST_IMAGES_PATH) if not os.path.exists(ORIGINAL_TEST_IMAGES_PATH) else None
+
+
+    os.mkdir(K_FOLD_IMAGE_PATH) if not os.path.exists(K_FOLD_IMAGE_PATH) else None
+    os.mkdir(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_ORIGINAL)) \
+        if not os.path.exists(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_ORIGINAL)) else None
+    os.mkdir(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_AUGMENTED)) \
+        if not os.path.exists(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_AUGMENTED)) else None
+    os.mkdir(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_SEGMENTED)) \
+        if not os.path.exists(os.path.join(K_FOLD_IMAGE_PATH, DATA_TYPE_SEGMENTED)) else None
+
+    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
+    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
+    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
+    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
+    os.mkdir(ORIGINAL_IMAGES_PATH) if not os.path.exists(ORIGINAL_IMAGES_PATH) else None
+
+
 def clear_k_fold_data(data_type:str, batch:str):
     if os.path.exists(get_k_fold_data_path(data_type, batch)):
         shutil.rmtree(get_k_fold_data_path(data_type, batch))
@@ -60,3 +95,6 @@ def clear_k_fold_data(data_type:str, batch:str):
     os.mkdir(get_k_fold_data_path(data_type, batch, "3"))
     os.mkdir(get_k_fold_data_path(data_type, batch, "4"))
     os.mkdir(get_k_fold_data_path(data_type, batch, "5"))
+
+if __name__ == "__main__":
+    image_path_init()

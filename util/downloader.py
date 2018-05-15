@@ -70,7 +70,5 @@ def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, i
 
 
 if __name__ == '__main__':
-    download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR,
-                    is_test=False, thread_number=1)
-    download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR,
-                    is_test=True, thread_number=1)
+    download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR, is_test=False, thread_number=16)
+    #download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR, is_test=True, thread_number=1)
