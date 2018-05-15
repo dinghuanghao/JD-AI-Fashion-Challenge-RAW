@@ -2,11 +2,35 @@ import math
 import os
 import random
 import re
+from queue import Queue
+from threading import Thread
 
 import numpy as np
 import tensorflow as tf
 
 from util import path
+
+
+class DataLoader(Thread):
+    """ 用来进行异步的数据加载，每次只加载一定的数据量，防止一次性内存使用过多切换到SWAP内存，导致性能下降 """
+
+    def __init__(self, name: str, epoch, batch_size, item_batch_num, data_type: [], k_fold_train: [], k_fold_val: [],
+                 queue: Queue):
+        Thread.__init__(self, name=name)
+        self.epoch = epoch
+        self.batch_size = batch_size
+        self.item_batch_num = item_batch_num
+        self.data_type = data_type
+        self.k_fold_train = k_fold_train
+        self.k_fold_val = k_fold_val
+        self.queue = queue
+
+    def run(self):
+        """
+        数据Queue有长度限制，本处采用永久阻塞的方式，不停地去放数据，直到数据读取完毕
+        :return:
+        """
+        pass
 
 
 def list_image_dir(directory, ext='jpg|jpeg|bmp|png|ppm'):
@@ -47,7 +71,7 @@ def load_label(directory):
     return np.array(labels), np.array(names)
 
 
-def load_image(directory, image_size=(800, 800), train_set:bool=True):
+def load_image(directory, image_size=(800, 800), train_set: bool = True):
     """
     导入一个路径下的所有图片，并生成可用直接训练的数据集
     图片名称
@@ -70,8 +94,8 @@ def load_image(directory, image_size=(800, 800), train_set:bool=True):
             tf.keras.preprocessing.image.img_to_array(
                 tf.keras.preprocessing.image.load_img(image_path, target_size=image_size)))
         if train_set:
-            #训练数据的必须符合xx_xxx_label.xxx的格式
-            label = name.split(".")[-2].split("_")[2:]
+            # 训练数据的必须符合xx_xxx_label.xxx的格式
+            label = name.split(".")[-2].split("_")[1:]
             labels.append(list(map(int, label)))
     x = np.array(images)
     y = np.array(labels)
@@ -121,5 +145,15 @@ def divide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
     return result
 
 
+def remove_image_original_header():
+    names = list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    for i in names:
+        if i.split("_")[0] == "original":
+            name_target = "_".join(i.split("_")[1:])
+            os.rename(os.path.join(path.ORIGINAL_TRAIN_IMAGES_PATH, i),
+                      os.path.join(path.ORIGINAL_TRAIN_IMAGES_PATH, name_target))
+
+
 if __name__ == '__main__':
-    x, y, names = load_image(path.ORIGINAL_TEST_IMAGES_PATH, (227, 227))
+    # x, y, names = load_image(path.ORIGINAL_TEST_IMAGES_PATH, (227, 227))
+    remove_image_original_header()
