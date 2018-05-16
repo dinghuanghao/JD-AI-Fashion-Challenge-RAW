@@ -14,15 +14,12 @@ from util import path
 class DataLoader(Thread):
     """ 用来进行异步的数据加载，每次只加载一定的数据量，防止一次性内存使用过多切换到SWAP内存，导致性能下降 """
 
-    def __init__(self, name: str, epoch, batch_size, item_batch_num, data_type: [], k_fold_train: [], k_fold_val: [],
-                 queue: Queue):
+    def __init__(self, name: str, epoch, batch_size, data_type: [], train_files: [], val_files: [], queue: Queue):
         Thread.__init__(self, name=name)
         self.epoch = epoch
         self.batch_size = batch_size
-        self.item_batch_num = item_batch_num
-        self.data_type = data_type
-        self.k_fold_train = k_fold_train
-        self.k_fold_val = k_fold_val
+        self.train_files = train_files
+        self.val_files = val_files
         self.queue = queue
 
     def run(self):
@@ -31,6 +28,29 @@ class DataLoader(Thread):
         :return:
         """
         pass
+
+
+def get_k_fold_files(k_fold_file, val_index, data_type:[]):
+    train_names = []
+    val_names = []
+    with open(os.path.join(path.K_FOLD_TXT_PATH, k_fold_file), 'r') as f:
+        for l in f.readlines():
+            k, name = l.split(",")
+            train_names.append(name) if k is val_index else val_names.append(name)
+
+    train_files = []
+    val_files = []
+
+    for data in data_type:
+        for name in train_names:
+            train_files.append(os.path.join(path.get_train_data_path(data), name))
+        for name in val_names:
+            val_files.append(os.path.join(path.get_train_data_path(data), name))
+
+    random.shuffle(train_files)
+    random.shuffle(val_files)
+    return train_files, val_files
+
 
 
 def list_image_dir(directory, ext='jpg|jpeg|bmp|png|ppm'):

@@ -4,6 +4,7 @@ import time
 import numpy as np
 import skimage.io
 import config
+import cv2
 
 import preprocess.segmentation.mrcnn.model as modellib
 from preprocess.segmentation import coco  # Import COCO config
@@ -84,9 +85,8 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
         if os.path.exists(image_save_paths[i]):
             continue
 
-        image = skimage.io.imread(image_paths[i])
-
         try:
+            image = cv2.imread(image_paths[i])
             results = model.detect([image], verbose=1)
         except Exception as e:
             with open("segment.log", "a") as f:
@@ -104,7 +104,7 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
         if show_image:
             visualize.display_image(image_masked)
 
-        skimage.io.imsave(image_save_paths[i], image_masked)
+        cv2.imwrite(image_save_paths[i], image_masked)
 
 
 def image_masking(image, boxes, masks, class_ids, class_names, class_used):

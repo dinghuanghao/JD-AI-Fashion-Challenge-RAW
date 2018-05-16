@@ -1,6 +1,6 @@
 import os
-import shutil
 import pathlib
+import shutil
 
 import config
 import util
@@ -32,6 +32,14 @@ TEST_DATA_TXT = os.path.join(TXT_PATH, "test.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 
 
+def get_train_data_path(data_type):
+    return os.path.join(os.path.join(IMAGES_PATH, data_type), TRAIN_IMAGES_SUBDIR)
+
+
+def get_test_data_path(data_type):
+    return os.path.join(os.path.join(IMAGES_PATH, data_type), TEST_IMAGES_SUBDIR)
+
+
 def get_k_fold_data_path(data_type: str, batch: str, index: str = None):
     """
     获得K-FOLD DataSets例如：
@@ -56,7 +64,6 @@ def get_k_fold_txt_path(batch: str):
 
 
 def image_path_init():
-
     pathlib.Path(SEGMENTED_TRAIN_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
     pathlib.Path(SEGMENTED_TEST_IMAGES_PATH).mkdir(parents=True, exist_ok=True)
     pathlib.Path(AUGMENTED_TRAIN_IMAGES_PATH).mkdir(parents=True, exist_ok=True)

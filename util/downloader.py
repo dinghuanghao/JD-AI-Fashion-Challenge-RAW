@@ -40,7 +40,7 @@ def do_download(lines: list(), photo_save_dir: str, photo_save_subdir: str, is_t
                     tf.keras.utils.get_file(fname=name + ".jpg", origin=url, cache_dir=photo_save_dir,
                                             cache_subdir=photo_save_subdir)
                 else:
-                    tf.keras.utils.get_file(fname="_".join([config.DATA_TYPE_ORIGINAL, name, label]) + ".jpg", origin=url, cache_dir=photo_save_dir,
+                    tf.keras.utils.get_file(fname="_".join([name, label]) + ".jpg", origin=url, cache_dir=photo_save_dir,
                                             cache_subdir=photo_save_subdir)
             except Exception as e:
                 download_ok = False

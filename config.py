@@ -13,3 +13,6 @@ DATA_TYPE_AUGMENTED = "augmented"
 # 用于图片的下载，文件需要放到data/txt目录下
 TRAIN_DATA_TXT = "train.txt"
 TEST_DATA_TXT = "test.txt"
+
+# 用于进行图像加载的线程数量
+IMAGE_LOADER_NUM = 2
