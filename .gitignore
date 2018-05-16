@@ -108,3 +108,6 @@ ENV/
 
 # model weights
 *.h5
+
+# image segmentation log
+#segment.log

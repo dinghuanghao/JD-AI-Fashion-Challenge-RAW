@@ -1,4 +1,5 @@
 import os
+import time
 
 import numpy as np
 import skimage.io
@@ -73,13 +74,24 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
     :param show_image: 是否要对分割结果进行展示
     :return:
     """
+    if not os.path.exists("segment.log"):
+        os.mknod("segment.log")
 
     image_paths = [os.path.join(image_dir, name) for name in image_names]
     image_save_paths = [os.path.join(save_dir, "_".join([config.DATA_TYPE_SEGMENTED, name])) for name in image_names]
 
     for i in range(len(image_names)):
+        if os.path.exists(image_save_paths[i]):
+            continue
+
         image = skimage.io.imread(image_paths[i])
-        results = model.detect([image], verbose=1)
+
+        try:
+            results = model.detect([image], verbose=1)
+        except Exception as e:
+            with open("segment.log", "a") as f:
+                f.write("%s(%s): %s\n" %(time.asctime(time.localtime(time.time())), image_names[i], e))
+            continue
 
         r = results[0]
 
@@ -131,10 +143,10 @@ def image_masking(image, boxes, masks, class_ids, class_names, class_used):
 
 if __name__ == "__main__":
     model = get_mrcnn_model()
-    image_names = data_loader.list_image_name(path.ORIGINAL_TEST_IMAGES_PATH)
+    image_names = data_loader.list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
 
     # 测试单张图片
     # image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, ["582f0f9eNbc1d2a40.jpg"],path.SEGMENTED_TEST_IMAGES_PATH, True)
 
     # 将原始数据进行人像分割并保存
-    image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, image_names, path.SEGMENTED_TEST_IMAGES_PATH, ['person'], False)
+    image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH, ['person'], False)
