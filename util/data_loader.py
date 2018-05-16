@@ -2,41 +2,48 @@ import math
 import os
 import random
 import re
-from queue import Queue
-from threading import Thread
 
 import numpy as np
 import tensorflow as tf
+import cv2
 
+import config
 from util import path
 
 
-class DataLoader(Thread):
-    """ 用来进行异步的数据加载，每次只加载一定的数据量，防止一次性内存使用过多切换到SWAP内存，导致性能下降 """
+def _parse_function(filename, label):
+    image_string = tf.read_file(filename)
+    #image_test = cv2.imread(filename.decode())
+    image_decoded = tf.image.decode_jpeg(image_string)
+    image_resize = tf.image.resize_images(image_decoded, config.IMAGE_SIZE)
+    return image_resize, label
 
-    def __init__(self, name: str, epoch, batch_size, data_type: [], train_files: [], val_files: [], queue: Queue):
-        Thread.__init__(self, name=name)
-        self.epoch = epoch
-        self.batch_size = batch_size
-        self.train_files = train_files
-        self.val_files = val_files
-        self.queue = queue
+def get_labels(filenames):
+    labels = []
+    for i in filenames:
+        label = i.split(".")[-2].split("_")[1:]
+        labels.append(list(map(int, label)))
+    return labels
 
-    def run(self):
-        """
-        数据Queue有长度限制，本处采用永久阻塞的方式，不停地去放数据，直到数据读取完毕
-        :return:
-        """
-        pass
+def get_data_sets():
+    train_files, val_files = get_k_fold_files("1.txt", 1, [config.DATA_TYPE_ORIGINAL])
+    labels = get_labels(train_files)
+
+    dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
+    dataset = dataset.map(_parse_function)
+    dataset = dataset.repeat(config.EPOCH)
+    dataset = dataset.batch(config.BATCH_SIZE)
+    dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
+    return dataset
 
 
-def get_k_fold_files(k_fold_file, val_index, data_type:[]):
+def get_k_fold_files(k_fold_file, val_index, data_type: []):
     train_names = []
     val_names = []
     with open(os.path.join(path.K_FOLD_TXT_PATH, k_fold_file), 'r') as f:
         for l in f.readlines():
             k, name = l.split(",")
-            train_names.append(name) if k is val_index else val_names.append(name)
+            val_names.append(name.strip()) if int(k) is val_index else train_names.append(name.strip())
 
     train_files = []
     val_files = []
@@ -50,7 +57,6 @@ def get_k_fold_files(k_fold_file, val_index, data_type:[]):
     random.shuffle(train_files)
     random.shuffle(val_files)
     return train_files, val_files
-
 
 
 def list_image_dir(directory, ext='jpg|jpeg|bmp|png|ppm'):
@@ -175,5 +181,6 @@ def remove_image_original_header():
 
 
 if __name__ == '__main__':
-    # x, y, names = load_image(path.ORIGINAL_TEST_IMAGES_PATH, (227, 227))
-    remove_image_original_header()
+    # remove_image_original_header()
+    get_data_sets()
+

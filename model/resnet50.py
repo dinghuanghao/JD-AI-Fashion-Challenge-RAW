@@ -20,3 +20,8 @@ def get_model(image_shape):
 
     my_model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     return my_model
+
+
+def get_estimator(image_shape):
+    model = get_model(image_shape)
+    estimator = tf.keras.estimator.model_to_estimator(keras_model=model)

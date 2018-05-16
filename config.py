@@ -1,5 +1,5 @@
 # 图片尺寸
-IMAGE_SIZE = (224, 224)
+IMAGE_SIZE = [224, 224]
 IMAGE_SHAPE = (224, 224, 3)
 
 # K_FOLD次数
@@ -14,5 +14,7 @@ DATA_TYPE_AUGMENTED = "augmented"
 TRAIN_DATA_TXT = "train.txt"
 TEST_DATA_TXT = "test.txt"
 
-# 用于进行图像加载的线程数量
-IMAGE_LOADER_NUM = 2
+
+EPOCH = 10
+BATCH_SIZE = 32
+PREFETCH_BUFFER_SIZE = 32
