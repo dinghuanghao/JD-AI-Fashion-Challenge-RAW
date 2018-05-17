@@ -1,10 +1,10 @@
 import tensorflow as tf
 
-import config
-from model import resnet50
+from model.resnet1 import resnet50
 from util import data_loader
 
-estimator = resnet50.get_estimator(config.MODEL_CONFIG_1)
+estimator = resnet50.get_estimator()
+model_config = resnet50.MODEL_CONFIG
 
 
 class MetricHook(tf.train.SessionRunHook):
@@ -31,8 +31,6 @@ class MetricHook(tf.train.SessionRunHook):
         pass
 
 
-model_config = config.MODEL_CONFIG_1
-
 try:
     estimator.train(
         input_fn=lambda: data_loader.training_input_fn(model_config),
@@ -41,4 +39,3 @@ try:
 except tf.errors.OutOfRangeError as e:
     pass
 print("train over")
-

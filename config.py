@@ -30,11 +30,3 @@ class ModelConfig(object):
         self.data_type = data_type
         self.model_dir = model_dir
 
-from  util import path
-
-MODEL_CONFIG_1 = ModelConfig(k_fold_file="1.txt",
-                             val_index=1,
-                             image_size=(224, 224),
-                             image_shape=(224, 224, 3),
-                             data_type=[DATA_TYPE_ORIGINAL],
-                             model_dir=os.path.join(path.TRAINING_RECORD_PATH, "1"))
