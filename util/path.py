@@ -8,6 +8,7 @@ import util
 root_path = "\\".join(util.__file__.split("\\")[:-2])
 ROOT_PATH = os.path.abspath(root_path)
 DATA_PATH = os.path.join(ROOT_PATH, "data")
+TRAINING_RECORD_PATH = os.path.join(ROOT_PATH, "record")
 
 IMAGES_PATH = os.path.join(DATA_PATH, "images")
 K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")
@@ -17,6 +18,7 @@ AUGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_AUGMENTED)
 
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
+
 
 ORIGINAL_TRAIN_IMAGES_PATH = os.path.join(ORIGINAL_IMAGES_PATH, TRAIN_IMAGES_SUBDIR)
 ORIGINAL_TEST_IMAGES_PATH = os.path.join(ORIGINAL_IMAGES_PATH, TEST_IMAGES_SUBDIR)

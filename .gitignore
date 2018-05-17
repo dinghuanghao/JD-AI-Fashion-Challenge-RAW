@@ -110,4 +110,6 @@ ENV/
 *.h5
 
 # image segmentation log
-#segment.log
+segment.log
+
+/record

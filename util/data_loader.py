@@ -3,20 +3,25 @@ import os
 import random
 import re
 
+import cv2
 import numpy as np
 import tensorflow as tf
-import cv2
 
 import config
 from util import path
 
 
-def _parse_function(filename, label):
-    image_string = tf.read_file(filename)
-    #image_test = cv2.imread(filename.decode())
-    image_decoded = tf.image.decode_jpeg(image_string)
-    image_resize = tf.image.resize_images(image_decoded, config.IMAGE_SIZE)
-    return image_resize, label
+def _read_py_function(filename, label):
+    image = cv2.imread(filename.decode())
+    return image, label
+
+
+def _resize_function(image_decoded, label):
+    image_decoded.set_shape([None, None, 3])
+    label.set_shape([13])
+    image_resized = tf.image.resize_images(image_decoded, config.IMAGE_SIZE)
+    return image_resized, label
+
 
 def get_labels(filenames):
     labels = []
@@ -25,16 +30,23 @@ def get_labels(filenames):
         labels.append(list(map(int, label)))
     return labels
 
-def get_data_sets():
+
+def dataset_input_fn():
     train_files, val_files = get_k_fold_files("1.txt", 1, [config.DATA_TYPE_ORIGINAL])
     labels = get_labels(train_files)
 
     dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
-    dataset = dataset.map(_parse_function)
-    dataset = dataset.repeat(config.EPOCH)
+    dataset = dataset.map(
+        lambda filename, label: tuple(tf.py_func(
+            _read_py_function, [filename, label], [tf.uint8, label.dtype])))
+    dataset = dataset.map(_resize_function)
+    # dataset = dataset.repeat(config.EPOCH)
     dataset = dataset.batch(config.BATCH_SIZE)
     dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
-    return dataset
+    iterator = dataset.make_one_shot_iterator()
+
+    features, labels = iterator.get_next()
+    return features, labels
 
 
 def get_k_fold_files(k_fold_file, val_index, data_type: []):
@@ -182,5 +194,4 @@ def remove_image_original_header():
 
 if __name__ == '__main__':
     # remove_image_original_header()
-    get_data_sets()
-
+    dataset_input_fn()
