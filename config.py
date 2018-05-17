@@ -22,11 +22,11 @@ PREFETCH_BUFFER_SIZE = 32
 
 
 class ModelConfig(object):
-    def __init__(self, k_fold_file, val_index, image_size, image_shape, data_type, model_dir) -> None:
+    def __init__(self, k_fold_file, val_index, image_size, image_shape, data_type, model_dir, output_tensor_name) -> None:
         self.k_fold_file = k_fold_file
         self.val_index = val_index
         self.image_size = image_size
         self.image_shape = image_shape
         self.data_type = data_type
         self.model_dir = model_dir
-
+        self.output_tensor_name = output_tensor_name

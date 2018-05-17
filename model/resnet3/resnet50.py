@@ -19,8 +19,8 @@ def get_model(image_shape):
                                                     classes=1000)
     model.summary()
 
-    # 去掉最后一个FC（Softmax层）
-    model.layers.pop()
+    # 不去掉最后一个FC（Softmax层）
+    # model.layers.pop()
 
     # 在原有的模型后面再添加一层，用于进行多标签分类
     output = tf.keras.layers.Dense(units=13, activation="sigmoid", name="my_output")(model.layers[-1].output)

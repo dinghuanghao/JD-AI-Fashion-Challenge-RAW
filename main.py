@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from model.resnet1 import resnet50
+from model.resnet3 import resnet50
 from util import data_loader
 
 estimator = resnet50.get_estimator()
@@ -8,26 +8,11 @@ model_config = resnet50.MODEL_CONFIG
 
 
 class MetricHook(tf.train.SessionRunHook):
-    def after_create_session(self, session: tf.Session, coord):
-        predicts = session.graph.get_tensor_by_name("my_output/Sigmoid:0")
-        labels = session.graph.get_tensor_by_name("IteratorGetNext:1")
-        # accuracy = tf.metrics.accuracy(labels, predicts)
-        # tf.summary.scalar(accuracy)
-
     def begin(self):
-        predictions = tf.get_default_graph().get_tensor_by_name("my_output/Sigmoid:0")
+        predictions = tf.get_default_graph().get_tensor_by_name(model_config.output_tensor_name)
         labels = tf.get_default_graph().get_tensor_by_name("IteratorGetNext:1")
         accuracy = tf.metrics.accuracy(labels=labels, predictions=predictions)
         tf.summary.scalar("accuracy", accuracy[1])
-        pass
-
-    def end(self, session):
-        pass
-
-    def after_run(self, run_context, run_values):
-        pass
-
-    def before_run(self, run_context):
         pass
 
 
