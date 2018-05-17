@@ -1,8 +1,7 @@
 import tensorflow as tf
-from util import path
-from model import metrics
 
-resnet_output = None
+import config
+
 
 # 原生的keras中的resnet最小尺寸为197*197，对其进行了一点修改，去掉了合法性判断
 # 且通过修改AveragePooling，支持在有全连接层的情况下也能修改图片输出尺寸
@@ -30,20 +29,19 @@ def get_model(image_shape):
     return my_model
 
 
-def get_estimator(image_shape):
+def get_estimator(model_config: config.ModelConfig):
     print(tf.keras.backend.image_data_format)
-    model = get_model(image_shape)
+    model = get_model(model_config.image_shape)
 
     estimator_config = tf.estimator.RunConfig(
         save_checkpoints_secs=10 * 60,
-        keep_checkpoint_max=100,
+        keep_checkpoint_max=10000,
         save_summary_steps=50,
-
     )
 
     estimator = tf.keras.estimator.model_to_estimator(
         keras_model=model,
-        model_dir=path.TRAINING_RECORD_PATH,
+        model_dir=model_config.model_dir,
         config=estimator_config
     )
 

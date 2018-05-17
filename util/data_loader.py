@@ -31,8 +31,8 @@ def get_labels(filenames):
     return labels
 
 
-def dataset_input_fn():
-    train_files, val_files = get_k_fold_files("1.txt", 1, [config.DATA_TYPE_ORIGINAL])
+def training_input_fn(model_config: config.ModelConfig):
+    train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
     labels = get_labels(train_files)
 
     dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
@@ -40,7 +40,7 @@ def dataset_input_fn():
         lambda filename, label: tuple(tf.py_func(
             _read_py_function, [filename, label], [tf.uint8, label.dtype])))
     dataset = dataset.map(_resize_function)
-    # dataset = dataset.repeat(config.EPOCH)
+    dataset = dataset.repeat(config.EPOCH)
     dataset = dataset.batch(config.BATCH_SIZE)
     dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
     iterator = dataset.make_one_shot_iterator()
@@ -109,50 +109,6 @@ def load_label(directory):
     return np.array(labels), np.array(names)
 
 
-def load_image(directory, image_size=(800, 800), train_set: bool = True):
-    """
-    导入一个路径下的所有图片，并生成可用直接训练的数据集
-    图片名称
-    :param directory: 图片所在文件夹
-    :param image_size: 最终加载的图片尺寸，用于图片变形
-    :param batch_size: 批量尺寸
-    :param data_split: 数据集划分，会根据给出的比例返回三个数据集
-    :return: 可直接用于keras模型训练的数据集
-    """
-
-    names = list_image_name(directory)
-
-    random.shuffle(names)
-
-    labels = []
-    images = []
-    for name in names:
-        image_path = os.path.join(directory, name)
-        images.append(
-            tf.keras.preprocessing.image.img_to_array(
-                tf.keras.preprocessing.image.load_img(image_path, target_size=image_size)))
-        if train_set:
-            # 训练数据的必须符合xx_xxx_label.xxx的格式
-            label = name.split(".")[-2].split("_")[1:]
-            labels.append(list(map(int, label)))
-    x = np.array(images)
-    y = np.array(labels)
-
-    return x, y, np.array(names)
-
-
-def unison_shuffled_copies(a, b):
-    """
-    将a， b，按照同种方式打乱（对应关系不变）
-    :param a:
-    :param b:
-    :return:
-    """
-
-    assert len(a) == len(b)
-    p = np.random.permutation(len(a))
-    return a[p], b[p]
-
 
 def divide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
     """
@@ -194,4 +150,4 @@ def remove_image_original_header():
 
 if __name__ == '__main__':
     # remove_image_original_header()
-    dataset_input_fn()
+    training_input_fn()

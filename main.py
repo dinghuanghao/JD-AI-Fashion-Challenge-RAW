@@ -4,12 +4,7 @@ import config
 from model import resnet50
 from util import data_loader
 
-IMAGE_SIZE = (224, 224)
-IMAGE_SHAPE = (224, 224, 3)
-BATCH_SIZE = 32
-EPOCHS = 50
-
-estimator = resnet50.get_estimator(config.IMAGE_SHAPE)
+estimator = resnet50.get_estimator(config.MODEL_CONFIG_1)
 
 
 class MetricHook(tf.train.SessionRunHook):
@@ -18,8 +13,8 @@ class MetricHook(tf.train.SessionRunHook):
         labels = session.graph.get_tensor_by_name("IteratorGetNext:1")
         # accuracy = tf.metrics.accuracy(labels, predicts)
         # tf.summary.scalar(accuracy)
-    def begin(self):
 
+    def begin(self):
         predictions = tf.get_default_graph().get_tensor_by_name("my_output/Sigmoid:0")
         labels = tf.get_default_graph().get_tensor_by_name("IteratorGetNext:1")
         accuracy = tf.metrics.accuracy(labels=labels, predictions=predictions)
@@ -36,16 +31,14 @@ class MetricHook(tf.train.SessionRunHook):
         pass
 
 
-i = 0
-while i < config.EPOCH:
-    i += 1
-    try:
-        estimator.train(
-            input_fn=data_loader.dataset_input_fn,
-            hooks=[MetricHook()]
-        )
-    except tf.errors.OutOfRangeError as e:
-        print("epoch %d training over" % i)
-print("train over")
+model_config = config.MODEL_CONFIG_1
 
+try:
+    estimator.train(
+        input_fn=lambda: data_loader.training_input_fn(model_config),
+        hooks=[MetricHook()]
+    )
+except tf.errors.OutOfRangeError as e:
+    pass
+print("train over")
 
