@@ -79,7 +79,7 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
         os.mknod("segment.log")
 
     image_paths = [os.path.join(image_dir, name) for name in image_names]
-    image_save_paths = [os.path.join(save_dir, "_".join([config.DATA_TYPE_SEGMENTED, name])) for name in image_names]
+    image_save_paths = [os.path.join(save_dir, name) for name in image_names]
 
     for i in range(len(image_names)):
         if os.path.exists(image_save_paths[i]):

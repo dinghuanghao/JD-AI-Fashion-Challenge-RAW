@@ -18,7 +18,7 @@ TEST_DATA_TXT = "test.txt"
 
 EPOCH = 10
 BATCH_SIZE = 32
-PREFETCH_BUFFER_SIZE = 32
+PREFETCH_BUFFER_SIZE = 512
 
 
 class ModelConfig(object):

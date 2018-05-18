@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from model.resnet3 import resnet50
+from model.resnet4 import resnet50
 from util import data_loader
 
 estimator = resnet50.get_estimator()

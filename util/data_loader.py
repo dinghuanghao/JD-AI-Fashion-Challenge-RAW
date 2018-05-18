@@ -139,15 +139,18 @@ def divide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
     return result
 
 
-def remove_image_original_header():
-    names = list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
+def remove_image_name_header(dir):
+    names = list_image_name(dir)
     for i in names:
-        if i.split("_")[0] == "original":
+        headr = i.split("_")[0]
+        if headr == config.DATA_TYPE_SEGMENTED or headr == config.DATA_TYPE_AUGMENTED or headr == config.DATA_TYPE_ORIGINAL:
             name_target = "_".join(i.split("_")[1:])
-            os.rename(os.path.join(path.ORIGINAL_TRAIN_IMAGES_PATH, i),
-                      os.path.join(path.ORIGINAL_TRAIN_IMAGES_PATH, name_target))
+            os.rename(os.path.join(dir, i),
+                      os.path.join(dir, name_target))
 
 
 if __name__ == '__main__':
-    # remove_image_original_header()
-    training_input_fn()
+    remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
+
+    # training_input_fn()
