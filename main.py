@@ -1,4 +1,5 @@
 import tensorflow as tf
+import os
 
 from model.resnet4 import resnet50
 from util import data_loader
@@ -15,6 +16,7 @@ class MetricHook(tf.train.SessionRunHook):
         tf.summary.scalar("accuracy", accuracy[1])
         pass
 
+model_config.save_before_train()
 
 try:
     estimator.train(
@@ -23,4 +25,7 @@ try:
     )
 except tf.errors.OutOfRangeError as e:
     pass
+
+model_config.save_after_train()
+
 print("train over")

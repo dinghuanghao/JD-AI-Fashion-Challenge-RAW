@@ -10,7 +10,8 @@ MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
                            image_size=(224, 224),
                            image_shape=(224, 224, 3),
                            data_type=[DATA_TYPE_ORIGINAL],
-                           model_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)), "record"),
+                           model_dir=os.path.dirname(os.path.abspath(__file__)),
+                           record_sub_dir="1",
                            output_tensor_name="my_output/Sigmoid:0")
 
 
@@ -42,7 +43,7 @@ def get_estimator():
 
     estimator = tf.keras.estimator.model_to_estimator(
         keras_model=model,
-        model_dir=MODEL_CONFIG.model_dir,
+        model_dir=MODEL_CONFIG.record_dir,
         config=estimator_config
     )
 

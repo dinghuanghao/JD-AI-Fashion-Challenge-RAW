@@ -75,8 +75,10 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
     :param show_image: 是否要对分割结果进行展示
     :return:
     """
+
+    mode = "a"
     if not os.path.exists("segment.log"):
-        os.mknod("segment.log")
+        mode = "w"
 
     image_paths = [os.path.join(image_dir, name) for name in image_names]
     image_save_paths = [os.path.join(save_dir, name) for name in image_names]
@@ -89,7 +91,7 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
             image = cv2.imread(image_paths[i])
             results = model.detect([image], verbose=1)
         except Exception as e:
-            with open("segment.log", "a") as f:
+            with open("segment.log", mode) as f:
                 f.write("%s(%s): %s\n" %(time.asctime(time.localtime(time.time())), image_names[i], e))
             continue
 
