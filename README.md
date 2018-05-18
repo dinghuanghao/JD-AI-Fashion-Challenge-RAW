@@ -62,4 +62,4 @@ Estimator是tensorflow官方推荐的一种模式，它有一些好处：
 
 + 编写keras模型，并加载预训练模型
 + keras转为estimator，并配置checkpoint（模型自动保存）、summary（模型可视化间隔）
-+ 修改模型的配置ModelConfig()，包含训练数据集、k-fold划分、epoch、batch size等
++ 修改模型的配置ModelConfig()，包含训练数据集、k-fold划分、epoch等，ModelConfig会自动保存到recored/n/目录下，记录每次训练的详细参数和起止时间。这样在不停修改参数并增量地训练时，可用对照Tensorboard曲线和时间段来分析参数的效果。

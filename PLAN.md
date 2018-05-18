@@ -11,3 +11,4 @@
    +  训练速度
    +  bias、variance
 +  对F2-Score进行可视化
++  支持对Learning Rate、Learning Decay进行配置
