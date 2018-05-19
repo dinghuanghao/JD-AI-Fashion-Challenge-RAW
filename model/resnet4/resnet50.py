@@ -15,9 +15,9 @@ MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
                            model_dir=os.path.dirname(os.path.abspath(__file__)),
                            record_sub_dir="1",
                            output_tensor_name="my_output/Sigmoid:0",
-                           epoch=200,
-                           batch_size=32,
-                           learning_rate=0.001/50)
+                           epoch=40,
+                           batch_size=64,
+                           learning_rate=0.001)
 
 
 def get_model(image_shape):
@@ -34,8 +34,8 @@ def get_model(image_shape):
     my_model = tf.keras.Model(model.input, output)
     my_model.summary()
 
-    my_model.compile(loss='binary_crossentropy', optimizer=optimizer,
-                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision, metrics.recall, metrics.f2_score])
+    my_model.compile(loss=metrics.f2_score_loss, optimizer=optimizer,
+                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision, metrics.recall, metrics.smooth_f2_score])
     return my_model
 
 

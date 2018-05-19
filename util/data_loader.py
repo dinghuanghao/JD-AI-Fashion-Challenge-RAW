@@ -44,14 +44,10 @@ def data_input_fn(model_config: config.ModelConfig, validation=False):
         lambda filename, label: tuple(tf.py_func(
             _read_py_function, [filename, label], [tf.uint8, label.dtype])))
     dataset = dataset.map(_resize_function)
-    if not validation:
-        dataset = dataset.repeat(config.EPOCH)
-    dataset = dataset.batch(config.BATCH_SIZE)
+    dataset = dataset.batch(model_config.batch_size)
     dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
     iterator = dataset.make_one_shot_iterator()
-
     features, labels = iterator.get_next()
-    print(labels.name)
     return features, labels
 
 
