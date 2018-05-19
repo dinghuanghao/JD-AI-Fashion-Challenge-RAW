@@ -1,8 +1,10 @@
 import os
+
 import tensorflow as tf
 
 import config
 from config import ModelConfig
+from util import estimator
 from util import metrics
 
 MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
@@ -24,7 +26,6 @@ def get_model(image_shape):
     model.summary()
     model.layers.pop()
 
-
     optimizer = tf.keras.optimizers.Adam(lr=MODEL_CONFIG.learning_rate)
     output = tf.keras.layers.Dense(units=13, activation="sigmoid", name="my_output")(model.layers[-1].output)
     my_model = tf.keras.Model(model.input, output)
@@ -34,11 +35,12 @@ def get_model(image_shape):
         return tf.keras.losses.binary_crossentropy(p_true, p_pred) + metrics.f2_score_loss(p_true, p_pred)
 
     my_model.compile(loss=logloss_and_f2score, optimizer=optimizer,
-                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision, metrics.recall, metrics.smooth_f2_score])
+                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision,
+                              metrics.recall, metrics.smooth_f2_score])
     return my_model
 
-def get_estimator():
 
+def get_estimator():
     model = get_model(MODEL_CONFIG.image_shape)
 
     estimator_config = tf.estimator.RunConfig(
@@ -54,3 +56,7 @@ def get_estimator():
     )
 
     return estimator
+
+
+if __name__ == "__main__":
+    estimator.train_evaluate(get_estimator(), MODEL_CONFIG)

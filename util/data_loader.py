@@ -10,12 +10,13 @@ import tensorflow as tf
 import config
 from util import path
 
-def get_max_step(model_config:config.ModelConfig, validation=False):
-    total_steps = len(model_config.data_type)*config.IMAGE_NUMBER/model_config.batch_size
-    if validation:
-        return math.ceil(total_steps/5)
 
-    return math.ceil(total_steps*4/5)
+def get_max_step(model_config: config.ModelConfig, validation=False):
+    total_steps = len(model_config.data_type) * config.IMAGE_NUMBER / model_config.batch_size
+    if validation:
+        return math.ceil(total_steps / 5)
+
+    return math.ceil(total_steps * 4 / 5)
 
 
 def _read_py_function(filename, label):
@@ -41,20 +42,31 @@ def get_labels(filenames):
 def data_input_fn(model_config: config.ModelConfig, validation=False):
     train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
     if validation:
+        global val_load_times
+        val_load_times += 1
+        print("%dth load validation dataset: %d images" % (val_load_times, len(val_files)))
         labels = get_labels(val_files)
         dataset = tf.data.Dataset.from_tensor_slices((val_files, labels))
     else:
+        global train_load_times
+        train_load_times += 1
+        print("%dth load training dataset: %d images" % (train_load_times, len(train_files)))
         labels = get_labels(train_files)
         dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
 
     dataset = dataset.map(
         lambda filename, label: tuple(tf.py_func(
             _read_py_function, [filename, label], [tf.uint8, label.dtype])))
+
+    # 此处没有添加repeated（epoch），在外部进行多次调用（train_and_evaluate函数会多次调用本函数）
     dataset = dataset.map(_resize_function)
     dataset = dataset.batch(model_config.batch_size)
     dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
     iterator = dataset.make_one_shot_iterator()
     features, labels = iterator.get_next()
+
+    # train 和 validation 是在两张不同的Graph中执行的，所以tensor的名字相同
+    print("labels tensor name is %s" % labels.name)
     return features, labels
 
 

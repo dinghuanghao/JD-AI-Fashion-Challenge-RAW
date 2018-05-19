@@ -12,14 +12,11 @@
 
   + 参照下方的 “模型”
 
-+ 运行main.py，进行训练
-
-  + 修改main.py中的第六行、第七行，从不同的model获取Estimator以及Config
-  + 执行main.py
++ 运行model文件，例如运行 model/resnet1/resnet50.py
 
 + 运行tensorboard查看训练状况
 
-  通过cmd进入到目标目录，然后执行如下命令，并在浏览器中输入打印的URL
+  通过cmd进入到model下的record目录，然后执行如下命令，并在浏览器中输入打印的URL
 
   ```bash
   tensorboard --logdir=.

@@ -40,8 +40,9 @@ def get_model(image_shape):
     model = tf.keras.Model(inputs=model_input, outputs=out)
 
     model.compile(loss='binary_crossentropy',
-                  optimizer=tf.keras.optimizers.SGD(lr=1e-4, momentum=0.9),
-                  metrics=['accuracy'])
+                  optimizer=tf.keras.optimizers.SGD(lr=MODEL_CONFIG.learning_rate, momentum=0.9),
+                  metrics=['accuracy', metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision,
+                           metrics.recall, metrics.smooth_f2_score])
 
     print('######## Summary ########')
     model.summary()

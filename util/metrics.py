@@ -34,6 +34,7 @@ def recall(y_true, y_pred):
 def f2_score_loss(y_true, y_pred):
     return 1 - smooth_f2_score(y_true, y_pred)
 
+
 def smooth_f2_score(y_true, y_pred):
     y_true = tf.cast(y_true, y_pred.dtype)
     y_correct = y_true * y_pred
@@ -45,4 +46,3 @@ def smooth_f2_score(y_true, y_pred):
     f_score = 5 * precision * recall / (4 * precision + recall + K.epsilon())
     f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
     return tf.reduce_mean(f_score)
-

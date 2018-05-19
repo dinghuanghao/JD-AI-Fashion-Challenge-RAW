@@ -4,6 +4,7 @@ import tensorflow as tf
 
 import config
 from config import ModelConfig
+from util import estimator
 from . import resnet_lib
 
 MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
@@ -49,3 +50,7 @@ def get_estimator():
     )
 
     return estimator
+
+
+if __name__ == "__main__":
+    estimator.train_evaluate(get_estimator(), MODEL_CONFIG)

@@ -34,9 +34,9 @@ class ModelConfig(object):
                  model_dir,
                  record_sub_dir,
                  output_tensor_name,
-                 epoch = 10,
+                 epoch=10,
                  batch_size=32,
-                 learning_rate = 0.001) -> None:
+                 learning_rate=0.001) -> None:
         self.description = description
         self.k_fold_file = k_fold_file
         self.val_index = val_index
@@ -72,7 +72,7 @@ class ModelConfig(object):
             f.write("Epoch          : %d\n" % self.epoch)
             f.write("Batch size     : %d\n" % self.batch_size)
             f.write("Learning rate  : %f\n" % self.learning_rate)
+
     def save_after_train(self):
         with open(os.path.join(self.record_dir, "log.txt"), "a") as f:
             f.write("Stop time:     : %s\n" % time.asctime(time.localtime(time.time())))
-

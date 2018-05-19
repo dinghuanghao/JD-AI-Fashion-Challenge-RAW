@@ -4,8 +4,8 @@ import tensorflow as tf
 
 import config
 from config import ModelConfig
-from util import metrics
 from util import estimator
+from util import metrics
 
 DESCRIPTION = "DenseNet121，Include_top预训练模型， 替换1000-softmax为13-sigmoid，使用BCE+F2-SCORE相加作为Loss"
 

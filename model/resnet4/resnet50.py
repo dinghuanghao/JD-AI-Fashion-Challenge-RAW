@@ -2,10 +2,10 @@ import os
 
 import tensorflow as tf
 
-
 import config
 from config import ModelConfig
-from  util import metrics
+from util import estimator
+from util import metrics
 
 MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
                            val_index=1,
@@ -35,12 +35,12 @@ def get_model(image_shape):
     my_model.summary()
 
     my_model.compile(loss=metrics.f2_score_loss, optimizer=optimizer,
-                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision, metrics.recall, metrics.smooth_f2_score])
+                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision,
+                              metrics.recall, metrics.smooth_f2_score])
     return my_model
 
 
 def get_estimator():
-
     model = get_model(MODEL_CONFIG.image_shape)
 
     estimator_config = tf.estimator.RunConfig(
@@ -56,3 +56,7 @@ def get_estimator():
     )
 
     return estimator
+
+
+if __name__ == "__main__":
+    estimator.train_evaluate(get_estimator(), MODEL_CONFIG)

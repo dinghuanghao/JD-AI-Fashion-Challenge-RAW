@@ -1,10 +1,9 @@
-
 import concurrent.futures
 import time
 
 import tensorflow as tf
+
 from util import path
-import config
 
 
 def parse_data_line(line: str):
@@ -40,7 +39,8 @@ def do_download(lines: list(), photo_save_dir: str, photo_save_subdir: str, is_t
                     tf.keras.utils.get_file(fname=name + ".jpg", origin=url, cache_dir=photo_save_dir,
                                             cache_subdir=photo_save_subdir)
                 else:
-                    tf.keras.utils.get_file(fname="_".join([name, label]) + ".jpg", origin=url, cache_dir=photo_save_dir,
+                    tf.keras.utils.get_file(fname="_".join([name, label]) + ".jpg", origin=url,
+                                            cache_dir=photo_save_dir,
                                             cache_subdir=photo_save_subdir)
             except Exception as e:
                 download_ok = False
@@ -48,7 +48,6 @@ def do_download(lines: list(), photo_save_dir: str, photo_save_subdir: str, is_t
                 print("start retry")
             if download_ok:
                 break
-
 
 
 def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, is_test: bool, thread_number: int = 2):
@@ -81,5 +80,6 @@ def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, i
 
 
 if __name__ == '__main__':
-    download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR, is_test=False, thread_number=16)
-    #download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR, is_test=True, thread_number=1)
+    download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR, is_test=False,
+                    thread_number=16)
+    # download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR, is_test=True, thread_number=1)

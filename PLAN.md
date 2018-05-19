@@ -30,10 +30,21 @@
 目前的平均训练速度：
 
 + 使用Segmented数据，1.5 Step/Second
-
 + 使用Original数据，0.6 Step/Second
 
-  
+
+
+实验：
+
++ 对预训练网络的部分参数采用固定化，以减少全局需要训练的参数数量，InceptionV3网络可用稳定在 2.1 Step/Second
+
+
+
+## 优化算法问题
+
++ SGD：在IncceptionV3中使用SGD，SGD(lr=1e-4, momentum=0.9)，效果还不错，可以进一步增大学习率试试
+
+
 
 ## 模型精度问题
 
@@ -50,3 +61,9 @@ BCE+F2=SCORE：
 实验：
 
 + 将学习率降低到0.0001，并使用BCE+F2-Score，训练过程的F2-Score可达到0.84，但是预测时只有0.56
+
+
+
+## 阈值搜索问题
+
+在进行Validation的时候，不应该直接看F2-Score，而应该先动态算出阈值，然后再计算
