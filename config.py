@@ -2,6 +2,8 @@ import os
 import pathlib
 import time
 
+IMAGE_NUMBER = 54908
+
 # 图片尺寸
 IMAGE_SIZE = [224, 224]
 IMAGE_SHAPE = (224, 224, 3)
@@ -23,6 +25,7 @@ PREFETCH_BUFFER_SIZE = 512
 
 class ModelConfig(object):
     def __init__(self,
+                 description,
                  k_fold_file,
                  val_index,
                  image_size,
@@ -34,6 +37,7 @@ class ModelConfig(object):
                  epoch = 10,
                  batch_size=32,
                  learning_rate = 0.001) -> None:
+        self.description = description
         self.k_fold_file = k_fold_file
         self.val_index = val_index
         self.image_size = image_size
@@ -57,10 +61,12 @@ class ModelConfig(object):
             f.write("-------------------------------------------------------\n")
             f.write("-------------------------------------------------------\n")
             f.write("Start time     : %s\n" % time.asctime(time.localtime(time.time())))
+            f.write("description    : %s\n" % self.description)
+            f.write("record dir     : %s\n" % self.record_dir)
             f.write("K-fold file    : %s\n" % self.k_fold_file)
             f.write("Validation     : part%d\n" % self.val_index)
-            f.write("Image size      : %s\n" % str(self.image_size))
-            f.write("Image shape     : %s\n" % str(self.image_shape))
+            f.write("Image size     : %s\n" % str(self.image_size))
+            f.write("Image shape    : %s\n" % str(self.image_shape))
             f.write("DataSet type   : %s\n" % str(self.data_type))
             f.write("Output tensor  : %s\n" % self.output_tensor_name)
             f.write("Epoch          : %d\n" % self.epoch)

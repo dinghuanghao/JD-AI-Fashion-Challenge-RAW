@@ -4,11 +4,6 @@ from model.densenet1 import densenet121
 from util import data_loader
 from util import metrics
 
-# estimator = resnet50.get_estimator()
-# model_config = resnet50.MODEL_CONFIG
-estimator = densenet121.get_estimator()
-model_config = densenet121.MODEL_CONFIG
-
 
 def train_evaluate(estimator, model_config):
     class MetricHook(tf.train.SessionRunHook):
@@ -35,9 +30,3 @@ def train_evaluate(estimator, model_config):
         print("epoch %d train and evaluate over !" % i)
 
     model_config.save_after_train()
-
-
-if __name__ == "__main__":
-    # evaluate()
-    # train()
-    train_evaluate()

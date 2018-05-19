@@ -10,6 +10,13 @@ import tensorflow as tf
 import config
 from util import path
 
+def get_max_step(model_config:config.ModelConfig, validation=False):
+    total_steps = len(model_config.data_type)*config.IMAGE_NUMBER/model_config.batch_size
+    if validation:
+        return math.ceil(total_steps/5)
+
+    return math.ceil(total_steps*4/5)
+
 
 def _read_py_function(filename, label):
     image = cv2.imread(filename.decode())

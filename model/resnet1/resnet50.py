@@ -1,35 +1,41 @@
 import os
-
 import tensorflow as tf
 
-from config import DATA_TYPE_ORIGINAL
+import config
 from config import ModelConfig
+from util import metrics
 
 MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
                            val_index=1,
                            image_size=(224, 224),
                            image_shape=(224, 224, 3),
-                           data_type=[DATA_TYPE_ORIGINAL],
+                           data_type=[config.DATA_TYPE_SEGMENTED],
                            model_dir=os.path.dirname(os.path.abspath(__file__)),
-                           record_sub_dir="1",
-                           output_tensor_name="my_output/Sigmoid:0")
+                           record_sub_dir="1_3",
+                           output_tensor_name="my_output/Sigmoid:0",
+                           epoch=40,
+                           batch_size=32,
+                           learning_rate=0.0001)
 
 
 def get_model(image_shape):
     model = tf.keras.applications.resnet50.ResNet50(include_top=True, input_shape=image_shape, weights='imagenet',
                                                     classes=1000)
     model.summary()
-
-    # 去掉最后一个FC（Softmax层）
     model.layers.pop()
 
-    # 在原有的模型后面再添加一层，用于进行多标签分类
+
+    optimizer = tf.keras.optimizers.Adam(lr=MODEL_CONFIG.learning_rate)
     output = tf.keras.layers.Dense(units=13, activation="sigmoid", name="my_output")(model.layers[-1].output)
     my_model = tf.keras.Model(model.input, output)
     my_model.summary()
-    my_model.compile(loss='binary_crossentropy', optimizer='adam')
-    return my_model
 
+    def logloss_and_f2score(p_true, p_pred):
+        return tf.keras.losses.binary_crossentropy(p_true, p_pred) + metrics.f2_score_loss(p_true, p_pred)
+
+    my_model.compile(loss=logloss_and_f2score, optimizer=optimizer,
+                     metrics=[metrics.sum_pred, metrics.sum_true, metrics.sum_correct, metrics.precision, metrics.recall, metrics.smooth_f2_score])
+    return my_model
 
 def get_estimator():
 
