@@ -31,25 +31,31 @@ def get_labels(filenames):
     return labels
 
 
-def training_input_fn(model_config: config.ModelConfig):
+def data_input_fn(model_config: config.ModelConfig, validation=False):
     train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
-    labels = get_labels(train_files)
+    if validation:
+        labels = get_labels(val_files)
+        dataset = tf.data.Dataset.from_tensor_slices((val_files, labels))
+    else:
+        labels = get_labels(train_files)
+        dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
 
-    dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
     dataset = dataset.map(
         lambda filename, label: tuple(tf.py_func(
             _read_py_function, [filename, label], [tf.uint8, label.dtype])))
     dataset = dataset.map(_resize_function)
-    dataset = dataset.repeat(config.EPOCH)
+    if not validation:
+        dataset = dataset.repeat(config.EPOCH)
     dataset = dataset.batch(config.BATCH_SIZE)
     dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
     iterator = dataset.make_one_shot_iterator()
 
     features, labels = iterator.get_next()
+    print(labels.name)
     return features, labels
 
 
-def get_k_fold_files(k_fold_file, val_index, data_type: []):
+def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []
     val_names = []
     with open(os.path.join(path.K_FOLD_TXT_PATH, k_fold_file), 'r') as f:
@@ -65,9 +71,9 @@ def get_k_fold_files(k_fold_file, val_index, data_type: []):
             train_files.append(os.path.join(path.get_train_data_path(data), name))
         for name in val_names:
             val_files.append(os.path.join(path.get_train_data_path(data), name))
-
-    random.shuffle(train_files)
-    random.shuffle(val_files)
+    if shuffle:
+        random.shuffle(train_files)
+        random.shuffle(val_files)
     return train_files, val_files
 
 
@@ -107,7 +113,6 @@ def load_label(directory):
         label = name.split(".")[-2].split("_")[1:]
         labels.append(list(map(int, label)))
     return np.array(labels), np.array(names)
-
 
 
 def divide_data(x: np.array, y: np.array, data_ratio=(0.8, 0.1, 0.1)) -> list:
@@ -153,4 +158,4 @@ if __name__ == '__main__':
     remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
     remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
 
-    # training_input_fn()
+    # data_input_fn()

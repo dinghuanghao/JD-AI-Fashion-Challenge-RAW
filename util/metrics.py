@@ -1,28 +1,62 @@
 import tensorflow as tf
 
 
-def fbeta_score(precision, recall, beta):
-    """
-    计算FBeta-Score
-    :param precision: 精确率
-    :param recall: 召回率
-    :param beta: 系数
-    :return:
-    """
-    return (1 + beta ** 2) * precision * recall / (beta ** 2 * precision + recall)
+def sum_pred(y_true, y_pred):
+    threshold = tf.constant(0.2)
+    y_pred_b = tf.cast(tf.greater(y_pred, threshold), dtype=y_true.dtype)
+    sum_pre = tf.reduce_sum(y_pred_b, axis=1)
+    # tf.summary.scalar("train_sum_true", sum_pre)
+    return sum_pre
+
+
+def sum_true(y_true, y_pred):
+    sum_tru = tf.reduce_sum(y_true, axis=1)
+    # tf.summary.scalar("train_sum_true", sum_tru)
+    return sum_tru
+
+
+def sum_correct(y_true, y_pred):
+    threshold = tf.constant(0.2)
+    y_pred_b = tf.cast(tf.greater(y_pred, threshold), dtype=y_true.dtype)
+    y_correct = y_true * y_pred_b
+    sum_correc = tf.reduce_sum(y_correct, axis=1)
+    # tf.summary.scalar("train_sum_correct", sum_correc)
+    return sum_correc
+
+
+def precision(y_true, y_pred):
+    threshold = tf.constant(0.2)
+    y_pred_b = tf.cast(tf.greater(y_pred, threshold), dtype=y_true.dtype)
+    y_correct = y_true * y_pred_b
+    sum_pred = tf.reduce_sum(y_pred_b, axis=1)
+    sum_correct = tf.reduce_sum(y_correct, axis=1)
+    precis = tf.reduce_mean(sum_correct / (sum_pred))
+    # tf.summary.scalar("train_precision", precis)
+    return precis
+
+
+def recall(y_true, y_pred):
+    threshold = tf.constant(0.2)
+    y_pred_b = tf.cast(tf.greater(y_pred, threshold), dtype=y_true.dtype)
+    y_correct = y_true * y_pred_b
+    sum_true = tf.reduce_sum(y_true, axis=1)
+    sum_correct = tf.reduce_sum(y_correct, axis=1)
+    recal = tf.reduce_mean(sum_correct / (sum_true))
+    # tf.summary.scalar("train_recall", recal)
+    return recal
 
 
 def f2_score(y_true, y_pred):
-    """
-    计算F2-Score，要求y_true 和 y_pred 都是 0/1，而非概率
-    :param y_true: 实际的标签
-    :param y_pred: 预测的标签
-    :return:
-    """
-    TP = tf.count_nonzero(y_pred * y_true)
-    TN = tf.count_nonzero((y_pred - 1) * (y_true - 1))
-    FP = tf.count_nonzero(y_pred * (y_true - 1))
-    FN = tf.count_nonzero((y_pred - 1) * y_true)
-    precision = TP / (TP + FP)
-    recall = TP / (TP + FN)
-    return fbeta_score(precision, recall, 2)
+    threshold = tf.constant(0.2)
+    y_pred_b = tf.cast(tf.greater(y_pred, threshold), dtype=y_true.dtype)
+    y_correct = y_true * y_pred_b
+    sum_true = tf.reduce_sum(y_true, axis=1)
+    sum_pred = tf.reduce_sum(y_pred_b, axis=1)
+    sum_correct = tf.reduce_sum(y_correct, axis=1)
+    precision = sum_correct / (sum_pred)
+    recall = sum_correct / (sum_true)
+    f_score = 5 * precision * recall / (4 * precision + recall)
+    f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
+    f2 = tf.reduce_mean(f_score)
+    # tf.summary.scalar("train_f2score", f2)
+    return f2
