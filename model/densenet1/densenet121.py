@@ -76,9 +76,9 @@ def get_estimator():
 
 
 if __name__ == "__main__":
-    estimator.train_evaluate(get_estimator(), MODEL_CONFIG)
+    # estimator.train_evaluate(get_estimator(), MODEL_CONFIG)
     predictions, labels = estimator.predict_val_data(get_estimator(), MODEL_CONFIG, predict_num=256)
-    for i in predictions:
-        print(i)
+
+
     # data_loader.read_and_save_checkpoint(os.path.join(MODEL_CONFIG.record_dir, "keras_model.ckpt"),
     #                                      os.path.join(MODEL_CONFIG.record_dir, "keras_model_checkpoint.txt"))

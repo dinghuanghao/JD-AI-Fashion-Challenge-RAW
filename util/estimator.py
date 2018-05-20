@@ -9,11 +9,18 @@ def predict_val_data(estimator: tf.estimator.Estimator, model_config, predict_nu
                                                 model_config.data_type)
     val_labels = data_loader.get_labels(val_files)
 
-    predictions = estimator.predict(
+    result = estimator.predict(
         input_fn=lambda: data_loader.predict_input_fn(val_files, model_config.val_batch_size),
         yield_single_examples=False,
         checkpoint_path=checkpoint_path
     )
+
+    predictions = []
+
+    for i in result:
+        output = i["my_output"]
+        for j in output:
+            predictions.append(j)
 
     return predictions, val_labels
 
