@@ -19,7 +19,8 @@ MODEL_CONFIG = ModelConfig(DESCRIPTION,
                            record_sub_dir="1_3_1",
                            output_tensor_name="my_output/Sigmoid:0",
                            epoch=10,
-                           batch_size=32,
+                           train_batch_size=32,
+                           val_batch_size=128,
                            learning_rate=0.0001)
 
 
@@ -76,7 +77,8 @@ def get_estimator():
 
 if __name__ == "__main__":
     estimator.train_evaluate(get_estimator(), MODEL_CONFIG)
-    # estimator.predict(get_estimator(), MODEL_CONFIG)
-
+    predictions, labels = estimator.predict_val_data(get_estimator(), MODEL_CONFIG, predict_num=256)
+    for i in predictions:
+        print(i)
     # data_loader.read_and_save_checkpoint(os.path.join(MODEL_CONFIG.record_dir, "keras_model.ckpt"),
     #                                      os.path.join(MODEL_CONFIG.record_dir, "keras_model_checkpoint.txt"))

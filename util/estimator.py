@@ -4,19 +4,25 @@ from util import data_loader
 from util import metrics
 
 
-def predict(estimator:tf.estimator.Estimator, model_config, checkpoint_path=None):
+def predict_val_data(estimator: tf.estimator.Estimator, model_config, predict_num=32, checkpoint_path=None):
+    _, val_files = data_loader.get_k_fold_files(model_config.k_fold_file, model_config.val_index,
+                                                model_config.data_type)
+    val_labels = data_loader.get_labels(val_files)
+
     predictions = estimator.predict(
-        input_fn=lambda: data_loader.predict_data_input_fn(model_config),
+        input_fn=lambda: data_loader.predict_input_fn(val_files, model_config.val_batch_size),
         yield_single_examples=False,
         checkpoint_path=checkpoint_path
     )
 
-    for i in predictions:
-        print(i)
+    return predictions, val_labels
 
 
 def train_evaluate(estimator, model_config):
     class SummaryMetricHook(tf.train.SessionRunHook):
+        def __init__(self) -> None:
+            super().__init__()
+
         def begin(self):
             # labels name是通过data_loader.data_input_fn()函数打印获得
             # 在training过程中，labels和predictions处于同一张Graph
@@ -29,13 +35,14 @@ def train_evaluate(estimator, model_config):
     model_config.save_before_train()
 
     print("training steps per epoch is : %d" % data_loader.get_max_step(model_config))
-    print("training epoch is :%d" % model_config.epoch)
 
     train_spec = tf.estimator.TrainSpec(
         input_fn=lambda: data_loader.data_input_fn(model_config),
         hooks=[SummaryMetricHook()])
+
+    # evaluate的时候，batch size尽可能大，加快速度
     eval_spec = tf.estimator.EvalSpec(
-        input_fn=lambda: data_loader.data_input_fn(model_config, True),
+        input_fn=lambda: data_loader.data_input_fn(model_config, validation=True),
         steps=None)
 
     # 当train_spec用完一次之后，会进行evaluate，然后再次初始化train_spec

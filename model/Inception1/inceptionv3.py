@@ -19,7 +19,7 @@ MODEL_CONFIG = ModelConfig(DESCRIPTION,
                            record_sub_dir="1_1",
                            output_tensor_name="my_output/Sigmoid:0",
                            epoch=10,
-                           batch_size=32,
+                           train_batch_size=32,
                            learning_rate=0.001)
 
 

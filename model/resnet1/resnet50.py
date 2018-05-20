@@ -16,7 +16,7 @@ MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
                            record_sub_dir="1_3",
                            output_tensor_name="my_output/Sigmoid:0",
                            epoch=40,
-                           batch_size=32,
+                           train_batch_size=32,
                            learning_rate=0.0001)
 
 

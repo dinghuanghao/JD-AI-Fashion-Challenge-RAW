@@ -10,8 +10,9 @@ import tensorflow as tf
 import config
 from util import path
 
-train_load_times = 0
-val_load_times = 0
+training_times = 0
+validation_times = 0
+
 
 def read_and_save_checkpoint(checkpoint_path, save_path):
     from tensorflow.python import pywrap_tensorflow
@@ -23,6 +24,7 @@ def read_and_save_checkpoint(checkpoint_path, save_path):
             f.write(str(reader.get_tensor(key)))
             f.write("\n")
 
+
 def get_max_step(model_config: config.ModelConfig, validation=False):
     total_steps = len(model_config.data_type) * config.IMAGE_NUMBER / model_config.batch_size
     if validation:
@@ -31,16 +33,22 @@ def get_max_step(model_config: config.ModelConfig, validation=False):
     return math.ceil(total_steps * 4 / 5)
 
 
-def _read_py_function(filename, label):
+def _read_py_function(filename, label=None):
     image = cv2.imread(filename.decode())
-    return image, label
+    if label is None:
+        return image
+    else:
+        return image, label
 
 
-def _resize_function(image_decoded, label):
+def _resize_function(image_decoded, label=None):
     image_decoded.set_shape([None, None, 3])
-    label.set_shape([13])
     image_resized = tf.image.resize_images(image_decoded, config.IMAGE_SIZE)
-    return image_resized, label
+    if label is None:
+        return image_resized
+    else:
+        label.set_shape([13])
+        return image_resized, label
 
 
 def get_labels(filenames):
@@ -50,51 +58,44 @@ def get_labels(filenames):
         labels.append(list(map(int, label)))
     return labels
 
-def predict_data_input_fn(model_config: config.ModelConfig):
-    """
-    取一部分数据出来，进行预测，看一下模型是否有合理的输出
-    :param model_config:
-    :return:
-    """
-    train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
-    labels = get_labels(val_files[:200])
-    dataset = tf.data.Dataset.from_tensor_slices((val_files[:200], labels))
-    dataset = dataset.map(
-        lambda filename, label: tuple(tf.py_func(
-            _read_py_function, [filename, label], [tf.uint8, label.dtype])))
 
-    dataset = dataset.map(_resize_function)
-    dataset = dataset.batch(128)
-    dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
-    iterator = dataset.make_one_shot_iterator()
-    features, labels = iterator.get_next()
+def predict_input_fn(files, batch_size):
+    data_set = tf.data.Dataset.from_tensor_slices((files,))
+    data_set = data_set.map(
+        lambda filename: tuple(tf.py_func(
+            _read_py_function, [filename], [tf.uint8])))
 
-    return features, labels
+    data_set = data_set.map(_resize_function)
+    data_set = data_set.batch(batch_size)
+    data_set = data_set.prefetch(config.PREFETCH_BUFFER_SIZE)
+    iterator = data_set.make_one_shot_iterator()
+    return iterator.get_next()
+
 
 def data_input_fn(model_config: config.ModelConfig, validation=False):
     train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
     if validation:
-        global val_load_times
-        val_load_times += 1
-        print("%dth load validation dataset: %d images" % (val_load_times, len(val_files)))
+        global validation_times
+        validation_times += 1
+        print("%dth validation with %d images" % (validation_times, len(val_files)))
         labels = get_labels(val_files)
-        dataset = tf.data.Dataset.from_tensor_slices((val_files, labels))
+        data_set = tf.data.Dataset.from_tensor_slices((val_files, labels))
     else:
-        global train_load_times
-        train_load_times += 1
-        print("%dth load training dataset: %d images" % (train_load_times, len(train_files)))
+        global training_times
+        training_times += 1
+        print("%dth training with %d images" % (training_times, len(train_files)))
         labels = get_labels(train_files)
-        dataset = tf.data.Dataset.from_tensor_slices((train_files, labels))
+        data_set = tf.data.Dataset.from_tensor_slices((train_files, labels))
 
-    dataset = dataset.map(
+    data_set = data_set.map(
         lambda filename, label: tuple(tf.py_func(
             _read_py_function, [filename, label], [tf.uint8, label.dtype])))
 
-    # 此处没有添加repeated（epoch），在外部进行多次调用（train_and_evaluate函数会多次调用本函数）
-    dataset = dataset.map(_resize_function)
-    dataset = dataset.batch(model_config.batch_size)
-    dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
-    iterator = dataset.make_one_shot_iterator()
+    # 此处没有添加repeated（epoch），在外部进调用train_and_evaluate函数会多次调用本函数
+    data_set = data_set.map(_resize_function)
+    data_set = data_set.batch(model_config.batch_size)
+    data_set = data_set.prefetch(config.PREFETCH_BUFFER_SIZE)
+    iterator = data_set.make_one_shot_iterator()
     features, labels = iterator.get_next()
 
     # train 和 validation 是在两张不同的Graph中执行的，所以tensor的名字相同
@@ -118,9 +119,11 @@ def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
             train_files.append(os.path.join(path.get_train_data_path(data), name))
         for name in val_names:
             val_files.append(os.path.join(path.get_train_data_path(data), name))
+
     if shuffle:
         random.shuffle(train_files)
         random.shuffle(val_files)
+
     return train_files, val_files
 
 

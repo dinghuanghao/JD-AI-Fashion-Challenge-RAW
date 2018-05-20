@@ -20,7 +20,7 @@ DATA_TYPE_AUGMENTED = "augmented"
 TRAIN_DATA_TXT = "train.txt"
 TEST_DATA_TXT = "test.txt"
 
-PREFETCH_BUFFER_SIZE = 512
+PREFETCH_BUFFER_SIZE = 1024
 
 
 class ModelConfig(object):
@@ -35,7 +35,8 @@ class ModelConfig(object):
                  record_sub_dir,
                  output_tensor_name,
                  epoch=10,
-                 batch_size=32,
+                 train_batch_size=32,
+                 val_batch_size=128,
                  learning_rate=0.001) -> None:
         self.description = description
         self.k_fold_file = k_fold_file
@@ -46,7 +47,8 @@ class ModelConfig(object):
         self.model_dir = model_dir
         self.output_tensor_name = output_tensor_name
         self.epoch = epoch
-        self.batch_size = batch_size
+        self.batch_size = train_batch_size
+        self.val_batch_size = val_batch_size
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), str(record_sub_dir))
         self.learning_rate = learning_rate
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
