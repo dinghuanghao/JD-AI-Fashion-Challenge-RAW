@@ -6,7 +6,6 @@ import config
 from config import ModelConfig
 from util import estimator
 from util import metrics
-from util import data_loader
 
 DESCRIPTION = "DenseNet121，Include_top为False， 新增Dense1024-ReLu, Dense-13-sigmoid，使用加权Bce作为Loss"
 
