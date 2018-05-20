@@ -10,6 +10,8 @@ import tensorflow as tf
 import config
 from util import path
 
+train_load_times = 0
+val_load_times = 0
 
 def get_max_step(model_config: config.ModelConfig, validation=False):
     total_steps = len(model_config.data_type) * config.IMAGE_NUMBER / model_config.batch_size
@@ -38,6 +40,26 @@ def get_labels(filenames):
         labels.append(list(map(int, label)))
     return labels
 
+def predict_data_input_fn(model_config: config.ModelConfig):
+    """
+    取一部分数据出来，进行预测，看一下模型是否有合理的输出
+    :param model_config:
+    :return:
+    """
+    train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
+    labels = get_labels(val_files[:200])
+    dataset = tf.data.Dataset.from_tensor_slices((val_files[:200], labels))
+    dataset = dataset.map(
+        lambda filename, label: tuple(tf.py_func(
+            _read_py_function, [filename, label], [tf.uint8, label.dtype])))
+
+    dataset = dataset.map(_resize_function)
+    dataset = dataset.batch(128)
+    dataset = dataset.prefetch(config.PREFETCH_BUFFER_SIZE)
+    iterator = dataset.make_one_shot_iterator()
+    features, labels = iterator.get_next()
+
+    return features, labels
 
 def data_input_fn(model_config: config.ModelConfig, validation=False):
     train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)

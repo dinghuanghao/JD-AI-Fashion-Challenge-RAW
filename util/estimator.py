@@ -4,10 +4,20 @@ from util import data_loader
 from util import metrics
 
 
+def predict(estimator, model_config):
+    predictions = estimator.predict(
+        input_fn=lambda: data_loader.predict_data_input_fn(model_config),
+        yield_single_examples=False
+    )
+
+    for i in predictions:
+        print(i)
+
+
 def train_evaluate(estimator, model_config):
     class SummaryMetricHook(tf.train.SessionRunHook):
         def begin(self):
-            # labes name是通过data_loader.data_input_fn()函数打印获得
+            # labels name是通过data_loader.data_input_fn()函数打印获得
             # 在training过程中，labels和predictions处于同一张Graph
             labels = tf.get_default_graph().get_tensor_by_name("IteratorGetNext:1")
             predictions = tf.get_default_graph().get_tensor_by_name(model_config.output_tensor_name)

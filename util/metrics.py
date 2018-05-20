@@ -1,5 +1,17 @@
 import keras.backend as K
+import numpy as np
 import tensorflow as tf
+
+weight_matrix = np.array(([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 7.7, 14.79, 43.9, 156]]), dtype=np.float32)
+
+
+def weighted_bce(y_true, y_pred):
+    # return tf.keras.losses.binary_crossentropy(y_true, y_pred)
+    weight = tf.constant([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 7.7, 14.79, 43.9, 156]], dtype=tf.float32)
+    bce = K.binary_crossentropy(y_true, y_pred)
+    print(bce.shape)
+    bce_wighted = bce*weight_matrix
+    return K.mean(bce_wighted, axis=-1)
 
 
 def sum_pred(y_true, y_pred):
@@ -46,3 +58,7 @@ def smooth_f2_score(y_true, y_pred):
     f_score = 5 * precision * recall / (4 * precision + recall + K.epsilon())
     f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
     return tf.reduce_mean(f_score)
+
+
+def logloss_and_f2score(p_true, p_pred):
+    return tf.keras.losses.binary_crossentropy(p_true, p_pred) + f2_score_loss(p_true, p_pred)
