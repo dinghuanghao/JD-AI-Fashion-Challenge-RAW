@@ -17,11 +17,11 @@ MODEL_CONFIG = ModelConfig(DESCRIPTION,
                            image_shape=(224, 224, 3),
                            data_type=[config.DATA_TYPE_SEGMENTED],
                            model_dir=os.path.dirname(os.path.abspath(__file__)),
-                           record_sub_dir="1_2",
+                           record_sub_dir="1_3",
                            output_tensor_name="my_output/Sigmoid:0",
                            epoch=10,
                            batch_size=32,
-                           learning_rate=0.0001)
+                           learning_rate=0.0002)
 
 
 def get_model(image_shape):

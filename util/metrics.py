@@ -6,11 +6,13 @@ weight_matrix = np.array(([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 
 
 
 def weighted_bce(y_true, y_pred):
-    # return tf.keras.losses.binary_crossentropy(y_true, y_pred)
-    weight = tf.constant([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 7.7, 14.79, 43.9, 156]], dtype=tf.float32)
+    #当标签的输出为1时，根据权重矩阵对其loss进行放大，当其为0时，权重为1。因为大量样本都是0，对其进行放大会导致更接近0
+    weight = y_true * weight_matrix
+    weight = tf.clip_by_value(weight, 1, np.max(weight_matrix))
+
     bce = K.binary_crossentropy(y_true, y_pred)
     print(bce.shape)
-    bce_wighted = bce*weight_matrix
+    bce_wighted = bce*weight
     return K.mean(bce_wighted, axis=-1)
 
 
