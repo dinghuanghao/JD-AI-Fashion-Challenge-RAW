@@ -4,10 +4,11 @@ from util import data_loader
 from util import metrics
 
 
-def predict(estimator, model_config):
+def predict(estimator:tf.estimator.Estimator, model_config, checkpoint_path=None):
     predictions = estimator.predict(
         input_fn=lambda: data_loader.predict_data_input_fn(model_config),
-        yield_single_examples=False
+        yield_single_examples=False,
+        checkpoint_path=checkpoint_path
     )
 
     for i in predictions:
@@ -34,7 +35,8 @@ def train_evaluate(estimator, model_config):
         input_fn=lambda: data_loader.data_input_fn(model_config),
         hooks=[SummaryMetricHook()])
     eval_spec = tf.estimator.EvalSpec(
-        input_fn=lambda: data_loader.data_input_fn(model_config, True))
+        input_fn=lambda: data_loader.data_input_fn(model_config, True),
+        steps=None)
 
     # 当train_spec用完一次之后，会进行evaluate，然后再次初始化train_spec
     # 因此除非设置了MaxSteps或者自己的钩子函数，否则永远不会停

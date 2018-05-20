@@ -15,6 +15,33 @@ def weighted_bce(y_true, y_pred):
     bce_wighted = bce*weight
     return K.mean(bce_wighted, axis=-1)
 
+def average_1(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,1])
+def average_2(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,2])
+def average_3(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,3])
+def average_4(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,4])
+def average_5(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,5])
+def average_6(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,6])
+def average_7(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,7])
+def average_8(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,8])
+def average_9(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,9])
+def average_10(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,10])
+def average_11(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,11])
+def average_12(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:,12])
+def average_13(y_true, y_pred):
+    return tf.reduce_mean(y_pred[:, 13])
+
 
 def sum_pred(y_true, y_pred):
     return tf.reduce_sum(y_pred, axis=-1)

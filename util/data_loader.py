@@ -13,6 +13,16 @@ from util import path
 train_load_times = 0
 val_load_times = 0
 
+def read_and_save_checkpoint(checkpoint_path, save_path):
+    from tensorflow.python import pywrap_tensorflow
+    reader = pywrap_tensorflow.NewCheckpointReader(checkpoint_path)
+    var_to_shape_map = reader.get_variable_to_shape_map()
+    with open(save_path, "w+") as f:
+        for key in var_to_shape_map:
+            f.write("tensor name: %s\n" % key)
+            f.write(str(reader.get_tensor(key)))
+            f.write("\n")
+
 def get_max_step(model_config: config.ModelConfig, validation=False):
     total_steps = len(model_config.data_type) * config.IMAGE_NUMBER / model_config.batch_size
     if validation:
