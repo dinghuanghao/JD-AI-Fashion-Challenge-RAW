@@ -150,7 +150,7 @@ def list_image_name(directory, ext='jpg|jpeg|bmp|png|ppm'):
             for f in files if re.match(r'([\w]+\.(?:' + ext + '))', f)]
 
 
-def load_label(directory):
+def load_label(directory, number=None):
     """
     导入指定目录的所有图片的标签，不导入图片
     :param directory:
@@ -158,6 +158,8 @@ def load_label(directory):
     """
     names = list_image_name(directory)
     random.shuffle(names)
+    if number is not None:
+        names = names[:number]
     labels = []
     for name in names:
         label = name.split(".")[-2].split("_")[1:]

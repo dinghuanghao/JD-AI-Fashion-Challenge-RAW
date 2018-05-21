@@ -124,28 +124,28 @@ def label_analysis(label):
 
 
 def labels_analysis(labels: []):
-    print("对象平均标签数量:\t", "  ".join(str(i) for i in [label_cardinality(l) for l in labels]))
+    print("对象平均标签数量:\t", "    ".join(str(i) for i in [label_cardinality(l) for l in labels]))
     print("================================================================")
 
-    print("对象平均标签数量:\t", "  ".join(str(i) for i in [label_cardinality(l) for l in labels]))
+    print("对象平均标签数量:\t", "    ".join(str(i) for i in [label_cardinality(l) for l in labels]))
     print("================================================================")
 
     print("单个标签的平均出现次数:")
     print("----------------------------------------------------------------")
     each_class = [label_density_for_each_class(l) for l in labels]
     for i in range(len(label_class_name)):
-        print("    %s:\t" % label_class_name[i], "\t".join(str(j) for j in [value[i] for value in each_class]))
+        print("    %s:\t" % label_class_name[i], "    ".join(str(j) for j in [value[i] for value in each_class]))
         print("----------------------------------------------------------------")
 
     print("================================================================")
-    print("不同的标签组合数量:\t", "  ".join(str(i) for i in [label_diversity(l) for l in labels]))
+    print("不同的标签组合数量:\t", "    ".join(str(i) for i in [label_diversity(l) for l in labels]))
 
     print("================================================================")
-    print("不同的标签组合密度:\t", "  ".join(str(i) for i in [label_diversity_norm(l) for l in labels]))
+    print("不同的标签组合密度:\t", "    ".join(str(i) for i in [label_diversity_norm(l) for l in labels]))
 
 
 if __name__ == '__main__':
-    y, names = data_loader.load_label(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    y, names = data_loader.load_label(path.ORIGINAL_TRAIN_IMAGES_PATH, 20000)
     (name1, y1), (name2, y2), (name3, y3), (name4, y4), (name5, y5) = \
         data_loader.divide_data(names, y, (0.2, 0.2, 0.2, 0.2, 0.2))
     labels_analysis([y1, y2, y3, y4, y5])
