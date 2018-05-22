@@ -1,0 +1,3 @@
+1.  使用基本模型+BCE Loss：在训练时能够达到99.9%的准确率，且F2-Score也能达到98%，但是泛化能力较差，可能是过拟合了
+2.  使用基本模型+BCE Loss+F2-Score Loss：训练了60个Epoch，算法还未收敛，训练阶段F2-Score达到96%，Validation F2-Score
+    达到73%，Best F2-Score为80%

@@ -6,7 +6,7 @@ import keras
 import numpy as np
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Dense, Flatten, BatchNormalization
-from keras.models import Sequential, load_model
+from keras.models import Sequential
 from tqdm import tqdm
 
 import config
@@ -14,15 +14,20 @@ from util import data_loader
 from util import metrics
 
 RESOLUTION = 128
-CACHE_FILE = './record/weights.05-0.74.hdf5'
 THRESHOLD = 0.2
-BATCH_SIZE = 64
+EPOCH = 40
+TRAIN_BATCH_SIZE = 32
+PREDICT_BATCH_SIZE = 256
+
+BASE_DIR = "./record/1/"
+MODEL_FILE = BASE_DIR + 'weights.40-0.73.hdf5'
+SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:02d}-{val_smooth_f2_score:.2f}.hdf5"
 
 train_files, val_files = data_loader.get_k_fold_files("baseline.txt", 1, [config.DATA_TYPE_ORIGINAL])
 
 # # 取少量数据看模型是否run的起来
-# train_files = train_files[:32]
-# val_files = val_files[:128]
+# train_files = train_files[:64]
+# val_files = val_files[:256]
 
 x_train = []
 x_valid = []
@@ -63,12 +68,13 @@ def get_model():
     model.add(Dense(13, activation='sigmoid'))
 
     model.compile(loss=metrics.logloss_and_f2score,
-                  optimizer='adam',
+                  optimizer=keras.optimizers.SGD(lr=0.0002, momentum=0.9),
                   metrics=['accuracy', metrics.smooth_f2_score])
 
-    if os.path.isfile(CACHE_FILE):
-        print('####### Loading model from cache #######')
-        model = load_model(CACHE_FILE, custom_objects={'smooth_f2_score': metrics.smooth_f2_score})
+    # if os.path.isfile(MODEL_FILE):
+    #     print('####### Loading model from cache #######')
+    #     model = load_model(MODEL_FILE, custom_objects={'smooth_f2_score': metrics.smooth_f2_score,
+    #                                                    'logloss_and_f2score': metrics.logloss_and_f2score})
 
     return model
 
@@ -76,31 +82,22 @@ def get_model():
 def train(model):
     start = time.time()
     # 模型可视化，每一次保存会占用几秒钟
-    tensorboard = keras.callbacks.TensorBoard(log_dir='./record',
-                                              histogram_freq=1,
-                                              write_graph=True,
-                                              write_images=False)
-    checkpoint = keras.callbacks.ModelCheckpoint(filepath="./record/weights.{epoch:02d}-{val_smooth_f2_score:.2f}.hdf5",
-                                                 monitor="val_smooth_f2_score",
-                                                 verbose=0,
-                                                 save_best_only=True,
-                                                 save_weights_only=False,
-                                                 mode="max",
-                                                 period=1)
+    tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
+    checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
+                                                 monitor="val_smooth_f2_score")
     model.fit(x_train, y_train,
-              batch_size=32,
-              epochs=10,  # Should implement early stopping
+              batch_size=TRAIN_BATCH_SIZE,
+              epochs=EPOCH,
               verbose=1,
               validation_data=(x_valid, y_valid),
               callbacks=[tensorboard, checkpoint])
     print("####### train model spend %d seconds #######" % (time.time() - start))
-    model.save(CACHE_FILE)
 
 
-def predict(model, files, x, y):
+def evaluate(model, files, x, y):
     from sklearn.metrics import fbeta_score
 
-    y_pred = model.predict(x, batch_size=128)
+    y_pred = model.predict(x, batch_size=PREDICT_BATCH_SIZE)
 
     start = time.time()
     best_score, threshold = metrics.best_f2_score(y, y_pred)
@@ -112,7 +109,7 @@ def predict(model, files, x, y):
     print("####### Best F2-Score is %f #######" % best_score)
 
     y_pred_best = (np.array(y_pred) > threshold).astype(np.int8)
-    with open("./record/predict.txt", "w+") as f:
+    with open(BASE_DIR + "evaluate.txt", "w+") as f:
         f.write("threadshold: ")
         f.write(",".join([str(j) for j in threshold]))
         f.write("\n")
@@ -123,7 +120,25 @@ def predict(model, files, x, y):
             f.write("\n")
 
 
+def evaluate_all(path, model, x, y):
+    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+    for weight_file in tqdm(files):
+        if weight_file.split(".")[-1] == "hdf5":
+            model.load_weights(BASE_DIR + weight_file)
+            from sklearn.metrics import fbeta_score
+            y_pred = model.predict(x, batch_size=PREDICT_BATCH_SIZE)
+            f2_smooth = metrics.smooth_f2_score_np(y, y_pred)
+            f2_2 = fbeta_score(y, np.array(y_pred) > THRESHOLD, beta=2, average='samples')
+            f2_basinhopping, threshold = metrics.best_f2_score(y, y_pred)
+            with open(path + "predict_all.txt", "a") as f:
+                f.write(
+                    "[%s]\t F2_smooth=%.4f,  F2_0.2=%.4f,  F2_basinhopping=%.4f\n" % (
+                        weight_file, f2_smooth, f2_2, f2_basinhopping))
+
+
 model = get_model()
+evaluate_all(BASE_DIR, model, x_valid, y_valid)
+# model.load_weights(MODEL_FILE)
 # train(model)
-predict(model, val_files, x_valid, y_valid)
-# predict(model, train_files, x_train, y_train)
+# evaluate(model, val_files, x_valid, y_valid)
+# evaluate(model, train_files, x_train, y_train)
