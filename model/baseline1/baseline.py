@@ -15,19 +15,19 @@ from util import metrics
 
 RESOLUTION = 128
 THRESHOLD = 0.2
-EPOCH = 40
+EPOCH = 200
 TRAIN_BATCH_SIZE = 32
 PREDICT_BATCH_SIZE = 256
 
-BASE_DIR = "./record/1/"
+BASE_DIR = "./record/3/"
 MODEL_FILE = BASE_DIR + 'weights.40-0.73.hdf5'
-SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:02d}-{val_smooth_f2_score:.2f}.hdf5"
+SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 
 train_files, val_files = data_loader.get_k_fold_files("baseline.txt", 1, [config.DATA_TYPE_ORIGINAL])
 
 # # 取少量数据看模型是否run的起来
 # train_files = train_files[:64]
-# val_files = val_files[:256]
+# val_files = val_files[:64]
 
 x_train = []
 x_valid = []
@@ -67,10 +67,11 @@ def get_model():
     model.add(BatchNormalization())
     model.add(Dense(13, activation='sigmoid'))
 
-    model.compile(loss=metrics.logloss_and_f2score,
-                  optimizer=keras.optimizers.SGD(lr=0.0002, momentum=0.9),
+    model.compile(loss=metrics.f2_score_loss,
+                  optimizer=keras.optimizers.SGD(lr=0.0001, momentum=0.9),
                   metrics=['accuracy', metrics.smooth_f2_score])
 
+    # 通过模块文件，读取完整的模型
     # if os.path.isfile(MODEL_FILE):
     #     print('####### Loading model from cache #######')
     #     model = load_model(MODEL_FILE, custom_objects={'smooth_f2_score': metrics.smooth_f2_score,
@@ -84,7 +85,8 @@ def train(model):
     # 模型可视化，每一次保存会占用几秒钟
     tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
-                                                 monitor="val_smooth_f2_score")
+                                                 monitor="val_smooth_f2_score",
+                                                 save_weights_only=True)
     model.fit(x_train, y_train,
               batch_size=TRAIN_BATCH_SIZE,
               epochs=EPOCH,
@@ -137,8 +139,8 @@ def evaluate_all(path, model, x, y):
 
 
 model = get_model()
-evaluate_all(BASE_DIR, model, x_valid, y_valid)
 # model.load_weights(MODEL_FILE)
-# train(model)
+train(model)
+evaluate_all(BASE_DIR, model, x_valid, y_valid)
 # evaluate(model, val_files, x_valid, y_valid)
 # evaluate(model, train_files, x_train, y_train)
