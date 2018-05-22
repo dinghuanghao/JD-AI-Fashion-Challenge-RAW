@@ -75,6 +75,17 @@ def recall(y_true, y_pred):
 def f2_score_loss(y_true, y_pred):
     return 1 - smooth_f2_score(y_true, y_pred)
 
+def smooth_f2_score_np(y_true:np.ndarray, y_pred:np.ndarray, epsilon = 1e-9):
+    y_true = y_true.astype(y_pred.dtype)
+    y_correct = y_true * y_pred
+    sum_true = np.sum(y_true, axis=-1)
+    sum_pred = np.sum(y_pred, axis=-1)
+    sum_correct = np.sum(y_correct, axis=-1)
+    precision = sum_correct / (sum_pred + epsilon)
+    recall = sum_correct / (sum_true + epsilon)
+    f2_score = 5 * precision * recall / (4 * precision + recall + epsilon)
+    f2_score = np.where(np.isnan(f2_score), np.zeros_like(f2_score), f2_score)
+    return np.mean(f2_score)
 
 def smooth_f2_score(y_true, y_pred):
     y_true = tf.cast(y_true, y_pred.dtype)
@@ -91,3 +102,54 @@ def smooth_f2_score(y_true, y_pred):
 
 def logloss_and_f2score(p_true, p_pred):
     return tf.keras.losses.binary_crossentropy(p_true, p_pred) + f2_score_loss(p_true, p_pred)
+
+
+import numpy as np
+import logging
+from sklearn.metrics import fbeta_score
+from scipy.optimize import basinhopping
+from timeit import default_timer as timer
+
+## Get the same logger from main"
+logger = logging.getLogger("Planet-Amazon")
+
+
+def best_f2_score(true_labels, predictions):
+    def f_neg(threshold):
+        ## Scipy tries to minimize the function so we must get its inverse
+        return - fbeta_score(true_labels, predictions > threshold, beta=2, average='samples')
+
+    # Initialization of best threshold search
+    thr_0 = [0.20] * 13
+    constraints = [(0., 1.)] * 13
+
+    def bounds(**kwargs):
+        x = kwargs["x_new"]
+        tmax = bool(np.all(x <= 1))
+        tmin = bool(np.all(x >= 0))
+        return tmax and tmin
+
+    # Search using L-BFGS-B, the epsilon step must be big otherwise there is no gradient
+    minimizer_kwargs = {"method": "L-BFGS-B",
+                        "bounds": constraints,
+                        "options": {
+                            "eps": 0.05
+                        }
+                        }
+
+    # We combine L-BFGS-B with Basinhopping for stochastic search with random steps
+    logger.info("===> Searching optimal threshold for each label")
+    start_time = timer()
+
+    opt_output = basinhopping(f_neg, thr_0,
+                              stepsize=0.1,
+                              minimizer_kwargs=minimizer_kwargs,
+                              niter=10,
+                              accept_test=bounds)
+
+    end_time = timer()
+    logger.info("===> Optimal threshold for each label:\n{}".format(opt_output.x))
+    logger.info("Threshold found in: %s seconds" % (end_time - start_time))
+
+    score = - opt_output.fun
+    return score, opt_output.x
