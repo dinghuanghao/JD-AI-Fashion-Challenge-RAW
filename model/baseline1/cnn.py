@@ -69,6 +69,13 @@ tensorboard = keras.callbacks.TensorBoard(log_dir='./record',
                                           histogram_freq=1,
                                           write_graph=True,
                                           write_images=False)
+checkpoint = keras.callbacks.ModelCheckpoint(filepath="./record/weights.{epoch:02d}-{val_smooth_f2_score:.2f}.hdf5",
+                                             monitor="val_smooth_f2_score",
+                                             verbose=0,
+                                             save_best_only=True,
+                                             save_weights_only=False,
+                                             mode="max",
+                                             period=1)
 
 if os.path.isfile(CACHE_FILE):
     print('####### Loading model from cache ######')
@@ -77,11 +84,11 @@ if os.path.isfile(CACHE_FILE):
 start = time.time()
 
 model.fit(x_train, y_train,
-          batch_size=64,
-          epochs=20,  # Should implement early stopping
+          batch_size=32,
+          epochs=200,  # Should implement early stopping
           verbose=1,
           validation_data=(x_valid, y_valid),
-          callbacks=[tensorboard])
+          callbacks=[tensorboard, checkpoint])
 
 print("####### train model spend %d seconds ######" % (time.time() - start))
 
