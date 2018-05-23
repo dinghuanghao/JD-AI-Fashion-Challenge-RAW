@@ -15,12 +15,12 @@ from util import metrics
 
 RESOLUTION = 128
 THRESHOLD = 0.2
-EPOCH = 1
+EPOCH = 50
 TRAIN_BATCH_SIZE = 32
 VAL_BATCH_SIZE = 256
 PREDICT_BATCH_SIZE = 256
 
-BASE_DIR = "./record/5/"
+BASE_DIR = "./record/1/"
 MODEL_FILE = BASE_DIR + 'base-weights.23-0.73.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 

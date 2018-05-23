@@ -289,9 +289,15 @@ def remove_image_name_header(dir):
             os.rename(os.path.join(dir, i),
                       os.path.join(dir, name_target))
 
+def image_repair():
+    names = list_image_dir(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    for name in  names:
+        img = cv2.imread(name)
+        cv2.imwrite(name, img)
 
 if __name__ == '__main__':
-    remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
-    remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
+    image_repair()
+    # remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    # remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
 
     # data_input_fn()
