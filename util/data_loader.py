@@ -4,14 +4,98 @@ import random
 import re
 
 import cv2
+import keras.backend as K
 import numpy as np
 import tensorflow as tf
+from keras.preprocessing.image import ImageDataGenerator, Iterator, load_img, img_to_array
 
 import config
 from util import path
 
 training_times = 0
 validation_times = 0
+
+
+class KerasGenerator(ImageDataGenerator):
+    def __init__(self, *args, **kwargs):
+        super(KerasGenerator, self).__init__(*args, **kwargs)
+        self.iterator = None
+
+    def flow_from_files(self, img_files,
+                        mode='fit',
+                        target_size=(256, 256),
+                        batch_size=32, shuffle=False, seed=None):
+        return KerasIterator(self, img_files,
+                             mode=mode,
+                             target_size=target_size,
+                             batch_size=batch_size,
+                             shuffle=shuffle,
+                             seed=seed,
+                             data_format=None)
+
+
+class KerasIterator(Iterator):
+    def __init__(self, image_data_generator, img_files,
+                 mode='fit',
+                 target_size=(256, 256),
+                 batch_size=32, shuffle=None, seed=None,
+                 data_format=None):
+
+        self.target_size = tuple(target_size)
+
+        if data_format is None:
+            self.data_format = K.image_data_format()
+
+        if self.data_format == 'channels_last':
+            self.image_shape = self.target_size + (3,)
+        else:
+            self.image_shape = (3,) + self.target_size
+
+        self.image_data_generator = image_data_generator
+
+        self.img_files = img_files
+        self.mode = mode
+        self.labels = np.array(get_labels(img_files), dtype=np.int8)
+
+        # Init parent class
+        super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)
+
+    def _get_batches_of_transformed_samples(self, index_array):
+        # The transformation of images is not under thread lock
+        # so it can be done in parallel
+        batch_x = np.zeros((len(index_array),) + self.image_shape, dtype=K.floatx())
+
+        # Build batch of images
+        for i, j in enumerate(index_array):
+            fpath = self.img_files[j]
+            img = load_img(fpath, target_size=self.target_size)
+            x = img_to_array(img, data_format=self.data_format)
+            # x = self.image_data_generator.random_transform(x)
+            # x = self.image_data_generator.standardize(x)
+            batch_x[i] = x
+
+        # Build batch of labels.
+        if self.mode == 'fit':
+            batch_y = self.labels[index_array]
+            return batch_x, batch_y
+        elif self.mode == 'predict':
+            return batch_x
+        else:
+            raise ValueError('The mode should be either \'fit\' or \'predict\'')
+
+    def next(self):
+        """For python 2.x.
+
+        # Returns
+            The next batch.
+        """
+        with self.lock:
+            index_array = next(self.index_generator)
+        # The transformation of images is not under thread lock
+        # so it can be done in parallel
+        return self._get_batches_of_transformed_samples(index_array)
+
+
 
 
 def read_and_save_checkpoint(checkpoint_path, save_path):

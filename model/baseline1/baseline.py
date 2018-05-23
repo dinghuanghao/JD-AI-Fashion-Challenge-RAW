@@ -15,12 +15,13 @@ from util import metrics
 
 RESOLUTION = 128
 THRESHOLD = 0.2
-EPOCH = 200
+EPOCH = 1
 TRAIN_BATCH_SIZE = 32
+VAL_BATCH_SIZE = 256
 PREDICT_BATCH_SIZE = 256
 
-BASE_DIR = "./record/3/"
-MODEL_FILE = BASE_DIR + 'weights.40-0.73.hdf5'
+BASE_DIR = "./record/5/"
+MODEL_FILE = BASE_DIR + 'base-weights.23-0.73.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 
 train_files, val_files = data_loader.get_k_fold_files("baseline.txt", 1, [config.DATA_TYPE_ORIGINAL])
@@ -29,18 +30,18 @@ train_files, val_files = data_loader.get_k_fold_files("baseline.txt", 1, [config
 # train_files = train_files[:64]
 # val_files = val_files[:64]
 
-x_train = []
-x_valid = []
-for file in tqdm(train_files, miniters=64):
-    img = cv2.imread(file)
-    x_train.append(cv2.resize(img, (RESOLUTION, RESOLUTION)))
-
-for file in tqdm(val_files, miniters=64):
-    img = cv2.imread(file)
-    x_valid.append(cv2.resize(img, (RESOLUTION, RESOLUTION)))
-
-x_train = np.array(x_train, np.float16) / 255.
-x_valid = np.array(x_valid, np.float16) / 225.
+# x_train = []
+# x_valid = []
+# for file in tqdm(train_files, miniters=64):
+#     img = cv2.imread(file)
+#     x_train.append(cv2.resize(img, (RESOLUTION, RESOLUTION)))
+#
+# for file in tqdm(val_files, miniters=64):
+#     img = cv2.imread(file)
+#     x_valid.append(cv2.resize(img, (RESOLUTION, RESOLUTION)))
+#
+# x_train = np.array(x_train, np.float16) / 255.
+# x_valid = np.array(x_valid, np.float16) / 225.
 
 y_train = data_loader.get_labels(train_files)
 y_valid = data_loader.get_labels(val_files)
@@ -48,8 +49,8 @@ y_valid = data_loader.get_labels(val_files)
 y_train = np.array(y_train, np.bool)
 y_valid = np.array(y_valid, np.bool)
 
-print(x_train.shape, y_train.shape)
-print(x_valid.shape, y_valid.shape)
+# print(x_train.shape, y_train.shape)
+# print(x_valid.shape, y_valid.shape)
 
 
 def get_model():
@@ -67,8 +68,8 @@ def get_model():
     model.add(BatchNormalization())
     model.add(Dense(13, activation='sigmoid'))
 
-    model.compile(loss=metrics.f2_score_loss,
-                  optimizer=keras.optimizers.SGD(lr=0.0001, momentum=0.9),
+    model.compile(loss="binary_crossentropy",
+                  optimizer="Adam",
                   metrics=['accuracy', metrics.smooth_f2_score])
 
     # 通过模块文件，读取完整的模型
@@ -87,12 +88,26 @@ def train(model):
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
                                                  monitor="val_smooth_f2_score",
                                                  save_weights_only=True)
-    model.fit(x_train, y_train,
-              batch_size=TRAIN_BATCH_SIZE,
-              epochs=EPOCH,
-              verbose=1,
-              validation_data=(x_valid, y_valid),
-              callbacks=[tensorboard, checkpoint])
+    train_datagen = data_loader.KerasGenerator().flow_from_files(train_files, mode="fit",
+                                                                 target_size=(RESOLUTION, RESOLUTION),
+                                                                 batch_size=TRAIN_BATCH_SIZE)
+    val_datagen = data_loader.KerasGenerator().flow_from_files(val_files, mode="fit",
+                                                               target_size=(RESOLUTION, RESOLUTION),
+                                                               batch_size=VAL_BATCH_SIZE)
+    model.fit_generator(generator=train_datagen,
+                        steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+                        epochs=EPOCH,
+                        validation_data=val_datagen,
+                        validation_steps=len(val_files)/VAL_BATCH_SIZE,
+                        workers=16,
+                        verbose=1,
+                        callbacks=[tensorboard, checkpoint])
+    # model.fit(x_train, y_train,
+    #           batch_size=TRAIN_BATCH_SIZE,
+    #           epochs=EPOCH,
+    #           verbose=1,
+    #           validation_data=(x_valid, y_valid),
+    #           callbacks=[tensorboard, checkpoint])
     print("####### train model spend %d seconds #######" % (time.time() - start))
 
 
@@ -124,6 +139,7 @@ def evaluate(model, files, x, y):
 
 def evaluate_all(path, model, x, y):
     files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+    sample_number = len(x)
     for weight_file in tqdm(files):
         if weight_file.split(".")[-1] == "hdf5":
             model.load_weights(BASE_DIR + weight_file)
@@ -134,13 +150,13 @@ def evaluate_all(path, model, x, y):
             f2_basinhopping, threshold = metrics.best_f2_score(y, y_pred)
             with open(path + "predict_all.txt", "a") as f:
                 f.write(
-                    "[%s]\t F2_smooth=%.4f,  F2_0.2=%.4f,  F2_basinhopping=%.4f\n" % (
-                        weight_file, f2_smooth, f2_2, f2_basinhopping))
+                    "[%s]\t Sample=%d F2_smooth=%.4f,  F2_0.2=%.4f,  F2_basinhopping=%.4f\n" % (
+                        weight_file, sample_number, f2_smooth, f2_2, f2_basinhopping))
 
 
 model = get_model()
 # model.load_weights(MODEL_FILE)
 train(model)
-evaluate_all(BASE_DIR, model, x_valid, y_valid)
+# evaluate_all(BASE_DIR, model, x_valid, y_valid)
 # evaluate(model, val_files, x_valid, y_valid)
 # evaluate(model, train_files, x_train, y_train)
