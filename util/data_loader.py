@@ -8,6 +8,7 @@ import keras.backend as K
 import numpy as np
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator, Iterator, load_img, img_to_array
+from tqdm import tqdm
 
 import config
 from util import path
@@ -32,6 +33,42 @@ class KerasGenerator(ImageDataGenerator):
                              shuffle=shuffle,
                              seed=seed,
                              data_format=None)
+
+    def calc_image_mean_std(self, img_files, rescale, resolution):
+        # Computing mean and variance using Welford's algorithm for one pass only and numerical stability.
+
+        shape = (resolution, resolution, 3)
+
+        mean = np.zeros(shape, dtype=np.float32)
+        M2 = np.zeros(shape, dtype=np.float32)
+
+        print('Computing mean and standard deviation on the dataset')
+        for n, file in enumerate(tqdm(img_files, miniters=256), 1):
+            img = cv2.imread(os.path.join(file)).astype(np.float32)
+            img = cv2.resize(img, (resolution, resolution))
+            img *= rescale
+            delta = img - mean
+            mean += delta / n
+            delta2 = img - mean
+            M2 += delta * delta2
+
+        self.mean = mean
+        self.std = M2 / (len(img_files) - 1)
+
+        print("Calc image mean with shape: " + str(self.mean.shape))
+        print("Calc image std with shape: " + str(self.std.shape))
+
+    def save_image_mean_std(self, path_mean, path_std):
+        if self.mean is None or self.std is None:
+            raise ValueError('Mean and Std must be computed before, fit the generator first')
+        np.save(path_mean, self.mean)
+        np.save(path_std, self.std)
+
+    def load_image_mean_std(self, path_mean, path_std):
+        self.mean = np.load(path_mean)
+        self.std = np.load(path_std)
+        print("Load image mean with shape: " + str(self.mean.shape))
+        print("Load image std with shape: " + str(self.std.shape))
 
 
 class KerasIterator(Iterator):
@@ -67,11 +104,11 @@ class KerasIterator(Iterator):
 
         # Build batch of images
         for i, j in enumerate(index_array):
-            fpath = self.img_files[j]
-            img = load_img(fpath, target_size=self.target_size)
+            file = self.img_files[j]
+            img = load_img(file, target_size=self.target_size)
             x = img_to_array(img, data_format=self.data_format)
-            # x = self.image_data_generator.random_transform(x)
-            # x = self.image_data_generator.standardize(x)
+            x = self.image_data_generator.random_transform(x)
+            x = self.image_data_generator.standardize(x)
             batch_x[i] = x
 
         # Build batch of labels.
@@ -94,8 +131,6 @@ class KerasIterator(Iterator):
         # The transformation of images is not under thread lock
         # so it can be done in parallel
         return self._get_batches_of_transformed_samples(index_array)
-
-
 
 
 def read_and_save_checkpoint(checkpoint_path, save_path):
@@ -289,11 +324,13 @@ def remove_image_name_header(dir):
             os.rename(os.path.join(dir, i),
                       os.path.join(dir, name_target))
 
+
 def image_repair():
     names = list_image_dir(path.ORIGINAL_TRAIN_IMAGES_PATH)
-    for name in  names:
+    for name in names:
         img = cv2.imread(name)
         cv2.imwrite(name, img)
+
 
 if __name__ == '__main__':
     image_repair()
