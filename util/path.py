@@ -4,7 +4,7 @@ import pathlib
 import config
 import util
 
-root_path = "\\".join(util.__file__.split("\\")[:-2])
+root_path = os.sep.join(util.__file__.split(os.sep)[:-2])
 ROOT_PATH = os.path.abspath(root_path)
 DATA_PATH = os.path.join(ROOT_PATH, "data")
 TRAINING_RECORD_PATH = os.path.join(ROOT_PATH, "record")
