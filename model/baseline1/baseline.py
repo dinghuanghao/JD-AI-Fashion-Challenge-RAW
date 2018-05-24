@@ -13,14 +13,14 @@ from util import path
 
 RESOLUTION = 224
 THRESHOLD = 0.2
-EPOCH = 15
+EPOCH = 20
 TRAIN_BATCH_SIZE = 32
 VAL_BATCH_SIZE = 256
 PREDICT_BATCH_SIZE = 256
 
 K_FOLD_FILE = "1.txt"
 VAL_INDEX = 1
-BASE_DIR = "./record/2/"
+BASE_DIR = "./record/3/"
 MODEL_FILE = BASE_DIR + 'weights.015-0.8075.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 
@@ -34,28 +34,10 @@ train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
 # train_files = train_files[:64]
 # val_files = val_files[:64]
 
-# x_train = []
-# x_valid = []
-# for file in tqdm(train_files, miniters=64):
-#     img = cv2.imread(file)
-#     x_train.append(cv2.resize(img, (RESOLUTION, RESOLUTION)))
-#
-# for file in tqdm(val_files, miniters=64):
-#     img = cv2.imread(file)
-#     x_valid.append(cv2.resize(img, (RESOLUTION, RESOLUTION)))
-#
-# x_train = np.array(x_train, np.float16) / 255.
-# x_valid = np.array(x_valid, np.float16) / 225.
 
-y_train = data_loader.get_labels(train_files)
-y_valid = data_loader.get_labels(val_files)
+y_train = np.array(data_loader.get_labels(train_files), np.bool)
+y_valid = np.array(data_loader.get_labels(val_files), np.bool)
 
-y_train = np.array(y_train, np.bool)
-y_valid = np.array(y_valid, np.bool)
-
-
-# print(x_train.shape, y_train.shape)
-# print(x_valid.shape, y_valid.shape)
 
 def get_resnet():
     base_model = keras.applications.ResNet50(weights="imagenet", include_top=False)
@@ -65,14 +47,12 @@ def get_resnet():
     predictions = Dense(13, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.SGD(lr=1e-2, momentum=0.9, decay=0.0005),
+                  optimizer=keras.optimizers.SGD(lr=0.0001, momentum=0.9),
                   metrics=['accuracy', metrics.smooth_f2_score])
     return model
 
 
 def train(model):
-    start = time.time()
-    # 模型可视化，每一次保存会占用几秒钟
     tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
                                                  monitor="val_smooth_f2_score",
@@ -96,6 +76,7 @@ def train(model):
     check_mean_std_file(train_datagen)
     train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
     val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+
     train_flow = train_datagen.flow_from_files(train_files, mode="fit",
                                                target_size=(RESOLUTION, RESOLUTION),
                                                batch_size=TRAIN_BATCH_SIZE)
@@ -103,6 +84,8 @@ def train(model):
                                            target_size=(RESOLUTION, RESOLUTION),
                                            batch_size=VAL_BATCH_SIZE)
 
+    start = time.time()
+    print("####### start train model #######")
     model.fit_generator(generator=train_flow,
                         steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
                         epochs=EPOCH,
@@ -112,7 +95,6 @@ def train(model):
                         verbose=1,
                         callbacks=[tensorboard, checkpoint])
 
-    train_datagen.save_image_mean_std('train_256_mean.npy', 'train_256_std.npy')
     print("####### train model spend %d seconds #######" % (time.time() - start))
 
 
@@ -136,7 +118,10 @@ def evaluate(model: keras.Model, pre_files, y):
                                            target_size=(RESOLUTION, RESOLUTION),
                                            batch_size=PREDICT_BATCH_SIZE)
 
-    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / PREDICT_BATCH_SIZE)
+    start = time.time()
+    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / PREDICT_BATCH_SIZE, verbose=1)
+    print("####### predict %d images spend %d seconds ######"
+          % (len(pre_files), time.time() - start))
 
     start = time.time()
     best_score, threshold = metrics.best_f2_score(y, y_pred)
@@ -177,10 +162,8 @@ def evaluate_all(path, model, x, y):
                         weight_file, sample_number, f2_smooth, f2_2, f2_basinhopping))
 
 
-# model = get_model()
 model = get_resnet()
 # model.load_weights(MODEL_FILE)
-# train(model)
-# evaluate_all(BASE_DIR, model, val_files, y_valid)
+train(model)
 evaluate(model, train_files, y_train)
 # evaluate(model, train_files, x_train, y_train)
