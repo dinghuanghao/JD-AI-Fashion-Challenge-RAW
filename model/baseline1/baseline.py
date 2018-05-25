@@ -1,9 +1,11 @@
+
 import os
 import time
 
 import keras
 import numpy as np
-from keras.layers import Dense, GlobalAveragePooling2D
+from keras import Sequential
+from keras.layers import Dense, GlobalAveragePooling2D, Conv2D, BatchNormalization, MaxPooling2D, Flatten
 from tqdm import tqdm
 
 import config
@@ -15,13 +17,13 @@ RESOLUTION = 224
 THRESHOLD = 0.2
 EPOCH = 20
 TRAIN_BATCH_SIZE = 32
-VAL_BATCH_SIZE = 256
-PREDICT_BATCH_SIZE = 256
+VAL_BATCH_SIZE = 128
+PREDICT_BATCH_SIZE = 128
 
 K_FOLD_FILE = "1.txt"
 VAL_INDEX = 1
-BASE_DIR = "./record/3/"
-MODEL_FILE = BASE_DIR + 'weights.015-0.8075.hdf5'
+BASE_DIR = "./record/5/"
+MODEL_FILE = BASE_DIR + 'weights.018-0.7310.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 
 IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION)
@@ -31,13 +33,38 @@ train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
                                                       [config.DATA_TYPE_ORIGINAL, config.DATA_TYPE_SEGMENTED])
 
 # # 取少量数据看模型是否run的起来
-# train_files = train_files[:64]
+train_files = train_files[:128]
 # val_files = val_files[:64]
 
 
 y_train = np.array(data_loader.get_labels(train_files), np.bool)
 y_valid = np.array(data_loader.get_labels(val_files), np.bool)
+def get_model():
+    model = Sequential()
+    model.add(Conv2D(32, kernel_size=(3, 3),
+                     activation='relu',
+                     input_shape=(RESOLUTION, RESOLUTION, 3)))
+    model.add(BatchNormalization())
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(BatchNormalization())
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(BatchNormalization())
+    model.add(Flatten())
+    model.add(Dense(128, activation='relu'))
+    model.add(BatchNormalization())
+    model.add(Dense(13, activation='sigmoid'))
 
+    model.compile(loss="binary_crossentropy",
+                  optimizer=keras.optimizers.SGD(lr=0.0001, momentum=0.9),
+                  metrics=['accuracy', metrics.smooth_f2_score])
+
+    # 通过模块文件，读取完整的模型
+    # if os.path.isfile(MODEL_FILE):
+    #     print('####### Loading model from cache #######')
+    #     model = load_model(MODEL_FILE, custom_objects={'smooth_f2_score': metrics.smooth_f2_score,
+    #                                                    'logloss_and_f2score': metrics.logloss_and_f2score})
+
+    return model
 
 def get_resnet():
     base_model = keras.applications.ResNet50(weights="imagenet", include_top=False)
@@ -57,25 +84,26 @@ def train(model):
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
                                                  monitor="val_smooth_f2_score",
                                                  save_weights_only=True)
+    train_datagen = data_loader.KerasGenerator()
+    val_datagen = data_loader.KerasGenerator()
+    # train_datagen = data_loader.KerasGenerator(featurewise_center=True,
+    #                                            featurewise_std_normalization=True,
+    #                                            width_shift_range=0.15,
+    #                                            horizontal_flip=True,
+    #                                            rotation_range=15,
+    #                                            rescale=config.IMAGE_RESCALE
+    #                                            )
+    # val_datagen = data_loader.KerasGenerator(featurewise_center=True,
+    #                                          featurewise_std_normalization=True,
+    #                                          width_shift_range=0.15,
+    #                                          horizontal_flip=True,
+    #                                          rotation_range=15,
+    #                                          rescale=config.IMAGE_RESCALE
+    #                                          )
 
-    train_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                               featurewise_std_normalization=True,
-                                               width_shift_range=0.15,
-                                               horizontal_flip=True,
-                                               rotation_range=15,
-                                               rescale=config.IMAGE_RESCALE
-                                               )
-    val_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                             featurewise_std_normalization=True,
-                                             width_shift_range=0.15,
-                                             horizontal_flip=True,
-                                             rotation_range=15,
-                                             rescale=config.IMAGE_RESCALE
-                                             )
-
-    check_mean_std_file(train_datagen)
-    train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-    val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    # check_mean_std_file(train_datagen)
+    # train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    # val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
     train_flow = train_datagen.flow_from_files(train_files, mode="fit",
                                                target_size=(RESOLUTION, RESOLUTION),
@@ -107,12 +135,13 @@ def check_mean_std_file(datagen: data_loader.KerasGenerator):
 def evaluate(model: keras.Model, pre_files, y):
     from sklearn.metrics import fbeta_score
 
-    pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                             featurewise_std_normalization=True,
-                                             rescale=1. / 255
-                                             )
-    check_mean_std_file(pre_datagen)
-    pre_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    pre_datagen = data_loader.KerasGenerator()
+    # pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
+    #                                          featurewise_std_normalization=True,
+    #                                          rescale=1. / 255
+    #                                          )
+    # check_mean_std_file(pre_datagen)
+    # pre_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
     pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
                                            target_size=(RESOLUTION, RESOLUTION),
@@ -161,9 +190,9 @@ def evaluate_all(path, model, x, y):
                     "[%s]\t Sample=%d F2_smooth=%.4f,  F2_0.2=%.4f,  F2_basinhopping=%.4f\n" % (
                         weight_file, sample_number, f2_smooth, f2_2, f2_basinhopping))
 
-
-model = get_resnet()
-# model.load_weights(MODEL_FILE)
-train(model)
-evaluate(model, train_files, y_train)
+model = get_model()
+# model = get_resnet()
+model.load_weights(MODEL_FILE)
+# train(model)
+evaluate(model, val_files, y_valid)
 # evaluate(model, train_files, x_train, y_train)
