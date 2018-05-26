@@ -12,7 +12,7 @@
 
   + 参照下方的 “模型”
 
-+ 运行model文件，例如运行 model/resnet1/resnet50.py
++ 运行model文件，例如运行 model/estimator/resnet1/resnet50.py
 
 + 运行tensorboard查看训练状况
 
@@ -21,42 +21,60 @@
   ```bash
   tensorboard --logdir=.
   ```
-
-
+  
 
 ## 模型
 
 ### 目录结构
 
-model目录下的每一个子目录，表示一个模型，这样划分的目的是每一个模型都有自己的训练记录（不同输入大小、loss函数等，均算作不同的模型，因为他们之间无法直接共享参数，且如果混在一起之后，打破了参数调整的隔离性），便于独立分析每一种算法、每一套超参数，例如：
++ model下分为estimator和keras，分别代表两种套API相关的模型
 
-+ resnet1：采用resnet50模型，输入大小为224*224，去掉了最后的softmax层，新增一个sigmoid
-  + record：训练记录，用于可视化和权重恢复
-    + 1：第一份记录（创建ModelConfig时，通过record_sub_dir参数设置）
-    + 2：第二份记录
-    + ……
-  + resnet50.py：模型的代码
-+ resnet2：采用resnet50模型，输入大小为48*48，去掉了最后的softmax层，新增一个sigmoid
-  + record：训练记录，用于可视化和权重恢复    
-  + resnet50.py：模型的代码
-+ ……
++ estimator下每个文件代表一个模型，模型下的record目录用于存储训练结果
+
++ keras下每个目录代表一类模型，然后问一个文件夹中包括了该类模型的不同实例（不同的超参数、不同的局部结构、不同的优化方式、不同的数据类型）。每个实例均有一个record目录用于保存所有结果。
+
+  |------baseline
+
+  ​	|-----1
+
+  ​		|------record
+
+  ​		|------baseline.py
+
+  |------resnet50
+
+  ​	|-----1
+
+  ​		|------record
+
+  ​		|------resnet50.py
+
+  ​	|---------2
+
+  ​		|------record
+
+  ​		|------resnet50.py
+
+  ​	|---------3
+
+  ​		|------record
+
+  ​		|------resnet50.py
+
+
+
+keras下的目录结构为每一套超参数、细微的改动都创建一个新的文件夹，确保了代码和训练结果的一一对应。
 
 ### 模型编写
 
-#### 框架选型
-
-经过tflayter、keras的对比后，最终选用keras + Estimator的方案。
-
-Estimator是tensorflow官方推荐的一种模式，它有一些好处：
-
-+ 会自动的对训练过程进行记录和自动加载
-+ 支持分布式训练
-+ ……
-
 #### 模型编写
 
-可参考model/resnet50/resnet1/resnet50.py
+如果使用keras + estimator API那么可参考model/estimator/resnet50/resnet1/resnet50.py
 
 + 编写keras模型，并加载预训练模型
 + keras转为estimator，并配置checkpoint（模型自动保存）、summary（模型可视化间隔）
 + 修改模型的配置ModelConfig()，包含训练数据集、k-fold划分、epoch等，ModelConfig会自动保存到recored/n/目录下，记录每次训练的详细参数和起止时间。这样在不停修改参数并增量地训练时，可用对照Tensorboard曲线和时间段来分析参数的效果。
+
+
+
+如果使用keras API那么可参考model/keras/baseline/1/baseline.py
