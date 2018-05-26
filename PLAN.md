@@ -187,6 +187,8 @@ BCE+F2=SCORE：
 
 ## 迁移学习问题
 
+### estimator API修改模型结构问题
+
 一开始freeze住预训练模型后，进行训练。然后打开部分预训练模型，发现抛出以下异常。在stackoverflow上查看了一下，问题是因为SGD+Momentum算法有内部参数，这导致打开预训练层后，对应的层数找不到对应的SGD参数。
 
 更深层次的原有，可能是因为Tensorflow的Checkpoint机制要求，参数的完全匹配。Checkpoint里的参数既不能比当前Graph中的参数多，也不能少（两种情况下都会出问题）。而相比之下，keras的model加载，因为只保存了网络的权重，因此不会受优化算法的变量所影响。
@@ -233,5 +235,8 @@ During handling of the above exception, another exception occurred:
 
 ………………
 
-
 Process finished with exit code 1
+
+### include top 和非 include top
+
+除了最后两层外，前面的参数是否存在差异？似乎使用include top的训练效果更好（手动去掉后两层）
