@@ -1,6 +1,16 @@
 # statistics
 存放图片的统计信息，用于在训练的时候对图像进行标准化。本目录下的所有统计，均基于1.txt(k_fold文件)进行数据划分
 
-当validation为1，train为2， 3， 4， 5时，对train的统计如下：
-+ val_1_train_256_mean_224_224.npy：将图片值缩放到[0, 1]，尺寸缩放到(224, 224)，统计其均值
-+ val_1_train_256_std_224_224.npy：将图片值缩放到[0, 1]，尺寸缩放到(224, 224)，统计其标准差
+val_1_train_1_mean_224_224_['segmented'].npy
++ val index 为 1
++ 图片值scale比例为1（不对值进行归一化）
++ 求图片均值（mean）
++ 图片尺寸为224, 224
++ 仅仅对segmented数据进行处理
+
+val_1_train_1_std_224_224_['segmented'].npy
++ val index 为 1
++ 图片值scale比例为1（不对值进行归一化）
++ 求图片的标准差（std）
++ 图片尺寸为224, 224
++ 仅仅对segmented数据进行处理

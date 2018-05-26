@@ -107,6 +107,7 @@ class KerasIterator(Iterator):
             file = self.img_files[j]
             img = load_img(file, target_size=self.target_size)
             x = img_to_array(img, data_format=self.data_format)
+            # 此处不明白，为什么要先transform再进行standardize（图片如果旋转了，那么）
             x = self.image_data_generator.random_transform(x)
             x = self.image_data_generator.standardize(x)
             batch_x[i] = x

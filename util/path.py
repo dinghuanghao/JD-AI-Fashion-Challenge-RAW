@@ -30,19 +30,19 @@ SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
 
 
-def get_image_mean_file(k_fold_file, val_index, resolution):
+def get_image_mean_file(k_fold_file, val_index, resolution, rescale=256, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
         .mkdir(parents=True, exist_ok=True)
 
     return os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]),
-                        "val_%d_train_256_mean_%d_%d.npy" % (val_index, resolution, resolution))
+                        "val_%d_train_%d_mean_%d_%d_%s.npy" % (val_index, int(rescale), resolution, resolution, str(data_type)))
 
 
-def get_image_std_file(k_fold_file, val_index, resolution):
+def get_image_std_file(k_fold_file, val_index, resolution, rescale=256, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
         .mkdir(parents=True, exist_ok=True)
     return os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]),
-                        "val_%d_train_256_std_%d_%d.npy" % (val_index, resolution, resolution))
+                        "val_%d_train_%d_std_%d_%d_%s.npy" % (val_index, int(rescale), resolution, resolution, str(data_type)))
 
 
 def get_train_data_path(data_type):
