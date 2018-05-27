@@ -7,7 +7,7 @@ import cv2
 import keras.backend as K
 import numpy as np
 import tensorflow as tf
-from keras.preprocessing.image import ImageDataGenerator, Iterator, load_img, img_to_array
+from keras.preprocessing.image import ImageDataGenerator, Iterator, load_img, img_to_array, array_to_img
 from tqdm import tqdm
 
 import config
@@ -25,12 +25,19 @@ class KerasGenerator(ImageDataGenerator):
     def flow_from_files(self, img_files,
                         mode='fit',
                         target_size=(256, 256),
-                        batch_size=32, shuffle=False, seed=None):
+                        batch_size=32,
+                        save_to_dir=None,
+                        save_prefix='',
+                        save_format='png',
+                        shuffle=False, seed=None):
         return KerasIterator(self, img_files,
                              mode=mode,
                              target_size=target_size,
                              batch_size=batch_size,
                              shuffle=shuffle,
+                             save_to_dir=save_to_dir,
+                             save_prefix=save_prefix,
+                             save_format=save_format,
                              seed=seed,
                              data_format=None)
 
@@ -76,6 +83,7 @@ class KerasIterator(Iterator):
                  mode='fit',
                  target_size=(256, 256),
                  batch_size=32, shuffle=None, seed=None,
+                 save_to_dir=None, save_prefix='', save_format='png',
                  data_format=None):
 
         self.target_size = tuple(target_size)
@@ -89,7 +97,9 @@ class KerasIterator(Iterator):
             self.image_shape = (3,) + self.target_size
 
         self.image_data_generator = image_data_generator
-
+        self.save_to_dir = save_to_dir
+        self.save_prefix = save_prefix
+        self.save_format = save_format
         self.img_files = img_files
         self.mode = mode
         self.labels = np.array(get_labels(img_files), dtype=np.int8)
@@ -107,10 +117,18 @@ class KerasIterator(Iterator):
             file = self.img_files[j]
             img = load_img(file, target_size=self.target_size)
             x = img_to_array(img, data_format=self.data_format)
-            # 此处不明白，为什么要先transform再进行standardize（图片如果旋转了，那么）
             x = self.image_data_generator.random_transform(x)
             x = self.image_data_generator.standardize(x)
             batch_x[i] = x
+
+        if self.save_to_dir:
+            for i, j in enumerate(index_array):
+                img = array_to_img(batch_x[i], self.data_format, scale=True)
+                fname = '{prefix}_{index}_{hash}.{format}'.format(prefix=self.save_prefix,
+                                                                  index=j,
+                                                                  hash=np.random.randint(1e7),
+                                                                  format=self.save_format)
+                img.save(os.path.join(self.save_to_dir, fname))
 
         # Build batch of labels.
         if self.mode == 'fit':

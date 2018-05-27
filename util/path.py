@@ -14,6 +14,10 @@ K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")
 ORIGINAL_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_ORIGINAL)
 SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_SEGMENTED)
 
+DEBUG_TRAIN_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "train")
+DEBUG_VAL_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "val")
+
+
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
 
@@ -26,6 +30,7 @@ K_FOLD_TXT_PATH = os.path.join(TXT_PATH, "k-fold")
 TRAIN_DATA_TXT = os.path.join(TXT_PATH, "train.txt")
 TEST_DATA_TXT = os.path.join(TXT_PATH, "test.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
+
 
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
 
