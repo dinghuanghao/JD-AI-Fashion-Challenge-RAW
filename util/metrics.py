@@ -2,43 +2,69 @@ import keras.backend as K
 import numpy as np
 import tensorflow as tf
 
-weight_matrix = np.array(([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 7.7, 14.79, 43.9, 156]]), dtype=np.float32)
+weight_matrix = np.array(([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 7.7, 14.79, 43.9, 156]]),
+                         dtype=np.float32)
 
 
 def weighted_bce(y_true, y_pred):
-    #当标签的输出为1时，根据权重矩阵对其loss进行放大，当其为0时，权重为1。因为大量样本都是0，对其进行放大会导致更接近0
+    # 当标签的输出为1时，根据权重矩阵对其loss进行放大，当其为0时，权重为1。因为大量样本都是0，对其进行放大会导致更接近0
     weight = y_true * weight_matrix
     weight = tf.clip_by_value(weight, 1, np.max(weight_matrix))
 
     bce = K.binary_crossentropy(y_true, y_pred)
     print(bce.shape)
-    bce_wighted = bce*weight
+    bce_wighted = bce * weight
     return K.mean(bce_wighted, axis=-1)
 
+
 def average_1(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,1])
+    return tf.reduce_mean(y_pred[:, 1])
+
+
 def average_2(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,2])
+    return tf.reduce_mean(y_pred[:, 2])
+
+
 def average_3(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,3])
+    return tf.reduce_mean(y_pred[:, 3])
+
+
 def average_4(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,4])
+    return tf.reduce_mean(y_pred[:, 4])
+
+
 def average_5(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,5])
+    return tf.reduce_mean(y_pred[:, 5])
+
+
 def average_6(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,6])
+    return tf.reduce_mean(y_pred[:, 6])
+
+
 def average_7(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,7])
+    return tf.reduce_mean(y_pred[:, 7])
+
+
 def average_8(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,8])
+    return tf.reduce_mean(y_pred[:, 8])
+
+
 def average_9(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,9])
+    return tf.reduce_mean(y_pred[:, 9])
+
+
 def average_10(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,10])
+    return tf.reduce_mean(y_pred[:, 10])
+
+
 def average_11(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,11])
+    return tf.reduce_mean(y_pred[:, 11])
+
+
 def average_12(y_true, y_pred):
-    return tf.reduce_mean(y_pred[:,12])
+    return tf.reduce_mean(y_pred[:, 12])
+
+
 def average_13(y_true, y_pred):
     return tf.reduce_mean(y_pred[:, 13])
 
@@ -75,7 +101,8 @@ def recall(y_true, y_pred):
 def f2_score_loss(y_true, y_pred):
     return 1 - smooth_f2_score(y_true, y_pred)
 
-def smooth_f2_score_np(y_true:np.ndarray, y_pred:np.ndarray, epsilon = 1e-9):
+
+def smooth_f2_score_np(y_true: np.ndarray, y_pred: np.ndarray, epsilon=1e-9):
     y_true = y_true.astype(y_pred.dtype)
     y_correct = y_true * y_pred
     sum_true = np.sum(y_true, axis=-1)
@@ -86,6 +113,7 @@ def smooth_f2_score_np(y_true:np.ndarray, y_pred:np.ndarray, epsilon = 1e-9):
     f2_score = 5 * precision * recall / (4 * precision + recall + epsilon)
     f2_score = np.where(np.isnan(f2_score), np.zeros_like(f2_score), f2_score)
     return np.mean(f2_score)
+
 
 def smooth_f2_score(y_true, y_pred):
     y_true = tf.cast(y_true, y_pred.dtype)
@@ -153,3 +181,23 @@ def best_f2_score(true_labels, predictions):
 
     score = - opt_output.fun
     return score, opt_output.x
+
+
+def greedy_f2_score(y_true, y_pred):
+    threshold = [0.10] * 13
+    best_score = 0
+    best_threshold = [t for t in threshold]
+
+    for i in range(len(y_pred[0])):
+        threshold = [t for t in best_threshold]
+        # print("best threshold is %s" % str([str(t) for t in threshold]))
+        # print("search %dth label's threshold" % i)
+        for j in range(100):
+            threshold[i] = j / 100.
+            score = fbeta_score(y_true, (np.array(y_pred) > threshold).astype(np.int8), beta=2, average='samples')
+            if score > best_score:
+                best_score = score
+                best_threshold[i] = threshold[i]
+                # print("\tbest-score:%8f threshold:%s" % (best_score, str([str(t) for t in best_threshold])))
+
+    return best_score, best_threshold

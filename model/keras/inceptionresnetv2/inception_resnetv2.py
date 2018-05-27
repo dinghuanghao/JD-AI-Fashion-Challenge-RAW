@@ -1,11 +1,3 @@
-"""
-本模型的目的是尽可能地降低bias：
-1. 减小数据量，仅仅用Segmented数据，且不做随机样本生成
-2. 用BCE函数，加快收敛
-3. 使用BatchNorm加快收敛
-4. 第一阶段仅仅训练新增的后两层
-5. 第二阶段训练除了前20层的所有层
-"""
 import os
 import time
 
@@ -19,9 +11,11 @@ from util import metrics
 from util import path
 
 RESOLUTION = 224
-FIRST_EPOCH = 1
-SECOND_EPOCH = 10
+FIRST_EPOCH = 2
+SECOND_EPOCH = 5
 THIRD_EPOCH = 10
+FOURTH_EPOCH = 10
+
 TRAIN_BATCH_SIZE = 32
 VAL_BATCH_SIZE = 128
 PREDICT_BATCH_SIZE = 128
@@ -29,8 +23,7 @@ PREDICT_BATCH_SIZE = 128
 K_FOLD_FILE = "1.txt"
 VAL_INDEX = 1
 BASE_DIR = "./record/val1/"
-MODEL_FILE = BASE_DIR + 'weights.001.hdf5'
-MODEL_FILE2 = BASE_DIR + 'weights.002.hdf5'
+MODEL_FILE = BASE_DIR + 'weights.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 
 IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION, rescale=1,
@@ -40,6 +33,8 @@ IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION, res
 
 train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
                                                       [config.DATA_TYPE_SEGMENTED])
+
+# val_files = val_files[:128]
 
 y_train = np.array(data_loader.get_labels(train_files), np.bool)
 y_valid = np.array(data_loader.get_labels(val_files), np.bool)
@@ -67,7 +62,7 @@ def get_model(freeze_layers=None, lr=0.001):
     model.compile(loss="binary_crossentropy",
                   optimizer=keras.optimizers.Adam(lr),
                   metrics=['accuracy', metrics.smooth_f2_score])
-    model.summary()
+    print("model contains %d layers" % len(model.layers))
     return model
 
 
@@ -94,10 +89,13 @@ def evaluate(model: keras.Model, pre_files, y):
     y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / PREDICT_BATCH_SIZE, verbose=1)
     print("####### predict %d images spend %d seconds ######"
           % (len(pre_files), time.time() - start))
-
     start = time.time()
-    best_score, threshold = metrics.best_f2_score(y, y_pred)
-    print("####### search threshold spend %d seconds ######"
+    greedy_score, greedy_threshold = metrics.greedy_f2_score(y, y_pred)
+    print("####### search greedy threshold spend %d seconds ######"
+          % (time.time() - start))
+    start = time.time()
+    bs_score, bs_threshold = metrics.best_f2_score(y, y_pred)
+    print("####### search basonshopping threshold spend %d seconds ######"
           % (time.time() - start))
     print("####### Smooth F2-Score is %f #######"
           % metrics.smooth_f2_score_np(y, y_pred))
@@ -105,12 +103,20 @@ def evaluate(model: keras.Model, pre_files, y):
           % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
     print("####### F2-Score with threshold 0.1 is %f #######"
           % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
-    print("####### Best F2-Score is %f #######" % best_score)
+    print("####### Best F2-Score is %f #######" % bs_score)
+    print("####### Greedy F2-Score is %f #######" % greedy_score)
 
-    y_pred_best = (np.array(y_pred) > threshold).astype(np.int8)
+
+    if bs_score > greedy_score:
+        y_pred_best = (np.array(y_pred) > bs_threshold).astype(np.int8)
+    else:
+        y_pred_best = (np.array(y_pred) > greedy_threshold).astype(np.int8)
     with open(BASE_DIR + "evaluate.txt", "w+") as f:
-        f.write("threshold: ")
-        f.write(",".join([str(j) for j in threshold]))
+        f.write("basonshopping threshold: ")
+        f.write(",".join([str(j) for j in bs_threshold]))
+        f.write("\n")
+        f.write("greedy threshold: ")
+        f.write(",".join([str(j) for j in greedy_threshold]))
         f.write("\n")
         for i in range(len(pre_files)):
             f.write(pre_files[i])
@@ -119,88 +125,140 @@ def evaluate(model: keras.Model, pre_files, y):
             f.write("\n")
 
 
-tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
-checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
-                                             monitor="val_smooth_f2_score",
-                                             save_weights_only=True)
-
-train_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                           featurewise_std_normalization=True,
-                                           width_shift_range=0.15,
-                                           horizontal_flip=True,
-                                           rotation_range=15,
-                                           )
-val_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                         featurewise_std_normalization=True,
-                                         width_shift_range=0.15,
-                                         horizontal_flip=True,
-                                         rotation_range=15,
-                                         )
-
-check_mean_std_file(train_datagen)
-train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-
-train_flow = train_datagen.flow_from_files(train_files, mode="fit",
-                                           target_size=(RESOLUTION, RESOLUTION),
-                                           batch_size=TRAIN_BATCH_SIZE)
-val_flow = val_datagen.flow_from_files(val_files, mode="fit",
-                                       target_size=(RESOLUTION, RESOLUTION),
-                                       batch_size=VAL_BATCH_SIZE)
-
-model = get_model(lr=0.001)
-start = time.time()
-print("####### start train model #######")
-model.fit_generator(generator=train_flow,
-                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=FIRST_EPOCH,
-                    validation_data=val_flow,
-                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
-                    verbose=1,
-                    callbacks=[tensorboard, checkpoint])
-
-print("####### train model spend %d seconds #######" % (time.time() - start))
-model.save_weights(MODEL_FILE)
-del model
-
-model = get_model(freeze_layers=20, lr=0.0001)
-model.load_weights(MODEL_FILE)
-start = time.time()
-print("####### start train model #######")
-model.fit_generator(generator=train_flow,
-                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=FIRST_EPOCH + SECOND_EPOCH,
-                    initial_epoch=FIRST_EPOCH,
-                    validation_data=val_flow,
-                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
-                    verbose=1,
-                    callbacks=[tensorboard, checkpoint])
-print("####### train model spend %d seconds #######" % (time.time() - start))
-evaluate(model, val_files, y_valid)
-model.save_weights(MODEL_FILE2)
-del model
-
-model = get_model(freeze_layers=0, lr=0.00001)
-model.load_weights(MODEL_FILE2)
-start = time.time()
-print("####### start train model #######")
-model.fit_generator(generator=train_flow,
-                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=FIRST_EPOCH + SECOND_EPOCH + THIRD_EPOCH,
-                    initial_epoch=FIRST_EPOCH + SECOND_EPOCH,
-                    validation_data=val_flow,
-                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
-                    verbose=1,
-                    callbacks=[tensorboard, checkpoint])
-print("####### train model spend %d seconds #######" % (time.time() - start))
-evaluate(model, val_files, y_valid)
-
-
-
-
-# model = get_model()
-# model.load_weights("./record/val1/weights.012-0.8066.hdf5")
+# tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
+# checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
+#                                              monitor="val_smooth_f2_score",
+#                                              save_weights_only=True)
+#
+# train_datagen = data_loader.KerasGenerator(featurewise_center=True,
+#                                            featurewise_std_normalization=True,
+#                                            width_shift_range=0.15,
+#                                            horizontal_flip=True,
+#                                            rotation_range=15,
+#                                            )
+# val_datagen = data_loader.KerasGenerator(featurewise_center=True,
+#                                          featurewise_std_normalization=True,
+#                                          width_shift_range=0.15,
+#                                          horizontal_flip=True,
+#                                          rotation_range=15,
+#                                          )
+#
+# check_mean_std_file(train_datagen)
+# train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+# val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+#
+# train_flow = train_datagen.flow_from_files(train_files, mode="fit",
+#                                            target_size=(RESOLUTION, RESOLUTION),
+#                                            batch_size=TRAIN_BATCH_SIZE)
+# val_flow = val_datagen.flow_from_files(val_files, mode="fit",
+#                                        target_size=(RESOLUTION, RESOLUTION),
+#                                        batch_size=VAL_BATCH_SIZE)
+#
+# model = get_model(lr=0.001)
+# start = time.time()
+# print("####### start train model #######")
+# model.fit_generator(generator=train_flow,
+#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+#                     epochs=2,
+#                     validation_data=val_flow,
+#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
+#                     workers=16,
+#                     verbose=1,
+#                     callbacks=[tensorboard, checkpoint])
+#
+# print("####### train model spend %d seconds #######" % (time.time() - start))
+# model.save_weights(MODEL_FILE)
+# del model
+#
+# model = get_model(freeze_layers=600, lr=0.0003)
+# model.load_weights(MODEL_FILE)
+# start = time.time()
+# print("####### start train model #######")
+# model.fit_generator(generator=train_flow,
+#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+#                     epochs=7,
+#                     initial_epoch=2,
+#                     validation_data=val_flow,
+#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
+#                     workers=16,
+#                     verbose=1,
+#                     callbacks=[tensorboard, checkpoint])
+# print("####### train model spend %d seconds #######" % (time.time() - start))
 # evaluate(model, val_files, y_valid)
+# model.save_weights(MODEL_FILE)
+# del model
+#
+# model = get_model(freeze_layers=400, lr=0.00002)
+# model.load_weights(MODEL_FILE)
+# start = time.time()
+# print("####### start train model #######")
+# model.fit_generator(generator=train_flow,
+#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+#                     epochs=12,
+#                     initial_epoch=7,
+#                     validation_data=val_flow,
+#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
+#                     workers=16,
+#                     verbose=1,
+#                     callbacks=[tensorboard, checkpoint])
+# print("####### train model spend %d seconds #######" % (time.time() - start))
+# evaluate(model, val_files, y_valid)
+# model.save_weights(MODEL_FILE)
+# del model
+#
+# model = get_model(freeze_layers=200, lr=0.00001)
+# model.load_weights(MODEL_FILE)
+# start = time.time()
+# print("####### start train model #######")
+# model.fit_generator(generator=train_flow,
+#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+#                     epochs=17,
+#                     initial_epoch=12,
+#                     validation_data=val_flow,
+#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
+#                     workers=16,
+#                     verbose=1,
+#                     callbacks=[tensorboard, checkpoint])
+# print("####### train model spend %d seconds #######" % (time.time() - start))
+# evaluate(model, val_files, y_valid)
+# model.save_weights(MODEL_FILE)
+# del model
+#
+# model = get_model(freeze_layers=100, lr=0.00001)
+# model.load_weights(MODEL_FILE)
+# start = time.time()
+# print("####### start train model #######")
+# model.fit_generator(generator=train_flow,
+#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+#                     epochs=22,
+#                     initial_epoch=17,
+#                     validation_data=val_flow,
+#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
+#                     workers=16,
+#                     verbose=1,
+#                     callbacks=[tensorboard, checkpoint])
+# print("####### train model spend %d seconds #######" % (time.time() - start))
+# evaluate(model, val_files, y_valid)
+# model.save_weights(MODEL_FILE)
+# del model
+#
+# model = get_model(freeze_layers=0, lr=0.00001)
+# model.load_weights(MODEL_FILE)
+# start = time.time()
+# print("####### start train model #######")
+# model.fit_generator(generator=train_flow,
+#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+#                     epochs=27,
+#                     initial_epoch=22,
+#                     validation_data=val_flow,
+#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
+#                     workers=16,
+#                     verbose=1,
+#                     callbacks=[tensorboard, checkpoint])
+# print("####### train model spend %d seconds #######" % (time.time() - start))
+# evaluate(model, val_files, y_valid)
+
+
+model = get_model()
+model.load_weights("./record/val1/weights.008-0.7950.hdf5")
+evaluate(model, val_files, y_valid)
