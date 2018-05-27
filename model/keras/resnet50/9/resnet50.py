@@ -12,10 +12,7 @@ from util import data_loader
 from util import metrics
 
 RESOLUTION = 224
-FIRST_EPOCH = 1
-SECOND_EPOCH = 10
-THIRD_EPOCH = 5
-TRAIN_BATCH_SIZE = 32
+TRAIN_BATCH_SIZE = 128
 VAL_BATCH_SIZE = 512
 PREDICT_BATCH_SIZE = 512
 
@@ -32,7 +29,7 @@ y_train = np.array(data_loader.get_labels(train_files), np.bool)
 y_valid = np.array(data_loader.get_labels(val_files), np.bool)
 
 
-def get_model(freeze_layers=None, lr=0.001):
+def get_model(freeze_layers=None, lr=0.01):
     base_model = keras.applications.ResNet50(weights="imagenet", include_top=False,
                                              input_shape=(RESOLUTION, RESOLUTION, 3), pooling="avg")
     x = base_model.output
@@ -52,7 +49,7 @@ def get_model(freeze_layers=None, lr=0.001):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr),
+                  optimizer=keras.optimizers.SGD(lr, momentum=0.9,decay=0.0005),
                   metrics=['accuracy', metrics.smooth_f2_score])
     return model
 
@@ -113,12 +110,12 @@ val_flow = val_datagen.flow_from_files(val_files, mode="fit",
                                        batch_size=VAL_BATCH_SIZE,
                                        shuffle=True)
 
-model = get_model(lr=0.001)
+model = get_model(lr=0.01)
 start = time.time()
 print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=FIRST_EPOCH,
+                    epochs=1,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
                     workers=12,
@@ -129,42 +126,61 @@ print("####### train model spend %d seconds #######" % (time.time() - start))
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(freeze_layers=20, lr=0.0001)
+TRAIN_BATCH_SIZE = 64
+train_flow = train_datagen.flow_from_files(train_files, mode="fit",
+                                           target_size=(RESOLUTION, RESOLUTION),
+                                           batch_size=TRAIN_BATCH_SIZE,
+                                           shuffle=True)
+val_flow = val_datagen.flow_from_files(val_files, mode="fit",
+                                       target_size=(RESOLUTION, RESOLUTION),
+                                       batch_size=VAL_BATCH_SIZE,
+                                       shuffle=True)
+model = get_model(freeze_layers=0, lr=0.001)
 model.load_weights(MODEL_FILE)
 start = time.time()
 print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=FIRST_EPOCH + SECOND_EPOCH,
-                    initial_epoch=FIRST_EPOCH,
+                    epochs=10,
+                    initial_epoch=1,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=12,
+                    workers=14,
                     verbose=1,
                     callbacks=[tensorboard, checkpoint])
 print("####### train model spend %d seconds #######" % (time.time() - start))
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(freeze_layers=0, lr=0.00001)
+TRAIN_BATCH_SIZE = 64
+train_flow = train_datagen.flow_from_files(train_files, mode="fit",
+                                           target_size=(RESOLUTION, RESOLUTION),
+                                           batch_size=TRAIN_BATCH_SIZE,
+                                           shuffle=True)
+val_flow = val_datagen.flow_from_files(val_files, mode="fit",
+                                       target_size=(RESOLUTION, RESOLUTION),
+                                       batch_size=VAL_BATCH_SIZE,
+                                       shuffle=True)
+model = get_model(freeze_layers=0, lr=0.0001)
 model.load_weights(MODEL_FILE)
 start = time.time()
 print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=FIRST_EPOCH + SECOND_EPOCH + THIRD_EPOCH,
-                    initial_epoch=FIRST_EPOCH + SECOND_EPOCH,
+                    epochs=20,
+                    initial_epoch=10,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
+                    workers=14,
                     verbose=1,
                     callbacks=[tensorboard, checkpoint])
 print("####### train model spend %d seconds #######" % (time.time() - start))
-evaluate(model, val_files, y_valid)
-del model
 
+#
 # model = get_model()
-# model.load_weights("./record/val1/weights.012.hdf5")
+# model.load_weights("./record/val1/weights.006.hdf5")
 # evaluate(model, val_files, y_valid)
-# model.load_weights("./record/val1/weights.014.hdf5")
+# model.load_weights("./record/val1/weights.007.hdf5")
+# evaluate(model, val_files, y_valid)
+# model.load_weights("./record/val1/weights.008.hdf5")
 # evaluate(model, val_files, y_valid)
