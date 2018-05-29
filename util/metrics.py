@@ -142,14 +142,17 @@ from timeit import default_timer as timer
 logger = logging.getLogger("Planet-Amazon")
 
 
-def best_f2_score(true_labels, predictions):
+def best_f2_score(true_labels, predictions, label_num=13):
     def f_neg(threshold):
         ## Scipy tries to minimize the function so we must get its inverse
-        return - fbeta_score(true_labels, predictions > threshold, beta=2, average='samples')
+        if label_num > 1:
+            return - fbeta_score(true_labels, predictions > threshold, beta=2, average='samples')
+        else:
+            return - fbeta_score(true_labels, predictions > threshold, beta=2)
 
     # Initialization of best threshold search
-    thr_0 = [0.20] * 13
-    constraints = [(0., 1.)] * 13
+    thr_0 = [0.20] * label_num
+    constraints = [(0., 1.)] * label_num
 
     def bounds(**kwargs):
         x = kwargs["x_new"]
@@ -183,18 +186,21 @@ def best_f2_score(true_labels, predictions):
     return score, opt_output.x
 
 
-def greedy_f2_score(y_true, y_pred):
-    threshold = [0.10] * 13
+def greedy_f2_score(y_true, y_pred, label_num=13):
+    threshold = [0.10] * label_num
     best_score = 0
     best_threshold = [t for t in threshold]
 
-    for i in range(len(y_pred[0])):
+    for i in range(label_num):
         threshold = [t for t in best_threshold]
         # print("best threshold is %s" % str([str(t) for t in threshold]))
         # print("search %dth label's threshold" % i)
         for j in range(100):
             threshold[i] = j / 100.
-            score = fbeta_score(y_true, (np.array(y_pred) > threshold).astype(np.int8), beta=2, average='samples')
+            if label_num > 1:
+                score = fbeta_score(y_true, (np.array(y_pred) > threshold).astype(np.int8), beta=2, average='samples')
+            else:
+                score = fbeta_score(y_true, (np.array(y_pred) > threshold).astype(np.int8), beta=2)
             if score > best_score:
                 best_score = score
                 best_threshold[i] = threshold[i]
