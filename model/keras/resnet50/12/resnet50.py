@@ -40,7 +40,7 @@ def get_model(freeze_layers=None, lr=0.01):
     base_model = keras.applications.ResNet50(weights="imagenet", include_top=False,
                                              input_shape=(RESOLUTION, RESOLUTION, 3), pooling="avg")
     x = base_model.output
-    x = Dense(128, use_bias=False)(x)  # 使用了BN后，不再需要使用bias，因为BN自身带有偏置
+    x = Dense(1024, use_bias=False)(x)  # 使用了BN后，不再需要使用bias，因为BN自身带有偏置
     x = BatchNormalization()(x)  # BN放在激活函数之前效果更好
     x = Activation("relu")(x)
     predictions = Dense(13, activation='sigmoid')(x)

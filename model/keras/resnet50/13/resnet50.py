@@ -6,7 +6,7 @@ import time
 
 import keras
 import numpy as np
-from keras.layers import Dense, BatchNormalization, Activation
+from keras.layers import Dense, BatchNormalization, Activation, Dropout
 
 import config
 from util import data_loader
@@ -14,7 +14,7 @@ from util import metrics
 from util import path
 
 RESOLUTION = 224
-TRAIN_BATCH_SIZE = 64
+TRAIN_BATCH_SIZE = 32
 VAL_BATCH_SIZE = 512
 PREDICT_BATCH_SIZE = 512
 
@@ -40,9 +40,10 @@ def get_model(freeze_layers=None, lr=0.01):
     base_model = keras.applications.ResNet50(weights="imagenet", include_top=False,
                                              input_shape=(RESOLUTION, RESOLUTION, 3), pooling="avg")
     x = base_model.output
-    x = Dense(128, use_bias=False)(x)  # 使用了BN后，不再需要使用bias，因为BN自身带有偏置
+    x = Dense(256, use_bias=False)(x)  # 使用了BN后，不再需要使用bias，因为BN自身带有偏置
     x = BatchNormalization()(x)  # BN放在激活函数之前效果更好
     x = Activation("relu")(x)
+    x = Dropout(rate=0.5)(x)
     predictions = Dense(13, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
 
@@ -154,11 +155,11 @@ model.fit_generator(generator=train_flow,
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(freeze_layers=0, lr=0.005)
+model = get_model(freeze_layers=0, lr=0.001)
 model.load_weights(MODEL_FILE)
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=10,
+                    epochs=7,
                     initial_epoch=2,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
@@ -168,26 +169,13 @@ model.fit_generator(generator=train_flow,
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(freeze_layers=0, lr=0.001)
-model.load_weights(MODEL_FILE)
-model.fit_generator(generator=train_flow,
-                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=20,
-                    initial_epoch=10,
-                    validation_data=val_flow,
-                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
-                    verbose=1,
-                    callbacks=[tensorboard, checkpoint])
-model.save_weights(MODEL_FILE)
-del model
 
 model = get_model(freeze_layers=0, lr=0.0001)
 model.load_weights(MODEL_FILE)
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=40,
-                    initial_epoch=20,
+                    epochs=15,
+                    initial_epoch=7,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
                     workers=16,
@@ -199,21 +187,17 @@ del model
 model = get_model()
 model.load_weights("./record/val1/weights.006.hdf5")
 evaluate(model, val_files, y_valid)
+model.load_weights("./record/val1/weights.008.hdf5")
+evaluate(model, val_files, y_valid)
 model.load_weights("./record/val1/weights.010.hdf5")
+evaluate(model, val_files, y_valid)
+model.load_weights("./record/val1/weights.011.hdf5")
+evaluate(model, val_files, y_valid)
+model.load_weights("./record/val1/weights.012.hdf5")
+evaluate(model, val_files, y_valid)
+model.load_weights("./record/val1/weights.013.hdf5")
 evaluate(model, val_files, y_valid)
 model.load_weights("./record/val1/weights.014.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.018.hdf5")
-evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.022.hdf5")
-evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.026.hdf5")
-evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.030.hdf5")
-evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.034.hdf5")
-evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.038.hdf5")
-evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.040.hdf5")
+model.load_weights("./record/val1/weights.015.hdf5")
 evaluate(model, val_files, y_valid)

@@ -9,14 +9,15 @@ import numpy as np
 from keras.layers import Dense, BatchNormalization, Activation
 
 import config
+from util import clr_callback
 from util import data_loader
 from util import metrics
 from util import path
 
 RESOLUTION = 224
-TRAIN_BATCH_SIZE = 64
-VAL_BATCH_SIZE = 512
-PREDICT_BATCH_SIZE = 512
+TRAIN_BATCH_SIZE = 32
+VAL_BATCH_SIZE = 64
+PREDICT_BATCH_SIZE = 128
 
 K_FOLD_FILE = "1.txt"
 VAL_INDEX = 1
@@ -24,9 +25,10 @@ BASE_DIR = "./record/val1/"
 MODEL_FILE = BASE_DIR + 'weights.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}.hdf5"
 
-IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION, rescale=256,
+# 此处写224是为了获取在224上预计算的均值和std（global mean、std与图像尺寸无关，还未修改相关代码）
+IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX, 224, rescale=256,
                                            data_type=[config.DATA_TYPE_SEGMENTED])
-IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION, rescale=256,
+IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX, 224, rescale=256,
                                          data_type=[config.DATA_TYPE_SEGMENTED])
 
 train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
@@ -37,11 +39,11 @@ y_valid = np.array(data_loader.get_labels(val_files), np.bool)
 
 
 def get_model(freeze_layers=None, lr=0.01):
-    base_model = keras.applications.ResNet50(weights="imagenet", include_top=False,
-                                             input_shape=(RESOLUTION, RESOLUTION, 3), pooling="avg")
+    base_model = keras.applications.DenseNet169(weights="imagenet", include_top=False,
+                                                input_shape=(RESOLUTION, RESOLUTION, 3), pooling="max")
     x = base_model.output
-    x = Dense(128, use_bias=False)(x)  # 使用了BN后，不再需要使用bias，因为BN自身带有偏置
-    x = BatchNormalization()(x)  # BN放在激活函数之前效果更好
+    x = Dense(256, activation="relu", use_bias=False)(x)
+    x = BatchNormalization()(x)
     x = Activation("relu")(x)
     predictions = Dense(13, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
@@ -57,8 +59,9 @@ def get_model(freeze_layers=None, lr=0.01):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.SGD(lr, momentum=0.9, decay=0.0005),
+                  optimizer=keras.optimizers.Adam(lr),
                   metrics=['accuracy', metrics.smooth_f2_score])
+    print("model have %d layers" % len(model.layers))
     return model
 
 
@@ -117,13 +120,13 @@ checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
 train_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                            featurewise_std_normalization=True,
                                            width_shift_range=0.15,
-                                           height_shift_range=0.15,
+                                           height_shift_range=0.1,
                                            horizontal_flip=True,
                                            rescale=1. / 256)
 val_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                          featurewise_std_normalization=True,
                                          width_shift_range=0.15,
-                                         height_shift_range=0.15,
+                                         height_shift_range=0.1,
                                          horizontal_flip=True,
                                          rescale=1. / 256)
 
@@ -140,36 +143,47 @@ val_flow = val_datagen.flow_from_files(val_files, mode="fit",
                                        batch_size=VAL_BATCH_SIZE,
                                        shuffle=True)
 
-model = get_model(lr=0.01)
+clr = clr_callback.CyclicLR(base_lr=0.001, max_lr=0.01, step_size=len(train_files) / TRAIN_BATCH_SIZE / 2)
+model = get_model(lr=0.001)
 start = time.time()
 print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=2,
+                    epochs=1,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
+                    workers=12,
                     verbose=1,
-                    callbacks=[tensorboard, checkpoint])
+                    callbacks=[tensorboard, checkpoint, clr])
+
+print("####### train model spend %d seconds #######" % (time.time() - start))
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(freeze_layers=0, lr=0.005)
+clr = clr_callback.CyclicLR(base_lr=0.0001, max_lr=0.0005, step_size=len(train_files) / TRAIN_BATCH_SIZE / 2)
+model = get_model(freeze_layers=512, lr=0.0001)
 model.load_weights(MODEL_FILE)
+start = time.time()
+print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
                     epochs=10,
-                    initial_epoch=2,
+                    initial_epoch=1,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
+                    workers=12,
                     verbose=1,
-                    callbacks=[tensorboard, checkpoint])
+                    callbacks=[tensorboard, checkpoint, clr])
+print("####### train model spend %d seconds #######" % (time.time() - start))
+evaluate(model, val_files, y_valid)
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(freeze_layers=0, lr=0.001)
+clr = clr_callback.CyclicLR(base_lr=0.00001, max_lr=0.00005, step_size=len(train_files) / TRAIN_BATCH_SIZE / 2)
+model = get_model(freeze_layers=0, lr=0.00001)
 model.load_weights(MODEL_FILE)
+start = time.time()
+print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
                     epochs=20,
@@ -178,42 +192,40 @@ model.fit_generator(generator=train_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
                     workers=16,
                     verbose=1,
-                    callbacks=[tensorboard, checkpoint])
-model.save_weights(MODEL_FILE)
-del model
-
-model = get_model(freeze_layers=0, lr=0.0001)
-model.load_weights(MODEL_FILE)
-model.fit_generator(generator=train_flow,
-                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=40,
-                    initial_epoch=20,
-                    validation_data=val_flow,
-                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                    workers=16,
-                    verbose=1,
-                    callbacks=[tensorboard, checkpoint])
+                    callbacks=[tensorboard, checkpoint, clr])
 print("####### train model spend %d seconds #######" % (time.time() - start))
-del model
+evaluate(model, val_files, y_valid)
+
+# 显示learning rate变化曲线和accuracy曲线
+# h = clr.history
+# lr = h['lr']
+# acc = h['acc']
+# x = [i for i in range(len(lr))]
+# import matplotlib.pyplot as plt
+#
+# fig = plt.figure()
+# plt.plot(x, lr, 'r')
+# plt.plot(x, acc, 'g')
+# plt.show()
 
 model = get_model()
-model.load_weights("./record/val1/weights.006.hdf5")
+model.load_weights("./record/val1/weights.008.hdf5")
 evaluate(model, val_files, y_valid)
 model.load_weights("./record/val1/weights.010.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.014.hdf5")
+model.load_weights("./record/val1/weights.012.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.018.hdf5")
+model.load_weights("./record/val1/weights.016.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.022.hdf5")
+model.load_weights("./record/val1/weights.020.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.026.hdf5")
+model.load_weights("./record/val1/weights.024.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.030.hdf5")
+model.load_weights("./record/val1/weights.028.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.034.hdf5")
+model.load_weights("./record/val1/weights.032.hdf5")
 evaluate(model, val_files, y_valid)
-model.load_weights("./record/val1/weights.038.hdf5")
+model.load_weights("./record/val1/weights.036.hdf5")
 evaluate(model, val_files, y_valid)
 model.load_weights("./record/val1/weights.040.hdf5")
 evaluate(model, val_files, y_valid)
