@@ -176,7 +176,7 @@ print("####### train model spend %d seconds #######" % (time.time() - start))
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(lr=0.0001)
+model = get_model(freeze_layers=0, lr=0.0001)
 model.load_weights(MODEL_FILE)
 start = time.time()
 print("####### start train model #######")
@@ -193,13 +193,13 @@ print("####### train model spend %d seconds #######" % (time.time() - start))
 model.save_weights(MODEL_FILE)
 del model
 
-model = get_model(lr=0.00001)
+model = get_model(freeze_layers=0, lr=0.00001)
 model.load_weights(MODEL_FILE)
 start = time.time()
 print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=20,
+                    epochs=15,
                     initial_epoch=6,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
@@ -211,7 +211,7 @@ print("####### train model spend %d seconds #######" % (time.time() - start))
 
 
 model = get_model()
-for i in range(6, 21):
+for i in range(6, 16):
     if i < 10:
         model.load_weights("./record/val1/weights.00%d.hdf5" % i)
         evaluate(model, val_files, y_valid, "weights.00%d.hdf5" % i)
