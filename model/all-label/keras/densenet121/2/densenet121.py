@@ -97,7 +97,7 @@ def evaluate(model: keras.Model, pre_files, y, weight_name):
 
     with open(BASE_DIR + "evaluate.txt", "a") as f:
         f.write("\n\n")
-        f.write("Weight: %s" % weight_name)
+        f.write("Weight: %s\n" % weight_name)
         f.write("Smooth F2-Score: %f\n"
                 % metrics.smooth_f2_score_np(y, y_pred))
         f.write("F2-Score with threshold 0.2: %f\n"

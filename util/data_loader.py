@@ -29,7 +29,7 @@ class KerasGenerator(ImageDataGenerator):
                         save_to_dir=None,
                         save_prefix='',
                         save_format='png',
-                        shuffle=False, seed=None):
+                        shuffle=False, seed=None, label_position=None):
         return KerasIterator(self, img_files,
                              mode=mode,
                              target_size=target_size,
@@ -39,7 +39,8 @@ class KerasGenerator(ImageDataGenerator):
                              save_prefix=save_prefix,
                              save_format=save_format,
                              seed=seed,
-                             data_format=None)
+                             data_format=None,
+                             label_position=label_position)
 
     def calc_image_global_mean_std(self, img_files):
         shape = (1, 3)
@@ -111,7 +112,8 @@ class KerasIterator(Iterator):
                  target_size=(256, 256),
                  batch_size=32, shuffle=None, seed=None,
                  save_to_dir=None, save_prefix='', save_format='png',
-                 data_format=None):
+                 data_format=None,
+                 label_position=None):
 
         self.target_size = tuple(target_size)
 
@@ -129,7 +131,10 @@ class KerasIterator(Iterator):
         self.save_format = save_format
         self.img_files = img_files
         self.mode = mode
-        self.labels = np.array(get_labels(img_files), dtype=np.int8)
+        if label_position is None:
+            self.labels = np.array(get_labels(img_files), dtype=np.int8)
+        else:
+            self.labels = np.array(get_labels(img_files), dtype=np.int8)[:, label_position]
 
         # Init parent class
         super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)

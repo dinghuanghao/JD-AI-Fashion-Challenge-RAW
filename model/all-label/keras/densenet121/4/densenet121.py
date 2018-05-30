@@ -6,7 +6,8 @@ import time
 
 import keras
 import numpy as np
-from keras.layers import Dense, BatchNormalization, Activation
+from keras.layers import Activation
+from keras.layers import Dense, BatchNormalization
 
 import config
 from util import data_loader
@@ -98,11 +99,11 @@ def evaluate(model: keras.Model, pre_files, y, weight_name):
         f.write("\n\n")
         f.write("weight: %s" % weight_name)
         f.write("Smooth F2-Score: %f\n"
-              % metrics.smooth_f2_score_np(y, y_pred))
+                % metrics.smooth_f2_score_np(y, y_pred))
         f.write("F2-Score with threshold 0.2: %f\n"
-              % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
+                % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
         f.write("F2-Score with threshold 0.1: %f\n"
-              % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
+                % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
         f.write("Greedy F2-Score is: %f\n" % greedy_score)
         f.write("Greedy threshold: ")
         f.write(",".join([str(j) for j in greedy_threshold]))
@@ -118,9 +119,11 @@ def evaluate(model: keras.Model, pre_files, y, weight_name):
             f.write("[label %d]\tsmooth-f2=%4f   BFGS-f2=%4f[%4f]   greedy-f2=%4f[%4f]\n" % (
                 i, smooth_f2, bason_f2, bason_threshold[0], greedy_f2, greedy_threshold[0]))
             greedy_threshold_all.append(greedy_threshold)
-        greedy_score_label = fbeta_score(y, (np.array(y_pred) > np.array(greedy_threshold_all).reshape((1, 13))).astype(np.int8), beta=2, average='samples')
+        greedy_score_label = fbeta_score(y, (np.array(y_pred) > np.array(greedy_threshold_all).reshape((1, 13))).astype(
+            np.int8), beta=2, average='samples')
         print("####### Greedy F2-Score by single label is %f #######" % greedy_score_label)
         f.write("Greedy F2-Score by single label is: %f" % greedy_score_label)
+
 
 def check_mean_std_file(datagen: data_loader.KerasGenerator):
     if not os.path.exists(IMAGE_STD_FILE) or not os.path.exists(IMAGE_STD_FILE):
@@ -208,8 +211,6 @@ model.fit_generator(generator=train_flow,
                     callbacks=[tensorboard, checkpoint])
 print("####### train model spend %d seconds #######" % (time.time() - start))
 
-
-
 model = get_model()
 for i in range(6, 16):
     if i < 10:
@@ -219,14 +220,14 @@ for i in range(6, 16):
         model.load_weights("./record/val1/weights.0%d.hdf5" % i)
         evaluate(model, val_files, y_valid, "weights.0%d.hdf5" % i)
 
-# 显示learning rate变化曲线和accuracy曲线
-# h = clr.history
-# lr = h['lr']
-# acc = h['acc']
-# x = [i for i in range(len(lr))]
-# import matplotlib.pyplot as plt
-#
-# fig = plt.figure()
-# plt.plot(x, lr, 'r')
-# plt.plot(x, acc, 'g')
-# plt.show()
+        # 显示learning rate变化曲线和accuracy曲线
+        # h = clr.history
+        # lr = h['lr']
+        # acc = h['acc']
+        # x = [i for i in range(len(lr))]
+        # import matplotlib.pyplot as plt
+        #
+        # fig = plt.figure()
+        # plt.plot(x, lr, 'r')
+        # plt.plot(x, acc, 'g')
+        # plt.show()
