@@ -24,7 +24,7 @@ TEST_DATA_TXT = "test.txt"
 PREFETCH_BUFFER_SIZE = 1024
 
 
-class ModelConfig(object):
+class EstimatorModelConfig(object):
     def __init__(self,
                  description,
                  k_fold_file,
@@ -34,7 +34,7 @@ class ModelConfig(object):
                  data_type,
                  model_dir,
                  record_sub_dir,
-                 output_tensor_name,
+                 output_tensor_name="",
                  epoch=10,
                  train_batch_size=32,
                  val_batch_size=128,

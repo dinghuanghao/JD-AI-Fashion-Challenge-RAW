@@ -3,25 +3,25 @@ import os
 import tensorflow as tf
 
 import config
-from config import ModelConfig
+from config import EstimatorModelConfig
 from util import estimator
 from util import metrics
 
 DESCRIPTION = "InceptionResNetV2，Include_top为False， 新增Dense1024-ReLu, Dense-13-sigmoid，使用加权Bce作为Loss"
 
-MODEL_CONFIG = ModelConfig(DESCRIPTION,
-                           k_fold_file="1.txt",
-                           val_index=1,
-                           image_size=(224, 224),
-                           image_shape=(224, 224, 3),
-                           data_type=[config.DATA_TYPE_SEGMENTED],
-                           model_dir=os.path.dirname(os.path.abspath(__file__)),
-                           record_sub_dir="1",
-                           output_tensor_name="my_output/Sigmoid:0",
-                           epoch=40,
-                           train_batch_size=32,
-                           val_batch_size=128,
-                           learning_rate=0.0001)
+MODEL_CONFIG = EstimatorModelConfig(DESCRIPTION,
+                                    k_fold_file="1.txt",
+                                    val_index=1,
+                                    image_size=(224, 224),
+                                    image_shape=(224, 224, 3),
+                                    data_type=[config.DATA_TYPE_SEGMENTED],
+                                    model_dir=os.path.dirname(os.path.abspath(__file__)),
+                                    record_sub_dir="1",
+                                    output_tensor_name="my_output/Sigmoid:0",
+                                    epoch=40,
+                                    train_batch_size=32,
+                                    val_batch_size=128,
+                                    learning_rate=0.0001)
 
 
 def get_model(image_shape):

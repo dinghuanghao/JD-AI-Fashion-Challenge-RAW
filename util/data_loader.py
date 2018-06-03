@@ -11,6 +11,7 @@ from keras.preprocessing.image import ImageDataGenerator, Iterator, img_to_array
 from tqdm import tqdm
 
 import config
+from util import keras_util
 from util import path
 
 training_times = 0
@@ -18,9 +19,14 @@ validation_times = 0
 
 
 class KerasGenerator(ImageDataGenerator):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, model_config: keras_util.KerasModelConfig = None, *args, **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
+
+        if model_config is not None:
+            if self.featurewise_center is not None or self.featurewise_std_normalization is not None:
+                keras_util.check_mean_std_file(model_config, self)
+                self.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
     def flow_from_files(self, img_files,
                         mode='fit',
@@ -166,7 +172,7 @@ def read_and_save_checkpoint(checkpoint_path, save_path):
             f.write("\n")
 
 
-def get_max_step(model_config: config.ModelConfig, validation=False):
+def get_max_step(model_config: config.EstimatorModelConfig, validation=False):
     total_steps = len(model_config.data_type) * config.IMAGE_NUMBER / model_config.batch_size
     if validation:
         return math.ceil(total_steps / 5)
@@ -213,7 +219,7 @@ def predict_input_fn(files, batch_size):
     return iterator.get_next()
 
 
-def data_input_fn(model_config: config.ModelConfig, validation=False):
+def data_input_fn(model_config: config.EstimatorModelConfig, validation=False):
     train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
     if validation:
         global validation_times

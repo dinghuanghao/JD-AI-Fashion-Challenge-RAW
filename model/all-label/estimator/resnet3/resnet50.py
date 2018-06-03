@@ -3,21 +3,21 @@ import os
 import tensorflow as tf
 
 from config import DATA_TYPE_ORIGINAL
-from config import ModelConfig
+from config import EstimatorModelConfig
 from util import estimator
 from util import metrics
 
-MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
-                           val_index=1,
-                           image_size=(224, 224),
-                           image_shape=(224, 224, 3),
-                           data_type=[DATA_TYPE_ORIGINAL],
-                           model_dir=os.path.dirname(os.path.abspath(__file__)),
-                           record_sub_dir="1_1",
-                           output_tensor_name="my_output/Sigmoid:0",
-                           epoch=40,
-                           train_batch_size=32,
-                           learning_rate=0.001)
+MODEL_CONFIG = EstimatorModelConfig(k_fold_file="1.txt",
+                                    val_index=1,
+                                    image_size=(224, 224),
+                                    image_shape=(224, 224, 3),
+                                    data_type=[DATA_TYPE_ORIGINAL],
+                                    model_dir=os.path.dirname(os.path.abspath(__file__)),
+                                    record_sub_dir="1_1",
+                                    output_tensor_name="my_output/Sigmoid:0",
+                                    epoch=40,
+                                    train_batch_size=32,
+                                    learning_rate=0.001)
 
 
 def get_model(image_shape):

@@ -3,18 +3,18 @@ import os
 import tensorflow as tf
 
 import config
-from config import ModelConfig
+from config import EstimatorModelConfig
 from util import estimator
 from . import resnet_lib
 
-MODEL_CONFIG = ModelConfig(k_fold_file="1.txt",
-                           val_index=1,
-                           image_size=(224, 224),
-                           image_shape=(224, 224, 3),
-                           data_type=[config.DATA_TYPE_ORIGINAL],
-                           model_dir=os.path.dirname(os.path.abspath(__file__)),
-                           record_sub_dir="1",
-                           output_tensor_name="my_output/Sigmoid:0")
+MODEL_CONFIG = EstimatorModelConfig(k_fold_file="1.txt",
+                                    val_index=1,
+                                    image_size=(224, 224),
+                                    image_shape=(224, 224, 3),
+                                    data_type=[config.DATA_TYPE_ORIGINAL],
+                                    model_dir=os.path.dirname(os.path.abspath(__file__)),
+                                    record_sub_dir="1",
+                                    output_tensor_name="my_output/Sigmoid:0")
 
 
 def get_model(image_shape):
