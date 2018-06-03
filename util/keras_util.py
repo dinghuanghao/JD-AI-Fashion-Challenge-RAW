@@ -18,8 +18,6 @@ class KerasModelConfig(object):
                  data_type,
                  model_dir,
                  record_sub_dir,
-                 train_files,
-                 val_files,
                  label_position=(1,),
                  train_batch_size=32,
                  val_batch_size=32,
@@ -37,8 +35,6 @@ class KerasModelConfig(object):
         self.record_sub_dir = record_sub_dir
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), str(record_sub_dir))
         self.label_position = label_position
-        self.train_files = train_files
-        self.val_files = val_files
         self.train_batch_size = train_batch_size
         self.val_batch_size = val_batch_size
         self.predict_batch_size = predict_batch_size
@@ -58,13 +54,11 @@ class KerasModelConfig(object):
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
 
     def get_weights_path(self, epoch):
-        return os.path.join(self.record_dir, "%sweights.00%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
-
-
-def check_mean_std_file(model_config: KerasModelConfig, datagen: data_loader.KerasGenerator):
-    if not os.path.exists(model_config.image_std_file) or not os.path.exists(model_config.image_mean_file):
-        datagen.calc_image_global_mean_std(model_config.train_files)
-        datagen.save_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
+        if epoch < 10:
+            return os.path.join(self.record_dir, "%sweights.00%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
+        else:
+            return os.path.join(self.record_dir,
+                                "%sweights.0%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
 
 
 def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig):
@@ -74,7 +68,7 @@ def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasM
                                              featurewise_std_normalization=True,
                                              rescale=1. / 256)
 
-    check_mean_std_file(model_config, pre_datagen)
+    data_loader.check_mean_std_file(model_config, pre_datagen)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
     pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
@@ -107,7 +101,7 @@ def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasM
     with open(os.path.join(model_config.record_dir, "evaluate%s.txt" % str([str(i) for i in model_config.label_position])),
               "a") as f:
         f.write("\n\n")
-        f.write("weight: %s" % weight_name)
+        f.write("weight: %s\n" % weight_name)
         f.write("Smooth F2-Score: %f\n"
                 % metrics.smooth_f2_score_np(y, y_pred))
 

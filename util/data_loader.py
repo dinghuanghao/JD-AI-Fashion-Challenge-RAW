@@ -11,21 +11,26 @@ from keras.preprocessing.image import ImageDataGenerator, Iterator, img_to_array
 from tqdm import tqdm
 
 import config
-from util import keras_util
 from util import path
 
 training_times = 0
 validation_times = 0
 
 
+def check_mean_std_file(model_config, datagen):
+    if not os.path.exists(model_config.image_std_file) or not os.path.exists(model_config.image_mean_file):
+        datagen.calc_image_global_mean_std(model_config.train_files)
+        datagen.save_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
+
+
 class KerasGenerator(ImageDataGenerator):
-    def __init__(self, model_config: keras_util.KerasModelConfig = None, *args, **kwargs):
+    def __init__(self, model_config=None, *args, **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
 
         if model_config is not None:
             if self.featurewise_center is not None or self.featurewise_std_normalization is not None:
-                keras_util.check_mean_std_file(model_config, self)
+                check_mean_std_file(model_config, self)
                 self.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
     def flow_from_files(self, img_files,
