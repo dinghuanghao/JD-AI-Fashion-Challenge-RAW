@@ -17,7 +17,6 @@ SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_SEGMENTED)
 DEBUG_TRAIN_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "train")
 DEBUG_VAL_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "val")
 
-
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
 
@@ -31,23 +30,22 @@ TRAIN_DATA_TXT = os.path.join(TXT_PATH, "train.txt")
 TEST_DATA_TXT = os.path.join(TXT_PATH, "test.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 
-
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
 
 
-def get_image_mean_file(k_fold_file, val_index, resolution, rescale=256, data_type=(config.DATA_TYPE_SEGMENTED,)):
+def get_image_mean_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
         .mkdir(parents=True, exist_ok=True)
 
     return os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]),
-                        "val_%d_train_%d_mean_%d_%d_%s.npy" % (val_index, int(rescale), resolution, resolution, str(data_type)))
+                        "val_%d_train_mean_%s.npy" % (val_index, str(data_type)))
 
 
-def get_image_std_file(k_fold_file, val_index, resolution, rescale=256, data_type=(config.DATA_TYPE_SEGMENTED,)):
+def get_image_std_file(k_fold_file, val_index, rescale=256, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
         .mkdir(parents=True, exist_ok=True)
     return os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]),
-                        "val_%d_train_%d_std_%d_%d_%s.npy" % (val_index, int(rescale), resolution, resolution, str(data_type)))
+                        "val_%d_train_std_%s.npy" % (val_index, str(data_type)))
 
 
 def get_train_data_path(data_type):

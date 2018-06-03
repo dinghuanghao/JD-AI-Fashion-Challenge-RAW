@@ -26,9 +26,9 @@ BASE_DIR = "./record/val1/"
 MODEL_FILE = BASE_DIR + 'weights.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
 
-IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION, rescale=1,
+IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX,
                                            data_type=[config.DATA_TYPE_ORIGINAL])
-IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX, RESOLUTION, rescale=1,
+IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX,
                                          data_type=[config.DATA_TYPE_ORIGINAL])
 
 train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,

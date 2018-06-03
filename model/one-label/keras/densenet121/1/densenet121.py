@@ -26,9 +26,6 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 freeze_layers=[None, 100, 0])
 
 
-# 此处写224是为了获取在224上预计算的均值和std（global mean、std与图像尺寸无关，还未修改相关代码）
-
-
 # # 取部分样本，验证流程正确性
 # model_config.train_files = model_config.train_files[:64]
 # model_config.val_files = model_config.val_files[:64]

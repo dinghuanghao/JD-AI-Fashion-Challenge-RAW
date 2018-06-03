@@ -25,9 +25,9 @@ MODEL_FILE = BASE_DIR + 'weights.hdf5'
 SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}.hdf5"
 
 # 此处写224是为了获取在224上预计算的均值和std（global mean、std与图像尺寸无关，还未修改相关代码）
-IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX, 224, rescale=256,
+IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX,
                                            data_type=[config.DATA_TYPE_SEGMENTED])
-IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX, 224, rescale=256,
+IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX,
                                          data_type=[config.DATA_TYPE_SEGMENTED])
 
 train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
