@@ -7,7 +7,7 @@ import cv2
 import keras.backend as K
 import numpy as np
 import tensorflow as tf
-from keras.preprocessing.image import ImageDataGenerator, Iterator, load_img, img_to_array, array_to_img
+from keras.preprocessing.image import ImageDataGenerator, Iterator, img_to_array, array_to_img
 from tqdm import tqdm
 
 import config
@@ -63,41 +63,11 @@ class KerasGenerator(ImageDataGenerator):
         print("Calc image mean: %s" % str([str(i) for i in self.mean]))
         print("Calc image std: %s" % str([str(i) for i in self.std]))
 
-    def calc_image_mean_std(self, img_files, rescale, resolution):
-        # Computing mean and variance using Welford's algorithm for one pass only and numerical stability.
-
-        shape = (resolution, resolution, 3)
-
-        mean = np.zeros(shape, dtype=np.float32)
-        M2 = np.zeros(shape, dtype=np.float32)
-
-        print('Computing mean and standard deviation on the dataset')
-        for n, file in enumerate(tqdm(img_files, miniters=256), 1):
-            img = cv2.imread(os.path.join(file)).astype(np.float32)
-            img = cv2.resize(img, (resolution, resolution))
-            img *= rescale
-            delta = img - mean
-            mean += delta / n
-            delta2 = img - mean
-            M2 += delta * delta2
-
-        self.mean = mean
-        self.std = M2 / (len(img_files) - 1)
-
-        print("Calc image mean with shape: " + str(self.mean.shape))
-        print("Calc image std with shape: " + str(self.std.shape))
-
-    def save_image_mean_std(self, path_mean, path_std):
+    def save_image_global_mean_std(self, path_mean, path_std):
         if self.mean is None or self.std is None:
             raise ValueError('Mean and Std must be computed before, fit the generator first')
         np.save(path_mean, self.mean.reshape((1, 3)))
         np.save(path_std, self.std.reshape((1, 3)))
-
-    def load_image_mean_std(self, path_mean, path_std):
-        self.mean = np.load(path_mean)
-        self.std = np.load(path_std)
-        print("Load image mean with shape: " + str(self.mean.shape))
-        print("Load image std with shape: " + str(self.std.shape))
 
     def load_image_global_mean_std(self, path_mean, path_std):
         self.mean = np.load(path_mean)
@@ -147,7 +117,8 @@ class KerasIterator(Iterator):
         # Build batch of images
         for i, j in enumerate(index_array):
             file = self.img_files[j]
-            img = load_img(file, target_size=self.target_size)
+            img = cv2.imread(file)
+            img = cv2.resize(img, self.target_size)
             x = img_to_array(img, data_format=self.data_format)
             x = self.image_data_generator.random_transform(x)
             x = self.image_data_generator.standardize(x)

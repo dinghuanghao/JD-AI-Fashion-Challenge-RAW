@@ -125,7 +125,7 @@ def evaluate(model: keras.Model, pre_files, y, weight_name):
 def check_mean_std_file(datagen: data_loader.KerasGenerator):
     if not os.path.exists(IMAGE_STD_FILE) or not os.path.exists(IMAGE_STD_FILE):
         datagen.calc_image_global_mean_std(train_files)
-        datagen.save_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+        datagen.save_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
 
 tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)

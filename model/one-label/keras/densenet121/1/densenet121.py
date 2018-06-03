@@ -4,7 +4,7 @@ import time
 import keras
 import numpy as np
 from keras import Sequential
-from keras.layers import Dense, Conv2D, BatchNormalization, MaxPooling2D, Flatten
+from keras.layers import Dense, Conv2D, BatchNormalization, MaxPooling2D, Flatten,Activation
 
 import config
 from util import data_loader
@@ -39,25 +39,30 @@ train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
 # train_files = train_files[:64]
 # val_files = val_files[:64]
 
-def get_model(output_dim=1):
-    model = Sequential()
-    model.add(Conv2D(32, kernel_size=(3, 3),
-                     activation='relu',
-                     input_shape=(RESOLUTION, RESOLUTION, 3)))
-    model.add(BatchNormalization())
-    model.add(Conv2D(64, (3, 3), activation='relu'))
-    model.add(BatchNormalization())
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(BatchNormalization())
-    model.add(Flatten())
-    model.add(Dense(128, activation='relu'))
-    model.add(BatchNormalization())
-    model.add(Dense(output_dim, activation='sigmoid'))
+def get_model(freeze_layers=None, lr=0.01, output_dim=1):
+    base_model = keras.applications.DenseNet121(weights="imagenet", include_top=False,
+                                                input_shape=(RESOLUTION, RESOLUTION, 3), pooling="max")
+    x = base_model.output
+    x = Dense(256, activation="relu", use_bias=False)(x)
+    x = BatchNormalization()(x)
+    x = Activation("relu")(x)
+    predictions = Dense(output_dim, activation='sigmoid')(x)
+    model = keras.Model(inputs=base_model.input, outputs=predictions)
+
+    if freeze_layers is None:
+        print("freeze all basic layers, lr=%f" % lr)
+
+        for layer in base_model.layers:
+            layer.trainable = False
+    else:
+        for layer in range(freeze_layers):
+            base_model.layers[layer].train_layer = False
+        print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(),
+                  optimizer=keras.optimizers.Adam(lr),
                   metrics=['accuracy', metrics.smooth_f2_score])
-    model.summary()
+    print("model have %d layers" % len(model.layers))
     return model
 
 
@@ -179,19 +184,53 @@ val_flow = val_datagen.flow_from_files(val_files, mode="fit",
                                        shuffle=True,
                                        label_position=LABEL_POSITION)
 
-model = get_model(len(LABEL_POSITION))
+model = get_model(lr=0.001, output_dim=len(LABEL_POSITION))
 start = time.time()
-
 print("####### start train model #######")
 model.fit_generator(generator=train_flow,
                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                    epochs=EPOCH,
+                    epochs=1,
                     validation_data=val_flow,
                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
                     workers=12,
                     verbose=1,
                     callbacks=[tensorboard, checkpoint])
 
+print("####### train model spend %d seconds #######" % (time.time() - start))
+model.save_weights(MODEL_FILE)
+del model
+
+
+model = get_model(freeze_layers=100, output_dim=len(LABEL_POSITION), lr=0.0001)
+model.load_weights(MODEL_FILE)
+start = time.time()
+print("####### start train model #######")
+model.fit_generator(generator=train_flow,
+                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+                    epochs=6,
+                    initial_epoch=1,
+                    validation_data=val_flow,
+                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
+                    workers=12,
+                    verbose=1,
+                    callbacks=[tensorboard, checkpoint])
+print("####### train model spend %d seconds #######" % (time.time() - start))
+model.save_weights(MODEL_FILE)
+del model
+
+model = get_model(freeze_layers=0, output_dim=len(LABEL_POSITION), lr=0.00001)
+model.load_weights(MODEL_FILE)
+start = time.time()
+print("####### start train model #######")
+model.fit_generator(generator=train_flow,
+                    steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
+                    epochs=20,
+                    initial_epoch=6,
+                    validation_data=val_flow,
+                    validation_steps=len(val_files) / VAL_BATCH_SIZE,
+                    workers=12,
+                    verbose=1,
+                    callbacks=[tensorboard, checkpoint])
 print("####### train model spend %d seconds #######" % (time.time() - start))
 
 model = get_model(len(LABEL_POSITION))

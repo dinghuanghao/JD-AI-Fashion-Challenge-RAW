@@ -97,8 +97,8 @@ def train(model):
                                              )
 
     check_mean_std_file(train_datagen)
-    train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-    val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    train_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    val_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
     train_flow = train_datagen.flow_from_files(train_files, mode="fit",
                                                target_size=(RESOLUTION, RESOLUTION),
@@ -123,8 +123,8 @@ def train(model):
 
 def check_mean_std_file(datagen: data_loader.KerasGenerator):
     if not os.path.exists(IMAGE_STD_FILE) or not os.path.exists(IMAGE_STD_FILE):
-        datagen.calc_image_mean_std(train_files, config.IMAGE_RESCALE, RESOLUTION)
-        datagen.save_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+        datagen.calc_image_global_mean_std(train_files, config.IMAGE_RESCALE, RESOLUTION)
+        datagen.save_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
 
 def evaluate(model: keras.Model, pre_files, y):
@@ -135,7 +135,7 @@ def evaluate(model: keras.Model, pre_files, y):
                                              rescale=1. / 255
                                              )
     check_mean_std_file(pre_datagen)
-    pre_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    pre_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
     pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
                                            target_size=(RESOLUTION, RESOLUTION),

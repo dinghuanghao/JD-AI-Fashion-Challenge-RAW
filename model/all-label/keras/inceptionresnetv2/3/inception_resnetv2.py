@@ -69,8 +69,8 @@ def get_model(freeze_layers=None, lr=0.001):
 def check_mean_std_file(datagen: data_loader.KerasGenerator):
     print("check mean file [%s] and std file[%s]" % (IMAGE_MEAN_FILE, IMAGE_STD_FILE))
     if not os.path.exists(IMAGE_STD_FILE) or not os.path.exists(IMAGE_STD_FILE):
-        datagen.calc_image_mean_std(train_files, 1, RESOLUTION)
-        datagen.save_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+        datagen.calc_image_global_mean_std(train_files, 1, RESOLUTION)
+        datagen.save_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
 
 def evaluate(model: keras.Model, pre_files, y):
@@ -80,7 +80,7 @@ def evaluate(model: keras.Model, pre_files, y):
                                              featurewise_std_normalization=True,
                                              )
     check_mean_std_file(pre_datagen)
-    pre_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+    pre_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
     pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
                                            target_size=(RESOLUTION, RESOLUTION),
                                            batch_size=PREDICT_BATCH_SIZE,
@@ -146,8 +146,8 @@ val_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                          rotation_range=15,
                                          )
 check_mean_std_file(train_datagen)
-train_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-val_datagen.load_image_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+train_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
+val_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
 
 train_flow = train_datagen.flow_from_files(train_files, mode="fit",
                                            target_size=(RESOLUTION, RESOLUTION),
