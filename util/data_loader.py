@@ -166,6 +166,45 @@ class KerasIterator(Iterator):
         return self._get_batches_of_transformed_samples(index_array)
 
 
+def up_sampling(files: np.ndarray, label_position):
+    """
+    对某一个标签进行上采样
+    :param files:
+    :param label_position:
+    :return:
+    """
+    assert len(label_position) == 1
+
+    y = np.array(get_labels(files), np.bool)[:, label_position]
+
+    y_1 = y[y == 1]
+    y_0 = y[y == 0]
+
+    assert y_1.size != 0 and y_0.size != 0
+
+    if y_1.size == y_0.size:
+        return files
+
+    if y_1.size > y_0.size:
+        file_less = files[(y == 1)[:, 0]]
+        n = y_1.size // y_0.size
+        m = y_1.size % y_0.size
+
+    elif y_1.size < y_0.size:
+        file_less = files[(y == 1)[:, 0]]
+        n = y_0.size // y_1.size
+        m = y_0.size % y_1.size
+
+    repeat = np.repeat(file_less, n)
+    choice = np.random.choice(file_less, m)
+    files = np.hstack((files, repeat, choice))
+    np.random.shuffle(files)
+
+    y = np.array(get_labels(files), np.bool)[:, label_position]
+    assert (y == 1).size == (y == 0).size
+    return files
+
+
 def read_and_save_checkpoint(checkpoint_path, save_path):
     from tensorflow.python import pywrap_tensorflow
     reader = pywrap_tensorflow.NewCheckpointReader(checkpoint_path)

@@ -43,6 +43,8 @@ class KerasModelConfig(object):
         self.freeze_layers = freeze_layers
         self.train_files, self.val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index,
                                                                         self.data_type)
+        self.train_files = np.array(self.train_files)
+        self.val_files = np.array(self.val_files)
         self.image_mean_file = path.get_image_mean_file(self.k_fold_file, self.val_index,
                                                         data_type=self.data_type)
         self.image_std_file = path.get_image_std_file(self.k_fold_file, self.val_index,
