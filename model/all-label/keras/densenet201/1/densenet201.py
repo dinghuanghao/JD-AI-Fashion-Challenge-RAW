@@ -21,9 +21,9 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 train_batch_size=32,
                                 val_batch_size=128,
                                 predict_batch_size=128,
-                                epoch=[1, 10, 20],
-                                lr=[0.01, 0.0001, 0.00001],
-                                freeze_layers=[-1, 100, 0])
+                                epoch=[1, 10, 15, 20],
+                                lr=[0.01, 0.0001, 0.00001, 0.000001],
+                                freeze_layers=[-1, 100, 0, 0])
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
@@ -50,7 +50,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.SGD(lr=lr, momentum=0.9, decay=0.0001),
+                  optimizer=keras.optimizers.Adam(lr=lr, decay=0.0001),
                   metrics=['accuracy', metrics.smooth_f2_score])
     print("model have %d layers" % len(model.layers))
     return model
