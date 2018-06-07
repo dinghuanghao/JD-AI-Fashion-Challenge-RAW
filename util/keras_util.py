@@ -1,6 +1,7 @@
 import os
 import pathlib
 import time
+import math
 
 import keras
 import numpy as np
@@ -54,6 +55,9 @@ class KerasModelConfig(object):
                                               "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
         self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
+
+    def get_steps_per_epoch(self):
+        return math.ceil(len(self.train_files) / self.train_batch_size)
 
     def get_weights_path(self, epoch):
         if epoch < 10:
