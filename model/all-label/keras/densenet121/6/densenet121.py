@@ -19,24 +19,21 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 record_sub_dir="val1",
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,
-                                val_batch_size=128,
+                                val_batch_size=64,
                                 predict_batch_size=128,
-                                epoch=[1, 10, 15, 20],
-                                lr=[0.01, 0.0001, 0.00001, 0.000001],
-                                freeze_layers=[-1, 100, 0, 0])
+                                epoch=[7, 12],
+                                lr=[0.000001, 0.000001],
+                                freeze_layers=[0, 0])
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
-    base_model = keras.applications.DenseNet201(weights=None, include_top=False,
+    base_model = keras.applications.DenseNet121(weights="imagenet", include_top=False,
                                                 input_shape=model_config.image_shape, pooling="max")
     x = base_model.output
-    x = Dense(256, activation="relu", use_bias=False)(x)
+    x = Dense(256, activation='relu',use_bias=False)(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
-    x = Dense(256, activation="relu", use_bias=False)(x)
-    x = BatchNormalization()(x)
-    x = Activation("relu")(x)
-    predictions = Dense(output_dim, activation='sigmoid')(x)
+    predictions = Dense(units=output_dim, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
 
     if freeze_layers == -1:
@@ -50,13 +47,11 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr=lr, decay=0.0001),
+                  optimizer=keras.optimizers.SGD(lr=lr, momentum=0.9),
                   metrics=['accuracy', metrics.smooth_f2_score])
     print("model have %d layers" % len(model.layers))
     return model
 
-
-# model_config.train_files = data_loader.up_sampling(model_config.train_files, model_config.label_position)
 
 y_train = np.array(data_loader.get_labels(model_config.train_files), np.bool)[:, model_config.label_position]
 y_valid = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
@@ -96,35 +91,28 @@ for i in range(len(model_config.epoch)):
     print(
         "lr=%f, freeze layers=%d epoch=%d" % (model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
     if i == 0:
-        model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i], output_dim=len(model_config.label_position))
-        model.fit_generator(generator=train_flow,
-                            steps_per_epoch=len(model_config.train_files) / model_config.train_batch_size,
-                            epochs=model_config.epoch[i],
-                            validation_data=val_flow,
-                            validation_steps=len(model_config.val_files) / model_config.val_batch_size,
-                            workers=12,
-                            verbose=1,
-                            callbacks=[tensorboard, checkpoint])
+        pass
     else:
         model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
                           lr=model_config.lr[i])
-        model.load_weights(model_config.tem_model_file)
+        print("load %s" % model_config.get_weights_path(model_config.epoch[i-1]))
+        model.load_weights(model_config.get_weights_path(model_config.epoch[i-1]))
         model.fit_generator(generator=train_flow,
                             steps_per_epoch=len(model_config.train_files) / model_config.train_batch_size,
                             epochs=model_config.epoch[i],
                             initial_epoch=model_config.epoch[i - 1],
                             validation_data=val_flow,
                             validation_steps=len(model_config.val_files) / model_config.val_batch_size,
-                            workers=12,
-                            verbose=1,
+                            workers=16,
+                            verbose=0,
                             callbacks=[tensorboard, checkpoint])
 
-    model.save_weights(model_config.tem_model_file)
-    del model
+        model.save_weights(model_config.tem_model_file)
+        del model
 
 print("####### train model spend %d seconds #######" % (time.time() - start))
 
 model = get_model(output_dim=len(model_config.label_position))
-for i in range(1, model_config.epoch[-1] + 1):
+for i in range(7, model_config.epoch[-1] + 1):
     model.load_weights(model_config.get_weights_path(i))
     keras_util.evaluate(model, model_config.val_files, y_valid, model_config.get_weights_path(i), model_config)

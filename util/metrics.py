@@ -187,6 +187,7 @@ def best_f2_score(true_labels, predictions, label_num=13):
 
 
 def greedy_f2_score(y_true, y_pred, label_num=13):
+    print("label number is %d" % label_num)
     threshold = [0.10] * label_num
     best_score = 0
     best_threshold = [t for t in threshold]
