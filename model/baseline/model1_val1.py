@@ -1,50 +1,37 @@
+import math
 import os
 import time
 
 import keras
 import numpy as np
+from keras.layers import Dense, BatchNormalization, Conv2D, MaxPooling2D, Flatten
 from keras import Sequential
-from keras.layers import Dense, GlobalAveragePooling2D, Conv2D, BatchNormalization, MaxPooling2D, Flatten, Dropout
-from tqdm import tqdm
 
 import config
+from util import clr_callback
 from util import data_loader
+from util import keras_util
 from util import metrics
-from util import path
+from util.keras_util import KerasModelConfig
 
-RESOLUTION = 224
-THRESHOLD = 0.2
-EPOCH = 15
-TRAIN_BATCH_SIZE = 32
-VAL_BATCH_SIZE = 128
-PREDICT_BATCH_SIZE = 128
-
-K_FOLD_FILE = "1.txt"
-VAL_INDEX = 1
-BASE_DIR = "./record/7/"
-MODEL_FILE = BASE_DIR + 'weights.018-0.7310.hdf5'
-SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}-{val_smooth_f2_score:.4f}.hdf5"
-
-IMAGE_MEAN_FILE = path.get_image_mean_file(K_FOLD_FILE, VAL_INDEX)
-IMAGE_STD_FILE = path.get_image_std_file(K_FOLD_FILE, VAL_INDEX)
-
-train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
-                                                      [config.DATA_TYPE_ORIGINAL, config.DATA_TYPE_SEGMENTED])
-
-# # 取少量数据看模型是否run的起来
-# train_files = train_files[:128]
-# val_files = val_files[:64]
-
-
-y_train = np.array(data_loader.get_labels(train_files), np.bool)
-y_valid = np.array(data_loader.get_labels(val_files), np.bool)
+model_config = KerasModelConfig(k_fold_file="1.txt",
+                                model_path=os.path.abspath(__file__),
+                                image_resolution=224,
+                                data_type=[config.DATA_TYPE_SEGMENTED],
+                                label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                                train_batch_size=32,
+                                val_batch_size=256,
+                                predict_batch_size=256,
+                                epoch=[15],
+                                lr=[0.001],
+                                freeze_layers=[0])
 
 
 def get_model():
     model = Sequential()
     model.add(Conv2D(32, kernel_size=(3, 3),
                      activation='relu',
-                     input_shape=(RESOLUTION, RESOLUTION, 3)))
+                     input_shape=model_config.image_shape))
     model.add(BatchNormalization())
     model.add(Conv2D(64, (3, 3), activation='relu'))
     model.add(BatchNormalization())
@@ -61,133 +48,77 @@ def get_model():
     return model
 
 
-def get_resnet():
-    base_model = keras.applications.ResNet50(weights="imagenet", include_top=False)
-    x = base_model.output
-    x = GlobalAveragePooling2D()(x)
-    x = Dense(1024, activation='relu')(x)
+def train():
+    y_train = np.array(data_loader.get_labels(model_config.train_files), np.bool)[:, model_config.label_position]
+    y_valid = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
 
-    predictions = Dense(13, activation='sigmoid')(x)
-    model = keras.Model(inputs=base_model.input, outputs=predictions)
-    model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.SGD(lr=0.001, momentum=0.9),
-                  metrics=['accuracy', metrics.smooth_f2_score])
-    return model
-
-
-def train(model):
-    tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
-    checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
-                                                 monitor="val_smooth_f2_score",
+    tensorboard = metrics.TensorBoardBatch(log_dir=model_config.record_dir, log_every=1, model_config=model_config)
+    checkpoint = keras.callbacks.ModelCheckpoint(filepath=model_config.save_model_format,
                                                  save_weights_only=True)
 
-    train_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                               featurewise_std_normalization=True,
-                                               width_shift_range=0.15,
-                                               horizontal_flip=True,
-                                               rotation_range=15,
-                                               rescale=config.IMAGE_RESCALE
-                                               )
-    val_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                             featurewise_std_normalization=True,
-                                             width_shift_range=0.15,
-                                             horizontal_flip=True,
-                                             rotation_range=15,
-                                             rescale=config.IMAGE_RESCALE
-                                             )
-
-    check_mean_std_file(train_datagen)
-    train_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-    val_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-
-    train_flow = train_datagen.flow_from_files(train_files, mode="fit",
-                                               target_size=(RESOLUTION, RESOLUTION),
-                                               batch_size=TRAIN_BATCH_SIZE)
-    val_flow = val_datagen.flow_from_files(val_files, mode="fit",
-                                           target_size=(RESOLUTION, RESOLUTION),
-                                           batch_size=VAL_BATCH_SIZE)
+    train_flow = data_loader.KerasGenerator(model_config=model_config,
+                                            featurewise_center=True,
+                                            featurewise_std_normalization=True,
+                                            width_shift_range=0.15,
+                                            height_shift_range=0.1,
+                                            horizontal_flip=True,
+                                            rotation_range=10,
+                                            rescale=1. / 256).flow_from_files(model_config.train_files, mode="fit",
+                                                                              target_size=model_config.image_size,
+                                                                              batch_size=model_config.train_batch_size,
+                                                                              shuffle=True,
+                                                                              label_position=model_config.label_position)
+    val_flow = data_loader.KerasGenerator(model_config=model_config,
+                                          featurewise_center=True,
+                                          featurewise_std_normalization=True,
+                                          width_shift_range=0.15,
+                                          height_shift_range=0.1,
+                                          horizontal_flip=True,
+                                          rotation_range=10,
+                                          rescale=1. / 256).flow_from_files(model_config.val_files, mode="fit",
+                                                                            target_size=model_config.image_size,
+                                                                            batch_size=model_config.val_batch_size,
+                                                                            shuffle=True,
+                                                                            label_position=model_config.label_position)
 
     start = time.time()
     print("####### start train model #######")
-    model.fit_generator(generator=train_flow,
-                        steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-                        epochs=EPOCH,
-                        validation_data=val_flow,
-                        validation_steps=len(val_files) / VAL_BATCH_SIZE,
-                        workers=16,
-                        verbose=1,
-                        callbacks=[tensorboard, checkpoint])
+    for i in range(len(model_config.epoch)):
+        print(
+            "lr=%f, freeze layers=%2f epoch=%d" % (
+                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+        clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
+                                    step_size=model_config.get_steps_per_epoch() / 2)
+
+        if i == 0:
+            model = get_model()
+            model.fit_generator(generator=train_flow,
+                                steps_per_epoch=model_config.get_steps_per_epoch(),
+                                epochs=model_config.epoch[i],
+                                validation_data=val_flow,
+                                validation_steps=len(model_config.val_files) / model_config.val_batch_size,
+                                workers=16,
+                                verbose=1,
+                                callbacks=[tensorboard, checkpoint, clr])
+        else:
+            model = get_model()
+            model.load_weights(model_config.tem_model_file)
+            model.fit_generator(generator=train_flow,
+                                steps_per_epoch=model_config.get_steps_per_epoch(),
+                                epochs=model_config.epoch[i],
+                                initial_epoch=model_config.epoch[i - 1],
+                                validation_data=val_flow,
+                                validation_steps=len(model_config.val_files) / model_config.val_batch_size,
+                                workers=16,
+                                verbose=1,
+                                callbacks=[tensorboard, checkpoint, clr])
+
+        model.save_weights(model_config.tem_model_file)
+        del model
 
     print("####### train model spend %d seconds #######" % (time.time() - start))
 
-
-def check_mean_std_file(datagen: data_loader.KerasGenerator):
-    if not os.path.exists(IMAGE_STD_FILE) or not os.path.exists(IMAGE_STD_FILE):
-        datagen.calc_image_global_mean_std(train_files, config.IMAGE_RESCALE, RESOLUTION)
-        datagen.save_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-
-
-def evaluate(model: keras.Model, pre_files, y):
-    from sklearn.metrics import fbeta_score
-
-    pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                             featurewise_std_normalization=True,
-                                             rescale=1. / 255
-                                             )
-    check_mean_std_file(pre_datagen)
-    pre_datagen.load_image_global_mean_std(IMAGE_MEAN_FILE, IMAGE_STD_FILE)
-
-    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
-                                           target_size=(RESOLUTION, RESOLUTION),
-                                           batch_size=PREDICT_BATCH_SIZE)
-
-    start = time.time()
-    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / PREDICT_BATCH_SIZE, verbose=1)
-    print("####### predict %d images spend %d seconds ######"
-          % (len(pre_files), time.time() - start))
-
-    start = time.time()
-    best_score, threshold = metrics.best_f2_score(y, y_pred)
-    print("####### search threshold spend %d seconds ######"
-          % (time.time() - start))
-    print("####### Smooth F2-Score is %f #######"
-          % metrics.smooth_f2_score_np(y, y_pred))
-    print("####### F2-Score with threshold 0.2 is %f #######"
-          % fbeta_score(y, (np.array(y_pred) > THRESHOLD).astype(np.int8), beta=2, average='samples'))
-    print("####### Best F2-Score is %f #######" % best_score)
-
-    y_pred_best = (np.array(y_pred) > threshold).astype(np.int8)
-    with open(BASE_DIR + "evaluate.txt", "w+") as f:
-        f.write("threshold: ")
-        f.write(",".join([str(j) for j in threshold]))
-        f.write("\n")
-        for i in range(len(pre_files)):
-            f.write(pre_files[i])
-            f.write(",")
-            f.write(",".join([str(j) for j in list(y_pred_best[i])]))
-            f.write("\n")
-
-
-def evaluate_all(path, model, x, y):
-    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
-    sample_number = len(x)
-    for weight_file in tqdm(files):
-        if weight_file.split(".")[-1] == "hdf5":
-            model.load_weights(BASE_DIR + weight_file)
-            from sklearn.metrics import fbeta_score
-            y_pred = model.predict(x, batch_size=PREDICT_BATCH_SIZE)
-            f2_smooth = metrics.smooth_f2_score_np(y, y_pred)
-            f2_2 = fbeta_score(y, np.array(y_pred) > THRESHOLD, beta=2, average='samples')
-            f2_basinhopping, threshold = metrics.best_f2_score(y, y_pred)
-            with open(path + "predict_all.txt", "a") as f:
-                f.write(
-                    "[%s]\t Sample=%d F2_smooth=%.4f,  F2_0.2=%.4f,  F2_basinhopping=%.4f\n" % (
-                        weight_file, sample_number, f2_smooth, f2_2, f2_basinhopping))
-
-
-model = get_model()
-# model = get_resnet()
-# model.load_weights(MODEL_FILE)
-train(model)
-evaluate(model, val_files, y_valid)
-# evaluate(model, train_files, x_train, y_train)
+    model = get_model()
+    for i in range(1, model_config.epoch[-1] + 1):
+        model.load_weights(model_config.get_weights_path(i))
+        keras_util.evaluate(model, model_config.val_files, y_valid, model_config.get_weights_path(i), model_config)

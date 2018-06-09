@@ -12,11 +12,9 @@ from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
-                                val_index=1,
+                                model_path=os.path.abspath(__file__),
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
-                                model_dir=os.path.dirname(os.path.abspath(__file__)),
-                                record_sub_dir="val1",
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,
                                 val_batch_size=64,
