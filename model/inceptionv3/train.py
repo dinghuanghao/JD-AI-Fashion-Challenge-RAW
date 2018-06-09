@@ -1,17 +1,9 @@
-import model.inceptionv3.model1 as model1
-import model.inceptionv3.model2 as model2
-import model.inceptionv3.model3 as model3
-import model.inceptionv3.model4 as model4
-import model.inceptionv3.model5 as model5
-import model.inceptionv3.model6 as model6
-import model.inceptionv3.model7 as model7
-import model.inceptionv3.model8 as model8
+import model.inceptionv3.model14_val2 as model14_val2
+import model.inceptionv3.model14_val3 as model14_val3
+import model.inceptionv3.model14_val4 as model14_val4
+import model.inceptionv3.model14_val5 as model14_val5
 
-# model1.train()
-# model3.train()
-# model4.train()
-# model5.train()
-# model6.train()
-# model7.train()
-# model2.train()
-model8.train()
+model14_val2.train()
+model14_val3.train()
+model14_val4.train()
+model14_val5.train()

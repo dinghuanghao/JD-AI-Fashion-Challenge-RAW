@@ -1,30 +1,32 @@
+import math
 import os
 import time
-import math
 
 import keras
 import numpy as np
-from keras.layers import Dense, BatchNormalization, Activation, Dropout
+from keras.layers import Dense, BatchNormalization, Activation
 
 import config
+from util import clr_callback
 from util import data_loader
 from util import keras_util
 from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
-                                val_index=1,
+                                val_index=5,
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
                                 model_dir=os.path.dirname(os.path.abspath(__file__)),
-                                record_sub_dir="8/val1",
+                                record_sub_dir="14/val5",
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,
                                 val_batch_size=256,
                                 predict_batch_size=256,
-                                epoch=[1, 6, 10],
+                                epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00001],
-                                freeze_layers=[-1, 0.5, 5])
+                                freeze_layers=[-1, 0.6, 5])
+
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
     base_model = keras.applications.InceptionV3(include_top=False, input_shape=model_config.image_shape, pooling="avg")
@@ -42,7 +44,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
             layer.trainable = False
     else:
         if freeze_layers < 1:
-            freeze_layers = math.floor(len(base_model.layers)*freeze_layers)
+            freeze_layers = math.floor(len(base_model.layers) * freeze_layers)
         for layer in range(freeze_layers):
             base_model.layers[layer].train_layer = False
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
@@ -92,7 +94,11 @@ def train():
     print("####### start train model #######")
     for i in range(len(model_config.epoch)):
         print(
-            "lr=%f, freeze layers=%2f epoch=%d" % (model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+            "lr=%f, freeze layers=%2f epoch=%d" % (
+            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+        clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
+                                    step_size=model_config.get_steps_per_epoch() / 2)
+
         if i == 0:
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))
@@ -103,7 +109,7 @@ def train():
                                 validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint])
+                                callbacks=[tensorboard, checkpoint, clr])
         else:
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
                               lr=model_config.lr[i])
@@ -116,7 +122,7 @@ def train():
                                 validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint])
+                                callbacks=[tensorboard, checkpoint, clr])
 
         model.save_weights(model_config.tem_model_file)
         del model
