@@ -23,7 +23,7 @@ def model_statistics(path, save_file=None):
             weight_file = ""
             for i in f.readlines():
                 if "weight" in i:
-                    weight_file = i.split(":")[-1].strip()
+                    weight_file = re.match("weight: *(.*)", i).group(1)
 
                 if "Greedy F2-Score is:" in i:
                     if weight_file == "":

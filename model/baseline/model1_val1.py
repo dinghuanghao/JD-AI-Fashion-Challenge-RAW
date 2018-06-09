@@ -8,7 +8,6 @@ from keras.layers import Dense, BatchNormalization, Conv2D, MaxPooling2D, Flatte
 from keras import Sequential
 
 import config
-from util import clr_callback
 from util import data_loader
 from util import keras_util
 from util import metrics

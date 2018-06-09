@@ -7,7 +7,6 @@ import numpy as np
 from keras.layers import Dense, BatchNormalization, Activation
 
 import config
-from util import clr_callback
 from util import data_loader
 from util import keras_util
 from util import metrics

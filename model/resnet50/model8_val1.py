@@ -7,7 +7,6 @@ import numpy as np
 from keras.layers import Dense, BatchNormalization
 
 import config
-from util import clr_callback
 from util import data_loader
 from util import keras_util
 from util import metrics
@@ -16,6 +15,7 @@ from util.keras_util import KerasModelConfig
 model_config = KerasModelConfig(k_fold_file="1.txt",
                                 model_path=os.path.abspath(__file__),
                                 image_resolution=224,
+                                input_norm=False,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,

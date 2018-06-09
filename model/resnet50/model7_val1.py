@@ -15,6 +15,7 @@ from util.keras_util import KerasModelConfig
 model_config = KerasModelConfig(k_fold_file="1.txt",
                                 model_path=os.path.abspath(__file__),
                                 image_resolution=224,
+                                input_norm=False,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,
@@ -63,24 +64,28 @@ def train():
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=model_config.save_model_format,
                                                  save_weights_only=True)
 
-    train_flow = data_loader.KerasGenerator(model_config=model_config,
-                                            width_shift_range=0.15,
-                                            height_shift_range=0.1,
-                                            horizontal_flip=True,
-                                            rotation_range=10).flow_from_files(model_config.train_files, mode="fit",
-                                                                               target_size=model_config.image_size,
-                                                                               batch_size=model_config.train_batch_size,
-                                                                               shuffle=True,
-                                                                               label_position=model_config.label_position)
-    val_flow = data_loader.KerasGenerator(model_config=model_config,
-                                          width_shift_range=0.15,
-                                          height_shift_range=0.1,
-                                          horizontal_flip=True,
-                                          rotation_range=10).flow_from_files(model_config.val_files, mode="fit",
-                                                                             target_size=model_config.image_size,
-                                                                             batch_size=model_config.val_batch_size,
-                                                                             shuffle=True,
-                                                                             label_position=model_config.label_position)
+    train_gen = data_loader.KerasGenerator(model_config=model_config,
+                                           width_shift_range=0.15,
+                                           height_shift_range=0.1,
+                                           horizontal_flip=True,
+                                           rotation_range=10)
+
+    train_flow = train_gen.flow_from_files(model_config.train_files, mode="fit",
+                                           target_size=model_config.image_size,
+                                           batch_size=model_config.train_batch_size,
+                                           shuffle=True,
+                                           label_position=model_config.label_position)
+
+    val_gen = data_loader.KerasGenerator(model_config=model_config,
+                                         width_shift_range=0.15,
+                                         height_shift_range=0.1,
+                                         horizontal_flip=True,
+                                         rotation_range=10)
+    val_flow = val_gen.flow_from_files(model_config.val_files, mode="fit",
+                                       target_size=model_config.image_size,
+                                       batch_size=model_config.val_batch_size,
+                                       shuffle=True,
+                                       label_position=model_config.label_position)
 
     start = time.time()
     print("####### start train model #######")

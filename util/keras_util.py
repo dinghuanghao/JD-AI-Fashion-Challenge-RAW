@@ -20,6 +20,8 @@ class KerasModelConfig(object):
                  model_path: str,
                  image_resolution,
                  data_type,
+                 val_index=None,
+                 input_norm=True,
                  label_position=(1,),
                  train_batch_size=32,
                  val_batch_size=32,
@@ -32,10 +34,11 @@ class KerasModelConfig(object):
         model_dir = os.path.dirname(model_path)
 
         self.k_fold_file = k_fold_file
-        self.val_index = int("".join(filter(str.isdigit, file_name.split("_")[1])))
+        self.val_index = int("".join(filter(str.isdigit, file_name.split("_")[1]))) if val_index is None else val_index
         self.image_resolution = image_resolution
         self.image_size = (image_resolution, image_resolution)
         self.image_shape = (image_resolution, image_resolution, 3)
+        self.input_norm = input_norm
         self.data_type = data_type
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split("_")[0])
         self.record_dir = os.path.join(self.record_dir, "val%d" % self.val_index)
@@ -77,12 +80,36 @@ class KerasModelConfig(object):
                                 "%sweights.0%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
 
 
+def predict(model: keras.Model, pre_files, model_config: KerasModelConfig):
+    if model_config.input_norm:
+        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
+                                                 featurewise_std_normalization=True,
+                                                 rescale=1. / 256)
+    else:
+        pre_datagen = data_loader.KerasGenerator()
+
+    data_loader.check_mean_std_file(model_config, pre_datagen)
+    pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
+
+    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
+                                           target_size=model_config.image_size,
+                                           batch_size=model_config.predict_batch_size)
+
+    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=1)
+
+
 def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig):
     from sklearn.metrics import fbeta_score
 
-    pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                             featurewise_std_normalization=True,
-                                             rescale=1. / 256)
+    if y is None:
+        y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
+
+    if model_config.input_norm:
+        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
+                                                 featurewise_std_normalization=True,
+                                                 rescale=1. / 256)
+    else:
+        pre_datagen = data_loader.KerasGenerator()
 
     data_loader.check_mean_std_file(model_config, pre_datagen)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
