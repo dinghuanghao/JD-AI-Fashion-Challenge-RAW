@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
-from pylab import mpl
 
 from util import data_loader
 from util import path
@@ -36,11 +35,23 @@ def get_label_class_sum():
     df = get_frame()
     return df.sum(axis=0)
 
+def get_label_class_type_sum():
+    df = get_frame()
+    label_class_type_sum = []
+    for classType in data_metric.label_class_type_name:
+        label_class_type_sum.append(df[classType].sum().sum())
+    return label_class_type_sum
+
 def show_label_class_bar():
     plt.figure(1,figsize=(10,6))
     sns.barplot(y=label_class_name, x=get_label_class_sum().tolist(), orient='h')
     plt.show()
 
+def show_label_class_type_bar():
+    plt.figure(1, figsize=(6,6))
+    sns.barplot(x=label_class_type_name, y=get_label_class_type_sum())
+    plt.show()
+
 if __name__ == "__main__":
     show_label_class_bar()
-
+    show_label_class_type_bar()
