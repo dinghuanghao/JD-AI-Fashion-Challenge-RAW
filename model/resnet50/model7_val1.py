@@ -1,6 +1,5 @@
-"""
-取消掉图片的单通道均值归一化，并测试800*800尺寸下的结果
-"""
+import math
+import os
 import time
 
 import keras
@@ -9,205 +8,117 @@ from keras.layers import Dense, BatchNormalization
 
 import config
 from util import data_loader
+from util import keras_util
 from util import metrics
+from util.keras_util import KerasModelConfig
 
-RESOLUTION = 224
-FIRST_EPOCH = 1
-SECOND_EPOCH = 10
-THIRD_EPOCH = 5
-TRAIN_BATCH_SIZE = 32
-VAL_BATCH_SIZE = 64
-PREDICT_BATCH_SIZE = 512
-
-K_FOLD_FILE = "1.txt"
-VAL_INDEX = 1
-BASE_DIR = "./record/model_7/val1/"
-MODEL_FILE = BASE_DIR + 'weights.hdf5'
-SAVE_MODEL_FORMAT = BASE_DIR + "weights.{epoch:03d}.hdf5"
-
-train_files, val_files = data_loader.get_k_fold_files(K_FOLD_FILE, VAL_INDEX,
-                                                      [config.DATA_TYPE_SEGMENTED])
-
-# val_files = val_files[:64]
-
-y_train = np.array(data_loader.get_labels(train_files), np.bool)
-y_valid = np.array(data_loader.get_labels(val_files), np.bool)
+model_config = KerasModelConfig(k_fold_file="1.txt",
+                                model_path=os.path.abspath(__file__),
+                                image_resolution=224,
+                                data_type=[config.DATA_TYPE_SEGMENTED],
+                                label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                                train_batch_size=32,
+                                val_batch_size=256,
+                                predict_batch_size=256,
+                                epoch=[1, 10, 5],
+                                lr=[0.001, 0.0001, 0.00001],
+                                freeze_layers=[-1, 20, 0])
 
 
-def get_model(freeze_layers=None, lr=0.001):
+def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
     base_model = keras.applications.ResNet50(weights="imagenet", include_top=False,
-                                             input_shape=(RESOLUTION, RESOLUTION, 3), pooling="avg")
+                                             input_shape=model_config.image_shape, pooling="avg")
     x = base_model.output
     x = Dense(512, activation='relu')(x)
     x = BatchNormalization()(x)
-    predictions = Dense(13, activation='sigmoid')(x)
+    predictions = Dense(output_dim, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
 
-    if freeze_layers is None:
+    if freeze_layers == -1:
         print("freeze all basic layers, lr=%f" % lr)
 
         for layer in base_model.layers:
             layer.trainable = False
     else:
+        if freeze_layers < 1:
+            freeze_layers = math.floor(len(base_model.layers) * freeze_layers)
         for layer in range(freeze_layers):
             base_model.layers[layer].train_layer = False
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr),
-                  metrics=['accuracy', metrics.smooth_f2_score])
+                  optimizer=keras.optimizers.Adam(lr=lr),
+                  metrics=['accuracy', metrics.smooth_f2_score, metrics.smooth_f2_score_02])
+    # model.summary()
+    print("model have %d layers" % len(model.layers))
     return model
 
 
-def evaluate(model: keras.Model, pre_files, y):
-    from sklearn.metrics import fbeta_score
+def train():
+    y_train = np.array(data_loader.get_labels(model_config.train_files), np.bool)[:, model_config.label_position]
+    y_valid = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
 
-    pre_datagen = data_loader.KerasGenerator()
-    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
-                                           target_size=(RESOLUTION, RESOLUTION),
-                                           batch_size=PREDICT_BATCH_SIZE)
+    tensorboard = metrics.TensorBoardBatch(log_dir=model_config.record_dir, log_every=1, model_config=model_config)
+    checkpoint = keras.callbacks.ModelCheckpoint(filepath=model_config.save_model_format,
+                                                 save_weights_only=True)
+
+    train_flow = data_loader.KerasGenerator(model_config=model_config,
+                                            width_shift_range=0.15,
+                                            height_shift_range=0.1,
+                                            horizontal_flip=True,
+                                            rotation_range=10).flow_from_files(model_config.train_files, mode="fit",
+                                                                               target_size=model_config.image_size,
+                                                                               batch_size=model_config.train_batch_size,
+                                                                               shuffle=True,
+                                                                               label_position=model_config.label_position)
+    val_flow = data_loader.KerasGenerator(model_config=model_config,
+                                          width_shift_range=0.15,
+                                          height_shift_range=0.1,
+                                          horizontal_flip=True,
+                                          rotation_range=10).flow_from_files(model_config.val_files, mode="fit",
+                                                                             target_size=model_config.image_size,
+                                                                             batch_size=model_config.val_batch_size,
+                                                                             shuffle=True,
+                                                                             label_position=model_config.label_position)
 
     start = time.time()
-    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / PREDICT_BATCH_SIZE, verbose=1)
-    print("####### predict %d images spend %d seconds ######"
-          % (len(pre_files), time.time() - start))
-    start = time.time()
-    greedy_score, greedy_threshold = metrics.greedy_f2_score(y, y_pred)
-    print("####### search greedy threshold spend %d seconds ######"
-          % (time.time() - start))
-    # start = time.time()
-    # bs_score, bs_threshold = metrics.best_f2_score(y, y_pred)
-    # print("####### search basonshopping threshold spend %d seconds ######"
-    #       % (time.time() - start))
-    print("####### Smooth F2-Score is %f #######"
-          % metrics.smooth_f2_score_np(y, y_pred))
-    print("####### F2-Score with threshold 0.2 is %f #######"
-          % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
-    print("####### F2-Score with threshold 0.1 is %f #######"
-          % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
-    # print("####### Basonhopping F2-Score is %f #######" % bs_score)
-    print("####### Greedy F2-Score is %f #######" % greedy_score)
+    print("####### start train model #######")
+    for i in range(len(model_config.epoch)):
+        print(
+            "lr=%f, freeze layers=%2f epoch=%d" % (
+                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
 
-    # if bs_score > greedy_score:
-    #     y_pred_best = (np.array(y_pred) > bs_threshold).astype(np.int8)
-    # else:
-    #     y_pred_best = (np.array(y_pred) > greedy_threshold).astype(np.int8)
+        if i == 0:
+            model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
+                              output_dim=len(model_config.label_position))
+            model.fit_generator(generator=train_flow,
+                                steps_per_epoch=model_config.get_steps_per_epoch(),
+                                epochs=model_config.epoch[i],
+                                validation_data=val_flow,
+                                validation_steps=len(model_config.val_files) / model_config.val_batch_size,
+                                workers=16,
+                                verbose=1,
+                                callbacks=[tensorboard, checkpoint])
+        else:
+            model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
+                              lr=model_config.lr[i])
+            model.load_weights(model_config.tem_model_file)
+            model.fit_generator(generator=train_flow,
+                                steps_per_epoch=model_config.get_steps_per_epoch(),
+                                epochs=model_config.epoch[i],
+                                initial_epoch=model_config.epoch[i - 1],
+                                validation_data=val_flow,
+                                validation_steps=len(model_config.val_files) / model_config.val_batch_size,
+                                workers=16,
+                                verbose=1,
+                                callbacks=[tensorboard, checkpoint])
 
-    with open(BASE_DIR + "evaluate.txt", "w+") as f:
-        # f.write("basonshopping threshold: ")
-        # f.write(",".join([str(j) for j in bs_threshold]))
-        # f.write("\n")
-        f.write("greedy threshold: ")
-        f.write(",".join([str(j) for j in greedy_threshold]))
-        f.write("\n")
-        greedy_threshold_all = []
-        for i in range(y_pred.shape[-1]):
-            smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
-            greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
-            bason_f2, bason_threshold = metrics.best_f2_score(y[:, i], y_pred[:, i], 1)
-            print("[label %d]\tsmooth-f2=%4f   BFGS-f2=%4f[%4f]   greedy-f2=%4f[%4f]" % (
-                i, smooth_f2, bason_f2, bason_threshold[0], greedy_f2, greedy_threshold[0]))
-            f.write("[label %d]\tsmooth-f2=%4f   BFGS-f2=%4f[%4f]   greedy-f2=%4f[%4f]\n" % (
-                i, smooth_f2, bason_f2, bason_threshold[0], greedy_f2, greedy_threshold[0]))
-            greedy_threshold_all.append(greedy_threshold)
-        greedy_score_label = fbeta_score(y, (np.array(y_pred) > np.array(greedy_threshold_all).reshape((1, 13))).astype(np.int8), beta=2, average='samples')
-        print("####### Greedy F2-Score by single label is %f #######" % greedy_score_label)
-            # for i in range(len(pre_files)):
-            #     f.write(pre_files[i])
-            #     f.write(",")
-            #     f.write(",".join([str(j) for j in list(y_pred_best[i])]))
-            #     f.write("\n")
+        model.save_weights(model_config.tem_model_file)
+        del model
 
+    print("####### train model spend %d seconds #######" % (time.time() - start))
 
-tensorboard = keras.callbacks.TensorBoard(log_dir=BASE_DIR)
-checkpoint = keras.callbacks.ModelCheckpoint(filepath=SAVE_MODEL_FORMAT,
-                                             save_weights_only=True)
-
-train_datagen = data_loader.KerasGenerator(width_shift_range=0.15,
-                                           height_shift_range=0.1,
-                                           horizontal_flip=True,
-                                           rotation_range=10
-                                           )
-val_datagen = data_loader.KerasGenerator(width_shift_range=0.15,
-                                         height_shift_range=0.1,
-                                         horizontal_flip=True,
-                                         rotation_range=10
-                                         )
-
-# train_flow = train_datagen.flow_from_files(train_files, mode="fit",
-#                                            target_size=(RESOLUTION, RESOLUTION),
-#                                            batch_size=TRAIN_BATCH_SIZE,
-#                                            save_prefix="train",
-#                                            save_to_dir=path.DEBUG_TRAIN_IMAGES_PATH)
-# val_flow = val_datagen.flow_from_files(val_files, mode="fit",
-#                                        target_size=(RESOLUTION, RESOLUTION),
-#                                        batch_size=VAL_BATCH_SIZE,
-#                                        save_to_dir=path.DEBUG_VAL_IMAGES_PATH,
-#                                        save_prefix="val")
-
-
-# train_flow = train_datagen.flow_from_files(train_files, mode="fit",
-#                                            target_size=(RESOLUTION, RESOLUTION),
-#                                            batch_size=TRAIN_BATCH_SIZE,
-#                                            shuffle=True)
-# val_flow = val_datagen.flow_from_files(val_files, mode="fit",
-#                                        target_size=(RESOLUTION, RESOLUTION),
-#                                        batch_size=VAL_BATCH_SIZE,
-#                                        shuffle=True)
-#
-# model = get_model(lr=0.001)
-# start = time.time()
-# print("####### start train model #######")
-# model.fit_generator(generator=train_flow,
-#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-#                     epochs=FIRST_EPOCH,
-#                     validation_data=val_flow,
-#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-#                     workers=12,
-#                     verbose=1,
-#                     callbacks=[tensorboard, checkpoint])
-#
-# print("####### train model spend %d seconds #######" % (time.time() - start))
-# model.save_weights(MODEL_FILE)
-# del model
-#
-# model = get_model(freeze_layers=20, lr=0.0001)
-# model.load_weights(MODEL_FILE)
-# start = time.time()
-# print("####### start train model #######")
-# model.fit_generator(generator=train_flow,
-#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-#                     epochs=FIRST_EPOCH + SECOND_EPOCH,
-#                     initial_epoch=FIRST_EPOCH,
-#                     validation_data=val_flow,
-#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-#                     workers=12,
-#                     verbose=1,
-#                     callbacks=[tensorboard, checkpoint])
-# print("####### train model spend %d seconds #######" % (time.time() - start))
-# evaluate(model, val_files, y_valid)
-# model.save_weights(MODEL_FILE)
-# del model
-#
-# model = get_model(freeze_layers=0, lr=0.00001)
-# model.load_weights(MODEL_FILE)
-# start = time.time()
-# print("####### start train model #######")
-# model.fit_generator(generator=train_flow,
-#                     steps_per_epoch=len(train_files) / TRAIN_BATCH_SIZE,
-#                     epochs=FIRST_EPOCH + SECOND_EPOCH + THIRD_EPOCH,
-#                     initial_epoch=FIRST_EPOCH + SECOND_EPOCH,
-#                     validation_data=val_flow,
-#                     validation_steps=len(val_files) / VAL_BATCH_SIZE,
-#                     workers=16,
-#                     verbose=1,
-#                     callbacks=[tensorboard, checkpoint])
-# print("####### train model spend %d seconds #######" % (time.time() - start))
-# evaluate(model, val_files, y_valid)
-#
-
-
-
-model = get_model()
-model.load_weights("./record/val1/weights.012.hdf5")
-evaluate(model, val_files, y_valid)
+    model = get_model(output_dim=len(model_config.label_position))
+    for i in range(1, model_config.epoch[-1] + 1):
+        model.load_weights(model_config.get_weights_path(i))
+        keras_util.evaluate(model, model_config.val_files, y_valid, model_config.get_weights_path(i), model_config)

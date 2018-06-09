@@ -4,7 +4,7 @@ import time
 
 import keras
 import numpy as np
-from keras.layers import Dense, BatchNormalization, Activation
+from keras.layers import Dense, BatchNormalization
 
 import config
 from util import clr_callback
@@ -33,7 +33,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
     base_model.layers.pop()
     x = Dense(512, activation='relu')(base_model.layers[-1].output)
     x = BatchNormalization()(x)
-    predictions = Dense(13, activation='sigmoid')(x)
+    predictions = Dense(output_dim, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
 
     if freeze_layers == -1:
