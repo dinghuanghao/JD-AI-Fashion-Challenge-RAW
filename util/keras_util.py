@@ -35,6 +35,7 @@ class KerasModelConfig(object):
         model_dir = os.path.dirname(model_path)
 
         self.k_fold_file = k_fold_file
+        self.model_path = model_path
         self.val_index = int("".join(filter(str.isdigit, file_name.split("_")[1]))) if val_index is None else val_index
         self.image_resolution = image_resolution
         self.image_size = (image_resolution, image_resolution)
@@ -50,8 +51,21 @@ class KerasModelConfig(object):
         self.epoch = epoch
         self.lr = lr
         self.freeze_layers = freeze_layers
-        self.train_files, self.val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index,
-                                                                        self.data_type)
+
+        self.train_files_dict = {}
+        self.val_files_dict = {}
+
+        self.train_files = []
+        self.val_files = []
+
+        for i in data_type:
+            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index,
+                                                                  self.data_type)
+            self.train_files_dict[i] = train_files
+            self.val_files_dict[i] = val_files
+            self.train_files += train_files
+            self.val_files += val_files
+
         self.train_files = np.array(self.train_files)
         self.val_files = np.array(self.val_files)
         self.image_mean_file = path.get_image_mean_file(self.k_fold_file, self.val_index,
@@ -173,15 +187,21 @@ def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: 
     data_loader.check_mean_std_file(model_config, pre_datagen)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
-    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
-                                           target_size=model_config.image_size,
-                                           batch_size=model_config.predict_batch_size)
-
+    y_pred = None
     start = time.time()
-    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=1)
-    print("####### predict %d images spend %d seconds ######"
-          % (len(pre_files), time.time() - start))
+    for data_type in model_config.data_type:
+        pre_flow = pre_datagen.flow_from_files(model_config.val_files_dict[data_type], mode="predict",
+                                               target_size=model_config.image_size,
+                                               batch_size=model_config.predict_batch_size)
 
+        if y_pred is None:
+            y_pred = model.predict_generator(pre_flow, steps=len(pre_files), verbose=1)
+        else:
+            y_pred += model.predict_generator(pre_flow, steps=len(pre_files), verbose=1)
+
+    print("####### predict %d images spend %d seconds ######" % (len(pre_files), time.time() - start))
+
+    y_pred = y_pred / len(model_config.data_type)
     evaluate(y, y_pred, weight_name, model_config)
 
 
