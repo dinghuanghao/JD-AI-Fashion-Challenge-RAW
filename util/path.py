@@ -7,6 +7,7 @@ import util
 root_path = os.sep.join(util.__file__.split(os.sep)[:-2])
 ROOT_PATH = os.path.abspath(root_path)
 DATA_PATH = os.path.join(ROOT_PATH, "data")
+MODEL_PATH = os.path.join(ROOT_PATH, "model")
 TRAINING_RECORD_PATH = os.path.join(ROOT_PATH, "record")
 
 IMAGES_PATH = os.path.join(DATA_PATH, "images")

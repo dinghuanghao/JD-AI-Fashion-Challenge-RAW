@@ -1,12 +1,10 @@
-import os
-import pathlib
-import time
-
 IMAGE_NUMBER = 54908
 
 # 图片尺寸
 IMAGE_SIZE = [224, 224]
 IMAGE_SHAPE = (224, 224, 3)
+
+LABEL_NUMBER = 13
 
 # K_FOLD次数
 K_FOLD = 5

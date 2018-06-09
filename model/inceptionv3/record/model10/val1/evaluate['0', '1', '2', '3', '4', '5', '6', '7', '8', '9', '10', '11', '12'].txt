@@ -1,0 +1,200 @@
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.725064
+F2-Score with threshold 0.2: 0.724892
+Greedy F2-Score is: 0.780113
+Greedy threshold: 0.01,0.1,0.1,0.1,0.0,0.1,0.1,0.1,0.1,0.99,0.1,0.1,0.1
+[label 0]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.015373[0.000000]
+[label 1]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.289397[0.000000]
+[label 2]	smooth-f2=0.979803   BFGS-f2=0.979804[0.200000]   greedy-f2=0.979804[0.000000]
+[label 3]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.049239[0.000000]
+[label 4]	smooth-f2=0.004562   BFGS-f2=0.705672[0.000000]   greedy-f2=0.705672[0.000000]
+[label 5]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.395277[0.000000]
+[label 6]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.015631[0.000000]
+[label 7]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.119665[0.000000]
+[label 8]	smooth-f2=0.977746   BFGS-f2=0.977746[0.200000]   greedy-f2=0.977746[0.000000]
+[label 9]	smooth-f2=0.063906   BFGS-f2=0.414462[0.000000]   greedy-f2=0.414462[0.000000]
+[label 10]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.297370[0.000000]
+[label 11]	smooth-f2=0.000000   BFGS-f2=0.107695[0.000000]   greedy-f2=0.107695[0.000000]
+[label 12]	smooth-f2=0.000000   BFGS-f2=0.000000[0.200000]   greedy-f2=0.036307[0.000000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.759564
+F2-Score with threshold 0.2: 0.863334
+Greedy F2-Score is: 0.867010
+Greedy threshold: 0.04,0.12,0.12,0.31,0.13,0.23,0.19,0.12,0.18,0.21,0.16,0.17,0.29
+[label 0]	smooth-f2=0.018054   BFGS-f2=0.000000[0.200000]   greedy-f2=0.223214[0.040000]
+[label 1]	smooth-f2=0.312983   BFGS-f2=0.594348[0.124663]   greedy-f2=0.591785[0.120000]
+[label 2]	smooth-f2=0.928377   BFGS-f2=0.979954[0.211610]   greedy-f2=0.980010[0.230000]
+[label 3]	smooth-f2=0.116934   BFGS-f2=0.263158[0.316293]   greedy-f2=0.277778[0.090000]
+[label 4]	smooth-f2=0.508191   BFGS-f2=0.798377[0.090965]   greedy-f2=0.798130[0.090000]
+[label 5]	smooth-f2=0.456439   BFGS-f2=0.696425[0.204562]   greedy-f2=0.695483[0.200000]
+[label 6]	smooth-f2=0.020274   BFGS-f2=0.000000[0.200000]   greedy-f2=0.116279[0.030000]
+[label 7]	smooth-f2=0.130052   BFGS-f2=0.407991[0.085498]   greedy-f2=0.402402[0.100000]
+[label 8]	smooth-f2=0.925320   BFGS-f2=0.978315[0.220769]   greedy-f2=0.978315[0.220000]
+[label 9]	smooth-f2=0.385450   BFGS-f2=0.582342[0.164881]   greedy-f2=0.580565[0.170000]
+[label 10]	smooth-f2=0.450283   BFGS-f2=0.698949[0.100026]   greedy-f2=0.698949[0.100000]
+[label 11]	smooth-f2=0.162730   BFGS-f2=0.445300[0.083735]   greedy-f2=0.446656[0.070000]
+[label 12]	smooth-f2=0.056252   BFGS-f2=0.241135[0.040678]   greedy-f2=0.237099[0.040000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.774652
+F2-Score with threshold 0.2: 0.866252
+Greedy F2-Score is: 0.871921
+Greedy threshold: 0.07,0.12,0.13,0.26,0.14,0.34,0.18,0.17,0.18,0.18,0.09,0.25,0.21
+[label 0]	smooth-f2=0.036729   BFGS-f2=0.257353[0.052844]   greedy-f2=0.256410[0.060000]
+[label 1]	smooth-f2=0.385340   BFGS-f2=0.627289[0.119005]   greedy-f2=0.626031[0.120000]
+[label 2]	smooth-f2=0.938762   BFGS-f2=0.980464[0.166812]   greedy-f2=0.980454[0.200000]
+[label 3]	smooth-f2=0.123422   BFGS-f2=0.256917[0.254584]   greedy-f2=0.295031[0.050000]
+[label 4]	smooth-f2=0.576238   BFGS-f2=0.800861[0.134060]   greedy-f2=0.800723[0.110000]
+[label 5]	smooth-f2=0.511731   BFGS-f2=0.696451[0.300407]   greedy-f2=0.696251[0.300000]
+[label 6]	smooth-f2=0.033566   BFGS-f2=0.159363[0.066961]   greedy-f2=0.140845[0.060000]
+[label 7]	smooth-f2=0.180783   BFGS-f2=0.445860[0.102220]   greedy-f2=0.444891[0.100000]
+[label 8]	smooth-f2=0.931714   BFGS-f2=0.978910[0.258141]   greedy-f2=0.978949[0.260000]
+[label 9]	smooth-f2=0.294590   BFGS-f2=0.596356[0.109960]   greedy-f2=0.596356[0.110000]
+[label 10]	smooth-f2=0.389757   BFGS-f2=0.717092[0.085401]   greedy-f2=0.717456[0.090000]
+[label 11]	smooth-f2=0.223212   BFGS-f2=0.475078[0.138389]   greedy-f2=0.474453[0.140000]
+[label 12]	smooth-f2=0.041626   BFGS-f2=0.257009[0.043787]   greedy-f2=0.256125[0.040000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.777950
+F2-Score with threshold 0.2: 0.872604
+Greedy F2-Score is: 0.876266
+Greedy threshold: 0.11,0.11,0.16,0.28,0.17,0.31,0.12,0.15,0.09,0.18,0.17,0.32,0.32
+[label 0]	smooth-f2=0.027425   BFGS-f2=0.062500[0.109990]   greedy-f2=0.241379[0.030000]
+[label 1]	smooth-f2=0.424055   BFGS-f2=0.628862[0.110939]   greedy-f2=0.627949[0.110000]
+[label 2]	smooth-f2=0.932317   BFGS-f2=0.980926[0.159830]   greedy-f2=0.980926[0.160000]
+[label 3]	smooth-f2=0.202028   BFGS-f2=0.336879[0.216905]   greedy-f2=0.340502[0.240000]
+[label 4]	smooth-f2=0.561436   BFGS-f2=0.805707[0.112573]   greedy-f2=0.804972[0.110000]
+[label 5]	smooth-f2=0.504853   BFGS-f2=0.718001[0.231546]   greedy-f2=0.717310[0.230000]
+[label 6]	smooth-f2=0.026488   BFGS-f2=0.172414[0.057191]   greedy-f2=0.157895[0.060000]
+[label 7]	smooth-f2=0.175757   BFGS-f2=0.467446[0.095789]   greedy-f2=0.463415[0.090000]
+[label 8]	smooth-f2=0.930511   BFGS-f2=0.978697[0.122401]   greedy-f2=0.978660[0.120000]
+[label 9]	smooth-f2=0.358455   BFGS-f2=0.608715[0.108611]   greedy-f2=0.608024[0.110000]
+[label 10]	smooth-f2=0.505388   BFGS-f2=0.721186[0.110195]   greedy-f2=0.720700[0.110000]
+[label 11]	smooth-f2=0.284919   BFGS-f2=0.471444[0.143303]   greedy-f2=0.469584[0.140000]
+[label 12]	smooth-f2=0.101770   BFGS-f2=0.257985[0.108350]   greedy-f2=0.251196[0.100000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.788600
+F2-Score with threshold 0.2: 0.872675
+Greedy F2-Score is: 0.878387
+Greedy threshold: 0.06,0.2,0.06,0.58,0.19,0.44,0.14,0.18,0.11,0.12,0.16,0.16,0.37
+[label 0]	smooth-f2=0.033409   BFGS-f2=0.000000[0.200000]   greedy-f2=0.291262[0.060000]
+[label 1]	smooth-f2=0.459866   BFGS-f2=0.644046[0.126654]   greedy-f2=0.642871[0.140000]
+[label 2]	smooth-f2=0.933175   BFGS-f2=0.981061[0.093525]   greedy-f2=0.980984[0.090000]
+[label 3]	smooth-f2=0.191147   BFGS-f2=0.307692[0.087596]   greedy-f2=0.308642[0.090000]
+[label 4]	smooth-f2=0.616821   BFGS-f2=0.807921[0.137657]   greedy-f2=0.807781[0.140000]
+[label 5]	smooth-f2=0.571244   BFGS-f2=0.726681[0.263336]   greedy-f2=0.725791[0.270000]
+[label 6]	smooth-f2=0.076215   BFGS-f2=0.221519[0.141993]   greedy-f2=0.221519[0.140000]
+[label 7]	smooth-f2=0.229723   BFGS-f2=0.474860[0.121421]   greedy-f2=0.472747[0.120000]
+[label 8]	smooth-f2=0.934911   BFGS-f2=0.979596[0.136265]   greedy-f2=0.979475[0.140000]
+[label 9]	smooth-f2=0.292171   BFGS-f2=0.610929[0.056156]   greedy-f2=0.608260[0.050000]
+[label 10]	smooth-f2=0.478119   BFGS-f2=0.742645[0.136982]   greedy-f2=0.740517[0.150000]
+[label 11]	smooth-f2=0.332688   BFGS-f2=0.500270[0.144266]   greedy-f2=0.498638[0.150000]
+[label 12]	smooth-f2=0.087591   BFGS-f2=0.240848[0.039667]   greedy-f2=0.241313[0.040000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.775657
+F2-Score with threshold 0.2: 0.859422
+Greedy F2-Score is: 0.874836
+Greedy threshold: 0.24,0.13,0.08,0.35,0.05,0.36,0.66,0.38,0.07,0.25,0.24,0.21,0.38
+[label 0]	smooth-f2=0.084410   BFGS-f2=0.252525[0.200000]   greedy-f2=0.252525[0.190000]
+[label 1]	smooth-f2=0.449691   BFGS-f2=0.639278[0.105317]   greedy-f2=0.636815[0.130000]
+[label 2]	smooth-f2=0.936263   BFGS-f2=0.981026[0.075351]   greedy-f2=0.981102[0.080000]
+[label 3]	smooth-f2=0.198869   BFGS-f2=0.289116[0.118136]   greedy-f2=0.295775[0.040000]
+[label 4]	smooth-f2=0.447112   BFGS-f2=0.804598[0.030420]   greedy-f2=0.803840[0.030000]
+[label 5]	smooth-f2=0.519150   BFGS-f2=0.700909[0.245169]   greedy-f2=0.701152[0.260000]
+[label 6]	smooth-f2=0.123172   BFGS-f2=0.219512[0.200000]   greedy-f2=0.219512[0.200000]
+[label 7]	smooth-f2=0.275622   BFGS-f2=0.437844[0.169266]   greedy-f2=0.438113[0.170000]
+[label 8]	smooth-f2=0.934555   BFGS-f2=0.979355[0.063575]   greedy-f2=0.979431[0.070000]
+[label 9]	smooth-f2=0.431551   BFGS-f2=0.603905[0.119684]   greedy-f2=0.603699[0.120000]
+[label 10]	smooth-f2=0.552792   BFGS-f2=0.722013[0.168100]   greedy-f2=0.721176[0.170000]
+[label 11]	smooth-f2=0.251163   BFGS-f2=0.479492[0.090843]   greedy-f2=0.478938[0.090000]
+[label 12]	smooth-f2=0.154160   BFGS-f2=0.318182[0.136344]   greedy-f2=0.307692[0.130000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.793488
+F2-Score with threshold 0.2: 0.878620
+Greedy F2-Score is: 0.884103
+Greedy threshold: 0.18,0.14,0.04,0.4,0.17,0.14,0.54,0.16,0.05,0.21,0.13,0.2,0.5
+[label 0]	smooth-f2=0.087919   BFGS-f2=0.330189[0.113191]   greedy-f2=0.327103[0.110000]
+[label 1]	smooth-f2=0.500571   BFGS-f2=0.668648[0.100694]   greedy-f2=0.668211[0.100000]
+[label 2]	smooth-f2=0.938552   BFGS-f2=0.981209[0.058564]   greedy-f2=0.981149[0.060000]
+[label 3]	smooth-f2=0.207434   BFGS-f2=0.304054[0.122570]   greedy-f2=0.305085[0.130000]
+[label 4]	smooth-f2=0.602153   BFGS-f2=0.817574[0.134354]   greedy-f2=0.817415[0.140000]
+[label 5]	smooth-f2=0.500407   BFGS-f2=0.740507[0.122049]   greedy-f2=0.740184[0.120000]
+[label 6]	smooth-f2=0.147161   BFGS-f2=0.254237[0.303864]   greedy-f2=0.258621[0.320000]
+[label 7]	smooth-f2=0.261210   BFGS-f2=0.477671[0.090434]   greedy-f2=0.476593[0.090000]
+[label 8]	smooth-f2=0.935913   BFGS-f2=0.979569[0.050280]   greedy-f2=0.979569[0.050000]
+[label 9]	smooth-f2=0.391107   BFGS-f2=0.621368[0.102527]   greedy-f2=0.621397[0.120000]
+[label 10]	smooth-f2=0.513184   BFGS-f2=0.748945[0.080511]   greedy-f2=0.748419[0.080000]
+[label 11]	smooth-f2=0.318498   BFGS-f2=0.517241[0.057495]   greedy-f2=0.514202[0.060000]
+[label 12]	smooth-f2=0.146872   BFGS-f2=0.291480[0.111331]   greedy-f2=0.290179[0.110000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Smooth F2-Score: 0.801576
+F2-Score with threshold 0.2: 0.877901
+Greedy F2-Score is: 0.883307
+Greedy threshold: 0.15,0.08,0.04,0.2,0.2,0.14,0.45,0.19,0.06,0.22,0.12,0.09,0.55
+[label 0]	smooth-f2=0.091783   BFGS-f2=0.363636[0.097235]   greedy-f2=0.364583[0.150000]
+[label 1]	smooth-f2=0.468992   BFGS-f2=0.669802[0.063667]   greedy-f2=0.668537[0.080000]
+[label 2]	smooth-f2=0.946256   BFGS-f2=0.981123[0.045040]   greedy-f2=0.981009[0.040000]
+[label 3]	smooth-f2=0.214455   BFGS-f2=0.332103[0.200000]   greedy-f2=0.332103[0.200000]
+[label 4]	smooth-f2=0.615665   BFGS-f2=0.813614[0.126635]   greedy-f2=0.813423[0.100000]
+[label 5]	smooth-f2=0.509152   BFGS-f2=0.737133[0.117497]   greedy-f2=0.736653[0.120000]
+[label 6]	smooth-f2=0.159982   BFGS-f2=0.256410[0.230672]   greedy-f2=0.264706[0.350000]
+[label 7]	smooth-f2=0.256815   BFGS-f2=0.463731[0.044108]   greedy-f2=0.457317[0.040000]
+[label 8]	smooth-f2=0.945738   BFGS-f2=0.979592[0.086638]   greedy-f2=0.979505[0.070000]
+[label 9]	smooth-f2=0.391291   BFGS-f2=0.622297[0.082297]   greedy-f2=0.622660[0.090000]
+[label 10]	smooth-f2=0.533050   BFGS-f2=0.742899[0.114085]   greedy-f2=0.742321[0.120000]
+[label 11]	smooth-f2=0.282967   BFGS-f2=0.509014[0.049362]   greedy-f2=0.510910[0.050000]
+[label 12]	smooth-f2=0.151918   BFGS-f2=0.290698[0.043534]   greedy-f2=0.288462[0.090000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Smooth F2-Score: 0.805444
+F2-Score with threshold 0.2: 0.876135
+Greedy F2-Score is: 0.882844
+Greedy threshold: 0.17,0.06,0.04,0.17,0.18,0.16,0.42,0.12,0.06,0.21,0.11,0.07,0.72
+[label 0]	smooth-f2=0.096049   BFGS-f2=0.377358[0.094262]   greedy-f2=0.384615[0.170000]
+[label 1]	smooth-f2=0.482985   BFGS-f2=0.654539[0.055445]   greedy-f2=0.656699[0.060000]
+[label 2]	smooth-f2=0.948232   BFGS-f2=0.981154[0.039618]   greedy-f2=0.981075[0.040000]
+[label 3]	smooth-f2=0.198194   BFGS-f2=0.323741[0.122540]   greedy-f2=0.323741[0.120000]
+[label 4]	smooth-f2=0.632065   BFGS-f2=0.814326[0.106797]   greedy-f2=0.813915[0.170000]
+[label 5]	smooth-f2=0.507997   BFGS-f2=0.737267[0.106039]   greedy-f2=0.736892[0.090000]
+[label 6]	smooth-f2=0.157473   BFGS-f2=0.257732[0.177429]   greedy-f2=0.259067[0.190000]
+[label 7]	smooth-f2=0.256403   BFGS-f2=0.450151[0.081068]   greedy-f2=0.448525[0.080000]
+[label 8]	smooth-f2=0.947125   BFGS-f2=0.979635[0.063158]   greedy-f2=0.979490[0.070000]
+[label 9]	smooth-f2=0.413101   BFGS-f2=0.617348[0.121468]   greedy-f2=0.616359[0.120000]
+[label 10]	smooth-f2=0.528037   BFGS-f2=0.747002[0.101812]   greedy-f2=0.745489[0.090000]
+[label 11]	smooth-f2=0.277830   BFGS-f2=0.502527[0.057055]   greedy-f2=0.501985[0.060000]
+[label 12]	smooth-f2=0.145344   BFGS-f2=0.283203[0.061065]   greedy-f2=0.281008[0.060000]
+
+
+weight: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+Smooth F2-Score: 0.800561
+F2-Score with threshold 0.2: 0.871650
+Greedy F2-Score is: 0.881101
+Greedy threshold: 0.12,0.07,0.03,0.27,0.15,0.14,0.51,0.31,0.03,0.16,0.14,0.09,0.66
+[label 0]	smooth-f2=0.095877   BFGS-f2=0.421053[0.120716]   greedy-f2=0.421053[0.120000]
+[label 1]	smooth-f2=0.503902   BFGS-f2=0.652796[0.067681]   greedy-f2=0.651466[0.070000]
+[label 2]	smooth-f2=0.944220   BFGS-f2=0.980837[0.016247]   greedy-f2=0.981035[0.030000]
+[label 3]	smooth-f2=0.208783   BFGS-f2=0.318021[0.137195]   greedy-f2=0.318021[0.140000]
+[label 4]	smooth-f2=0.605385   BFGS-f2=0.812517[0.114666]   greedy-f2=0.812333[0.100000]
+[label 5]	smooth-f2=0.515088   BFGS-f2=0.731352[0.086755]   greedy-f2=0.730024[0.090000]
+[label 6]	smooth-f2=0.174920   BFGS-f2=0.274725[0.337179]   greedy-f2=0.276243[0.340000]
+[label 7]	smooth-f2=0.264408   BFGS-f2=0.451757[0.063766]   greedy-f2=0.448505[0.060000]
+[label 8]	smooth-f2=0.943424   BFGS-f2=0.979766[0.036083]   greedy-f2=0.979478[0.030000]
+[label 9]	smooth-f2=0.395085   BFGS-f2=0.618521[0.108932]   greedy-f2=0.619229[0.110000]
+[label 10]	smooth-f2=0.545904   BFGS-f2=0.742363[0.087543]   greedy-f2=0.742804[0.070000]
+[label 11]	smooth-f2=0.306514   BFGS-f2=0.502031[0.083831]   greedy-f2=0.500532[0.050000]
+[label 12]	smooth-f2=0.164848   BFGS-f2=0.310421[0.107770]   greedy-f2=0.303983[0.090000]

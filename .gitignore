@@ -114,6 +114,8 @@ ENV/
 # image segmentation log
 segment.log
 
-record/
+*.hdf5
+
+*.tfevents.*
 
 backup/
