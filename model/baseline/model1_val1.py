@@ -52,7 +52,7 @@ def train():
     y_train = np.array(data_loader.get_labels(model_config.train_files), np.bool)[:, model_config.label_position]
     y_valid = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
 
-    tensorboard = metrics.TensorBoardBatch(log_dir=model_config.record_dir, log_every=1, model_config=model_config)
+    tensorboard = keras_util.TensorBoardCallback(log_dir=model_config.record_dir, log_every=1, model_config=model_config)
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=model_config.save_model_format,
                                                  save_weights_only=True)
 
@@ -87,8 +87,8 @@ def train():
         print(
             "lr=%f, freeze layers=%2f epoch=%d" % (
                 model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
-        clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
-                                    step_size=model_config.get_steps_per_epoch() / 2)
+        clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
+                                          step_size=model_config.get_steps_per_epoch() / 2)
 
         if i == 0:
             model = get_model()

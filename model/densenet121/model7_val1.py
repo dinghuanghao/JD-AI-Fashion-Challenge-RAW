@@ -82,8 +82,8 @@ val_flow = data_loader.KerasGenerator(model_config=model_config,
                                                                         batch_size=model_config.val_batch_size,
                                                                         shuffle=True,
                                                                         label_position=model_config.label_position)
-from util import clr_callback
-clr = clr_callback.CyclicLR(base_lr=0.000001, max_lr=0.001, step_size=1000)
+
+clr = keras_util.CyclicLrCallback(base_lr=0.000001, max_lr=0.001, step_size=1000)
 
 start = time.time()
 print("####### start train model #######")

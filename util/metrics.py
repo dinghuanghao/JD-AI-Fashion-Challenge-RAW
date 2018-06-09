@@ -142,33 +142,6 @@ def smooth_f2_score(y_true, y_pred):
     f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
     return tf.reduce_mean(f_score)
 
-
-class TensorBoardBatch(keras.callbacks.TensorBoard):
-    def __init__(self, log_every=1, model_config=None, **kwargs):
-        super().__init__(**kwargs)
-        self.log_every = log_every
-        self.counter = 0
-        self.model_config = model_config
-
-    def on_epoch_begin(self, epoch, logs=None):
-        self.counter = epoch * self.model_config.get_steps_per_epoch()
-        print("on epoch begin, set counter %f" % self.counter)
-
-    def on_batch_end(self, batch, logs=None):
-        self.counter += 1
-        if self.counter % self.log_every == 0:
-            for name, value in logs.items():
-                if name in ['batch', 'size']:
-                    continue
-                summary = tf.Summary()
-                summary_value = summary.value.add()
-                summary_value.simple_value = value.item()
-                summary_value.tag = "batch/" + name
-                self.writer.add_summary(summary, self.counter)
-            self.writer.flush()
-
-        super().on_batch_end(batch, logs)
-
 def logloss_and_f2score(p_true, p_pred):
     return tf.keras.losses.binary_crossentropy(p_true, p_pred) + f2_score_loss(p_true, p_pred)
 
