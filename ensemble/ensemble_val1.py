@@ -50,15 +50,12 @@ for key, value in one_label.items():
             prediction = keras_util.predict(model, model_config.val_files, attr_model_config, verbose=1)
             predictions[weight_file] = prediction.copy()
 
-        keras_util.evaluate(y_valid, prediction, weight_file, model_config)
-
         for j in range(prediction.shape[-1]):
             if j != key:
                 prediction[:, j] = 0
 
         y_pred = prediction if y_pred is None else y_pred + prediction
 
-        keras_util.evaluate(y_valid, y_pred, "\n" + "\n".join(weight_files), model_config)
         print("predict %s label" % key)
         break
 
