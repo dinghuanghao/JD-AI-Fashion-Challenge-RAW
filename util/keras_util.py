@@ -14,11 +14,9 @@ from util import path
 class KerasModelConfig(object):
     def __init__(self,
                  k_fold_file,
-                 val_index,
+                 model_path:str,
                  image_resolution,
                  data_type,
-                 model_dir,
-                 record_sub_dir,
                  label_position=(1,),
                  train_batch_size=32,
                  val_batch_size=32,
@@ -26,15 +24,18 @@ class KerasModelConfig(object):
                  epoch=(1,),
                  lr=(0.01,),
                  freeze_layers=(0,)):
+
+        file_name = os.path.basename(model_path)
+        model_dir = os.path.dirname(model_path)
+
         self.k_fold_file = k_fold_file
-        self.val_index = val_index
+        self.val_index = int("".join(filter(str.isdigit, file_name.split("_")[1])))
         self.image_resolution = image_resolution
         self.image_size = (image_resolution, image_resolution)
         self.image_shape = (image_resolution, image_resolution, 3)
         self.data_type = data_type
-        self.model_dir = model_dir
-        self.record_sub_dir = record_sub_dir
-        self.record_dir = os.path.join(os.path.join(model_dir, "record"), str(record_sub_dir))
+        self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split("_")[0])
+        self.record_dir = os.path.join(self.record_dir, "val%d" % self.val_index)
         self.label_position = label_position
         self.train_batch_size = train_batch_size
         self.val_batch_size = val_batch_size
@@ -55,6 +56,11 @@ class KerasModelConfig(object):
                                               "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
         self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
+
+        print("file name is: %s" % file_name)
+        print("val index is: %d" % self.val_index)
+        print("model dir is: %s" % model_dir)
+        print("record dir is: %s" % self.record_dir)
 
     def get_steps_per_epoch(self):
         return math.ceil(len(self.train_files) / self.train_batch_size)

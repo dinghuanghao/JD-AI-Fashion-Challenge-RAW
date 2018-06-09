@@ -14,22 +14,24 @@ from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
-                                model_path=os.path.abspath(__file__),
+                                val_index=1,
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
+                                model_dir=os.path.dirname(os.path.abspath(__file__)),
+                                record_sub_dir="model_5",
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,
                                 val_batch_size=256,
                                 predict_batch_size=256,
-                                epoch=[1, 4, 10],
+                                epoch=[1, 6, 10],
                                 lr=[0.001, 0.0001, 0.00001],
-                                freeze_layers=[-1, 0.5, 5])
+                                freeze_layers=[0, 0.6, 5])
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
-    base_model = keras.applications.InceptionV3(include_top=False, input_shape=model_config.image_shape, pooling="avg")
+    base_model = keras.applications.Xception(include_top=False, input_shape=model_config.image_shape, pooling="avg")
     x = base_model.output
-    x = Dense(512, use_bias=False)(x)
+    x = Dense(1024, use_bias=False)(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
     predictions = Dense(units=output_dim, activation='sigmoid')(x)
@@ -93,7 +95,7 @@ def train():
     for i in range(len(model_config.epoch)):
         print(
             "lr=%f, freeze layers=%2f epoch=%d" % (
-                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
                                     step_size=model_config.get_steps_per_epoch() / 2)
 

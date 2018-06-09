@@ -7,7 +7,6 @@ import numpy as np
 from keras.layers import Dense, BatchNormalization, Activation
 
 import config
-from util import clr_callback
 from util import data_loader
 from util import keras_util
 from util import metrics
@@ -21,7 +20,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 train_batch_size=32,
                                 val_batch_size=256,
                                 predict_batch_size=256,
-                                epoch=[1, 4, 10],
+                                epoch=[1, 6, 10],
                                 lr=[0.001, 0.0001, 0.00001],
                                 freeze_layers=[-1, 0.5, 5])
 
@@ -93,10 +92,7 @@ def train():
     for i in range(len(model_config.epoch)):
         print(
             "lr=%f, freeze layers=%2f epoch=%d" % (
-                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
-        clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
-                                    step_size=model_config.get_steps_per_epoch() / 2)
-
+            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         if i == 0:
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))
@@ -107,7 +103,7 @@ def train():
                                 validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint, clr])
+                                callbacks=[tensorboard, checkpoint])
         else:
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
                               lr=model_config.lr[i])
@@ -120,7 +116,7 @@ def train():
                                 validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint, clr])
+                                callbacks=[tensorboard, checkpoint])
 
         model.save_weights(model_config.tem_model_file)
         del model

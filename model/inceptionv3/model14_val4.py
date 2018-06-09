@@ -14,11 +14,9 @@ from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
-                                val_index=4,
+                                model_path=os.path.abspath(__file__),
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
-                                model_dir=os.path.dirname(os.path.abspath(__file__)),
-                                record_sub_dir="14/val4",
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=32,
                                 val_batch_size=256,
@@ -95,7 +93,7 @@ def train():
     for i in range(len(model_config.epoch)):
         print(
             "lr=%f, freeze layers=%2f epoch=%d" % (
-            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
                                     step_size=model_config.get_steps_per_epoch() / 2)
 

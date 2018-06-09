@@ -4,10 +4,9 @@ import time
 
 import keras
 import numpy as np
-from keras.layers import Dense, BatchNormalization, Activation
+from keras.layers import Dense, BatchNormalization, Activation, Dropout
 
 import config
-from util import clr_callback
 from util import data_loader
 from util import keras_util
 from util import metrics
@@ -32,6 +31,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
     x = Dense(512, use_bias=False)(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
+    x = Dropout(rate=0.5)(x)
     predictions = Dense(units=output_dim, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
 
@@ -93,10 +93,7 @@ def train():
     for i in range(len(model_config.epoch)):
         print(
             "lr=%f, freeze layers=%2f epoch=%d" % (
-                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
-        clr = clr_callback.CyclicLR(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
-                                    step_size=model_config.get_steps_per_epoch() / 2)
-
+            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         if i == 0:
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))
@@ -107,7 +104,7 @@ def train():
                                 validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint, clr])
+                                callbacks=[tensorboard, checkpoint])
         else:
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
                               lr=model_config.lr[i])
@@ -120,7 +117,7 @@ def train():
                                 validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint, clr])
+                                callbacks=[tensorboard, checkpoint])
 
         model.save_weights(model_config.tem_model_file)
         del model

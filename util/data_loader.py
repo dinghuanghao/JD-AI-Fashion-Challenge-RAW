@@ -204,95 +204,12 @@ def up_sampling(files: np.ndarray, label_position):
     assert (y == 1).size == (y == 0).size
     return files
 
-
-def read_and_save_checkpoint(checkpoint_path, save_path):
-    from tensorflow.python import pywrap_tensorflow
-    reader = pywrap_tensorflow.NewCheckpointReader(checkpoint_path)
-    var_to_shape_map = reader.get_variable_to_shape_map()
-    with open(save_path, "w+") as f:
-        for key in var_to_shape_map:
-            f.write("tensor name: %s\n" % key)
-            f.write(str(reader.get_tensor(key)))
-            f.write("\n")
-
-
-def get_max_step(model_config: config.EstimatorModelConfig, validation=False):
-    total_steps = len(model_config.data_type) * config.IMAGE_NUMBER / model_config.batch_size
-    if validation:
-        return math.ceil(total_steps / 5)
-
-    return math.ceil(total_steps * 4 / 5)
-
-
-def _read_py_function(filename, label=None):
-    image = cv2.imread(filename.decode())
-    if label is None:
-        return image
-    else:
-        return image, label
-
-
-def _resize_function(image_decoded, label=None):
-    image_decoded.set_shape([None, None, 3])
-    image_resized = tf.image.resize_images(image_decoded, config.IMAGE_SIZE)
-    if label is None:
-        return image_resized
-    else:
-        label.set_shape([13])
-        return image_resized, label
-
-
 def get_labels(filenames):
     labels = []
     for i in filenames:
         label = i.split(".")[-2].split("_")[1:]
         labels.append(list(map(int, label)))
     return labels
-
-
-def predict_input_fn(files, batch_size):
-    data_set = tf.data.Dataset.from_tensor_slices((files,))
-    data_set = data_set.map(
-        lambda filename: tuple(tf.py_func(
-            _read_py_function, [filename], [tf.uint8])))
-
-    data_set = data_set.map(_resize_function)
-    data_set = data_set.batch(batch_size)
-    data_set = data_set.prefetch(config.PREFETCH_BUFFER_SIZE)
-    iterator = data_set.make_one_shot_iterator()
-    return iterator.get_next()
-
-
-def data_input_fn(model_config: config.EstimatorModelConfig, validation=False):
-    train_files, val_files = get_k_fold_files(model_config.k_fold_file, model_config.val_index, model_config.data_type)
-    if validation:
-        global validation_times
-        validation_times += 1
-        print("%dth validation with %d images" % (validation_times, len(val_files)))
-        labels = get_labels(val_files)
-        data_set = tf.data.Dataset.from_tensor_slices((val_files, labels))
-    else:
-        global training_times
-        training_times += 1
-        print("%dth training with %d images" % (training_times, len(train_files)))
-        labels = get_labels(train_files)
-        data_set = tf.data.Dataset.from_tensor_slices((train_files, labels))
-
-    data_set = data_set.map(
-        lambda filename, label: tuple(tf.py_func(
-            _read_py_function, [filename, label], [tf.uint8, label.dtype])))
-
-    # 此处没有添加repeated（epoch），在外部进调用train_and_evaluate函数会多次调用本函数
-    data_set = data_set.map(_resize_function)
-    data_set = data_set.batch(model_config.batch_size)
-    data_set = data_set.prefetch(config.PREFETCH_BUFFER_SIZE)
-    iterator = data_set.make_one_shot_iterator()
-    features, labels = iterator.get_next()
-
-    # train 和 validation 是在两张不同的Graph中执行的，所以tensor的名字相同
-    print("labels tensor name is %s" % labels.name)
-    return features, labels
-
 
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []
