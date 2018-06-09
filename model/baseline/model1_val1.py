@@ -121,4 +121,4 @@ def train():
     model = get_model()
     for i in range(1, model_config.epoch[-1] + 1):
         model.load_weights(model_config.get_weights_path(i))
-        keras_util.evaluate(model, model_config.val_files, y_valid, model_config.get_weights_path(i), model_config)
+        keras_util.evaluate_model(model, model_config.val_files, y_valid, model_config.get_weights_path(i), model_config)

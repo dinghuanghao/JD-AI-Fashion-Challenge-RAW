@@ -8,6 +8,7 @@ import keras.backend as K
 import numpy as np
 import tensorflow as tf
 from keras.callbacks import Callback
+from sklearn.metrics import fbeta_score
 
 from util import data_loader
 from util import metrics
@@ -63,10 +64,11 @@ class KerasModelConfig(object):
         self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
 
-        print("file name is: %s" % file_name)
-        print("val index is: %d" % self.val_index)
-        print("model dir is: %s" % model_dir)
-        print("record dir is: %s" % self.record_dir)
+        print("##########load model config")
+        print("##########file name is: %s" % file_name)
+        print("##########val index is: %d" % self.val_index)
+        print("##########model dir is: %s" % model_dir)
+        print("##########record dir is: %s" % self.record_dir)
 
     def get_steps_per_epoch(self):
         return math.ceil(len(self.train_files) / self.train_batch_size)
@@ -80,7 +82,8 @@ class KerasModelConfig(object):
                                 "%sweights.0%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
 
 
-def predict(model: keras.Model, pre_files, model_config: KerasModelConfig):
+def predict(model: keras.Model, pre_files, model_config: KerasModelConfig, verbose=1):
+    print("start predict")
     if model_config.input_norm:
         pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                                  featurewise_std_normalization=True,
@@ -95,33 +98,10 @@ def predict(model: keras.Model, pre_files, model_config: KerasModelConfig):
                                            target_size=model_config.image_size,
                                            batch_size=model_config.predict_batch_size)
 
-    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=1)
+    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=verbose)
 
 
-def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig):
-    from sklearn.metrics import fbeta_score
-
-    if y is None:
-        y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
-
-    if model_config.input_norm:
-        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                                 featurewise_std_normalization=True,
-                                                 rescale=1. / 256)
-    else:
-        pre_datagen = data_loader.KerasGenerator()
-
-    data_loader.check_mean_std_file(model_config, pre_datagen)
-    pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
-
-    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
-                                           target_size=model_config.image_size,
-                                           batch_size=model_config.predict_batch_size)
-
-    start = time.time()
-    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=1)
-    print("####### predict %d images spend %d seconds ######"
-          % (len(pre_files), time.time() - start))
+def evaluate(y, y_pred, weight_name, model_config):
     start = time.time()
     greedy_score, greedy_threshold = metrics.greedy_f2_score(y, y_pred, label_num=len(model_config.label_position))
     print("####### search greedy threshold spend %d seconds ######"
@@ -152,13 +132,13 @@ def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasM
         if len(model_config.label_position) > 1:
             f.write("F2-Score with threshold 0.2: %f\n"
                     % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
-            print("F2-Score with threshold 0.1: %f\n"
-                  % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
+            f.write("F2-Score with threshold 0.1: %f\n"
+                    % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
         else:
             f.write("F2-Score with threshold 0.2: %f\n"
                     % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2))
-            print("F2-Score with threshold 0.1: %f\n"
-                  % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2))
+            f.write("F2-Score with threshold 0.1: %f\n"
+                    % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2))
 
         f.write("Greedy F2-Score is: %f\n" % greedy_score)
         f.write("Greedy threshold: ")
@@ -177,6 +157,32 @@ def evaluate(model: keras.Model, pre_files, y, weight_name, model_config: KerasM
                 model_config.label_position[i], smooth_f2, bason_f2, bason_threshold[0], greedy_f2,
                 greedy_threshold[0]))
             greedy_threshold_all.append(greedy_threshold)
+
+
+def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig):
+    if y is None:
+        y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
+
+    if model_config.input_norm:
+        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
+                                                 featurewise_std_normalization=True,
+                                                 rescale=1. / 256)
+    else:
+        pre_datagen = data_loader.KerasGenerator()
+
+    data_loader.check_mean_std_file(model_config, pre_datagen)
+    pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
+
+    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
+                                           target_size=model_config.image_size,
+                                           batch_size=model_config.predict_batch_size)
+
+    start = time.time()
+    y_pred = model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=1)
+    print("####### predict %d images spend %d seconds ######"
+          % (len(pre_files), time.time() - start))
+
+    evaluate(y, y_pred, weight_name, model_config)
 
 
 class CyclicLrCallback(Callback):
