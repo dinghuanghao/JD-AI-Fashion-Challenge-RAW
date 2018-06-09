@@ -204,12 +204,14 @@ def up_sampling(files: np.ndarray, label_position):
     assert (y == 1).size == (y == 0).size
     return files
 
+
 def get_labels(filenames):
     labels = []
     for i in filenames:
         label = i.split(".")[-2].split("_")[1:]
         labels.append(list(map(int, label)))
     return labels
+
 
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []

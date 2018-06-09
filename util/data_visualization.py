@@ -1,13 +1,12 @@
 # -*- coding:utf-8 -*-
-import matplotlib
 import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
 import numpy as np
+import pandas as pd
+import seaborn as sns
 
 from util import data_loader
-from util import path
 from util import data_metric
+from util import path
 
 label_class_type_name = ["WearScene", "AreaStyle", "AgeRange", "Others"]
 label_class_name = ["Sport", "Leisure", "OL/commuting", "JapaneseStyle", "KoreanStyle", "EuropeStyle", "EnglandStyle",
@@ -15,15 +14,18 @@ label_class_name = ["Sport", "Leisure", "OL/commuting", "JapaneseStyle", "Korean
 
 DATA_FILE = path.ORIGINAL_TRAIN_IMAGES_PATH
 
+
 def get_columns():
     columns = []
     column_label_class_type_name = []
     for i in range(4):
-        for j in range(data_metric.label_class_type_interval[i] - (data_metric.label_class_type_interval[i-1] if i!=0 else -1)):
+        for j in range(data_metric.label_class_type_interval[i] - (
+                data_metric.label_class_type_interval[i - 1] if i != 0 else -1)):
             column_label_class_type_name.append(data_metric.label_class_type_name[i])
     columns.append(column_label_class_type_name)
     columns.append(data_metric.label_class_name)
     return columns
+
 
 def get_frame():
     data = data_loader.get_labels(data_loader.list_image_name(DATA_FILE))
@@ -31,9 +33,11 @@ def get_frame():
     df = pd.DataFrame(data, columns=get_columns())
     return df
 
+
 def get_label_class_sum():
     df = get_frame()
     return df.sum(axis=0)
+
 
 def get_label_class_type_sum():
     df = get_frame()
@@ -42,15 +46,18 @@ def get_label_class_type_sum():
         label_class_type_sum.append(df[classType].sum().sum())
     return label_class_type_sum
 
+
 def show_label_class_bar():
-    plt.figure(1,figsize=(10,6))
+    plt.figure(1, figsize=(10, 6))
     sns.barplot(y=label_class_name, x=get_label_class_sum().tolist(), orient='h')
     plt.show()
 
+
 def show_label_class_type_bar():
-    plt.figure(1, figsize=(6,6))
+    plt.figure(1, figsize=(6, 6))
     sns.barplot(x=label_class_type_name, y=get_label_class_type_sum())
     plt.show()
+
 
 if __name__ == "__main__":
     show_label_class_bar()

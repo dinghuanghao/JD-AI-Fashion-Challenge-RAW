@@ -28,7 +28,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
     base_model = keras.applications.DenseNet121(weights="imagenet", include_top=False,
                                                 input_shape=model_config.image_shape, pooling="max")
     x = base_model.output
-    x = Dense(256, activation='relu',use_bias=False)(x)
+    x = Dense(256, activation='relu', use_bias=False)(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
     predictions = Dense(units=output_dim, activation='sigmoid')(x)
@@ -89,7 +89,8 @@ for i in range(len(model_config.epoch)):
     print(
         "lr=%f, freeze layers=%d epoch=%d" % (model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
     if i == 0:
-        model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i], output_dim=len(model_config.label_position))
+        model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
+                          output_dim=len(model_config.label_position))
         model.fit_generator(generator=train_flow,
                             steps_per_epoch=len(model_config.train_files) / model_config.train_batch_size,
                             epochs=model_config.epoch[i],

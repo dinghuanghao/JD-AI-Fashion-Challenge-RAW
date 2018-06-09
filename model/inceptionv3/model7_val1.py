@@ -94,7 +94,7 @@ def train():
     for i in range(len(model_config.epoch)):
         print(
             "lr=%f, freeze layers=%2f epoch=%d" % (
-            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         if i == 0:
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))

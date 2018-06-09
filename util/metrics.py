@@ -115,6 +115,7 @@ def smooth_f2_score_np(y_true: np.ndarray, y_pred: np.ndarray, epsilon=1e-9):
     f2_score = np.where(np.isnan(f2_score), np.zeros_like(f2_score), f2_score)
     return np.mean(f2_score)
 
+
 def smooth_f2_score_02(y_true, y_pred):
     tp = y_pred.dtype
     y_pred = y_pred > 0.2
@@ -130,6 +131,7 @@ def smooth_f2_score_02(y_true, y_pred):
     f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
     return tf.reduce_mean(f_score)
 
+
 def smooth_f2_score(y_true, y_pred):
     y_true = tf.cast(y_true, y_pred.dtype)
     y_correct = y_true * y_pred
@@ -141,6 +143,7 @@ def smooth_f2_score(y_true, y_pred):
     f_score = 5 * precision * recall / (4 * precision + recall + K.epsilon())
     f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
     return tf.reduce_mean(f_score)
+
 
 def logloss_and_f2score(p_true, p_pred):
     return tf.keras.losses.binary_crossentropy(p_true, p_pred) + f2_score_loss(p_true, p_pred)

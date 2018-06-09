@@ -92,7 +92,7 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
             results = model.detect([image], verbose=1)
         except Exception as e:
             with open("segment.log", mode) as f:
-                f.write("%s(%s): %s\n" %(time.asctime(time.localtime(time.time())), image_names[i], e))
+                f.write("%s(%s): %s\n" % (time.asctime(time.localtime(time.time())), image_names[i], e))
             continue
 
         r = results[0]
@@ -151,4 +151,5 @@ if __name__ == "__main__":
     # image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, ["582f0f9eNbc1d2a40.jpg"],path.SEGMENTED_TEST_IMAGES_PATH, True)
 
     # 将原始数据进行人像分割并保存
-    image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH, ['person'], False)
+    image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH,
+                       ['person'], False)
