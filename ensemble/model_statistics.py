@@ -3,7 +3,7 @@ import os
 from util import path
 
 
-def model_statistics(path, save_file=None):
+def model_statistics(path, val_index=1, save_file=None):
     """
     对model目录下的所有包含"evaluate"字段的文件进行统计，分别得到all-label、one-label统计
     :param path: 需要统计的目录
@@ -13,6 +13,8 @@ def model_statistics(path, save_file=None):
     evaluate_files = []
     for root, dirs, files in os.walk(path):
         for file in files:
+            if ("val%d" % val_index) not in root:
+                continue
             if "evaluate" in file and "evaluate_revise" not in file:
                 evaluate_files.append(os.path.join(root, file))
 
@@ -59,4 +61,8 @@ def model_statistics(path, save_file=None):
     return all_label, one_label
 
 
-model_statistics(path.MODEL_PATH, "statistics.txt")
+model_statistics(path.MODEL_PATH, 1, "statistics_val1.txt")
+model_statistics(path.MODEL_PATH, 2, "statistics_val2.txt")
+model_statistics(path.MODEL_PATH, 3, "statistics_val3.txt")
+model_statistics(path.MODEL_PATH, 4, "statistics_val4.txt")
+model_statistics(path.MODEL_PATH, 5, "statistics_val5.txt")

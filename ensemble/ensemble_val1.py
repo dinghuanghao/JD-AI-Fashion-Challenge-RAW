@@ -22,7 +22,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 freeze_layers=[-1, 0.5, 0])
 
 #应该基于val进行统计
-all_label, one_label = model_statistics.model_statistics(path.MODEL_PATH)
+all_label, one_label = model_statistics.model_statistics(path.MODEL_PATH, val_index=model_config.val_index)
 
 model_config.val_files = model_config.val_files[:128]
 
