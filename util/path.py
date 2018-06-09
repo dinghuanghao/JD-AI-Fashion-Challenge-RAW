@@ -18,6 +18,9 @@ SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_SEGMENTED)
 DEBUG_TRAIN_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "train")
 DEBUG_VAL_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "val")
 
+ERROR_ORIGINAL_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "error"), "original")
+ERROR_IMAGE_PATH = os.path.join(IMAGES_PATH, "error")
+
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
 

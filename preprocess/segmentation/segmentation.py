@@ -126,19 +126,20 @@ def image_masking(image, boxes, masks, class_ids, class_names, class_used):
     N = boxes.shape[0]
 
     person_num = 0
-    mask = 0
+    max_mask = None
+    max_mask_size = 0
     for i in range(N):
         if class_names[class_ids[i]] not in class_used:
             continue
-        if person_num == 0:
-            person_num += 1
-            mask = masks[:, :, i]
-        else:
-            mask = masks[:, :, i] | mask
 
-    if person_num != 0 and mask.shape[0] > 0:
+        person_num += 1
+        if masks[:, :, i].size > max_mask_size:
+            max_mask_size = masks[:, :, i].size
+            max_mask = masks[:, :, i]
+
+    if person_num != 0 and max_mask.shape[0] > 0:
         for c in range(3):
-            masked_image[:, :, c] = np.where(mask == 1, masked_image[:, :, c], white[:, :, c])
+            masked_image[:, :, c] = np.where(max_mask == 1, masked_image[:, :, c], white[:, :, c])
 
     return masked_image
 
@@ -147,9 +148,10 @@ if __name__ == "__main__":
     model = get_mrcnn_model()
     image_names = data_loader.list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
 
-    # 测试单张图片
-    # image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, ["582f0f9eNbc1d2a40.jpg"],path.SEGMENTED_TEST_IMAGES_PATH, True)
-
     # 将原始数据进行人像分割并保存
     image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH,
                        ['person'], False)
+    # image_names = data_loader.list_image_name(path.ERROR_ORIGINAL_IMAGES_PATH)
+    #
+    # # 将原始数据进行人像分割并保存
+    # image_segmentation(model, path.ERROR_ORIGINAL_IMAGES_PATH, image_names, path.ERROR_IMAGE_PATH, ['person'], False)
