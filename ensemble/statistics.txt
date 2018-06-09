@@ -1,4 +1,4 @@
-all label
+==========================All label==========================
 0.886188: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.885778: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.885666: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -221,7 +221,7 @@ all label
 
 
 
-one label: 0
+==========================One label: 0==========================
 0.421053: \Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.388350: \Projects\competition\model\inceptionv3\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.384615: \Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -444,7 +444,7 @@ one label: 0
 
 
 
-one label: 1
+==========================One label: 1==========================
 0.688441: \Projects\competition\model\inceptionv3\record\model14\val1\backup\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.685875: \Projects\competition\model\inceptionv3\record\model14\val1\backup\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.685206: \Projects\competition\model\inceptionv3\record\model14\val1\backup\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -667,7 +667,7 @@ one label: 1
 
 
 
-one label: 2
+==========================One label: 2==========================
 0.982815: \Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.982439: \Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.982429: \Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -890,7 +890,7 @@ one label: 2
 
 
 
-one label: 3
+==========================One label: 3==========================
 0.488372: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.482456: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.482456: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -1113,7 +1113,7 @@ one label: 3
 
 
 
-one label: 4
+==========================One label: 4==========================
 0.826232: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.826151: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.825645: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -1336,7 +1336,7 @@ one label: 4
 
 
 
-one label: 5
+==========================One label: 5==========================
 0.749673: \Projects\competition\model\densenet121\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.749673: \Projects\competition\model\densenet121\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.749030: \Projects\competition\model\densenet121\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -1559,7 +1559,7 @@ one label: 5
 
 
 
-one label: 6
+==========================One label: 6==========================
 0.333333: \Projects\competition\model\inceptionv3\record\model14\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.304487: \Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.299145: \Projects\competition\model\inceptionv3\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -1782,7 +1782,7 @@ one label: 6
 
 
 
-one label: 7
+==========================One label: 7==========================
 0.499469: \Projects\competition\model\inceptionv3\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.494505: \Projects\competition\model\inceptionv3\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.491525: \Projects\competition\model\inceptionv3\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -2005,7 +2005,7 @@ one label: 7
 
 
 
-one label: 8
+==========================One label: 8==========================
 0.980601: \Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.980421: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.980404: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -2228,7 +2228,7 @@ one label: 8
 
 
 
-one label: 9
+==========================One label: 9==========================
 0.636819: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.632514: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.631641: \Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -2451,7 +2451,7 @@ one label: 9
 
 
 
-one label: 10
+==========================One label: 10==========================
 0.754017: \Projects\competition\model\inceptionv3\record\model14\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.753842: \Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.753441: \Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -2674,7 +2674,7 @@ one label: 10
 
 
 
-one label: 11
+==========================One label: 11==========================
 0.546265: \Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.545135: \Projects\competition\model\inceptionv3\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.540757: \Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -2897,7 +2897,7 @@ one label: 11
 
 
 
-one label: 12
+==========================One label: 12==========================
 0.428051: \Projects\competition\model\inceptionv3\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.424901: \Projects\competition\model\inceptionv3\record\model14\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.421053: \Projects\competition\model\inceptionv3\record\model14\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
