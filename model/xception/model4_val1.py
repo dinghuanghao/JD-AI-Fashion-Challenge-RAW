@@ -21,7 +21,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00001],
-                                freeze_layers=[-1, 0.5, 5])
+                                freeze_layers=[-1, 0.5, 10])
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
@@ -48,15 +48,13 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr=lr),
-                  metrics=['accuracy', metrics.smooth_f2_score, metrics.smooth_f2_score_02])
+                  optimizer=keras.optimizers.Adam(lr=lr))
     # model.summary()
     print("model have %d layers" % len(model.layers))
     return model
 
 
 def train():
-    model_config.train_files = model_config.train_files[:512]
     checkpoint = keras_util.EvaluateCallback(model_config)
 
     start = time.time()

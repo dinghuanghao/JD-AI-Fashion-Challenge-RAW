@@ -17,7 +17,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                                train_batch_size=32,
+                                train_batch_size=[32, 32, 32],
                                 val_batch_size=64,
                                 predict_batch_size=128,
                                 epoch=[15],
@@ -102,3 +102,6 @@ def train():
 
     print("####### train model spend %d seconds" % (time.time() - start))
     print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
+
+
+train()

@@ -25,7 +25,7 @@ class KerasModelConfig(object):
                  val_index=None,
                  input_norm=True,
                  label_position=(1,),
-                 train_batch_size=32,
+                 train_batch_size=(32,),
                  val_batch_size=32,
                  predict_batch_size=32,
                  epoch=(1,),
