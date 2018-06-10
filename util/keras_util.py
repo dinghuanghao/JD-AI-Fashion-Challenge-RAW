@@ -2,6 +2,7 @@ import math
 import os
 import pathlib
 import time
+import random
 
 import keras
 import keras.backend as K
@@ -52,19 +53,20 @@ class KerasModelConfig(object):
         self.lr = lr
         self.freeze_layers = freeze_layers
 
-        self.train_files_dict = {}
-        self.val_files_dict = {}
+        self.val_files_list = []
 
         self.train_files = []
         self.val_files = []
 
         for i in data_type:
-            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index,
-                                                                  self.data_type)
-            self.train_files_dict[i] = train_files
-            self.val_files_dict[i] = val_files
+            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, self.data_type,
+                                                                  shuffle=False)
+            self.val_files_list.append(val_files)
             self.train_files += train_files
             self.val_files += val_files
+
+        # 不打乱val_file，用以在predict的时候单独预测不同data_type，然后取平均
+        random.shuffle(self.train_files)
 
         self.train_files = np.array(self.train_files)
         self.val_files = np.array(self.val_files)
@@ -189,15 +191,17 @@ def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: 
 
     y_pred = None
     start = time.time()
-    for data_type in model_config.data_type:
-        pre_flow = pre_datagen.flow_from_files(model_config.val_files_dict[data_type], mode="predict",
+    for files in model_config.val_files_list:
+        pre_flow = pre_datagen.flow_from_files(files, mode="predict",
                                                target_size=model_config.image_size,
                                                batch_size=model_config.predict_batch_size)
 
         if y_pred is None:
-            y_pred = model.predict_generator(pre_flow, steps=len(pre_files), verbose=1)
+            y_pred = model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                             verbose=1, workers=16)
         else:
-            y_pred += model.predict_generator(pre_flow, steps=len(pre_files), verbose=1)
+            y_pred += model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                              verbose=1, workers=16)
 
     print("####### predict %d images spend %d seconds ######" % (len(pre_files), time.time() - start))
 

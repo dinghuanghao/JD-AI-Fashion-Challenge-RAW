@@ -2,6 +2,7 @@ import os
 import time
 import threading
 import queue
+from tqdm import tqdm
 
 import numpy as np
 import skimage.io
@@ -50,7 +51,6 @@ def get_mrcnn_model():
         utils.download_trained_weights(COCO_MODEL_PATH)
 
     class InferenceConfig(coco.CocoConfig):
-        # 目前仅有一块1050ti在跑
         GPU_COUNT = 1
         IMAGES_PER_GPU = 10
 
@@ -77,7 +77,6 @@ class ImageSaver(threading.Thread):
         print("start image saver thread")
         while True:
             results, image_batch, image_save_path_batch = self.q.get()
-            print("get %d results" % len(results))
             for index in range(len(results)):
                 r = results[index]
                 if self.show_image:
@@ -96,9 +95,10 @@ class ImageSaver(threading.Thread):
 
 
 class ImageLoader(threading.Thread):
-    def __init__(self, image_paths, image_save_paths, q: queue.Queue):
+    def __init__(self, image_paths, image_save_paths, model, q: queue.Queue):
         threading.Thread.__init__(self)
         self.q = q
+        self.model = model
         self.image_paths = image_paths
         self.image_save_paths = image_save_paths
 
@@ -112,16 +112,15 @@ class ImageLoader(threading.Thread):
         image_batch = []
         image_save_path_batch = []
 
-        for i in range(image_number):
+        for i in tqdm(range(image_number), miniters=self.model.config.IMAGES_PER_GPU):
             if os.path.exists(self.image_save_paths[i]):
                 continue
             try:
                 image = cv2.imread(self.image_paths[i])
                 image_batch.append(image)
                 image_save_path_batch.append(self.image_save_paths[i])
-                if len(image_batch) == model.config.IMAGES_PER_GPU:
+                if len(image_batch) == self.model.config.IMAGES_PER_GPU:
                     self.q.put((image_batch, image_save_path_batch))
-                    print("put item to queue, queue len=%d" % self.q.qsize())
                     image_batch = []
                     image_save_path_batch = []
 
@@ -132,6 +131,8 @@ class ImageLoader(threading.Thread):
         if len(image_batch) != 0:
             print("put last item to queue, queue len=%d" % self.q.qsize())
             self.q.put((image_batch, image_save_path_batch))
+
+        print("stop image loader")
 
 
 def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=("person"), show_image=False):
@@ -156,7 +157,7 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
     image_queue = queue.Queue(maxsize=10)
     result_queue = queue.Queue()
 
-    image_loader = ImageLoader(image_paths, image_save_paths, image_queue)
+    image_loader = ImageLoader(image_paths, image_save_paths, model, image_queue)
     image_loader.setDaemon(True)
     image_loader.start()
 
@@ -168,6 +169,8 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
         try:
             image_batch, image_save_path_batch = image_queue.get()
             if len(image_batch) < model.config.IMAGES_PER_GPU:
+                print("get new model for the last batch, %d" % len(image_batch))
+
                 class InferenceConfig(coco.CocoConfig):
                     # 目前仅有一块1050ti在跑
                     GPU_COUNT = 1
@@ -186,8 +189,11 @@ def image_segmentation(model, image_dir, image_names: [], save_dir, class_used=(
                 result_queue.put((results, image_batch, image_save_path_batch))
         except Exception as e:
             with open("segment.log", mode) as f:
-                f.write("%s(%s): %s\n" % (time.asctime(time.localtime(time.time())), image_names[i], e))
+                f.write("%s(%s)\n" % (time.asctime(time.localtime(time.time())), e))
 
+        image_queue.task_done()
+
+    print("segment thread over, wait for result queue, len=%d" % result_queue.qsize())
     result_queue.join()
 
 
@@ -226,16 +232,25 @@ def image_masking(image, boxes, masks, class_ids, class_names, class_used):
     return masked_image
 
 
-if __name__ == "__main__":
+def segment():
     model = get_mrcnn_model()
-    # image_names = data_loader.list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
-    #
-    # # 将原始数据进行人像分割并保存
-    # image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH,
-    #                    ['person'], False)
-    image_names = data_loader.list_image_name(path.ERROR_ORIGINAL_IMAGES_PATH)
+    image_names = data_loader.list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
 
     # 将原始数据进行人像分割并保存
-    start = time.time()
-    image_segmentation(model, path.ERROR_ORIGINAL_IMAGES_PATH, image_names, path.ERROR_IMAGE_PATH, ['person'], False)
-    print("#############spend %d seconds" % (time.time() - start))
+    image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH,
+                       ['person'], False)
+
+
+if __name__ == "__main__":
+    model = get_mrcnn_model()
+    image_names = data_loader.list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
+
+    # 将原始数据进行人像分割并保存
+    image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH,
+                       ['person'], False)
+    # image_names = data_loader.list_image_name(path.ERROR_ORIGINAL_IMAGES_PATH)
+    #
+    # # 将原始数据进行人像分割并保存
+    # start = time.time()
+    # image_segmentation(model, path.ERROR_ORIGINAL_IMAGES_PATH, image_names, path.ERROR_IMAGE_PATH, ['person'], False)
+    # print("#############spend %d seconds" % (time.time() - start))
