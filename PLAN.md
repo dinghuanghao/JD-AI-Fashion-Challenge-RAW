@@ -3,7 +3,6 @@
 1. 是否可动态freeze模型
 2. 训练到一定阶段后，修改batch size，代替学习率的猛降
 3. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-4. 在训练过程中进行evaluate，并保存结果，这样免去了权重加载的时间
 
 
 

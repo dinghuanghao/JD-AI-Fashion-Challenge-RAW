@@ -206,6 +206,20 @@ def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: 
     evaluate(y, y_pred, weight_name, model_config)
 
 
+class EvaluateCallback(Callback):
+    def __init__(self, model_config: KerasModelConfig):
+        super(EvaluateCallback, self).__init__()
+        self.model_config = model_config
+
+    def on_epoch_end(self, epoch, logs=None):
+        real_epoch = epoch + 1
+        print("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
+        self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
+
+        evaluate_model(self.model, None, None, self.model_config.get_weights_path(real_epoch),
+                       self.model_config, verbose=1)
+
+
 class CyclicLrCallback(Callback):
     """
     代码来源于：https://github.com/bckenstler/CLR.git

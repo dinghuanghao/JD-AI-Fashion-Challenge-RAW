@@ -22,12 +22,12 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00001],
-                                freeze_layers=[-1, 0.6, 2])
+                                freeze_layers=[-1, 0.6, 5])
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
-    base_model = keras.applications.InceptionV3(include_top=False, weights=weights,
-                                                input_shape=model_config.image_shape, pooling="avg")
+    base_model = keras.applications.Xception(include_top=False, weights=weights,
+                                             input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
     x = Dense(512, use_bias=False)(x)
@@ -57,9 +57,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
-    checkpoint = keras.callbacks.ModelCheckpoint(filepath=model_config.save_model_format,
-                                                 save_weights_only=True)
-
+    checkpoint = keras_util.EvaluateCallback(model_config)
     train_flow = data_loader.KerasGenerator(model_config=model_config,
                                             featurewise_center=True,
                                             featurewise_std_normalization=True,
@@ -77,7 +75,7 @@ def train():
     print("####### start train model #######")
     for i in range(len(model_config.epoch)):
         print("lr=%f, freeze layers=%2f epoch=%d" % (
-                model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
+            model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
                                           step_size=model_config.get_steps_per_epoch() / 2)
 
@@ -103,9 +101,3 @@ def train():
 
     print("####### train model spend %d seconds #######" % (time.time() - start))
     print("####### train model spend %d seconds average #######" % ((time.time() - start) / model_config.epoch[-1]))
-
-    model = get_model(output_dim=len(model_config.label_position))
-    for i in range(3, model_config.epoch[-1] + 1):
-        model.load_weights(model_config.get_weights_path(i))
-        keras_util.evaluate_model(model, model_config.val_files, None, model_config.get_weights_path(i),
-                                  model_config, verbose=0)
