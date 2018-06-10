@@ -1,8 +1,8 @@
 import math
 import os
 import pathlib
-import time
 import random
+import time
 
 import keras
 import keras.backend as K
@@ -86,8 +86,16 @@ class KerasModelConfig(object):
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
 
-    def get_steps_per_epoch(self):
-        return math.ceil(len(self.train_files) / self.train_batch_size)
+    def get_stage(self, epoch):
+        stage = 0
+        for i in range(len(self.epoch)):
+            stage = i
+            if epoch + 1 > self.epoch[i]:
+                break
+        return stage
+
+    def get_steps_per_epoch(self, stage):
+        return math.ceil(len(self.train_files) / self.train_batch_size[stage])
 
     def get_weights_path(self, epoch):
         if epoch < 10:
@@ -172,9 +180,8 @@ def evaluate(y, y_pred, weight_name, model_config):
             greedy_threshold_all.append(greedy_threshold)
 
 
-def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig, verbose=1):
-    if y is None:
-        y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
+def evaluate_model(model: keras.Model, weight_name, model_config: KerasModelConfig, verbose=1):
+    y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
 
     if model_config.input_norm:
         pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
@@ -216,7 +223,7 @@ class EvaluateCallback(Callback):
         print("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
 
-        evaluate_model(self.model, None, None, self.model_config.get_weights_path(real_epoch),
+        evaluate_model(self.model, self.model_config.get_weights_path(real_epoch),
                        self.model_config, verbose=1)
 
 
@@ -362,7 +369,9 @@ class TensorBoardCallback(keras.callbacks.TensorBoard):
         self.model_config = model_config
 
     def on_epoch_begin(self, epoch, logs=None):
-        self.counter = epoch * self.model_config.get_steps_per_epoch()
+        #TODO: 此函数修改之后，还未测试
+        stage = self.model_config.get_stage(epoch)
+        self.counter = epoch * self.model_config.get_steps_per_epoch(stage)
         print("on epoch begin, set counter %f" % self.counter)
 
     def on_batch_end(self, batch, logs=None):
