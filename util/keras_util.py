@@ -86,6 +86,7 @@ class KerasModelConfig(object):
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
 
+
     def get_steps_per_epoch(self):
         return math.ceil(len(self.train_files) / self.train_batch_size)
 
@@ -203,7 +204,7 @@ def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: 
             y_pred += model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
                                               verbose=1, workers=16)
 
-    print("####### predict %d images spend %d seconds ######" % (len(pre_files), time.time() - start))
+    print("####### predict spend %d seconds ######" % (time.time() - start))
 
     y_pred = y_pred / len(model_config.data_type)
     evaluate(y, y_pred, weight_name, model_config)

@@ -25,8 +25,9 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 freeze_layers=[-1, 0.5, 5])
 
 
-def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
-    base_model = keras.applications.InceptionV3(include_top=False, input_shape=model_config.image_shape, pooling="avg")
+def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights='imagenet'):
+    base_model = keras.applications.InceptionV3(include_top=False, weights=weights,
+                                                input_shape=model_config.image_shape, pooling="avg")
     x = base_model.output
     x = Dense(512, use_bias=False)(x)
     x = BatchNormalization()(x)
@@ -55,11 +56,6 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1):
 
 
 def train():
-    y_train = np.array(data_loader.get_labels(model_config.train_files), np.bool)[:, model_config.label_position]
-    y_valid = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
-
-    tensorboard = keras_util.TensorBoardCallback(log_dir=model_config.record_dir, log_every=1,
-                                                 model_config=model_config)
     checkpoint = keras.callbacks.ModelCheckpoint(filepath=model_config.save_model_format,
                                                  save_weights_only=True)
 
@@ -103,31 +99,26 @@ def train():
             model.fit_generator(generator=train_flow,
                                 steps_per_epoch=model_config.get_steps_per_epoch(),
                                 epochs=model_config.epoch[i],
-                                validation_data=val_flow,
-                                validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint, clr])
+                                callbacks=[checkpoint, clr])
         else:
+            weight_path = model_config.get_weights_path(model_config.epoch[i - 1] - 1)
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
-                              lr=model_config.lr[i])
+                              lr=model_config.lr[i], weights=weight_path)
             model.load_weights(model_config.tem_model_file)
             model.fit_generator(generator=train_flow,
                                 steps_per_epoch=model_config.get_steps_per_epoch(),
                                 epochs=model_config.epoch[i],
                                 initial_epoch=model_config.epoch[i - 1],
-                                validation_data=val_flow,
-                                validation_steps=len(model_config.val_files) / model_config.val_batch_size,
                                 workers=16,
                                 verbose=1,
-                                callbacks=[tensorboard, checkpoint, clr])
-
-        model.save_weights(model_config.tem_model_file)
-        del model
+                                callbacks=[checkpoint, clr])
 
     print("####### train model spend %d seconds #######" % (time.time() - start))
 
     model = get_model(output_dim=len(model_config.label_position))
     for i in range(3, model_config.epoch[-1] + 1):
         model.load_weights(model_config.get_weights_path(i))
-        keras_util.evaluate_model(model, model_config.val_files, y_valid, model_config.get_weights_path(i), model_config)
+        keras_util.evaluate_model(model, model_config.val_files, None, model_config.get_weights_path(i),
+                                  model_config)
