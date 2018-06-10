@@ -211,8 +211,6 @@ def greedy_f2_score(y_true, y_pred, label_num=13):
 
     for i in range(label_num):
         threshold = [t for t in best_threshold]
-        # print("best threshold is %s" % str([str(t) for t in threshold]))
-        # print("search %dth label's threshold" % i)
         for j in range(100):
             threshold[i] = j / 100.
             if label_num > 1:
@@ -222,6 +220,5 @@ def greedy_f2_score(y_true, y_pred, label_num=13):
             if score > best_score:
                 best_score = score
                 best_threshold[i] = threshold[i]
-                # print("\tbest-score:%8f threshold:%s" % (best_score, str([str(t) for t in best_threshold])))
 
     return best_score, best_threshold

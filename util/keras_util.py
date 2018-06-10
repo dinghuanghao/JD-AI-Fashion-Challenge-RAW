@@ -86,7 +86,6 @@ class KerasModelConfig(object):
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
 
-
     def get_steps_per_epoch(self):
         return math.ceil(len(self.train_files) / self.train_batch_size)
 
@@ -166,17 +165,14 @@ def evaluate(y, y_pred, weight_name, model_config):
         for i in range(y_pred.shape[-1]):
             smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
             greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
-            bason_f2, bason_threshold = metrics.best_f2_score(y[:, i], y_pred[:, i], 1)
-            print("[label %d]\tsmooth-f2=%4f   BFGS-f2=%4f[%4f]   greedy-f2=%4f[%4f]" % (
-                model_config.label_position[i], smooth_f2, bason_f2, bason_threshold[0], greedy_f2,
-                greedy_threshold[0]))
-            f.write("[label %d]\tsmooth-f2=%4f   BFGS-f2=%4f[%4f]   greedy-f2=%4f[%4f]\n" % (
-                model_config.label_position[i], smooth_f2, bason_f2, bason_threshold[0], greedy_f2,
-                greedy_threshold[0]))
+            print("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]" % (
+                model_config.label_position[i], smooth_f2, greedy_f2, greedy_threshold[0]))
+            f.write("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]\n" % (
+                model_config.label_position[i], smooth_f2, greedy_f2, greedy_threshold[0]))
             greedy_threshold_all.append(greedy_threshold)
 
 
-def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig):
+def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: KerasModelConfig, verbose=1):
     if y is None:
         y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
 
@@ -199,10 +195,10 @@ def evaluate_model(model: keras.Model, pre_files, y, weight_name, model_config: 
 
         if y_pred is None:
             y_pred = model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                             verbose=1, workers=16)
+                                             verbose=verbose, workers=16)
         else:
             y_pred += model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                              verbose=1, workers=16)
+                                              verbose=verbose, workers=16)
 
     print("####### predict spend %d seconds ######" % (time.time() - start))
 
