@@ -50,7 +50,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     model.compile(loss="binary_crossentropy",
                   optimizer=keras.optimizers.Adam(lr=lr))
     # model.summary()
-    print("model have %d layers" % len(model.layers))
+    print("basic model have %d layers" % len(base_model.layers))
     return model
 
 
@@ -86,6 +86,7 @@ def train():
                                 steps_per_epoch=model_config.get_steps_per_epoch(i),
                                 epochs=model_config.epoch[i],
                                 workers=16,
+                                verbose=0,
                                 callbacks=[checkpoint, clr])
         else:
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
@@ -97,6 +98,7 @@ def train():
                                 epochs=model_config.epoch[i],
                                 initial_epoch=model_config.epoch[i - 1],
                                 workers=16,
+                                verbose=0,
                                 callbacks=[checkpoint, clr])
 
     print("####### train model spend %d seconds" % (time.time() - start))

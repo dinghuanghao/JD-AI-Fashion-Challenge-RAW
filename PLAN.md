@@ -1,8 +1,13 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-1. 是否可动态freeze模型
-2. 训练到一定阶段后，修改batch size，代替学习率的猛降
-3. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+1. 训练到一定阶段后，修改batch size，代替学习率的猛降
+2. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+
+
+
+## 性能
+
+当前GTX1080TI，GPU利用率可用跑到98%了，因此暂时没有优化的必要了。
 
 
 
