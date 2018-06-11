@@ -230,9 +230,9 @@ def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
         for name in val_names:
             val_files.append(os.path.join(path.get_train_data_path(data), name))
 
+    # 不对validation 数据集进行shuffle, 确保所有模型evaluate得出的结果是能够对应的，便于快速ensemble
     if shuffle:
         random.shuffle(train_files)
-        random.shuffle(val_files)
 
     return train_files, val_files
 

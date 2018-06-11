@@ -1,8 +1,9 @@
 import math
 import os
 import pathlib
-import random
 import time
+from queue import Queue
+from threading import Thread
 
 import keras
 import keras.backend as K
@@ -55,23 +56,18 @@ class KerasModelConfig(object):
         self.lr = lr
         self.freeze_layers = freeze_layers
 
-        self.val_files_list = []
-
-        self.train_files = []
         self.val_files = []
+        self.train_files = []
 
         for i in data_type:
-            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, self.data_type,
-                                                                  shuffle=False)
-            self.val_files_list.append(val_files)
+            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, self.data_type)
+            self.val_files.append(val_files)
             self.train_files += train_files
-            self.val_files += val_files
 
-        # 不打乱val_file，用以在predict的时候单独预测不同data_type，然后取平均
-        random.shuffle(self.train_files)
+        self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
 
         self.train_files = np.array(self.train_files)
-        self.val_files = np.array(self.val_files)
+
         self.image_mean_file = path.get_image_mean_file(self.k_fold_file, self.val_index,
                                                         data_type=self.data_type)
         self.image_std_file = path.get_image_std_file(self.k_fold_file, self.val_index,
@@ -87,6 +83,15 @@ class KerasModelConfig(object):
         print("##########val index is: %d" % self.val_index)
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
+
+    def decrease_train_files(self, num):
+        self.train_files = self.train_files[:num]
+
+    def decrease_val_files(self, num):
+        for i in range(len(self.val_files)):
+            self.val_files[i] = self.val_files[i][:num]
+
+        self.val_y = self.val_y[:num]
 
     def get_init_stage(self):
         stage = 0
@@ -108,16 +113,11 @@ class KerasModelConfig(object):
         return math.ceil(len(self.train_files) / self.train_batch_size[stage])
 
     def get_weights_path(self, epoch):
-        if epoch < 10:
-            return os.path.join(self.record_dir,
-                                "%sweights.00%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
-        else:
-            return os.path.join(self.record_dir,
-                                "%sweights.0%d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
+        return os.path.join(self.record_dir,
+                            "%sweights.%03d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
 
 
-def predict(model: keras.Model, pre_files, model_config: KerasModelConfig, verbose=1):
-    print("start predict")
+def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     if model_config.input_norm:
         pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                                  featurewise_std_normalization=True,
@@ -128,15 +128,31 @@ def predict(model: keras.Model, pre_files, model_config: KerasModelConfig, verbo
     data_loader.check_mean_std_file(model_config, pre_datagen)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
-    pre_flow = pre_datagen.flow_from_files(pre_files, mode="predict",
-                                           target_size=model_config.image_size,
-                                           batch_size=model_config.predict_batch_size)
+    y_pred = None
+    start = time.time()
+    for files in model_config.val_files:
+        pre_flow = pre_datagen.flow_from_files(files, mode="predict",
+                                               target_size=model_config.image_size,
+                                               batch_size=model_config.predict_batch_size)
 
-    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=verbose,
-                                   workers=16)
+        if y_pred is None:
+            y_pred = model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                             verbose=verbose, workers=16)
+        else:
+            y_pred += model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                              verbose=verbose, workers=16)
+
+    assert y_pred.shape[0] == model_config.val_y.shape[0]
+
+    y_pred = y_pred / len(model_config.data_type)
+    print("####### predict spend %d seconds ######" % (time.time() - start))
+    return y_pred
 
 
-def evaluate(y, y_pred, weight_name, model_config):
+def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig, pred_path=None):
+    if pred_path is not None:
+        print("save prediction to %s" % pred_path)
+        np.save(pred_path, y_pred)
     start = time.time()
     greedy_score, greedy_threshold = metrics.greedy_f2_score(y, y_pred, label_num=len(model_config.label_position))
     print("####### search greedy threshold spend %d seconds ######"
@@ -191,51 +207,31 @@ def evaluate(y, y_pred, weight_name, model_config):
             greedy_threshold_all.append(greedy_threshold)
 
 
-def evaluate_model(model: keras.Model, weight_name, model_config: KerasModelConfig, verbose=1):
-    y = np.array(data_loader.get_labels(model_config.val_files), np.bool)[:, model_config.label_position]
+class EvaluateTask(Thread):
+    def __init__(self, q: Queue):
+        Thread.__init__(self)
+        self.q = q
 
-    if model_config.input_norm:
-        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
-                                                 featurewise_std_normalization=True,
-                                                 rescale=1. / 256)
-    else:
-        pre_datagen = data_loader.KerasGenerator()
-
-    data_loader.check_mean_std_file(model_config, pre_datagen)
-    pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
-
-    y_pred = None
-    start = time.time()
-    for files in model_config.val_files_list:
-        pre_flow = pre_datagen.flow_from_files(files, mode="predict",
-                                               target_size=model_config.image_size,
-                                               batch_size=model_config.predict_batch_size)
-
-        if y_pred is None:
-            y_pred = model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                             verbose=verbose, workers=16)
-        else:
-            y_pred += model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                              verbose=verbose, workers=16)
-
-    print("####### predict spend %d seconds ######" % (time.time() - start))
-
-    y_pred = y_pred / len(model_config.data_type)
-    evaluate(y, y_pred, weight_name, model_config)
+    def run(self):
+        while True:
+            y, y_pred, weight_name, model_config = self.q.get()
+            print("start evaluate task for %s" % weight_name)
+            evaluate(y, y_pred, weight_name, model_config, weight_name + ".predict")
 
 
 class EvaluateCallback(Callback):
-    def __init__(self, model_config: KerasModelConfig):
+    def __init__(self, model_config: KerasModelConfig, evaluate_queue: Queue):
         super(EvaluateCallback, self).__init__()
         self.model_config = model_config
+        self.evaluate_queue = evaluate_queue
 
     def on_epoch_end(self, epoch, logs=None):
         real_epoch = epoch + 1
         print("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
-
-        evaluate_model(self.model, self.model_config.get_weights_path(real_epoch),
-                       self.model_config, verbose=1)
+        y_pred = predict(self.model, self.model_config, verbose=1)
+        self.evaluate_queue.put(
+            (self.model_config.val_y, y_pred, self.model_config.get_weights_path(real_epoch), self.model_config))
 
 
 class CyclicLrCallback(Callback):
