@@ -34,9 +34,9 @@ original_train_files, original_val_files = data_loader.get_k_fold_files(model_co
 y_valid_segment = np.array(data_loader.get_labels(segment_val_files), np.bool)[:, model_config.label_position]
 y_valid_original = np.array(data_loader.get_labels(original_val_files), np.bool)[:, model_config.label_position]
 
-train_file = {
-    config.DATA_TYPE_ORIGINAL: original_train_files,
-    config.DATA_TYPE_SEGMENTED: segment_train_files
+val_file = {
+    config.DATA_TYPE_ORIGINAL: segment_val_files,
+    config.DATA_TYPE_SEGMENTED: original_val_files
 }
 
 assert (y_valid_original == y_valid_segment).all()
@@ -59,7 +59,7 @@ for label, value in one_label.items():
             package = __import__(".".join([model_root_dir, model_type_dir, model_name]))
             attr_get_model = getattr(getattr(getattr(package, model_type_dir), model_name), "get_model")
             attr_model_config = getattr(getattr(getattr(package, model_type_dir), model_name), "model_config")
-            model = attr_get_model(output_dim=len(attr_model_config.label_position))
+            model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
             model.load_weights(weight_file)
 
             # 预测该模型的所有类型，并取平均
@@ -67,18 +67,20 @@ for label, value in one_label.items():
             for data_type in attr_model_config.data_type:
                 print("predict %s data for model %s" % (data_type, attr_model_config.model_path))
                 if prediction is None:
-                    prediction = keras_util.predict(model, train_file[data_type], attr_model_config, verbose=1)
+                    prediction = keras_util.predict(model, val_file[data_type], attr_model_config, verbose=1)
                 else:
-                    prediction += keras_util.predict(model, train_file[data_type], attr_model_config, verbose=1)
+                    prediction += keras_util.predict(model, val_file[data_type], attr_model_config, verbose=1)
 
             prediction = prediction / len(attr_model_config.data_type)
             predictions[weight_file] = prediction.copy()
 
+        keras_util.evaluate(y_valid_segment, y_pred, "\n" + "\n".join(weight_files), model_config)
         for l in range(prediction.shape[-1]):
             if l != label:
                 prediction[:, l] = 0
 
         y_pred = prediction if y_pred is None else y_pred + prediction
+        keras_util.evaluate(y_valid_segment, y_pred, "\n" + "\n".join(weight_files), model_config)
 
         print("predict %s label" % label)
         break

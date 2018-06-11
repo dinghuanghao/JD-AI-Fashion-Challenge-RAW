@@ -25,11 +25,11 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
-    base_model = keras.applications.Xception(include_top=False, weights=weights,
+    base_model = keras.applications.InceptionResNetV2(include_top=False, weights=weights,
                                              input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
-    x = Dense(512, use_bias=False)(x)
+    x = Dense(256, use_bias=False)(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
     predictions = Dense(units=output_dim, activation='sigmoid')(x)

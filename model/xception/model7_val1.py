@@ -29,9 +29,6 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
                                              input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
-    x = Dense(512, use_bias=False)(x)
-    x = BatchNormalization()(x)
-    x = Activation("relu")(x)
     predictions = Dense(units=output_dim, activation='sigmoid')(x)
     model = keras.Model(inputs=base_model.input, outputs=predictions)
 

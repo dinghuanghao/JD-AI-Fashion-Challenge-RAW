@@ -1,9 +1,19 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-1. 测试逐步增大batch_size来代替学习率的下降
-2. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-3. OOP的方式重写所有代码，减少代码冗余，使model更纯粹，并解除model_config到处传递导致的混乱（这个可用留到以后）
-4. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
+1. 模型训练过程中进行评估的时候，将预测矩阵进行保留，这样在集成的时候，无需再训练一次（val set均不进行shuffle，确保所有模型的val set相同）。
+2. 由于改变了segmented算法，因此之前的所有模型需要重新评估（除了Xception）
+3. 测试逐步增大batch_size来代替学习率的下降
+4. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+5. OOP的方式重写所有代码，减少代码冗余，使model更纯粹，并解除model_config到处传递导致的混乱（这个可用留到以后）
+6. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
+7. segment数据会出现一些边缘的丢失，是否可以考虑带权重的segment，即对mask意外的图像进行弱化（变淡、模糊等，距离mask越远，弱化强度越高）
+
+
+
+## 集成
+
+1. 同一个模型有太多的权重，如InceptionV3 val1就训练了10次。是否可以先进行一次bagging（每种模型选出bagging之后的几个，如两个），然后再stacking
+2. original和segmented是否要分开做stacking，然后再stacking（segment相当于给original加上了一个注意力模型）
 
 
 

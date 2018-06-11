@@ -122,7 +122,7 @@ def predict(model: keras.Model, pre_files, model_config: KerasModelConfig, verbo
                                            target_size=model_config.image_size,
                                            batch_size=model_config.predict_batch_size)
 
-    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=verbose)
+    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=verbose, workers=16)
 
 
 def evaluate(y, y_pred, weight_name, model_config):
