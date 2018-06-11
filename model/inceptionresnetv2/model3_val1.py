@@ -20,6 +20,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 val_batch_size=256,
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
+                                initial_epoch=4,
                                 lr=[0.001, 0.0001, 0.000005],
                                 freeze_layers=[-1, 0.6, 5])
 
@@ -59,7 +60,11 @@ def train():
 
     start = time.time()
     print("####### start train model")
-    for i in range(len(model_config.epoch)):
+
+    init_stage = model_config.get_init_stage()
+    print("####### init stage is %d" % init_stage)
+
+    for i in range(init_stage, len(model_config.epoch)):
         print("####### lr=%f, freeze layers=%2f epoch=%d" % (
             model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
@@ -80,6 +85,7 @@ def train():
                                                                                   label_position=model_config.label_position)
 
         if i == 0:
+            print("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))
             model.fit_generator(generator=train_flow,
@@ -91,15 +97,31 @@ def train():
         else:
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
                               lr=model_config.lr[i], weights=None)
-            print("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
-            model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
-            model.fit_generator(generator=train_flow,
-                                steps_per_epoch=model_config.get_steps_per_epoch(i),
-                                epochs=model_config.epoch[i],
-                                initial_epoch=model_config.epoch[i - 1],
-                                workers=16,
-                                verbose=0,
-                                callbacks=[checkpoint, clr])
+
+            if i == init_stage:
+                print("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
+                model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
+
+                print("####### initial epoch is %d, end epoch is %d" % (model_config.initial_epoch, model_config.epoch[i]))
+                model.fit_generator(generator=train_flow,
+                                    steps_per_epoch=model_config.get_steps_per_epoch(i),
+                                    epochs=model_config.epoch[i],
+                                    initial_epoch=model_config.initial_epoch,
+                                    workers=16,
+                                    verbose=0,
+                                    callbacks=[checkpoint, clr])
+            else:
+                print("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
+                model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
+
+                print("####### initial epoch is %d, end epoch is %d" % (model_config.epoch[i - 1], model_config.epoch[i]))
+                model.fit_generator(generator=train_flow,
+                                    steps_per_epoch=model_config.get_steps_per_epoch(i),
+                                    epochs=model_config.epoch[i],
+                                    initial_epoch=model_config.epoch[i - 1],
+                                    workers=16,
+                                    verbose=0,
+                                    callbacks=[checkpoint, clr])
 
     print("####### train model spend %d seconds" % (time.time() - start))
     print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))

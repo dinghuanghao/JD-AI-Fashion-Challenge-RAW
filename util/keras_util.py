@@ -29,6 +29,7 @@ class KerasModelConfig(object):
                  val_batch_size=32,
                  predict_batch_size=32,
                  epoch=(1,),
+                 initial_epoch=0,
                  lr=(0.01,),
                  freeze_layers=(0,)):
 
@@ -50,6 +51,7 @@ class KerasModelConfig(object):
         self.val_batch_size = val_batch_size
         self.predict_batch_size = predict_batch_size
         self.epoch = epoch
+        self.initial_epoch = initial_epoch
         self.lr = lr
         self.freeze_layers = freeze_layers
 
@@ -86,11 +88,19 @@ class KerasModelConfig(object):
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
 
+    def get_init_stage(self):
+        stage = 0
+        for i in range(len(self.epoch)):
+            stage = i
+            if self.initial_epoch + 1 <= self.epoch[i]:
+                break
+        return stage
+
     def get_stage(self, epoch):
         stage = 0
         for i in range(len(self.epoch)):
             stage = i
-            if epoch + 1 > self.epoch[i]:
+            if epoch + 1 <= self.epoch[i]:
                 break
         return stage
 
@@ -122,7 +132,8 @@ def predict(model: keras.Model, pre_files, model_config: KerasModelConfig, verbo
                                            target_size=model_config.image_size,
                                            batch_size=model_config.predict_batch_size)
 
-    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=verbose, workers=16)
+    return model.predict_generator(pre_flow, steps=len(pre_files) / model_config.predict_batch_size, verbose=verbose,
+                                   workers=16)
 
 
 def evaluate(y, y_pred, weight_name, model_config):
@@ -369,7 +380,7 @@ class TensorBoardCallback(keras.callbacks.TensorBoard):
         self.model_config = model_config
 
     def on_epoch_begin(self, epoch, logs=None):
-        #TODO: 此函数修改之后，还未测试
+        # TODO: 此函数修改之后，还未测试
         stage = self.model_config.get_stage(epoch)
         self.counter = epoch * self.model_config.get_steps_per_epoch(stage)
         print("on epoch begin, set counter %f" % self.counter)
