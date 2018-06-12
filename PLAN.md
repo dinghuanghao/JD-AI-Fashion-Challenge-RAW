@@ -1,15 +1,16 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-1. save model 和 predict 能否同时进行
-2. 不使用print，而换成model_config.log
-3. 确认官方的评估方式是“sample f2”还是“macro f2”
-4. 寻找f2-score的时候，对贪心算法进行优化。多次随机贪心求平均（由于预测结果已经保存起来了，因此最后统一处理即可）
-5. 由于改变了segmented算法，因此之前的所有模型需要重新评估（除了Xception）
-6. 测试逐步增大batch_size来代替学习率的下降
-7. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-8. OOP的方式重写所有代码，减少代码冗余，使model更纯粹，并解除model_config到处传递导致的混乱（这个可用留到以后）
-9. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
-10. segment数据会出现一些边缘的丢失，是否可以考虑带权重的segment，即对mask意外的图像进行弱化（变淡、模糊等，距离mask越远，弱化强度越高）
+1. 将所有模型的评判标准改为“Macro-F2 Score“ ，计算13种风格，然后取平均
+2. 试一试batch size 16
+3. save model 和 predict 能否同时进行
+4. 搜索最优单标签模型的时候，直接使用predict.npy，如果不存在则预测一个
+5. 寻找f2-score的时候，对贪心算法进行优化。多次随机贪心求平均（由于预测结果已经保存起来了，因此最后统一处理即可）
+6. 由于改变了segmented算法，因此之前的所有模型需要重新评估（除了Xception）
+7. 测试逐步增大batch_size来代替学习率的下降
+8. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+9. OOP的方式重写所有代码，减少代码冗余，使model更纯粹，并解除model_config到处传递导致的混乱（这个可用留到以后）
+10. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
+11. segment数据会出现一些边缘的丢失，是否可以考虑带权重的segment，即对mask意外的图像进行弱化（变淡、模糊等，距离mask越远，弱化强度越高）
 
 
 
