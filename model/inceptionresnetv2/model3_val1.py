@@ -1,5 +1,6 @@
 import math
 import os
+import queue
 import time
 
 import keras
@@ -8,7 +9,6 @@ from keras.layers import Dense, BatchNormalization, Activation
 import config
 from util import data_loader
 from util import keras_util
-from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
@@ -27,7 +27,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     base_model = keras.applications.InceptionResNetV2(include_top=False, weights=weights,
-                                             input_shape=model_config.image_shape, pooling="avg")
+                                                      input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
     x = Dense(256, use_bias=False)(x)
@@ -56,7 +56,11 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
-    checkpoint = keras_util.EvaluateCallback(model_config)
+    evaluate_queue = queue.Queue()
+    evaluate_task = keras_util.EvaluateTask(evaluate_queue)
+    evaluate_task.setDaemon(True)
+    evaluate_task.start()
+    checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
 
     start = time.time()
     print("####### start train model")
@@ -102,7 +106,8 @@ def train():
                 print("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
-                print("####### initial epoch is %d, end epoch is %d" % (model_config.initial_epoch, model_config.epoch[i]))
+                print("####### initial epoch is %d, end epoch is %d" % (
+                model_config.initial_epoch, model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
                                     epochs=model_config.epoch[i],
@@ -114,7 +119,8 @@ def train():
                 print("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
                 model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
 
-                print("####### initial epoch is %d, end epoch is %d" % (model_config.epoch[i - 1], model_config.epoch[i]))
+                print(
+                    "####### initial epoch is %d, end epoch is %d" % (model_config.epoch[i - 1], model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
                                     epochs=model_config.epoch[i],

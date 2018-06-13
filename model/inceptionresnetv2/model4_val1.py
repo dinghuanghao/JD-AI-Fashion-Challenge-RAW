@@ -55,7 +55,6 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
-
     evaluate_queue = queue.Queue()
     evaluate_task = keras_util.EvaluateTask(evaluate_queue)
     evaluate_task.setDaemon(True)
@@ -107,7 +106,7 @@ def train():
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
                 print("####### initial epoch is %d, end epoch is %d" % (
-                model_config.initial_epoch, model_config.epoch[i]))
+                    model_config.initial_epoch, model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
                                     epochs=model_config.epoch[i],
@@ -131,5 +130,3 @@ def train():
 
     print("####### train model spend %d seconds" % (time.time() - start))
     print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
-
-

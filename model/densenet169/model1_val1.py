@@ -1,7 +1,7 @@
 import math
 import os
-import time
 import queue
+import time
 
 import keras
 from keras.layers import Dense, BatchNormalization, Activation
@@ -9,7 +9,6 @@ from keras.layers import Dense, BatchNormalization, Activation
 import config
 from util import data_loader
 from util import keras_util
-from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
@@ -17,7 +16,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                                train_batch_size=[16,16,16],
+                                train_batch_size=[16, 16, 16],
                                 val_batch_size=256,
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
@@ -27,7 +26,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     base_model = keras.applications.DenseNet169(include_top=False, weights=weights,
-                                             input_shape=model_config.image_shape, pooling="avg")
+                                                input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
     x = Dense(256, use_bias=False)(x)
@@ -55,9 +54,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     return model
 
 
-
 def train():
-
     evaluate_queue = queue.Queue()
     evaluate_task = keras_util.EvaluateTask(evaluate_queue)
     evaluate_task.setDaemon(True)
@@ -109,7 +106,7 @@ def train():
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
                 print("####### initial epoch is %d, end epoch is %d" % (
-                model_config.initial_epoch, model_config.epoch[i]))
+                    model_config.initial_epoch, model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
                                     epochs=model_config.epoch[i],
@@ -133,4 +130,3 @@ def train():
 
     print("####### train model spend %d seconds" % (time.time() - start))
     print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
-

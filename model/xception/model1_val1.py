@@ -1,5 +1,6 @@
 import math
 import os
+import queue
 import time
 
 import keras
@@ -8,7 +9,6 @@ from keras.layers import Dense, BatchNormalization, Activation
 import config
 from util import data_loader
 from util import keras_util
-from util import metrics
 from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
@@ -55,7 +55,11 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
-    checkpoint = keras_util.EvaluateCallback(model_config)
+    evaluate_queue = queue.Queue()
+    evaluate_task = keras_util.EvaluateTask(evaluate_queue)
+    evaluate_task.setDaemon(True)
+    evaluate_task.start()
+    checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
 
     start = time.time()
     print("####### start train model")

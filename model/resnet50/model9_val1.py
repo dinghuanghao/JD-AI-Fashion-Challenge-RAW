@@ -26,7 +26,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     base_model = keras.applications.ResNet50(include_top=False, weights=weights,
-                                                input_shape=model_config.image_shape, pooling="avg")
+                                             input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
     x = Dense(256, use_bias=False)(x)

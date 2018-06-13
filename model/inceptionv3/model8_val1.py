@@ -1,5 +1,6 @@
 import math
 import os
+import queue
 import time
 
 import keras
@@ -16,7 +17,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_SEGMENTED],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                                train_batch_size=[32,32,32],
+                                train_batch_size=[32, 32, 32],
                                 val_batch_size=256,
                                 predict_batch_size=256,
                                 epoch=[1, 6, 10],
@@ -55,7 +56,11 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
-    checkpoint = keras_util.EvaluateCallback(model_config)
+    evaluate_queue = queue.Queue()
+    evaluate_task = keras_util.EvaluateTask(evaluate_queue)
+    evaluate_task.setDaemon(True)
+    evaluate_task.start()
+    checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
 
     start = time.time()
     print("####### start train model")

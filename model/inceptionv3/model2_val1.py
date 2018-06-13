@@ -1,5 +1,6 @@
 import math
 import os
+import queue
 import time
 
 import keras
@@ -58,7 +59,11 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
-    checkpoint = keras_util.EvaluateCallback(model_config)
+    evaluate_queue = queue.Queue()
+    evaluate_task = keras_util.EvaluateTask(evaluate_queue)
+    evaluate_task.setDaemon(True)
+    evaluate_task.start()
+    checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
 
     start = time.time()
     print("####### start train model")
