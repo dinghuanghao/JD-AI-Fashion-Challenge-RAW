@@ -59,8 +59,8 @@ class KerasModelConfig(object):
         self.val_files = []
         self.train_files = []
 
-        for i in data_type:
-            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, self.data_type)
+        for i in self.data_type:
+            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, [i])
             self.val_files.append(val_files)
             self.train_files += train_files
 
@@ -136,11 +136,11 @@ def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
                                                batch_size=model_config.predict_batch_size)
 
         if y_pred is None:
-            y_pred = model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                             verbose=verbose, workers=16)
+            y_pred = np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                             verbose=verbose, workers=16))
         else:
-            y_pred += model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                              verbose=verbose, workers=16)
+            y_pred += np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                              verbose=verbose, workers=16))
 
     assert y_pred.shape[0] == model_config.val_y.shape[0]
 
@@ -149,62 +149,60 @@ def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     return y_pred
 
 
-def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig, pred_path=None):
-    if pred_path is not None:
-        print("save prediction to %s" % pred_path)
-        np.save(pred_path, y_pred)
-    start = time.time()
-    greedy_score, greedy_threshold = metrics.greedy_f2_score(y, y_pred, label_num=len(model_config.label_position))
-    print("####### search greedy threshold spend %d seconds ######"
-          % (time.time() - start))
-    print("####### Smooth F2-Score is %f #######"
-          % metrics.smooth_f2_score_np(y, y_pred))
+def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
     if len(model_config.label_position) > 1:
-        print("####### F2-Score with threshold 0.2 is %f #######"
-              % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
-        print("####### F2-Score with threshold 0.1 is %f #######"
-              % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
+        thread_f2_01 = fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='macro')
+        thread_f2_02 = fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='macro')
     else:
-        print("####### F2-Score with threshold 0.2 is %f #######"
-              % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2))
-        print("####### F2-Score with threshold 0.1 is %f #######"
-              % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2))
+        thread_f2_01 = fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2)
+        thread_f2_02 = fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2)
 
-    print("####### Greedy F2-Score is %f #######" % greedy_score)
+    smooth_f2 = metrics.smooth_f2_score_np(y, y_pred)
+
+    one_label_greedy_f2_all = []
+    one_label_greedy_threshold_all = []
+    for i in range(y_pred.shape[-1]):
+        smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
+        one_label_greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
+        one_label_greedy_threshold_all.append(greedy_threshold[0])
+        one_label_greedy_f2_all.append(one_label_greedy_f2)
+
+    print("####### Smooth F2-Score is %6f #######" % smooth_f2)
+    print("####### F2-Score with threshold 0.1 is %6f #######" % thread_f2_01)
+    print("####### F2-Score with threshold 0.2 is %6f #######" % thread_f2_02)
+    print("####### Greedy F2-Score is %6f #######" % np.mean(one_label_greedy_f2_all))
+    for i in range(len(one_label_greedy_f2_all)):
+        print("[label %d]\tsmooth-f2=%4f greedy-f2=%4f[%4f]" % (
+            model_config.label_position[i], smooth_f2, one_label_greedy_f2_all[i], one_label_greedy_threshold_all[i]))
 
     with open(os.path.join(model_config.record_dir,
-                           "evaluate%s.txt" % str([str(i) for i in model_config.label_position])),
-              "a") as f:
+                           "evaluate%s.txt" % str([str(i) for i in model_config.label_position])), "a") as f:
         f.write("\n\n")
-        f.write("weight: %s\n" % weight_name)
-        f.write("Smooth F2-Score: %f\n"
-                % metrics.smooth_f2_score_np(y, y_pred))
+        f.write("Weight: %s\n" % weight_name)
+        f.write("Smooth F2-Score: %f\n" % smooth_f2)
+        f.write("F2-Score with threshold 0.1: %f\n" % thread_f2_01)
+        f.write("F2-Score with threshold 0.2: %f\n" % thread_f2_02)
+        f.write("Greedy F2-Score is: %f\n" % np.mean(one_label_greedy_f2_all))
 
-        if len(model_config.label_position) > 1:
-            f.write("F2-Score with threshold 0.2: %f\n"
-                    % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='samples'))
-            f.write("F2-Score with threshold 0.1: %f\n"
-                    % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='samples'))
-        else:
-            f.write("F2-Score with threshold 0.2: %f\n"
-                    % fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2))
-            f.write("F2-Score with threshold 0.1: %f\n"
-                    % fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2))
-
-        f.write("Greedy F2-Score is: %f\n" % greedy_score)
-        f.write("Greedy threshold: ")
-        f.write(",".join([str(j) for j in greedy_threshold]))
-        f.write("\n")
-
-        greedy_threshold_all = []
-        for i in range(y_pred.shape[-1]):
-            smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
-            greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
-            print("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]" % (
-                model_config.label_position[i], smooth_f2, greedy_f2, greedy_threshold[0]))
+        for i in range(len(one_label_greedy_f2_all)):
             f.write("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]\n" % (
-                model_config.label_position[i], smooth_f2, greedy_f2, greedy_threshold[0]))
-            greedy_threshold_all.append(greedy_threshold)
+                model_config.label_position[i], smooth_f2, one_label_greedy_f2_all[i],
+                one_label_greedy_threshold_all[i]))
+
+
+def get_prediction_path(weight_path):
+    return weight_path + ".predict.npy"
+
+
+def save_prediction_file(prediction, weight_path, overwrite=False):
+    prediction_path = get_prediction_path(weight_path)
+    if os.path.exists(prediction_path):
+        if overwrite:
+            print("overwrite prediction: %s" % prediction_path)
+            np.save(prediction_path, prediction)
+    else:
+        print("save prediction: %s" % prediction_path)
+        np.save(prediction_path, prediction)
 
 
 class EvaluateTask(Thread):
@@ -214,9 +212,10 @@ class EvaluateTask(Thread):
 
     def run(self):
         while True:
-            y, y_pred, weight_name, model_config = self.q.get()
-            print("start evaluate task for %s" % weight_name)
-            evaluate(y, y_pred, weight_name, model_config, weight_name + ".predict")
+            y, y_pred, weight_path, model_config = self.q.get()
+            print("start evaluate task for %s" % weight_path)
+            save_prediction_file(y_pred, weight_path)
+            evaluate(y, y_pred, weight_path, model_config, )
 
 
 class EvaluateCallback(Callback):

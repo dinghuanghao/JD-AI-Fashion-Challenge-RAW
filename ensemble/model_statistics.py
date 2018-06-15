@@ -24,8 +24,8 @@ def model_statistics(path, val_index=1, save_file=None):
         with open(file, "r") as f:
             weight_file = ""
             for i in f.readlines():
-                if "weight" in i:
-                    weight_file = re.match("weight: *(.*)", i).group(1)
+                if "Weight" in i:
+                    weight_file = re.match(r"Weight: *(.*)", i).group(1)
 
                 if "Greedy F2-Score is:" in i:
                     if weight_file == "":

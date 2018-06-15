@@ -25,7 +25,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 freeze_layers=[0])
 
 
-def get_model():
+def get_model(output_dim=None, weights=None):
     model = Sequential()
     model.add(Conv2D(32, kernel_size=(3, 3),
                      activation='relu',
