@@ -11,6 +11,7 @@ MODEL_PATH = os.path.join(ROOT_PATH, "model")
 TRAINING_RECORD_PATH = os.path.join(ROOT_PATH, "record")
 
 IMAGES_PATH = os.path.join(DATA_PATH, "images")
+SPIDER_PATH = os.path.join(DATA_PATH, 'spider')
 K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")
 ORIGINAL_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_ORIGINAL)
 SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_SEGMENTED)
