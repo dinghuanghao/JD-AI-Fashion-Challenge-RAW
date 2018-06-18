@@ -10,7 +10,7 @@ from util import path
 spiders_dic = {
     'sport': "https://search.jd.com/Search?keyword=%E8%BF%90%E5%8A%A8%E8%A3%85%E5%A5%B3&enc=utf-8&page="
 }
-search_page_num = 4
+search_page_num = 100
 
 class spider:
     def __init__(self):
