@@ -1,18 +1,21 @@
 # coding:utf-8
 
-import requests
-from bs4 import BeautifulSoup
-import tensorflow as tf
 import concurrent.futures
 import time
+
+import requests
+import tensorflow as tf
+from bs4 import BeautifulSoup
+
 from util import path
 
-spiders_dic = {
+SPIDERS_DIC = {
     'sport': "https://search.jd.com/Search?keyword=%E8%BF%90%E5%8A%A8%E8%A3%85%E5%A5%B3&enc=utf-8&page="
 }
 search_page_num = 100
 
-class spider:
+
+class Spider:
     def __init__(self):
         self.headers = {'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
         self.pids = set()  # 页面中所有的id,用来拼接剩下的30张图片的url,使用集合可以有效的去重
@@ -20,7 +23,7 @@ class spider:
 
     # 得到每一页的网页源码
     def get_html(self, page, style):
-        url = spiders_dic[style] + str(page)
+        url = SPIDERS_DIC[style] + str(page)
         res = requests.get(url, headers=self.headers)
         html = res.text
         return html
@@ -70,6 +73,7 @@ class spider:
                         print("start retry")
                     if download_ok:
                         break
+
     def save_image2file(self, style, photo_save_dir, photo_save_subdir, thread_number):
         images_src = []
         for i in range(thread_number):
@@ -86,11 +90,12 @@ class spider:
 
     def main(self, style, photo_save_dir, photo_save_subdir, thread_number):
         self.save_image2file(style, photo_save_dir, photo_save_subdir, thread_number)
-        print ("--------------------------------------SUCCESS----------------------------------------------")
+        print("--------------------------------------SUCCESS----------------------------------------------")
+
 
 if __name__ == '__main__':
     style = 'sport'
     photo_save_dir = path.SPIDER_PATH
     photo_save_subdir = style
     thread_number = 4
-    spider().main(style, photo_save_dir, photo_save_subdir, thread_number)
+    Spider().main(style, photo_save_dir, photo_save_subdir, thread_number)
