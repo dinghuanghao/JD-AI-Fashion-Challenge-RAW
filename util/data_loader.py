@@ -6,8 +6,7 @@ import re
 import cv2
 import keras.backend as K
 import numpy as np
-import tensorflow as tf
-from keras.preprocessing.image import ImageDataGenerator, Iterator, img_to_array, array_to_img
+from keras.preprocessing.image import ImageDataGenerator, Iterator, img_to_array
 from tqdm import tqdm
 
 import config
@@ -24,12 +23,14 @@ def check_mean_std_file(model_config, datagen):
 
 
 class KerasGenerator(ImageDataGenerator):
-    def __init__(self, model_config=None, *args, **kwargs):
+    def __init__(self, model_config=None, pca_jitter=False, real_transform=False, *args, **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
+        self.real_transform = real_transform
+        self.pca_jitter = pca_jitter
 
         if model_config is not None:
-            if self.featurewise_center is not None or self.featurewise_std_normalization is not None:
+            if self.featurewise_center or self.featurewise_std_normalization:
                 check_mean_std_file(model_config, self)
                 self.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
@@ -107,6 +108,7 @@ class KerasIterator(Iterator):
             self.image_shape = (3,) + self.target_size
 
         self.image_data_generator = image_data_generator
+        self.save_image_number = 100
         self.save_to_dir = save_to_dir
         self.save_prefix = save_prefix
         self.save_format = save_format
@@ -120,6 +122,61 @@ class KerasIterator(Iterator):
         # Init parent class
         super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)
 
+    def real_transform(self, img):
+
+        width_shift = int(self.image_data_generator.width_shift_range * 100)
+        height_shift = int(self.image_data_generator.height_shift_range * 100)
+
+        width_start = int(random.randrange(-width_shift, width_shift) / 100 * img.shape[1])
+        height_start = int(random.randrange(-height_shift, height_shift) / 100 * img.shape[0])
+
+        if height_start < 0:
+            img = img[:height_start, :]
+        else:
+            img = img[height_start:, :]
+
+        if width_start < 0:
+            img = img[:, :width_start, :]
+        else:
+            img = img[:, width_start:, :]
+
+        if self.image_data_generator.horizontal_flip:
+            if np.random.random() < 0.5:
+                img = cv2.flip(img, 1)
+
+        if self.image_data_generator.vertical_flip:
+            if np.random.random() < 0.5:
+                img = cv2.flip(img, 0)
+
+        return img
+
+    def pca_jitter(self, img_norm):
+        img_norm = np.asanyarray(img_norm, dtype='float32')
+        img_size = img_norm.size / 3
+        img1 = img_norm.reshape(int(img_size), 3)
+        img1 = np.transpose(img1)
+        img_cov = np.cov([img1[0], img1[1], img1[2]])
+        lamda, p = np.linalg.eig(img_cov)  # 计算矩阵特征向量
+
+        p = np.transpose(p)
+
+        alpha1 = random.normalvariate(0, 0.01)  # 生成正态分布的随机数
+        alpha2 = random.normalvariate(0, 0.01)
+        alpha3 = random.normalvariate(0, 0.01)
+
+        v = np.transpose((alpha1 * lamda[0], alpha2 * lamda[1], alpha3 * lamda[2]))  # 加入扰动
+        add_num = np.dot(p, v)
+
+        # img2 = np.array(
+        #     [img_norm[:, :, 0] + add_num[0], img_norm[:, :, 1] + add_num[1], img_norm[:, :, 2] + add_num[2]])
+        img_norm[:, :, 0] = img_norm[:, :, 0] + add_num[0]
+        img_norm[:, :, 1] = img_norm[:, :, 1] + add_num[1]
+        img_norm[:, :, 2] = img_norm[:, :, 2] + add_num[2]
+        # img2 = np.swapaxes(img2, 0, 2)
+        # img2 = np.swapaxes(img2, 0, 1)
+
+        return img_norm
+
     def _get_batches_of_transformed_samples(self, index_array):
         # The transformation of images is not under thread lock
         # so it can be done in parallel
@@ -129,20 +186,41 @@ class KerasIterator(Iterator):
         for i, j in enumerate(index_array):
             file = self.img_files[j]
             img = cv2.imread(file)
-            img = cv2.resize(img, self.target_size)
-            x = img_to_array(img, data_format=self.data_format)
-            x = self.image_data_generator.random_transform(x)
+            # img = cv2.resize(img, self.target_size)
+            # x = img_to_array(img, data_format=self.data_format)
+            # x = self.image_data_generator.random_transform(x)
+            # x = self.image_data_generator.standardize(x)
+            # batch_x[i] = x
+
+
+            if not self.image_data_generator.real_transform:
+                img = cv2.resize(img, self.target_size)
+                x = img_to_array(img, data_format=self.data_format)
+                x = self.image_data_generator.random_transform(x)
+            else:
+                img = self.real_transform(img)
+                img = cv2.resize(img, self.target_size)
+                x = img_to_array(img, data_format=self.data_format)
+
             x = self.image_data_generator.standardize(x)
+            if self.image_data_generator.pca_jitter:
+                x = self.pca_jitter(x)
             batch_x[i] = x
 
         if self.save_to_dir:
             for i, j in enumerate(index_array):
-                img = array_to_img(batch_x[i], self.data_format, scale=True)
-                fname = '{prefix}_{index}_{hash}.{format}'.format(prefix=self.save_prefix,
-                                                                  index=j,
-                                                                  hash=np.random.randint(1e7),
-                                                                  format=self.save_format)
-                img.save(os.path.join(self.save_to_dir, fname))
+                if self.save_image_number > 100:
+                    break
+                self.save_image_number += 1
+                fname = '{name}_{hash}.{format}'.format(name=os.path.split(self.img_files[j])[-1],
+                                                        hash=np.random.randint(1e7),
+                                                        format=self.save_format)
+                img_rescale = batch_x[i] + max(-np.min(batch_x[i]), 0)
+                x_max = np.max(img_rescale)
+                if x_max != 0:
+                    img_rescale /= x_max
+                    img_rescale *= 255.0
+                cv2.imwrite(os.path.join(self.save_to_dir, fname), img_rescale)
 
         # Build batch of labels.
         if self.mode == 'fit':

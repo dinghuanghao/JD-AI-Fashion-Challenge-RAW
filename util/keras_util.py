@@ -55,6 +55,8 @@ class KerasModelConfig(object):
         self.initial_epoch = initial_epoch
         self.lr = lr
         self.freeze_layers = freeze_layers
+        self.writer = tf.summary.FileWriter(self.record_dir)
+        self.current_epoch = initial_epoch
 
         self.val_files = []
         self.train_files = []
@@ -137,16 +139,25 @@ def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
 
         if y_pred is None:
             y_pred = np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                             verbose=verbose, workers=16))
+                                                      verbose=verbose, workers=16))
         else:
             y_pred += np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                              verbose=verbose, workers=16))
+                                                       verbose=verbose, workers=16))
 
     assert y_pred.shape[0] == model_config.val_y.shape[0]
 
     y_pred = y_pred / len(model_config.data_type)
     print("####### predict spend %d seconds ######" % (time.time() - start))
     return y_pred
+
+
+def summary_val_value(name, value, model_config):
+    summary = tf.Summary()
+    summary_value = summary.value.add()
+    summary_value.simple_value = value
+    summary_value.tag = name
+    model_config.writer.add_summary(summary, model_config.current_epoch)
+    model_config.writer.flush()
 
 
 def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
@@ -161,19 +172,33 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
 
     one_label_greedy_f2_all = []
     one_label_greedy_threshold_all = []
-    for i in range(y_pred.shape[-1]):
+    one_label_smooth_f2_all = []
+    for i in range(y.shape[-1]):
         smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
         one_label_greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
-        one_label_greedy_threshold_all.append(greedy_threshold[0])
+        one_label_smooth_f2_all.append(smooth_f2)
         one_label_greedy_f2_all.append(one_label_greedy_f2)
+        one_label_greedy_threshold_all.append(greedy_threshold[0])
 
     print("####### Smooth F2-Score is %6f #######" % smooth_f2)
     print("####### F2-Score with threshold 0.1 is %6f #######" % thread_f2_01)
     print("####### F2-Score with threshold 0.2 is %6f #######" % thread_f2_02)
     print("####### Greedy F2-Score is %6f #######" % np.mean(one_label_greedy_f2_all))
+
+    summary_val_value("val-label-all/smooth-f2", smooth_f2, model_config)
+    summary_val_value("val-label-all/thread-f2-01", thread_f2_01, model_config)
+    summary_val_value("val-label-all/thread-f2-02", thread_f2_02, model_config)
+    summary_val_value("val-label-all/greedy-f2", np.mean(one_label_greedy_f2_all), model_config)
+
     for i in range(len(one_label_greedy_f2_all)):
         print("[label %d]\tsmooth-f2=%4f greedy-f2=%4f[%4f]" % (
-            model_config.label_position[i], smooth_f2, one_label_greedy_f2_all[i], one_label_greedy_threshold_all[i]))
+            model_config.label_position[i], one_label_smooth_f2_all[i], one_label_greedy_f2_all[i],
+            one_label_greedy_threshold_all[i]))
+
+        summary_val_value("val-label-%d/smooth-f2" % model_config.label_position[i], one_label_smooth_f2_all[i],
+                          model_config)
+        summary_val_value("val-label-%d/greedy-f2" % model_config.label_position[i], one_label_greedy_f2_all[i],
+                          model_config)
 
     with open(os.path.join(model_config.record_dir,
                            "evaluate%s.txt" % str([str(i) for i in model_config.label_position])), "a") as f:
@@ -186,7 +211,7 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
 
         for i in range(len(one_label_greedy_f2_all)):
             f.write("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]\n" % (
-                model_config.label_position[i], smooth_f2, one_label_greedy_f2_all[i],
+                model_config.label_position[i], one_label_smooth_f2_all[i], one_label_greedy_f2_all[i],
                 one_label_greedy_threshold_all[i]))
 
 
@@ -215,7 +240,7 @@ class EvaluateTask(Thread):
             y, y_pred, weight_path, model_config = self.q.get()
             print("start evaluate task for %s" % weight_path)
             save_prediction_file(y_pred, weight_path)
-            evaluate(y, y_pred, weight_path, model_config, )
+            evaluate(y, y_pred, weight_path, model_config)
 
 
 class EvaluateCallback(Callback):
@@ -226,6 +251,7 @@ class EvaluateCallback(Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         real_epoch = epoch + 1
+        self.model_config.current_epoch = real_epoch
         print("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
         y_pred = predict(self.model, self.model_config, verbose=1)
@@ -375,7 +401,6 @@ class TensorBoardCallback(keras.callbacks.TensorBoard):
         self.model_config = model_config
 
     def on_epoch_begin(self, epoch, logs=None):
-        # TODO: 此函数修改之后，还未测试
         stage = self.model_config.get_stage(epoch)
         self.counter = epoch * self.model_config.get_steps_per_epoch(stage)
         print("on epoch begin, set counter %f" % self.counter)

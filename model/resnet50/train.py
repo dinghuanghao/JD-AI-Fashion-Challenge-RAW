@@ -1,5 +1,7 @@
-from model.resnet50 import model10_val1
-from model.resnet50 import model9_val1
+from model.resnet50 import model11_val1
+from model.resnet50 import model12_val1
+from model.resnet50 import model13_val1
 
-model9_val1.train()
-model10_val1.train()
+# model11_val1.train()
+model12_val1.train()
+model13_val1.train()

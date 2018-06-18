@@ -24,6 +24,11 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 freeze_layers=[-1, 0.6, 5])
 
 
+def load_weight(model, epoch):
+    print("load weights:%s" % model_config.get_weights_path(epoch))
+    model.load_weights(model_config.get_weights_path(epoch))
+
+
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     base_model = keras.applications.InceptionResNetV2(include_top=False, weights=weights,
                                                       input_shape=model_config.image_shape, pooling="avg")

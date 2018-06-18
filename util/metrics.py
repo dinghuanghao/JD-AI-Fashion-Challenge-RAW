@@ -1,7 +1,6 @@
 import keras.backend as K
 import numpy as np
 import tensorflow as tf
-import keras
 
 weight_matrix = np.array(([[527, 12.8, 1.1, 210, 2.8, 6.18, 279.32, 40.5, 1.11, 7.7, 14.79, 43.9, 156]]),
                          dtype=np.float32)
@@ -116,6 +115,22 @@ def smooth_f2_score_np(y_true: np.ndarray, y_pred: np.ndarray, epsilon=1e-9):
     return np.mean(f2_score)
 
 
+def smooth_f2_score_02_macro(y_true, y_pred):
+    tp = y_pred.dtype
+    y_pred = y_pred > 0.2
+    y_true = tf.cast(y_true, tp)
+    y_pred = tf.cast(y_pred, tp)
+    y_correct = y_true * y_pred
+    sum_true = tf.reduce_sum(y_true, axis=0)
+    sum_pred = tf.reduce_sum(y_pred, axis=0)
+    sum_correct = tf.reduce_sum(y_correct, axis=0)
+    precision = sum_correct / (sum_pred + K.epsilon())
+    recall = sum_correct / (sum_true + K.epsilon())
+    f_score = 5 * precision * recall / (4 * precision + recall + K.epsilon())
+    f_score = tf.where(tf.is_nan(f_score), tf.zeros_like(f_score), f_score)
+    return tf.reduce_mean(f_score)
+
+
 def smooth_f2_score_02(y_true, y_pred):
     tp = y_pred.dtype
     y_pred = y_pred > 0.2
@@ -145,8 +160,8 @@ def smooth_f2_score(y_true, y_pred):
     return tf.reduce_mean(f_score)
 
 
-def logloss_and_f2score(p_true, p_pred):
-    return tf.keras.losses.binary_crossentropy(p_true, p_pred) + f2_score_loss(p_true, p_pred)
+def bce_and_f2score(p_true, p_pred):
+    return tf.keras.losses.binary_crossentropy(p_true, p_pred) + 0.2 * f2_score_loss(p_true, p_pred)
 
 
 import numpy as np
