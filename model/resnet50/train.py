@@ -1,4 +1,3 @@
-from model.resnet50 import model11_val1
 from model.resnet50 import model12_val1
 from model.resnet50 import model13_val1
 

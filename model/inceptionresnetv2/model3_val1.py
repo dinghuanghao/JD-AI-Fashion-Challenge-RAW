@@ -107,7 +107,7 @@ def train():
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
                 print("####### initial epoch is %d, end epoch is %d" % (
-                model_config.initial_epoch, model_config.epoch[i]))
+                    model_config.initial_epoch, model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
                                     epochs=model_config.epoch[i],

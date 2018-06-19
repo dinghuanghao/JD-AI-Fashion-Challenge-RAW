@@ -53,13 +53,15 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
     print("basic model have %d layers" % len(base_model.layers))
     return model
 
+
 def train():
     evaluate_queue = queue.Queue()
     evaluate_task = keras_util.EvaluateTask(evaluate_queue)
     evaluate_task.setDaemon(True)
     evaluate_task.start()
     checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
-    tensorboard = keras_util.TensorBoardCallback(log_dir=model_config.record_dir, log_every=20, model_config=model_config)
+    tensorboard = keras_util.TensorBoardCallback(log_dir=model_config.record_dir, log_every=20,
+                                                 model_config=model_config)
 
     start = time.time()
     print("####### start train model")

@@ -9,8 +9,8 @@ from keras.layers import Dense
 import config
 from util import data_loader
 from util import keras_util
-from util.keras_util import KerasModelConfig
 from util import metrics
+from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
                                 model_path=os.path.abspath(__file__),
@@ -47,7 +47,8 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
     model.compile(loss="binary_crossentropy",
                   optimizer=keras.optimizers.Adam(lr=lr),
-                  metrics=['accuracy', metrics.smooth_f2_score, metrics.smooth_f2_score_02_macro, metrics.smooth_f2_score_02])
+                  metrics=['accuracy', metrics.smooth_f2_score, metrics.smooth_f2_score_02_macro,
+                           metrics.smooth_f2_score_02])
     # model.summary()
     print("basic model have %d layers" % len(base_model.layers))
     return model
@@ -59,7 +60,8 @@ def train():
     evaluate_task.setDaemon(True)
     evaluate_task.start()
     checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
-    tensorboard = keras_util.TensorBoardCallback(log_dir=model_config.record_dir, log_every=20, model_config=model_config)
+    tensorboard = keras_util.TensorBoardCallback(log_dir=model_config.record_dir, log_every=20,
+                                                 model_config=model_config)
     start = time.time()
     print("####### start train model")
     for i in range(len(model_config.epoch)):
@@ -101,7 +103,7 @@ def train():
                                 initial_epoch=model_config.epoch[i - 1],
                                 workers=16,
                                 verbose=0,
-                                callbacks=[checkpoint, clr,tensorboard])
+                                callbacks=[checkpoint, clr, tensorboard])
 
     print("####### train model spend %d seconds" % (time.time() - start))
     print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))

@@ -9,9 +9,7 @@ from keras.layers import Dense
 import config
 from util import data_loader
 from util import keras_util
-from util import path
 from util.keras_util import KerasModelConfig
-from util import metrics
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
                                 model_path=os.path.abspath(__file__),
@@ -130,4 +128,3 @@ def train():
 
     print("####### train model spend %d seconds" % (time.time() - start))
     print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
-

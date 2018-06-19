@@ -4,7 +4,7 @@ import queue
 import time
 
 import keras
-from keras.layers import Dense, BatchNormalization, Activation, Dropout
+from keras.layers import Dense, BatchNormalization, Activation
 
 import config
 from util import data_loader
