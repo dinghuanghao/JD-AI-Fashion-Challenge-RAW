@@ -47,6 +47,7 @@ class KerasModelConfig(object):
         self.data_type = data_type
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split("_")[0])
         self.record_dir = os.path.join(self.record_dir, "val%d" % self.val_index)
+        self.img_record_dir = os.path.join(self.record_dir, "image")
         self.label_position = label_position
         self.train_batch_size = train_batch_size
         self.val_batch_size = val_batch_size
@@ -79,6 +80,7 @@ class KerasModelConfig(object):
                                               "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
         self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
+        pathlib.Path(self.img_record_dir).mkdir(parents=True, exist_ok=True)
 
         print("##########load model config")
         print("##########file name is: %s" % file_name)

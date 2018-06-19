@@ -1,13 +1,14 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
 1. TTA
-2. PCA Jitter的特征矩阵应该是在整个训练集上计算？
-3. 试一试batch size 16
-4. 尝试不同尺寸的图片
-5. save model 和 predict 能否同时进行
-6. 测试逐步增大batch_size来代替学习率的下降
-7. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-8. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
+2. 试一试直接在所有层上训练
+3. PCA Jitter的特征矩阵应该是在整个训练集上计算？
+4. 试一试batch size 16
+5. 尝试不同尺寸的图片
+6. save model 和 predict 能否同时进行
+7. 测试逐步增大batch_size来代替学习率的下降
+8. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+9. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
 
 
 
