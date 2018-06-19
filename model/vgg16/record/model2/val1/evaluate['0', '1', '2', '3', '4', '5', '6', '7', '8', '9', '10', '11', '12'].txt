@@ -1,0 +1,20 @@
+
+
+Weight: F:\Projects\competition\model\vgg16\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.002479
+F2-Score with threshold 0.1: 0.301334
+F2-Score with threshold 0.2: 0.257552
+Greedy F2-Score is: 0.402185
+[label 0]	smooth-f2=0.000813   greedy-f2=0.008592[0.000000]
+[label 1]	smooth-f2=0.078792   greedy-f2=0.391263[0.010000]
+[label 2]	smooth-f2=0.963505   greedy-f2=0.979881[0.140000]
+[label 3]	smooth-f2=0.003447   greedy-f2=0.124481[0.010000]
+[label 4]	smooth-f2=0.269981   greedy-f2=0.726266[0.010000]
+[label 5]	smooth-f2=0.367401   greedy-f2=0.549563[0.130000]
+[label 6]	smooth-f2=0.000430   greedy-f2=0.015292[0.000000]
+[label 7]	smooth-f2=0.018753   greedy-f2=0.231034[0.010000]
+[label 8]	smooth-f2=0.958979   greedy-f2=0.977875[0.240000]
+[label 9]	smooth-f2=0.062467   greedy-f2=0.475346[0.010000]
+[label 10]	smooth-f2=0.067611   greedy-f2=0.471398[0.010000]
+[label 11]	smooth-f2=0.061148   greedy-f2=0.247646[0.010000]
+[label 12]	smooth-f2=0.002479   greedy-f2=0.029762[0.010000]
