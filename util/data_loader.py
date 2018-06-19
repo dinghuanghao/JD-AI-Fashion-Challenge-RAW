@@ -185,7 +185,7 @@ class KerasIterator(Iterator):
 
     def debug_img_trans(self):
         # 训练每一个模型的时候，都保存一定的图片，用于检查data augmentation的效果
-        print("save image augmentation to %d" % self.generator.model_config.img_record_dir)
+        print("save image augmentation to %s" % self.generator.model_config.img_record_dir)
         if self.save_image_number > 0:
             for file in self.generator.model_config.val_files[0][:self.save_image_number]:
                 img = cv2.imread(file)

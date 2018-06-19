@@ -48,6 +48,7 @@ class KerasModelConfig(object):
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split("_")[0])
         self.record_dir = os.path.join(self.record_dir, "val%d" % self.val_index)
         self.img_record_dir = os.path.join(self.record_dir, "image")
+        self.log_file = os.path.join(self.record_dir, "log.txt")
         self.label_position = label_position
         self.train_batch_size = train_batch_size
         self.val_batch_size = val_batch_size
@@ -87,6 +88,13 @@ class KerasModelConfig(object):
         print("##########val index is: %d" % self.val_index)
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
+
+    def save_log(self, log):
+        log = time.strftime("%Y-%m-%d:%H:%M:%S") + ": " + log
+        print(log)
+        with open(self.log_file, "a") as f:
+            f.write(log)
+            f.write("\n")
 
     def decrease_train_files(self, num):
         self.train_files = self.train_files[:num]
@@ -254,7 +262,7 @@ class EvaluateCallback(Callback):
     def on_epoch_end(self, epoch, logs=None):
         real_epoch = epoch + 1
         self.model_config.current_epoch = real_epoch
-        print("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
+        self.model_config.save_log("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
         y_pred = predict(self.model, self.model_config, verbose=1)
         self.evaluate_queue.put(

@@ -2,13 +2,14 @@
 
 1. TTA
 2. 试一试直接在所有层上训练
-3. PCA Jitter的特征矩阵应该是在整个训练集上计算？
-4. 试一试batch size 16
-5. 尝试不同尺寸的图片
-6. save model 和 predict 能否同时进行
-7. 测试逐步增大batch_size来代替学习率的下降
-8. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-9. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
+3. 监测模型的训练时间
+4. PCA Jitter的特征矩阵应该是在整个训练集上计算？
+5. 试一试batch size 16
+6. 尝试不同尺寸的图片
+7. save model 和 predict 能否同时进行
+8. 测试逐步增大batch_size来代替学习率的下降
+9. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+10. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
 
 
 
