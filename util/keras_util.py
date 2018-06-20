@@ -32,7 +32,8 @@ class KerasModelConfig(object):
                  epoch=(1,),
                  initial_epoch=0,
                  lr=(0.01,),
-                 freeze_layers=(0,)):
+                 freeze_layers=(0,),
+                 debug=False):
 
         file_name = os.path.basename(model_path)
         model_dir = os.path.dirname(model_path)
@@ -59,6 +60,7 @@ class KerasModelConfig(object):
         self.freeze_layers = freeze_layers
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
+        self.debug = debug
 
         self.val_files = []
         self.train_files = []
@@ -71,6 +73,12 @@ class KerasModelConfig(object):
         self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
 
         self.train_files = np.array(self.train_files)
+
+        if debug:
+            self.train_files = self.train_files[:64]
+            for i in range(len(self.val_files)):
+                self.val_files[i] = self.val_files[i][:64]
+            self.val_y = self.val_y[:64]
 
         self.image_mean_file = path.get_image_mean_file(self.k_fold_file, self.val_index,
                                                         data_type=self.data_type)

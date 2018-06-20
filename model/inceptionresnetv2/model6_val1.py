@@ -22,7 +22,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 train_batch_size=[32, 32],
                                 val_batch_size=256,
                                 predict_batch_size=256,
-                                epoch=[5, 5],
+                                epoch=[5, 10],
                                 lr=[0.001, 0.00001],
                                 freeze_layers=[0, 0])
 

@@ -20,9 +20,10 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=[16, 16],
+                                initial_epoch=5,
                                 val_batch_size=256,
                                 predict_batch_size=256,
-                                epoch=[5, 5],
+                                epoch=[5, 10],
                                 lr=[0.001, 0.00001],
                                 freeze_layers=[0, 0])
 

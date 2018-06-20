@@ -111,7 +111,8 @@ class KerasIterator(Iterator):
         else:
             self.labels = np.array(get_labels(img_files), dtype=np.int8)[:, label_position]
 
-        self.debug_img_trans()
+        if mode == 'fit':
+            self.debug_img_trans()
 
         # Init parent class
         super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)
