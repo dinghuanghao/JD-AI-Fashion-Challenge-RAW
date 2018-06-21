@@ -1,5 +1,9 @@
-from model.vgg19 import model1_val1
+from model.vgg19 import model4_val2
+from model.vgg19 import model4_val3
+from model.vgg19 import model4_val4
+from model.vgg19 import model4_val5
 
-# model2_val1.train()
-# model3_val1.train()
-model1_val1.train()
+model4_val2.train()
+model4_val3.train()
+model4_val4.train()
+model4_val5.train()

@@ -1,0 +1,19 @@
+2018-06-21:21:39:03: ####### start train model
+2018-06-21:21:39:03: ####### init stage is 0
+2018-06-21:21:39:03: ####### lr=0.000100, freeze layers=0.000000 epoch=5
+2018-06-21:21:39:07: ####### initial epoch is 0, end epoch is 5
+2018-06-21:21:51:03: on epoch 1 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-21:22:04:15: on epoch 2 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-06-21:22:15:39: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-06-21:22:27:05: on epoch 4 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-21:22:38:30: on epoch 5 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-06-21:22:39:12: ####### lr=0.000001, freeze layers=0.000000 epoch=10
+2018-06-21:22:40:03: ####### load weight file: F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-06-21:22:41:09: ####### initial epoch is 5, end epoch is 10
+2018-06-21:22:51:42: on epoch 6 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-06-21:23:04:13: on epoch 7 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-06-21:23:14:51: on epoch 8 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-06-21:23:25:30: on epoch 9 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-21:23:36:09: on epoch 10 end, save weight:F:\Projects\competition\model\xception\record\model11\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-06-21:23:36:52: ####### train model spend 7069 seconds
+2018-06-21:23:36:52: ####### train model spend 706 seconds average
