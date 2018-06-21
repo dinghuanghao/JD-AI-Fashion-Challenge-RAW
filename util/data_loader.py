@@ -23,7 +23,7 @@ def check_mean_std_file(model_config, datagen):
 
 
 class KerasGenerator(ImageDataGenerator):
-    def __init__(self, model_config=None, pca_jitter=False, real_transform=False, *args,
+    def __init__(self, model_config=None, pca_jitter=False, pca_jitter_range=0.01, real_transform=False, *args,
                  **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
@@ -155,9 +155,9 @@ class KerasIterator(Iterator):
 
         p = np.transpose(p)
 
-        alpha1 = random.normalvariate(0, 0.01)  # 生成正态分布的随机数
-        alpha2 = random.normalvariate(0, 0.01)
-        alpha3 = random.normalvariate(0, 0.01)
+        alpha1 = random.normalvariate(0, self.generator.pca_jitter_range)  # 生成正态分布的随机数
+        alpha2 = random.normalvariate(0, self.generator.pca_jitter_range)
+        alpha3 = random.normalvariate(0, self.generator.pca_jitter_range)
 
         v = np.transpose((alpha1 * lamda[0], alpha2 * lamda[1], alpha3 * lamda[2]))  # 加入扰动
         add_num = np.dot(p, v)

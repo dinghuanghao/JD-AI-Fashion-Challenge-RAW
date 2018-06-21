@@ -1,0 +1,7 @@
+2018-06-21:19:49:46: ####### start train model
+2018-06-21:19:49:46: ####### init stage is 0
+2018-06-21:19:49:46: ####### lr=0.000100, freeze layers=0.000000 epoch=5
+2018-06-21:19:49:50: ####### initial epoch is 0, end epoch is 5
+2018-06-21:20:00:59: on epoch 1 end, save weight:F:\Projects\competition\model\xception\record\model11\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-21:20:12:56: on epoch 2 end, save weight:F:\Projects\competition\model\xception\record\model11\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-06-21:20:23:22: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model11\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
