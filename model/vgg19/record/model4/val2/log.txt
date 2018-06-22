@@ -1,0 +1,5 @@
+2018-06-22:00:11:13: ####### start train model
+2018-06-22:00:11:13: ####### init stage is 0
+2018-06-22:00:11:13: ####### lr=0.001000, freeze layers=-1.000000 epoch=1
+2018-06-22:00:11:15: ####### initial epoch is 0, end epoch is 1
+2018-06-22:00:14:17: on epoch 1 end, save weight:F:\Projects\competition\model\vgg19\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5

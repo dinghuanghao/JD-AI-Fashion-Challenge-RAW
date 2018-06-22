@@ -148,7 +148,7 @@ def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     else:
         pre_datagen = data_loader.KerasGenerator()
 
-    data_loader.check_mean_std_file(model_config, pre_datagen)
+    pre_datagen.check_mean_std_file(model_config)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
     y_pred = None
