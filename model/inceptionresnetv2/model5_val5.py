@@ -1,5 +1,5 @@
 """
-以model 2为基础，新增real crop
+以model1为基础，新增real crop
 """
 import math
 import os
@@ -20,17 +20,22 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 train_batch_size=[32, 32, 32],
-                                val_batch_size=256,
                                 initial_epoch=1,
+                                val_batch_size=256,
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00001],
                                 freeze_layers=[-1, 0.6, 5])
 
 
+def load_weight(model, epoch):
+    print("load weights:%s" % model_config.get_weights_path(epoch))
+    model.load_weights(model_config.get_weights_path(epoch))
+
+
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
-    base_model = keras.applications.DenseNet169(include_top=False, weights=weights,
-                                                input_shape=model_config.image_shape, pooling="avg")
+    base_model = keras.applications.InceptionResNetV2(include_top=False, weights=weights,
+                                                      input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
     x = Dense(256, use_bias=False)(x)

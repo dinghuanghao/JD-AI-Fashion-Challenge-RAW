@@ -15,6 +15,30 @@ SPIDER_PATH = os.path.join(DATA_PATH, 'spider')
 K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")
 ORIGINAL_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_ORIGINAL)
 SEGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, config.DATA_TYPE_SEGMENTED)
+AUGMENTED_IMAGES_PATH = os.path.join(IMAGES_PATH, "augmented")
+
+COLOR_AUGMENTED_PATH = os.path.join(AUGMENTED_IMAGES_PATH, "color")
+BLUE_IMAGES_PATH = os.path.join(COLOR_AUGMENTED_PATH, "blue")
+BLUE_ORIGNINAL_PATH = os.path.join(BLUE_IMAGES_PATH, "original")
+BLUE_TO_GREEN_PATH = os.path.join(BLUE_IMAGES_PATH, "green")
+BLUE_TO_YELLOW_PATH = os.path.join(BLUE_IMAGES_PATH, "yellow")
+
+GREEN_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "green")
+GREEN_ORIGINAL_PATH = os.path.join(GREEN_IMAGE_PATH, "original")
+GREEN_TO_YELLOW_PATH = os.path.join(GREEN_IMAGE_PATH, "yellow")
+
+YELLOW_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "yellow")
+YELLOW_ORIGINAL_PATH = os.path.join(YELLOW_IMAGE_PATH, "original")
+
+ORANGE_IMAGE_PATH= os.path.join(COLOR_AUGMENTED_PATH, "orange")
+ORANGE_ORIGINAL_PATH = os.path.join(ORANGE_IMAGE_PATH, "original")
+
+RED_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "red")
+RED_ORIGINAL_PATH = os.path.join(RED_IMAGE_PATH, "original")
+
+RED_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "red")
+RED_ORIGINAL_PATH = os.path.join(RED_IMAGE_PATH, "original")
+
 
 DEBUG_TRAIN_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "train")
 DEBUG_VAL_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "val")
@@ -74,6 +98,12 @@ def image_path_init():
 
     pathlib.Path(os.path.join(K_FOLD_IMAGE_PATH, config.DATA_TYPE_ORIGINAL)).mkdir(parents=True, exist_ok=True)
     pathlib.Path(os.path.join(K_FOLD_IMAGE_PATH, config.DATA_TYPE_SEGMENTED)).mkdir(parents=True, exist_ok=True)
+
+    pathlib.Path(BLUE_ORIGNINAL_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(BLUE_TO_GREEN_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(BLUE_TO_YELLOW_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(GREEN_ORIGINAL_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(GREEN_TO_YELLOW_PATH).mkdir(parents=True, exist_ok=True)
 
 
 if __name__ == "__main__":

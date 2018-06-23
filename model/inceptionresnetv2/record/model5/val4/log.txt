@@ -1,0 +1,27 @@
+2018-06-23:04:12:44: ####### start train model
+2018-06-23:04:12:44: ####### init stage is 0
+2018-06-23:04:12:44: ####### lr=0.001000, freeze layers=-1.000000 epoch=1
+2018-06-23:04:12:51: ####### initial epoch is 0, end epoch is 1
+2018-06-23:04:21:18: on epoch 1 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-23:04:35:30: ####### lr=0.000100, freeze layers=0.600000 epoch=4
+2018-06-23:04:38:28: ####### load weight file: F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-23:04:39:54: ####### initial epoch is 1, end epoch is 4
+2018-06-23:04:54:33: on epoch 2 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-06-23:10:55:01: ####### start train model
+2018-06-23:10:55:01: ####### init stage is 1
+2018-06-23:10:55:01: ####### lr=0.000100, freeze layers=0.600000 epoch=4
+2018-06-23:10:55:45: ####### load weight file: F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-06-23:10:55:57: ####### initial epoch is 2, end epoch is 4
+2018-06-23:11:08:15: on epoch 3 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-06-23:11:22:03: on epoch 4 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-23:11:22:45: ####### lr=0.000010, freeze layers=5.000000 epoch=10
+2018-06-23:11:23:52: ####### load weight file: F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-23:11:24:09: ####### initial epoch is 4, end epoch is 10
+2018-06-23:11:36:48: on epoch 5 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-06-23:11:53:04: on epoch 6 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-06-23:12:04:45: on epoch 7 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-06-23:12:16:21: on epoch 8 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-06-23:12:27:56: on epoch 9 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-23:12:39:30: on epoch 10 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-06-23:12:40:14: ####### train model spend 6312 seconds
+2018-06-23:12:40:14: ####### train model spend 631 seconds average

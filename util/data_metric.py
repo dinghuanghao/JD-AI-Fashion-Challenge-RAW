@@ -46,6 +46,20 @@ def label_density(label):
     return label_cardinality(label) / label_class_num(label)
 
 
+def label_number_for_each_class(label):
+    """
+    每一种标签的数量
+    :param label:
+    :return:
+    """
+    lst = []
+    for i in range(label_class_num(label)):
+        a = label[:, i]
+        lst.append(a[a == 1].size)
+
+    return lst
+
+
 def label_density_for_each_class(label):
     """
     每一种标签的密度
@@ -108,6 +122,11 @@ def label_analysis(label):
     """
     print("对象平均标签数量: %f" % label_cardinality(label))
     print("对象平均标签密度: %f" % label_density(label))
+
+    print("单个标签出现次数:")
+    each_class = label_number_for_each_class(label)
+    for i in range(len(label_class_name)):
+        print("    %s: %f" % (label_class_name[i], each_class[i]))
 
     print("单个标签的平均出现次数:")
     each_class = label_density_for_each_class(label)
