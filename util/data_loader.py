@@ -27,16 +27,12 @@ class KerasGenerator(ImageDataGenerator):
         self.real_transform = real_transform
         self.pca_jitter = pca_jitter
         self.model_config = model_config
-        self.svd = None
 
         if model_config is not None:
             if self.featurewise_center or self.featurewise_std_normalization:
                 self.check_mean_std_file(model_config)
                 # 将check和load合并为load
                 self.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
-            if self.pca_jitter:
-                self.load_image_global_svd_file(model_config)
-
 
     def flow_from_files(self, img_files, save_image_number=100,
                         mode='fit',
@@ -51,14 +47,6 @@ class KerasGenerator(ImageDataGenerator):
                              seed=seed,
                              data_format=None,
                              label_position=label_position)
-
-    def load_image_global_svd_file(self, model_config):
-        if not os.path.exists(model_config.image_svd_file):
-            self.calc_image_global_svd(model_config.train_files)
-
-    def calc_image_global_svd(self, img_files):
-        # calc and save
-        pass
 
     def check_mean_std_file(self, model_config):
         if not os.path.exists(model_config.image_std_file) or not os.path.exists(model_config.image_mean_file):

@@ -62,13 +62,6 @@ SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
 
 
-def get_image_svd_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
-    pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
-        .mkdir(parents=True, exist_ok=True)
-    return os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]),
-                        "val_%d_train_svd_%s.npy" % (val_index, str(data_type)))
-
-
 def get_image_mean_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
         .mkdir(parents=True, exist_ok=True)

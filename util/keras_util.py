@@ -112,9 +112,6 @@ class KerasModelConfig(object):
         self.image_std_file = path.get_image_std_file(self.k_fold_file, self.val_index,
                                                       data_type=self.data_type)
 
-        self.image_svd_file = path.get_image_svd_file(self.k_fold_file, self.val_index,
-                                                      data_type=self.data_type)
-
         self.save_model_format = os.path.join(self.record_dir,
                                               "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
         self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
