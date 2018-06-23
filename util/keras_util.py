@@ -73,16 +73,25 @@ class KerasModelConfig(object):
             self.train_files += train_files
 
         if label_color_augment is not None:
+
+            # 将当前用于train的所有图片名称构成一个dict
+            train_file_dict = {}
+            for train_file in self.train_files:
+                train_file_dict.setdefault(os.path.split(train_file)[-1], None)
+
             from preprocess.augment import color
-            image_dirs = color.get_augment_image_dirs()
-            labels = data_loader.get_labels(image_dirs)
+            augment_image_dirs = color.get_augment_image_dirs()
+            labels = data_loader.get_labels(augment_image_dirs)
 
             augment_files = []
-            for i in range(len(image_dirs)):
+            for i in range(len(augment_image_dirs)):
+                # 如果augment的数据名称不在当前train集中，说明是val数据，跳过
+                if os.path.split(augment_image_dirs[i])[-1] not in train_file_dict:
+                    continue
                 label = labels[i]
                 for j in label_color_augment:
                     if label[j] == 1:
-                        augment_files.append(image_dirs[i])
+                        augment_files.append(augment_image_dirs[i])
                         break
             self.train_files += augment_files
             random.shuffle(self.train_files)
