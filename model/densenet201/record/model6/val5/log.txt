@@ -1,0 +1,12 @@
+2018-06-23:18:23:33: add 6038 color augmentation file
+2018-06-23:18:23:33: ####### start train model
+2018-06-23:18:23:33: ####### init stage is 0
+2018-06-23:18:23:33: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-06-23:18:23:36: ####### initial epoch is 0, end epoch is 1
+2018-06-23:18:28:27: on epoch 1 end, save weight:F:\Projects\competition\model\densenet201\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-23:18:30:30: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-06-23:18:31:26: ####### load weight file: F:\Projects\competition\model\densenet201\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-23:18:31:41: ####### initial epoch is 1, end epoch is 4
+2018-06-23:18:51:21: on epoch 2 end, save weight:F:\Projects\competition\model\densenet201\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+
+2018-06-23:19:13:35: on epoch 3 end, save weight:F:\Projects\competition\model\densenet201\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5

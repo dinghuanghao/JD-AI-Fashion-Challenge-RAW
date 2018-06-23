@@ -82,6 +82,14 @@ def copy_images_multi_thread(image_paths, target_path, lower, upper, thread_numb
         print("拷贝所有图片共花费 %f 秒" % (time.time() - start_time))
 
 
+def get_augment_image_dirs():
+    images = data_loader.list_image_dir(path.COLOR_AUGMENTED_PATH)
+    augment_images = []
+    for image in images:
+        if "original" not in image:
+            augment_images.append(image)
+    return augment_images
+
 def do_statistic():
     images = data_loader.list_image_dir(path.COLOR_AUGMENTED_PATH)
     augment_images = []

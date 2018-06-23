@@ -1,4 +1,5 @@
 import math
+import random
 import os
 import pathlib
 import time
@@ -26,6 +27,7 @@ class KerasModelConfig(object):
                  val_index=None,
                  input_norm=True,
                  label_position=(1,),
+                 label_color_augment=None,
                  train_batch_size=(32,),
                  val_batch_size=32,
                  predict_batch_size=32,
@@ -69,6 +71,22 @@ class KerasModelConfig(object):
             train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, [i])
             self.val_files.append(val_files)
             self.train_files += train_files
+
+        if label_color_augment is not None:
+            from preprocess.augment import color
+            image_dirs = color.get_augment_image_dirs()
+            labels = data_loader.get_labels(image_dirs)
+
+            augment_files = []
+            for i in range(len(image_dirs)):
+                label = labels[i]
+                for j in label_color_augment:
+                    if label[j] == 1:
+                        augment_files.append(image_dirs[i])
+                        break
+            self.train_files += augment_files
+            random.shuffle(self.train_files)
+            self.save_log("add %d color augmentation file" % len(augment_files))
 
         self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
 
