@@ -2,17 +2,11 @@
 
 1. TTA
 2. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
-3. 服装变色算法（使用PCA Jitter的效果并不好，得想想其他办法）
-4. 试一试直接在所有层上训练
-5. PCA Jitter的特征矩阵应该是在整个训练集上计算？
-6. 试一试batch size 16
-7. 尝试不同尺寸的图片
-8. save model 和 predict 能否同时进行
-9. 测试逐步增大batch_size来代替学习率的下降
-10. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-11. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
-
-
+3. 试一试batch size 16
+4. 尝试不同尺寸的图片
+5. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+6. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
+7. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
 
 ## 数据不均衡问题
 
