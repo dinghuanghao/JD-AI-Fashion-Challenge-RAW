@@ -134,3 +134,4 @@ def train():
 
     model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
     model_config.save_log("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
+
