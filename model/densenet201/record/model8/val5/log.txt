@@ -1,0 +1,24 @@
+2018-06-24:03:04:34: add 18799 color augmentation file
+2018-06-24:03:05:39: add 18799 color augmentation file
+2018-06-24:03:05:42: ####### start train model
+2018-06-24:03:05:42: ####### init stage is 0
+2018-06-24:03:05:42: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-06-24:03:05:45: ####### initial epoch is 0, end epoch is 1
+2018-06-24:03:11:16: on epoch 1 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-24:03:13:23: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-06-24:03:14:18: ####### load weight file: F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-24:03:14:33: ####### initial epoch is 1, end epoch is 4
+2018-06-24:03:41:21: on epoch 2 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-06-24:04:10:47: on epoch 3 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-06-24:04:36:48: on epoch 4 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-24:04:37:45: ####### lr=0.000005, freeze layers=5.000000 epoch=10
+2018-06-24:04:39:07: ####### load weight file: F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-24:04:39:27: ####### initial epoch is 4, end epoch is 10
+2018-06-24:05:06:54: on epoch 5 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-06-24:05:39:13: on epoch 6 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-06-24:06:05:53: on epoch 7 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-06-24:06:32:35: on epoch 8 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-06-24:06:59:17: on epoch 9 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-24:07:25:59: on epoch 10 end, save weight:F:\Projects\competition\model\densenet201\record\model8\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-06-24:07:26:58: ####### train model spend 15676 seconds
+2018-06-24:07:26:58: ####### train model spend 1567 seconds average
