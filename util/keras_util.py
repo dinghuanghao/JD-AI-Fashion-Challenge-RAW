@@ -16,6 +16,7 @@ from sklearn.metrics import fbeta_score
 from util import data_loader
 from util import metrics
 from util import path
+from util import data_visualization as dv
 
 
 class KerasModelConfig(object):
@@ -65,7 +66,6 @@ class KerasModelConfig(object):
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
         self.debug = debug
-        self.show_bar_record = 0
         self.data_visualization = data_visualization
 
         self.val_files = []
@@ -119,6 +119,9 @@ class KerasModelConfig(object):
             self.train_files = new_train_files
 
         self.train_files = np.array(self.train_files)
+
+        if self.data_visualization:
+            dv.show_label_calss_bar_per_epoch(self.train_files, self.record_dir)
 
         if debug:
             self.train_files = self.train_files[:64]
