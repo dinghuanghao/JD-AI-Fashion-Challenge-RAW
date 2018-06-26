@@ -14,6 +14,7 @@ from keras.callbacks import Callback
 from sklearn.metrics import fbeta_score
 
 from util import data_loader
+from util import data_visualization as dv
 from util import metrics
 from util import path
 
@@ -69,7 +70,6 @@ class KerasModelConfig(object):
         self.current_epoch = initial_epoch
         self.tta = tta
         self.debug = debug
-        self.show_bar_record = 0
         self.data_visualization = data_visualization
 
         self.val_files = []
@@ -128,6 +128,14 @@ class KerasModelConfig(object):
                 _label = data_loader.get_label(_.split(os.sep)[-1])
                 if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0',
                               '0'] and random.random() > downsampling:
+                    _label = data_loader.get_label(_.split(os.sep)[-1])
+                _labels = [
+                    ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'],
+                    ['0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+                    ['0', '0', '1', '0', '1', '0', '0', '0', '1', '0', '0', '0', '0'],
+                    ['0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
+                ]
+                if _label in _labels and random.random() > downsampling:
                     continue
                 else:
                     new_train_files.append(_)
@@ -135,6 +143,9 @@ class KerasModelConfig(object):
 
         random.shuffle(self.train_files)
         self.train_files = np.array(self.train_files)
+
+        if self.data_visualization:
+            dv.show_label_calss_bar_per_epoch(self.train_files, self.record_dir)
 
         if debug:
             self.train_files = self.train_files[:64]
