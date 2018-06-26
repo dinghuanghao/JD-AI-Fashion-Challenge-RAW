@@ -12,6 +12,7 @@ from tqdm import tqdm
 
 import config
 from util import path
+from util import data_visualization
 
 training_times = 0
 validation_times = 0
@@ -97,6 +98,11 @@ class KerasGenerator(ImageDataGenerator):
                         batch_size=32,
                         tta_index=None,
                         shuffle=False, seed=None, label_position=None):
+        if self.model_config.data_visualization:
+            data_visualization.show_label_calss_bar_per_epoch(img_files,
+                                                              self.model_config.record_dir,
+                                                              self.model_config.show_bar_record)
+            self.model_config.show_bar_record += 1
         return KerasIterator(self, img_files, save_image_number=100,
                              mode=mode,
                              target_size=target_size,
@@ -379,6 +385,10 @@ def get_labels(filenames):
         label = i.split(".")[-2].split("_")[1:]
         labels.append(list(map(int, label)))
     return labels
+
+def get_label(filename):
+    label = filename.split(".")[-2].split("_")[1:]
+    return label
 
 
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):

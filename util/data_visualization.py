@@ -13,6 +13,7 @@ label_class_name = ["Sport", "Leisure", "OL/commuting", "JapaneseStyle", "Korean
                     "Maid", "Debutante/Lady", "Simple", "Nature", "Street/Punk", "Nation"]
 
 DATA_FILE = path.ORIGINAL_TRAIN_IMAGES_PATH
+DATA_COLOR_FILE = path.COLOR_AUGMENTED_PATH
 
 
 def get_columns():
@@ -27,20 +28,20 @@ def get_columns():
     return columns
 
 
-def get_frame():
-    data = data_loader.get_labels(data_loader.list_image_name(DATA_FILE))
+def get_frame(file):
+    data = data_loader.get_labels(data_loader.list_image_name(file))
     data = np.array(data)
     df = pd.DataFrame(data, columns=get_columns())
     return df
 
 
 def get_label_class_sum():
-    df = get_frame()
+    df = get_frame(DATA_FILE)
     return df.sum(axis=0)
 
 
 def get_label_class_type_sum():
-    df = get_frame()
+    df = get_frame(DATA_FILE)
     label_class_type_sum = []
     for classType in data_metric.label_class_type_name:
         label_class_type_sum.append(df[classType].sum().sum())
@@ -58,7 +59,33 @@ def show_label_class_type_bar():
     sns.barplot(x=label_class_type_name, y=get_label_class_type_sum())
     plt.show()
 
+def get_label_dic():
+    data_list1 = data_loader.get_labels(data_loader.list_image_name(DATA_FILE))
+    data_list2 = data_loader.get_labels(data_loader.list_image_name(DATA_COLOR_FILE))
+    data_list = data_list1 + data_list2
+    data_dic = {}
+    for _data in data_list:
+        data_ = str(_data)
+        if data_ not in list(data_dic):
+            data_dic[data_] = 1
+        else:
+            data_dic[data_] += 1
+    with open("data_dic.txt", 'w') as f:
+        for k, v in data_dic.items():
+            log = k + " : " + str(v) + '\n'
+            f.write(log)
+
+def show_label_calss_bar_per_epoch(train_file, record_dir, show_bar_record):
+    labels = data_loader.get_labels(train_file)
+    labels = np.array(labels)
+    df = pd.DataFrame(labels, columns=get_columns())
+    plt.figure(1, figsize=(10, 6))
+    sns.barplot(y=label_class_name, x=df.sum(axis=0).tolist(), orient='h')
+    record_save = record_dir + '_' + str(show_bar_record)
+    plt.savefig(record_save)
+
 
 if __name__ == "__main__":
-    show_label_class_bar()
-    show_label_class_type_bar()
+    # show_label_class_bar()
+    # show_label_class_type_bar()
+    get_label_dic()
