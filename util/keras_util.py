@@ -106,7 +106,13 @@ class KerasModelConfig(object):
             new_train_files = []
             for _ in self.train_files:
                 _label =  data_loader.get_label(_.split(os.sep)[-1])
-                if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'] and random.random() > downsampling:
+                _labels = [
+                    ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'],
+                    ['0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+                    ['0', '0', '1', '0', '1', '0', '0', '0', '1', '0', '0', '0', '0'],
+                    ['0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
+                ]
+                if _label in _labels and random.random() > downsampling:
                     continue
                 else:
                     new_train_files.append(_)
