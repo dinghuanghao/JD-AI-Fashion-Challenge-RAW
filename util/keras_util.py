@@ -26,6 +26,7 @@ class KerasModelConfig(object):
                  data_type,
                  val_index=None,
                  input_norm=True,
+                 downsampling = None,
                  label_position=(1,),
                  label_color_augment=None,
                  train_batch_size=(32,),
@@ -98,6 +99,15 @@ class KerasModelConfig(object):
             self.save_log("add %d color augmentation file" % len(augment_files))
 
         self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
+        if downsampling is not None:
+            new_train_files = []
+            for _ in self.train_files:
+                _label =  data_loader.get_label(_.split(os.sep)[-1])
+                if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'] and random.random() < downsampling:
+                    continue
+                else:
+                    new_train_files.append(_)
+            self.train_files = new_train_files
 
         self.train_files = np.array(self.train_files)
 

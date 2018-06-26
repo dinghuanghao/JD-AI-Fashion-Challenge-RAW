@@ -283,6 +283,10 @@ def get_labels(filenames):
         labels.append(list(map(int, label)))
     return labels
 
+def get_label(filename):
+    label = filename.split(".")[-2].split("_")[1:]
+    return label
+
 
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []
