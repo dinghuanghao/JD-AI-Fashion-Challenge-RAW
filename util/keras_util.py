@@ -27,6 +27,7 @@ class KerasModelConfig(object):
                  val_index=None,
                  input_norm=True,
                  downsampling = None,
+                 data_visualization = False,
                  label_position=(1,),
                  label_color_augment=None,
                  train_batch_size=(32,),
@@ -64,6 +65,8 @@ class KerasModelConfig(object):
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
         self.debug = debug
+        self.show_bar_record = 0
+        self.data_visualization = data_visualization
 
         self.val_files = []
         self.train_files = []
@@ -103,7 +106,7 @@ class KerasModelConfig(object):
             new_train_files = []
             for _ in self.train_files:
                 _label =  data_loader.get_label(_.split(os.sep)[-1])
-                if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'] and random.random() < downsampling:
+                if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'] and random.random() > downsampling:
                     continue
                 else:
                     new_train_files.append(_)

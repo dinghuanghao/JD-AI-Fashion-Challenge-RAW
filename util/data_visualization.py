@@ -75,6 +75,14 @@ def get_label_dic():
             log = k + " : " + str(v) + '\n'
             f.write(log)
 
+def show_label_calss_bar_per_epoch(train_file, record_dir, show_bar_record):
+    labels = data_loader.get_labels(train_file)
+    labels = np.array(labels)
+    df = pd.DataFrame(labels, columns=get_columns())
+    plt.figure(1, figsize=(10, 6))
+    sns.barplot(y=label_class_name, x=df.sum(axis=0).tolist(), orient='h')
+    record_save = record_dir + '_' + str(show_bar_record)
+    plt.savefig(record_save)
 
 
 if __name__ == "__main__":
