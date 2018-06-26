@@ -1,7 +1,7 @@
 import math
-import random
 import os
 import pathlib
+import random
 import time
 from queue import Queue
 from threading import Thread
@@ -28,6 +28,7 @@ class KerasModelConfig(object):
                  input_norm=True,
                  label_position=(1,),
                  label_color_augment=None,
+                 label_up_sampling=None,
                  train_batch_size=(32,),
                  val_batch_size=32,
                  predict_batch_size=32,
@@ -50,7 +51,8 @@ class KerasModelConfig(object):
         self.data_type = data_type
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split("_")[0])
         self.record_dir = os.path.join(self.record_dir, "val%d" % self.val_index)
-        self.img_record_dir = os.path.join(self.record_dir, "image")
+        self.fit_img_record_dir = os.path.join(os.path.join(self.record_dir, "image"), "fit")
+        self.predict_img_record_dir = os.path.join(os.path.join(self.record_dir, "image"), "predict")
         self.log_file = os.path.join(self.record_dir, "log.txt")
         self.label_position = label_position
         self.train_batch_size = train_batch_size
@@ -94,11 +96,28 @@ class KerasModelConfig(object):
                         augment_files.append(augment_image_dirs[i])
                         break
             self.train_files += augment_files
-            random.shuffle(self.train_files)
             self.save_log("add %d color augmentation file" % len(augment_files))
+
+        if label_up_sampling is not None:
+            self.save_log("train files is %d before up sampling" % len(self.train_files))
+            sampling_files = []
+            sampling_times = [0 for i in range(13)]
+            labels = data_loader.get_labels(self.train_files)
+            for i in range(len(labels)):
+                for j in range(len(label_up_sampling)):
+                    label = labels[i]
+                    if label[j] > 0 and label_up_sampling[j] > 0:
+                        sampling_files += [self.train_files[i]] * label_up_sampling[j]
+                        sampling_times[j] += label_up_sampling[j]
+
+            self.train_files += sampling_files
+            self.save_log("up sampling times: %s, totaol: %d" % (str([str(i) for i in sampling_times]), sum(sampling_times)))
+            self.save_log("train files is %d after up sampling" % len(self.train_files))
+
 
         self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
 
+        random.shuffle(self.train_files)
         self.train_files = np.array(self.train_files)
 
         if debug:
@@ -116,7 +135,8 @@ class KerasModelConfig(object):
                                               "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
         self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
-        pathlib.Path(self.img_record_dir).mkdir(parents=True, exist_ok=True)
+        pathlib.Path(self.fit_img_record_dir).mkdir(parents=True, exist_ok=True)
+        pathlib.Path(self.predict_img_record_dir).mkdir(parents=True, exist_ok=True)
 
         print("##########load model config")
         print("##########file name is: %s" % file_name)
@@ -162,6 +182,47 @@ class KerasModelConfig(object):
     def get_weights_path(self, epoch):
         return os.path.join(self.record_dir,
                             "%sweights.%03d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
+
+
+def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
+    if model_config.input_norm:
+        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
+                                                 featurewise_std_normalization=True,
+                                                 rescale=1. / 256)
+    else:
+        pre_datagen = data_loader.KerasGenerator()
+
+    pre_datagen.check_mean_std_file(model_config)
+    pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
+
+    y_pred = None
+    start = time.time()
+
+    tta = data_loader.TestTimeAugmentation()
+    pre_datagen.tta = tta
+    predict_times = 0
+
+    for files in model_config.val_files:
+        for i in range(tta.tta_times):
+            predict_times += 1
+            model_config.save_log("start predict with tta index is %d" % i)
+            pre_flow = pre_datagen.flow_from_files(files, mode="predict",
+                                                   target_size=model_config.image_size,
+                                                   batch_size=model_config.predict_batch_size,
+                                                   tta_index=i)
+
+            if y_pred is None:
+                y_pred = np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                                          verbose=verbose, workers=16))
+            else:
+                y_pred += np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
+                                                           verbose=verbose, workers=16))
+
+    assert y_pred.shape[0] == model_config.val_y.shape[0]
+
+    y_pred = y_pred / len(model_config.data_type)
+    print("####### predict %d times, spend %d seconds total ######" % (predict_times, time.time() - start))
+    return y_pred
 
 
 def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
@@ -289,17 +350,22 @@ class EvaluateTask(Thread):
 
 
 class EvaluateCallback(Callback):
-    def __init__(self, model_config: KerasModelConfig, evaluate_queue: Queue):
+    def __init__(self, model_config: KerasModelConfig, evaluate_queue: Queue, is_tta=False):
         super(EvaluateCallback, self).__init__()
         self.model_config = model_config
         self.evaluate_queue = evaluate_queue
+        self.is_tta = is_tta
 
     def on_epoch_end(self, epoch, logs=None):
         real_epoch = epoch + 1
         self.model_config.current_epoch = real_epoch
-        self.model_config.save_log("on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
+        self.model_config.save_log(
+            "on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
-        y_pred = predict(self.model, self.model_config, verbose=1)
+        if self.is_tta:
+            y_pred = predict_tta(self.model, self.model_config, verbose=1)
+        else:
+            y_pred = predict(self.model, self.model_config, verbose=1)
         self.evaluate_queue.put(
             (self.model_config.val_y, y_pred, self.model_config.get_weights_path(real_epoch), self.model_config))
 

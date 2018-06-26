@@ -1,12 +1,7 @@
-from model.densenet201 import model4_val5
-from model.xception import model11_val2
-from model.xception import model11_val3
-from model.xception import model11_val4
-from model.xception import model11_val5
+from model.densenet169 import model4_val5 as dense169_65
+from model.inceptionresnetv2 import model7_val5 as inres_65
+from model.vgg19 import model6_val5 as vgg_65
 
-model4_val5.train()
-model11_val2.train()
-model11_val3.train()
-model11_val4.train()
-model11_val5.train()
-
+dense169_65.train()
+inres_65.train()
+vgg_65.train()

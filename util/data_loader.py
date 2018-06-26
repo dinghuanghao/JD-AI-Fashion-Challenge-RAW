@@ -1,5 +1,6 @@
 import math
 import os
+import pathlib
 import random
 import re
 
@@ -16,17 +17,73 @@ training_times = 0
 validation_times = 0
 
 
+class TestTimeAugmentation():
+    def __init__(self,
+                 shift_range=0.1,
+                 width_shift_range=None,
+                 height_shift_range=None,
+                 horizontal_flip=None):
 
+        if width_shift_range is None or height_shift_range is None:
+            # 四个角落 + 中心 + 对称， 10-fold tta
+            self.width_shift_range = [
+                [0, 1 - shift_range],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [shift_range, 1],
+                [shift_range / 2, 1 - shift_range / 2],
+                [0, 1 - shift_range],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [shift_range, 1],
+                [shift_range / 2, 1 - shift_range / 2]
+            ]
+
+            self.height_shift_range = [
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [shift_range / 2, 1 - shift_range / 2],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [shift_range / 2, 1 - shift_range / 2]
+            ]
+
+            self.horizontal_flip = [
+                False,
+                False,
+                False,
+                False,
+                False,
+                True,
+                True,
+                True,
+                True,
+                True
+            ]
+        else:
+            self.width_shift_range = width_shift_range
+            self.height_shift_range = height_shift_range
+            self.horizontal_flip = horizontal_flip
+
+        assert len(width_shift_range) == len(height_shift_range) == len(horizontal_flip)
+        self.tta_times = len(width_shift_range)
 
 
 class KerasGenerator(ImageDataGenerator):
-    def __init__(self, model_config=None, pca_jitter=False, pca_jitter_range=0.01, real_transform=False, *args,
+    def __init__(self, model_config=None, pca_jitter=False, pca_jitter_range=0.01, real_transform=False,
+                 tta: TestTimeAugmentation = None, *args,
                  **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
         self.real_transform = real_transform
         self.pca_jitter = pca_jitter
         self.model_config = model_config
+        self.pca_jitter_range = pca_jitter_range
+        self.tta = tta
 
         if model_config is not None:
             if self.featurewise_center or self.featurewise_std_normalization:
@@ -38,6 +95,7 @@ class KerasGenerator(ImageDataGenerator):
                         mode='fit',
                         target_size=(256, 256),
                         batch_size=32,
+                        tta_index=None,
                         shuffle=False, seed=None, label_position=None):
         return KerasIterator(self, img_files, save_image_number=100,
                              mode=mode,
@@ -46,6 +104,7 @@ class KerasGenerator(ImageDataGenerator):
                              shuffle=shuffle,
                              seed=seed,
                              data_format=None,
+                             tta_index=None,
                              label_position=label_position)
 
     def check_mean_std_file(self, model_config):
@@ -88,11 +147,12 @@ class KerasGenerator(ImageDataGenerator):
 
 
 class KerasIterator(Iterator):
-    def __init__(self, generator, img_files, save_image_number=100,
+    def __init__(self, generator: KerasGenerator, img_files, save_image_number=100,
                  mode='fit',
                  target_size=(256, 256),
                  batch_size=32, shuffle=None, seed=None,
                  data_format=None,
+                 tta_index=None,
                  label_position=None):
 
         self.target_size = tuple(target_size)
@@ -114,14 +174,50 @@ class KerasIterator(Iterator):
         else:
             self.labels = np.array(get_labels(img_files), dtype=np.int8)[:, label_position]
 
+        self.tta_index=tta_index
+
         if mode == 'fit':
-            self.debug_img_trans()
+            self.debug_img_trans(self.generator.model_config.fit_img_record_dir)
+        # elif mode == 'predict':
+        #     record_dir = os.path.join(self.generator.model_config.predict_img_record_dir,
+        #                               str(self.tta_index))
+        #     pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
+        #     self.debug_img_trans(record_dir)
 
         # Init parent class
         super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)
 
     def real_transform(self, img):
+        # if self.mode == "predict" and self.generator.tta is not None and self.tta_index is not None:
+        #     width_start = self.generator.tta.width_shift_range[self.tta_index][0] * img.shape[1]
+        #     width_end = self.generator.tta.width_shift_range[self.tta_index][1] * img.shape[1]
+        #     height_start = self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0]
+        #     height_end = self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0]
+        #
+        #     img = img[height_start:height_end, width_start:width_end]
+        #
+        #     assert img.shape[0] == img.shape[1]
+        #
+        #     if self.generator.tta.horizontal_flip[self.tta_index]:
+        #         img = cv2.flip(img, 1)
+        #
+        #     return img
+        #
+        # # 采用正方形裁剪，确保resize的时候不会变形，alex等论文中均是这种方式，但是实测效果并不太好
+        # shift = min(self.generator.width_shift_range, self.generator.height_shift_range)
+        # side_length = int(min(img.shape[0], img.shape[1]) * (1 - shift))
+        #
+        # width_start = int(random.uniform(0, shift) * img.shape[1])
+        # height_start = int(random.uniform(0, shift) * img.shape[0])
+        #
+        # img = img[height_start:height_start + side_length, :]
+        # img = img[:, width_start:width_start + side_length]
+        #
+        # assert img.shape[0] == img.shape[1]
 
+
+        # 这种方式会有轻微的拉伸或者压缩，因为裁剪之后的图片长宽可能不等，但是反而效果要好一个百分点
+        # 可能是存在潜在的图像缩放
         width_shift = int(self.generator.width_shift_range * 100)
         height_shift = int(self.generator.height_shift_range * 100)
 
@@ -187,9 +283,9 @@ class KerasIterator(Iterator):
 
         return x
 
-    def debug_img_trans(self):
+    def debug_img_trans(self, dir):
         # 训练每一个模型的时候，都保存一定的图片，用于检查data augmentation的效果
-        print("save image augmentation to %s" % self.generator.model_config.img_record_dir)
+        print("save image augmentation to %s" % dir)
         if self.save_image_number > 0:
             for file in self.generator.model_config.val_files[0][:self.save_image_number]:
                 img = cv2.imread(file)
@@ -201,7 +297,7 @@ class KerasIterator(Iterator):
                     img_rescale *= 255.0
 
                 img_name = os.path.split(file)[-1]
-                cv2.imwrite(os.path.join(self.generator.model_config.img_record_dir, img_name), img_rescale)
+                cv2.imwrite(os.path.join(dir, img_name), img_rescale)
             self.save_image_number = 0
 
     def _get_batches_of_transformed_samples(self, index_array):

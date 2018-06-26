@@ -1,12 +1,14 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
 1. TTA
-2. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
-3. 试一试batch size 16
-4. 尝试不同尺寸的图片
-5. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-6. 试一试 Smooth-F2 + BCE（以前由于在起步阶段，有太多的变量，导致实验结果不准确）
-7. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
+2. 每次训练的时候统计概率分布图像（显示上采样、下采样的效果）
+3. 通过图片显示模型的相关性（使用阈值分割为0，1之后，求相同值）
+4. 验证blue -> red的效果（已在densenet201上验证了）
+5. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
+6. 试一试batch size 16
+7. 尝试不同尺寸的图片（能够支持不同阶段不同尺寸）
+8. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+9. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
 
 ## 数据不均衡问题
 
