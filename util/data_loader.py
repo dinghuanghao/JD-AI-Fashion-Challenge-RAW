@@ -11,8 +11,8 @@ from keras.preprocessing.image import ImageDataGenerator, Iterator, img_to_array
 from tqdm import tqdm
 
 import config
-from util import path
 from util import data_visualization
+from util import path
 
 training_times = 0
 validation_times = 0
@@ -76,7 +76,7 @@ class TestTimeAugmentation():
 
 class KerasGenerator(ImageDataGenerator):
     def __init__(self, model_config=None, pca_jitter=False, pca_jitter_range=0.01, real_transform=False,
-                 tta: TestTimeAugmentation = None, *args,
+                 tta: TestTimeAugmentation = None, squre_crop = False, *args,
                  **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
@@ -85,6 +85,7 @@ class KerasGenerator(ImageDataGenerator):
         self.model_config = model_config
         self.pca_jitter_range = pca_jitter_range
         self.tta = tta
+        self.squre_crop = squre_crop
 
         if model_config is not None:
             if self.featurewise_center or self.featurewise_std_normalization:
@@ -209,37 +210,41 @@ class KerasIterator(Iterator):
                 img = cv2.flip(img, 1)
 
             return img
-        #
-        # # 采用正方形裁剪，确保resize的时候不会变形，alex等论文中均是这种方式，但是实测效果并不太好
-        # shift = min(self.generator.width_shift_range, self.generator.height_shift_range)
-        # side_length = int(min(img.shape[0], img.shape[1]) * (1 - shift))
-        #
-        # width_start = int(random.uniform(0, shift) * img.shape[1])
-        # height_start = int(random.uniform(0, shift) * img.shape[0])
-        #
-        # img = img[height_start:height_start + side_length, :]
-        # img = img[:, width_start:width_start + side_length]
-        #
-        # assert img.shape[0] == img.shape[1]
+
+        if self.generator.squre_crop:
+            # 采用正方形裁剪，确保resize的时候不会变形，alex等论文中均是这种方式，但是实测效果并不太好
+            if self.generator.width_shift_range is not None and self.generator.height_shift_range is not None:
+                shift = min(self.generator.width_shift_range, self.generator.height_shift_range)
+                side_length = int(min(img.shape[0], img.shape[1]) * (1 - shift))
+
+                width_start = int(random.uniform(0, shift) * img.shape[1])
+                height_start = int(random.uniform(0, shift) * img.shape[0])
+
+                img = img[height_start:height_start + side_length, :]
+                img = img[:, width_start:width_start + side_length]
+
+                assert img.shape[0] == img.shape[1]
+            return img
 
 
         # 这种方式会有轻微的拉伸或者压缩，因为裁剪之后的图片长宽可能不等，但是反而效果要好一个百分点
         # 可能是存在潜在的图像缩放
-        width_shift = int(self.generator.width_shift_range * 100)
-        height_shift = int(self.generator.height_shift_range * 100)
+        if self.generator.width_shift_range is not None:
+            width_shift = int(self.generator.width_shift_range * 100)
+            width_start = int(random.randrange(-width_shift, width_shift) / 100 * img.shape[1])
+            if width_start < 0:
+                img = img[:, :width_start, :]
+            else:
+                img = img[:, width_start:, :]
 
-        width_start = int(random.randrange(-width_shift, width_shift) / 100 * img.shape[1])
-        height_start = int(random.randrange(-height_shift, height_shift) / 100 * img.shape[0])
+        if self.generator.height_shift_range is not None:
+            height_shift = int(self.generator.height_shift_range * 100)
+            height_start = int(random.randrange(-height_shift, height_shift) / 100 * img.shape[0])
 
-        if height_start < 0:
-            img = img[:height_start, :]
-        else:
-            img = img[height_start:, :]
-
-        if width_start < 0:
-            img = img[:, :width_start, :]
-        else:
-            img = img[:, width_start:, :]
+            if height_start < 0:
+                img = img[:height_start, :]
+            else:
+                img = img[height_start:, :]
 
         if self.generator.horizontal_flip:
             if np.random.random() < 0.5:
@@ -385,6 +390,7 @@ def get_labels(filenames):
         label = i.split(".")[-2].split("_")[1:]
         labels.append(list(map(int, label)))
     return labels
+
 
 def get_label(filename):
     label = filename.split(".")[-2].split("_")[1:]

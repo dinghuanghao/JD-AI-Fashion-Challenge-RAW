@@ -1,6 +1,9 @@
+from model.vgg19 import model9_val5
+from model.vgg19 import model10_val5
+from model.vgg19 import model11_val5
+from model.vgg19 import model8_val5
 
-from model.vgg19 import model4_val4
-from model.vgg19 import model4_val5
-
-model4_val4.train()
-model4_val5.train()
+model9_val5.train()
+model10_val5.train()
+model11_val5.train()
+model8_val5.train()

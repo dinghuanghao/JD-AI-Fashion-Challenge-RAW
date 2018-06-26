@@ -26,8 +26,8 @@ class KerasModelConfig(object):
                  data_type,
                  val_index=None,
                  input_norm=True,
-                 downsampling = None,
-                 data_visualization = False,
+                 downsampling=None,
+                 data_visualization=False,
                  label_position=(1,),
                  label_color_augment=None,
                  label_up_sampling=None,
@@ -125,8 +125,9 @@ class KerasModelConfig(object):
         if downsampling is not None:
             new_train_files = []
             for _ in self.train_files:
-                _label =  data_loader.get_label(_.split(os.sep)[-1])
-                if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'] and random.random() > downsampling:
+                _label = data_loader.get_label(_.split(os.sep)[-1])
+                if _label == ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0',
+                              '0'] and random.random() > downsampling:
                     continue
                 else:
                     new_train_files.append(_)
