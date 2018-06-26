@@ -69,8 +69,8 @@ class TestTimeAugmentation():
             self.height_shift_range = height_shift_range
             self.horizontal_flip = horizontal_flip
 
-        assert len(width_shift_range) == len(height_shift_range) == len(horizontal_flip)
-        self.tta_times = len(width_shift_range)
+        assert len(self.width_shift_range) == len(self.height_shift_range) == len(self.horizontal_flip)
+        self.tta_times = len(self.width_shift_range)
 
 
 class KerasGenerator(ImageDataGenerator):
@@ -104,7 +104,7 @@ class KerasGenerator(ImageDataGenerator):
                              shuffle=shuffle,
                              seed=seed,
                              data_format=None,
-                             tta_index=None,
+                             tta_index=tta_index,
                              label_position=label_position)
 
     def check_mean_std_file(self, model_config):
@@ -174,34 +174,35 @@ class KerasIterator(Iterator):
         else:
             self.labels = np.array(get_labels(img_files), dtype=np.int8)[:, label_position]
 
-        self.tta_index=tta_index
+        self.tta_index = tta_index
 
         if mode == 'fit':
             self.debug_img_trans(self.generator.model_config.fit_img_record_dir)
-        # elif mode == 'predict':
-        #     record_dir = os.path.join(self.generator.model_config.predict_img_record_dir,
-        #                               str(self.tta_index))
-        #     pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
-        #     self.debug_img_trans(record_dir)
+        elif mode == 'predict' and self.generator.tta is not None and self.tta_index is not None:
+            print("save predict img")
+            record_dir = os.path.join(self.generator.model_config.predict_img_record_dir,
+                                      str(self.tta_index))
+            pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
+            self.debug_img_trans(record_dir)
 
         # Init parent class
         super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)
 
     def real_transform(self, img):
-        # if self.mode == "predict" and self.generator.tta is not None and self.tta_index is not None:
-        #     width_start = self.generator.tta.width_shift_range[self.tta_index][0] * img.shape[1]
-        #     width_end = self.generator.tta.width_shift_range[self.tta_index][1] * img.shape[1]
-        #     height_start = self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0]
-        #     height_end = self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0]
-        #
-        #     img = img[height_start:height_end, width_start:width_end]
-        #
-        #     assert img.shape[0] == img.shape[1]
-        #
-        #     if self.generator.tta.horizontal_flip[self.tta_index]:
-        #         img = cv2.flip(img, 1)
-        #
-        #     return img
+        if self.mode == "predict" and self.generator.tta is not None and self.tta_index is not None:
+            width_start = int(self.generator.tta.width_shift_range[self.tta_index][0] * img.shape[1])
+            width_end = int(self.generator.tta.width_shift_range[self.tta_index][1] * img.shape[1])
+            height_start = int(self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0])
+            height_end = int(self.generator.tta.height_shift_range[self.tta_index][1] * img.shape[0])
+
+            img = img[height_start:height_end, width_start:width_end]
+
+            assert img.shape[0] == img.shape[1]
+
+            if self.generator.tta.horizontal_flip[self.tta_index]:
+                img = cv2.flip(img, 1)
+
+            return img
         #
         # # 采用正方形裁剪，确保resize的时候不会变形，alex等论文中均是这种方式，但是实测效果并不太好
         # shift = min(self.generator.width_shift_range, self.generator.height_shift_range)

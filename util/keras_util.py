@@ -36,6 +36,7 @@ class KerasModelConfig(object):
                  initial_epoch=0,
                  lr=(0.01,),
                  freeze_layers=(0,),
+                 tta=False,
                  debug=False):
 
         file_name = os.path.basename(model_path)
@@ -64,6 +65,7 @@ class KerasModelConfig(object):
         self.freeze_layers = freeze_layers
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
+        self.tta = tta
         self.debug = debug
 
         self.val_files = []
@@ -111,9 +113,9 @@ class KerasModelConfig(object):
                         sampling_times[j] += label_up_sampling[j]
 
             self.train_files += sampling_files
-            self.save_log("up sampling times: %s, totaol: %d" % (str([str(i) for i in sampling_times]), sum(sampling_times)))
+            self.save_log(
+                "up sampling times: %s, totaol: %d" % (str([str(i) for i in sampling_times]), sum(sampling_times)))
             self.save_log("train files is %d after up sampling" % len(self.train_files))
-
 
         self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
 
@@ -143,6 +145,7 @@ class KerasModelConfig(object):
         print("##########val index is: %d" % self.val_index)
         print("##########model dir is: %s" % model_dir)
         print("##########record dir is: %s" % self.record_dir)
+        self.save_log("train file: %d, val file: %d" % (len(self.train_files), len(self.val_y)))
 
     def save_log(self, log):
         log = time.strftime("%Y-%m-%d:%H:%M:%S") + ": " + log
@@ -188,9 +191,11 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     if model_config.input_norm:
         pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                                  featurewise_std_normalization=True,
-                                                 rescale=1. / 256)
+                                                 rescale=1. / 256,
+                                                 model_config=model_config,
+                                                 real_transform=True)
     else:
-        pre_datagen = data_loader.KerasGenerator()
+        pre_datagen = data_loader.KerasGenerator(model_config=model_config, real_transform=True)
 
     pre_datagen.check_mean_std_file(model_config)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
@@ -350,11 +355,10 @@ class EvaluateTask(Thread):
 
 
 class EvaluateCallback(Callback):
-    def __init__(self, model_config: KerasModelConfig, evaluate_queue: Queue, is_tta=False):
+    def __init__(self, model_config: KerasModelConfig, evaluate_queue: Queue):
         super(EvaluateCallback, self).__init__()
         self.model_config = model_config
         self.evaluate_queue = evaluate_queue
-        self.is_tta = is_tta
 
     def on_epoch_end(self, epoch, logs=None):
         real_epoch = epoch + 1
@@ -362,9 +366,11 @@ class EvaluateCallback(Callback):
         self.model_config.save_log(
             "on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
-        if self.is_tta:
+        if self.model_config.tta:
+            self.model_config.save_log("start predict with tta")
             y_pred = predict_tta(self.model, self.model_config, verbose=1)
         else:
+            self.model_config.save_log("start predict")
             y_pred = predict(self.model, self.model_config, verbose=1)
         self.evaluate_queue.put(
             (self.model_config.val_y, y_pred, self.model_config.get_weights_path(real_epoch), self.model_config))

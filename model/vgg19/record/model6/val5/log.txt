@@ -26,3 +26,10 @@
 2018-06-26:18:18:43: ####### start train model
 2018-06-26:18:18:43: ####### init stage is 2
 2018-06-26:18:18:43: ####### lr=0.000010, freeze layers=5.000000 epoch=10
+2018-06-26:18:19:22: ####### load weight file: F:\Projects\competition\model\vgg19\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-06-26:18:19:33: ####### initial epoch is 7, end epoch is 10
+2018-06-26:18:31:58: on epoch 8 end, save weight:F:\Projects\competition\model\vgg19\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-06-26:18:45:26: on epoch 9 end, save weight:F:\Projects\competition\model\vgg19\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-26:18:57:15: on epoch 10 end, save weight:F:\Projects\competition\model\vgg19\record\model6\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-06-26:18:58:00: ####### train model spend 2357 seconds
+2018-06-26:18:58:00: ####### train model spend 235 seconds average
