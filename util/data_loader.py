@@ -198,8 +198,6 @@ class KerasIterator(Iterator):
 
             img = img[height_start:height_end, width_start:width_end]
 
-            assert img.shape[0] == img.shape[1]
-
             if self.generator.tta.horizontal_flip[self.tta_index]:
                 img = cv2.flip(img, 1)
 
@@ -294,7 +292,10 @@ class KerasIterator(Iterator):
         if self.save_image_number > 0:
             for file in self.generator.model_config.val_files[0][:self.save_image_number]:
                 img = cv2.imread(file)
-                img_trans = self.image_transform(img)
+                try:
+                    img_trans = self.image_transform(img)
+                except:
+                    print("image trans exception, %s" % file)
                 img_rescale = img_trans + max(-np.min(img_trans), 0)
                 x_max = np.max(img_rescale)
                 if x_max != 0:

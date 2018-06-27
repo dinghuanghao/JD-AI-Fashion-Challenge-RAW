@@ -250,7 +250,7 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
 
     assert y_pred.shape[0] == model_config.val_y.shape[0]
 
-    y_pred = y_pred / len(model_config.data_type)
+    y_pred = y_pred / (len(model_config.data_type) * tta.tta_times)
     print("####### predict %d times, spend %d seconds total ######" % (predict_times, time.time() - start))
     return y_pred
 
@@ -304,24 +304,22 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
         thread_f2_01 = fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2)
         thread_f2_02 = fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2)
 
-    smooth_f2 = metrics.smooth_f2_score_np(y, y_pred)
-
     one_label_greedy_f2_all = []
     one_label_greedy_threshold_all = []
     one_label_smooth_f2_all = []
     for i in range(y.shape[-1]):
-        smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
+        one_label_smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
         one_label_greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
-        one_label_smooth_f2_all.append(smooth_f2)
+        one_label_smooth_f2_all.append(one_label_smooth_f2)
         one_label_greedy_f2_all.append(one_label_greedy_f2)
         one_label_greedy_threshold_all.append(greedy_threshold[0])
 
-    print("####### Smooth F2-Score is %6f #######" % smooth_f2)
+    print("####### Smooth F2-Score is %6f #######" % np.mean(one_label_smooth_f2_all))
     print("####### F2-Score with threshold 0.1 is %6f #######" % thread_f2_01)
     print("####### F2-Score with threshold 0.2 is %6f #######" % thread_f2_02)
     print("####### Greedy F2-Score is %6f #######" % np.mean(one_label_greedy_f2_all))
 
-    summary_val_value("val-label-all/smooth-f2", smooth_f2, model_config)
+    summary_val_value("val-label-all/smooth-f2", np.mean(one_label_smooth_f2_all), model_config)
     summary_val_value("val-label-all/thread-f2-01", thread_f2_01, model_config)
     summary_val_value("val-label-all/thread-f2-02", thread_f2_02, model_config)
     summary_val_value("val-label-all/greedy-f2", np.mean(one_label_greedy_f2_all), model_config)
@@ -340,7 +338,7 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
                            "evaluate%s.txt" % str([str(i) for i in model_config.label_position])), "a") as f:
         f.write("\n\n")
         f.write("Weight: %s\n" % weight_name)
-        f.write("Smooth F2-Score: %f\n" % smooth_f2)
+        f.write("Smooth F2-Score: %f\n" % np.mean(one_label_smooth_f2_all))
         f.write("F2-Score with threshold 0.1: %f\n" % thread_f2_01)
         f.write("F2-Score with threshold 0.2: %f\n" % thread_f2_02)
         f.write("Greedy F2-Score is: %f\n" % np.mean(one_label_greedy_f2_all))

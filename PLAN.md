@@ -1,16 +1,15 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-1. TTA
+1. TTA(待测试)，如果TTA只进行flip，效果如何？
 2. 在statistics中处理evaluate目录问题（不同pc目录不同），进行自动转换
 3. 编写一个程序，将所有标签均在50%之后的模型罗列出来，进行删除
-4. 每次训练的时候统计概率分布图像（显示上采样、下采样的效果）
-5. 通过图片显示模型的相关性（使用阈值分割为0，1之后，求相同值）
-6. 验证blue -> red的效果（已在densenet201上验证了）
-7. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
-8. 试一试batch size 16
-9. 尝试不同尺寸的图片（能够支持不同阶段不同尺寸）
-10. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-11. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
+4. 集成的时候，虽然有些模型的性能要差一些，例如resnet50，但是考虑到多样性以及自动学习权重，是否仍然应该将其假如到集成中？
+5. 验证blue -> red的效果（已在densenet201上验证了）
+6. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
+7. 试一试batch size 16
+8. 尝试不同尺寸的图片（能够支持不同阶段不同尺寸）
+9. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+10. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
 
 ## 数据不均衡问题
 

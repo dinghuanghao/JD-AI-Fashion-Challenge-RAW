@@ -33,7 +33,8 @@ def predict_models(path, val_index=1):
             if len(weights_files) == 0:
                 continue
 
-            if len(weights_files) == len(predict_files) and len(evaluate_files) != 0:
+            # 因为考虑到磁盘空间问题，可能会将Model Weight放到另外的目录
+            if len(weights_files) <= len(predict_files) and len(evaluate_files) != 0:
                 print("skip %s" % root)
                 continue
 
@@ -58,6 +59,8 @@ def predict_models(path, val_index=1):
 
                 print("evaluate :%s" % weights_file)
                 if keras_util.get_prediction_path(weights_file) not in predict_files:
+                    print("dont't evaluate!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    continue
                     model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
                     model.load_weights(weights_file)
                     y_pred = keras_util.predict(model, attr_model_config, verbose=1)
