@@ -39,7 +39,8 @@ class KerasModelConfig(object):
                  initial_epoch=0,
                  lr=(0.01,),
                  freeze_layers=(0,),
-                 tta=False,
+                 tta_flip=False,
+                 tta_crop=False,
                  debug=False):
 
         file_name = os.path.basename(model_path)
@@ -68,7 +69,8 @@ class KerasModelConfig(object):
         self.freeze_layers = freeze_layers
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
-        self.tta = tta
+        self.tta_flip = tta_flip
+        self.tta_crop = tta_crop
         self.debug = debug
         self.data_visualization = data_visualization
 
@@ -389,7 +391,7 @@ class EvaluateCallback(Callback):
         self.model_config.save_log(
             "on epoch %d end, save weight:%s" % (real_epoch, self.model_config.get_weights_path(real_epoch)))
         self.model.save_weights(self.model_config.get_weights_path(real_epoch), overwrite=True)
-        if self.model_config.tta:
+        if self.model_config.tta_flip or self.model_config.tta_crop:
             self.model_config.save_log("start predict with tta")
             y_pred = predict_tta(self.model, self.model_config, verbose=1)
         else:

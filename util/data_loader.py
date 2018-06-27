@@ -20,12 +20,12 @@ validation_times = 0
 class TestTimeAugmentation():
     def __init__(self,
                  shift_range=0.1,
-                 width_shift_range=None,
-                 height_shift_range=None,
-                 horizontal_flip=None):
+                 flip=True,
+                 crop=True):
 
-        if width_shift_range is None or height_shift_range is None:
+        if crop and flip:
             # 四个角落 + 中心 + 对称， 10-fold tta
+            print("use crop and flip tta")
             self.width_shift_range = [
                 [0, 1 - shift_range],
                 [0, 1 - shift_range],
@@ -64,13 +64,34 @@ class TestTimeAugmentation():
                 True,
                 True
             ]
-        else:
-            self.width_shift_range = width_shift_range
-            self.height_shift_range = height_shift_range
-            self.horizontal_flip = horizontal_flip
+            self.tta_times = 10
+        elif flip and not crop:
+            print("only use flip tta")
+            self.horizontal_flip = [
+                False,
+                True,
+            ]
+            self.width_shift_range = None
+            self.height_shift_range = None
+            self.tta_times = 2
+        elif crop and not flip:
+            self.width_shift_range = [
+                [0, 1 - shift_range],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [shift_range, 1],
+                [shift_range / 2, 1 - shift_range / 2]
+            ]
 
-        assert len(self.width_shift_range) == len(self.height_shift_range) == len(self.horizontal_flip)
-        self.tta_times = len(self.width_shift_range)
+            self.height_shift_range = [
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [0, 1 - shift_range],
+                [shift_range, 1],
+                [shift_range / 2, 1 - shift_range / 2]
+            ]
+            self.horizontal_flip = None
+            self.tta_times = 5
 
 
 class KerasGenerator(ImageDataGenerator):
@@ -191,15 +212,17 @@ class KerasIterator(Iterator):
 
     def real_transform(self, img):
         if self.mode == "predict" and self.generator.tta is not None and self.tta_index is not None:
-            width_start = int(self.generator.tta.width_shift_range[self.tta_index][0] * img.shape[1])
-            width_end = int(self.generator.tta.width_shift_range[self.tta_index][1] * img.shape[1])
-            height_start = int(self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0])
-            height_end = int(self.generator.tta.height_shift_range[self.tta_index][1] * img.shape[0])
+            if self.generator.tta.height_shift_range is not None and self.generator.tta.width_shift_range is not None:
+                width_start = int(self.generator.tta.width_shift_range[self.tta_index][0] * img.shape[1])
+                width_end = int(self.generator.tta.width_shift_range[self.tta_index][1] * img.shape[1])
+                height_start = int(self.generator.tta.height_shift_range[self.tta_index][0] * img.shape[0])
+                height_end = int(self.generator.tta.height_shift_range[self.tta_index][1] * img.shape[0])
 
-            img = img[height_start:height_end, width_start:width_end]
+                img = img[height_start:height_end, width_start:width_end]
 
-            if self.generator.tta.horizontal_flip[self.tta_index]:
-                img = cv2.flip(img, 1)
+            if self.generator.tta.horizontal_flip is not None:
+                if self.generator.tta.horizontal_flip[self.tta_index]:
+                    img = cv2.flip(img, 1)
 
             return img
 
