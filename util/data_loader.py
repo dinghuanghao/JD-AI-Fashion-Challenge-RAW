@@ -75,7 +75,7 @@ class TestTimeAugmentation():
 
 class KerasGenerator(ImageDataGenerator):
     def __init__(self, model_config=None, pca_jitter=False, pca_jitter_range=0.01, real_transform=False,
-                 tta: TestTimeAugmentation = None, squre_crop = False, *args,
+                 tta: TestTimeAugmentation = None, squre_crop=False, *args,
                  **kwargs):
         super(KerasGenerator, self).__init__(*args, **kwargs)
         self.iterator = None
@@ -207,7 +207,7 @@ class KerasIterator(Iterator):
 
         if self.generator.squre_crop:
             # 采用正方形裁剪，确保resize的时候不会变形，alex等论文中均是这种方式，但是实测效果并不太好
-            if self.generator.width_shift_range is not None and self.generator.height_shift_range is not None:
+            if self.generator.width_shift_range > 0 and self.generator.height_shift_range > 0:
                 shift = min(self.generator.width_shift_range, self.generator.height_shift_range)
                 side_length = int(min(img.shape[0], img.shape[1]) * (1 - shift))
 
@@ -220,10 +220,9 @@ class KerasIterator(Iterator):
                 assert img.shape[0] == img.shape[1]
             return img
 
-
         # 这种方式会有轻微的拉伸或者压缩，因为裁剪之后的图片长宽可能不等，但是反而效果要好一个百分点
         # 可能是存在潜在的图像缩放
-        if self.generator.width_shift_range is not None:
+        if self.generator.width_shift_range > 0:
             width_shift = int(self.generator.width_shift_range * 100)
             width_start = int(random.randrange(-width_shift, width_shift) / 100 * img.shape[1])
             if width_start < 0:
@@ -231,7 +230,7 @@ class KerasIterator(Iterator):
             else:
                 img = img[:, width_start:, :]
 
-        if self.generator.height_shift_range is not None:
+        if self.generator.height_shift_range > 0:
             height_shift = int(self.generator.height_shift_range * 100)
             height_start = int(random.randrange(-height_shift, height_shift) / 100 * img.shape[0])
 

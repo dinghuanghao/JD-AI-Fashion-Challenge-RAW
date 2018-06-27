@@ -1,0 +1,180 @@
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.000000
+F2-Score with threshold 0.1: 0.151865
+F2-Score with threshold 0.2: 0.151012
+Greedy F2-Score is: 0.343182
+[label 0]	smooth-f2=0.000000   greedy-f2=0.005357[0.000000]
+[label 1]	smooth-f2=0.002595   greedy-f2=0.290848[0.000000]
+[label 2]	smooth-f2=0.974928   greedy-f2=0.980527[0.000000]
+[label 3]	smooth-f2=0.000000   greedy-f2=0.029855[0.000000]
+[label 4]	smooth-f2=0.000724   greedy-f2=0.716396[0.000000]
+[label 5]	smooth-f2=0.001849   greedy-f2=0.500465[0.000000]
+[label 6]	smooth-f2=0.000000   greedy-f2=0.016287[0.000000]
+[label 7]	smooth-f2=0.000000   greedy-f2=0.109297[0.000000]
+[label 8]	smooth-f2=0.977825   greedy-f2=0.978287[0.000000]
+[label 9]	smooth-f2=0.000006   greedy-f2=0.433066[0.000000]
+[label 10]	smooth-f2=0.000007   greedy-f2=0.259214[0.000000]
+[label 11]	smooth-f2=0.001151   greedy-f2=0.102898[0.000000]
+[label 12]	smooth-f2=0.000000   greedy-f2=0.038868[0.000000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.078737
+F2-Score with threshold 0.1: 0.552633
+F2-Score with threshold 0.2: 0.519638
+Greedy F2-Score is: 0.591112
+[label 0]	smooth-f2=0.037794   greedy-f2=0.238095[0.050000]
+[label 1]	smooth-f2=0.389516   greedy-f2=0.634462[0.160000]
+[label 2]	smooth-f2=0.928298   greedy-f2=0.981251[0.220000]
+[label 3]	smooth-f2=0.179415   greedy-f2=0.432526[0.060000]
+[label 4]	smooth-f2=0.587976   greedy-f2=0.813422[0.190000]
+[label 5]	smooth-f2=0.478366   greedy-f2=0.742922[0.160000]
+[label 6]	smooth-f2=0.031118   greedy-f2=0.187266[0.050000]
+[label 7]	smooth-f2=0.189476   greedy-f2=0.456100[0.120000]
+[label 8]	smooth-f2=0.930012   greedy-f2=0.979232[0.160000]
+[label 9]	smooth-f2=0.367635   greedy-f2=0.616352[0.130000]
+[label 10]	smooth-f2=0.559965   greedy-f2=0.747029[0.290000]
+[label 11]	smooth-f2=0.191265   greedy-f2=0.492554[0.090000]
+[label 12]	smooth-f2=0.078737   greedy-f2=0.363248[0.060000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.153371
+F2-Score with threshold 0.1: 0.571207
+F2-Score with threshold 0.2: 0.560248
+Greedy F2-Score is: 0.596707
+[label 0]	smooth-f2=0.061215   greedy-f2=0.282258[0.080000]
+[label 1]	smooth-f2=0.439394   greedy-f2=0.647482[0.180000]
+[label 2]	smooth-f2=0.919786   greedy-f2=0.981304[0.140000]
+[label 3]	smooth-f2=0.204239   greedy-f2=0.389344[0.170000]
+[label 4]	smooth-f2=0.579558   greedy-f2=0.821770[0.200000]
+[label 5]	smooth-f2=0.472099   greedy-f2=0.749621[0.150000]
+[label 6]	smooth-f2=0.053540   greedy-f2=0.205882[0.040000]
+[label 7]	smooth-f2=0.206635   greedy-f2=0.443252[0.140000]
+[label 8]	smooth-f2=0.920845   greedy-f2=0.979615[0.190000]
+[label 9]	smooth-f2=0.336712   greedy-f2=0.617136[0.110000]
+[label 10]	smooth-f2=0.525108   greedy-f2=0.745884[0.170000]
+[label 11]	smooth-f2=0.267329   greedy-f2=0.514580[0.130000]
+[label 12]	smooth-f2=0.153371   greedy-f2=0.379061[0.100000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.134096
+F2-Score with threshold 0.1: 0.570590
+F2-Score with threshold 0.2: 0.538975
+Greedy F2-Score is: 0.601234
+[label 0]	smooth-f2=0.035666   greedy-f2=0.217391[0.030000]
+[label 1]	smooth-f2=0.390115   greedy-f2=0.634246[0.080000]
+[label 2]	smooth-f2=0.937965   greedy-f2=0.981658[0.150000]
+[label 3]	smooth-f2=0.263297   greedy-f2=0.438931[0.190000]
+[label 4]	smooth-f2=0.603058   greedy-f2=0.819804[0.220000]
+[label 5]	smooth-f2=0.501445   greedy-f2=0.749003[0.110000]
+[label 6]	smooth-f2=0.040373   greedy-f2=0.259516[0.030000]
+[label 7]	smooth-f2=0.216720   greedy-f2=0.461538[0.110000]
+[label 8]	smooth-f2=0.942030   greedy-f2=0.979710[0.150000]
+[label 9]	smooth-f2=0.351589   greedy-f2=0.621798[0.110000]
+[label 10]	smooth-f2=0.523087   greedy-f2=0.745963[0.230000]
+[label 11]	smooth-f2=0.230294   greedy-f2=0.480955[0.110000]
+[label 12]	smooth-f2=0.134096   greedy-f2=0.425532[0.080000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.215522
+F2-Score with threshold 0.1: 0.604430
+F2-Score with threshold 0.2: 0.574756
+Greedy F2-Score is: 0.622639
+[label 0]	smooth-f2=0.077219   greedy-f2=0.352564[0.060000]
+[label 1]	smooth-f2=0.449225   greedy-f2=0.662042[0.120000]
+[label 2]	smooth-f2=0.939212   greedy-f2=0.981997[0.190000]
+[label 3]	smooth-f2=0.244231   greedy-f2=0.433333[0.060000]
+[label 4]	smooth-f2=0.615950   greedy-f2=0.824131[0.190000]
+[label 5]	smooth-f2=0.527891   greedy-f2=0.757063[0.140000]
+[label 6]	smooth-f2=0.083537   greedy-f2=0.267857[0.080000]
+[label 7]	smooth-f2=0.216731   greedy-f2=0.449752[0.130000]
+[label 8]	smooth-f2=0.939282   greedy-f2=0.979701[0.150000]
+[label 9]	smooth-f2=0.377752   greedy-f2=0.633096[0.110000]
+[label 10]	smooth-f2=0.553904   greedy-f2=0.764316[0.140000]
+[label 11]	smooth-f2=0.265924   greedy-f2=0.505181[0.130000]
+[label 12]	smooth-f2=0.215522   greedy-f2=0.483271[0.070000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.256551
+F2-Score with threshold 0.1: 0.616620
+F2-Score with threshold 0.2: 0.576812
+Greedy F2-Score is: 0.626338
+[label 0]	smooth-f2=0.081546   greedy-f2=0.372671[0.060000]
+[label 1]	smooth-f2=0.460447   greedy-f2=0.662507[0.090000]
+[label 2]	smooth-f2=0.944429   greedy-f2=0.981911[0.120000]
+[label 3]	smooth-f2=0.278115   greedy-f2=0.444444[0.110000]
+[label 4]	smooth-f2=0.617263   greedy-f2=0.827246[0.180000]
+[label 5]	smooth-f2=0.535389   greedy-f2=0.757143[0.170000]
+[label 6]	smooth-f2=0.098070   greedy-f2=0.263158[0.060000]
+[label 7]	smooth-f2=0.239354   greedy-f2=0.451977[0.140000]
+[label 8]	smooth-f2=0.943927   greedy-f2=0.979769[0.100000]
+[label 9]	smooth-f2=0.394957   greedy-f2=0.633426[0.130000]
+[label 10]	smooth-f2=0.580366   greedy-f2=0.767857[0.150000]
+[label 11]	smooth-f2=0.260989   greedy-f2=0.500281[0.060000]
+[label 12]	smooth-f2=0.256551   greedy-f2=0.500000[0.100000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.241429
+F2-Score with threshold 0.1: 0.610275
+F2-Score with threshold 0.2: 0.578249
+Greedy F2-Score is: 0.629682
+[label 0]	smooth-f2=0.113043   greedy-f2=0.401460[0.090000]
+[label 1]	smooth-f2=0.466831   greedy-f2=0.657309[0.080000]
+[label 2]	smooth-f2=0.943844   greedy-f2=0.982016[0.090000]
+[label 3]	smooth-f2=0.284589   greedy-f2=0.424710[0.170000]
+[label 4]	smooth-f2=0.632861   greedy-f2=0.826364[0.190000]
+[label 5]	smooth-f2=0.534074   greedy-f2=0.756432[0.140000]
+[label 6]	smooth-f2=0.104534   greedy-f2=0.270270[0.060000]
+[label 7]	smooth-f2=0.257060   greedy-f2=0.461121[0.130000]
+[label 8]	smooth-f2=0.942446   greedy-f2=0.980102[0.140000]
+[label 9]	smooth-f2=0.392190   greedy-f2=0.636127[0.110000]
+[label 10]	smooth-f2=0.560647   greedy-f2=0.768762[0.150000]
+[label 11]	smooth-f2=0.269321   greedy-f2=0.499109[0.070000]
+[label 12]	smooth-f2=0.241429   greedy-f2=0.522088[0.070000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Smooth F2-Score: 0.275636
+F2-Score with threshold 0.1: 0.618631
+F2-Score with threshold 0.2: 0.588042
+Greedy F2-Score is: 0.632621
+[label 0]	smooth-f2=0.102568   greedy-f2=0.358852[0.040000]
+[label 1]	smooth-f2=0.489837   greedy-f2=0.652041[0.120000]
+[label 2]	smooth-f2=0.940813   greedy-f2=0.982206[0.080000]
+[label 3]	smooth-f2=0.286998   greedy-f2=0.432331[0.130000]
+[label 4]	smooth-f2=0.628982   greedy-f2=0.824026[0.150000]
+[label 5]	smooth-f2=0.524809   greedy-f2=0.755754[0.130000]
+[label 6]	smooth-f2=0.123653   greedy-f2=0.331010[0.050000]
+[label 7]	smooth-f2=0.270708   greedy-f2=0.461886[0.190000]
+[label 8]	smooth-f2=0.941338   greedy-f2=0.980036[0.060000]
+[label 9]	smooth-f2=0.404478   greedy-f2=0.644230[0.120000]
+[label 10]	smooth-f2=0.562959   greedy-f2=0.771120[0.150000]
+[label 11]	smooth-f2=0.282114   greedy-f2=0.513341[0.070000]
+[label 12]	smooth-f2=0.275636   greedy-f2=0.517241[0.170000]
+
+
+Weight: F:\Projects\competition\model\vgg19\record\model9\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Smooth F2-Score: 0.261520
+F2-Score with threshold 0.1: 0.619053
+F2-Score with threshold 0.2: 0.585300
+Greedy F2-Score is: 0.635004
+[label 0]	smooth-f2=0.111548   greedy-f2=0.424837[0.070000]
+[label 1]	smooth-f2=0.467171   greedy-f2=0.655234[0.070000]
+[label 2]	smooth-f2=0.947774   greedy-f2=0.982240[0.090000]
+[label 3]	smooth-f2=0.283396   greedy-f2=0.411985[0.140000]
+[label 4]	smooth-f2=0.643805   greedy-f2=0.825448[0.190000]
+[label 5]	smooth-f2=0.545035   greedy-f2=0.758776[0.120000]
+[label 6]	smooth-f2=0.149306   greedy-f2=0.313808[0.090000]
+[label 7]	smooth-f2=0.255876   greedy-f2=0.450000[0.110000]
+[label 8]	smooth-f2=0.946562   greedy-f2=0.980379[0.080000]
+[label 9]	smooth-f2=0.399394   greedy-f2=0.639924[0.120000]
+[label 10]	smooth-f2=0.570216   greedy-f2=0.765885[0.140000]
+[label 11]	smooth-f2=0.268569   greedy-f2=0.486188[0.040000]
+[label 12]	smooth-f2=0.261520   greedy-f2=0.560345[0.090000]
