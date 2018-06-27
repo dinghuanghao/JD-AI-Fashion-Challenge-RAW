@@ -164,7 +164,7 @@ def labels_analysis(labels: []):
 
 
 if __name__ == '__main__':
-    y, names = data_loader.load_label(path.ORIGINAL_TRAIN_IMAGES_PATH, 20000)
-    (name1, y1), (name2, y2), (name3, y3), (name4, y4), (name5, y5) = \
-        data_loader.divide_data(names, y, (0.2, 0.2, 0.2, 0.2, 0.2))
-    labels_analysis([y1, y2, y3, y4, y5])
+    y, names = data_loader.load_label(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    # (name1, y1), (name2, y2), (name3, y3), (name4, y4), (name5, y5) = \
+    #     data_loader.divide_data(names, y, (0.2, 0.2, 0.2, 0.2, 0.2))
+    label_analysis(y)

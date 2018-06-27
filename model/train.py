@@ -1,7 +1,7 @@
+from model.vgg19 import model13_val5
+from model.vgg19 import model14_val5
+from model.densenet201 import model22_val5
 
-from model.vgg19 import model6_val5 as vgg_65
-from model.vgg19 import model7_val5 as vgg_75
-
-
-vgg_65.train()
-vgg_75.train()
+model13_val5.train()
+model14_val5.train()
+model22_val5.train()

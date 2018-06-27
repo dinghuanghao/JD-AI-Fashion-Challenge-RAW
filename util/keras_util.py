@@ -230,7 +230,7 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     y_pred = None
     start = time.time()
 
-    tta = data_loader.TestTimeAugmentation()
+    tta = data_loader.TestTimeAugmentation(crop=model_config.tta_crop, flip=model_config.tta_flip)
     pre_datagen.tta = tta
     predict_times = 0
 
