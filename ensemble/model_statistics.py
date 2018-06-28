@@ -166,15 +166,35 @@ def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target)
     pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
     ax.get_figure().savefig(os.path.join(record_dir, target), dpi=100, bbox_inches='tight')
 
+def shord_board_statistics(label_statis_all):
+    shord_board_statis = [[]] * 5
+    for val in range(5):
+        label_statis_val = label_statis_all[val]
+        for label in range(13):
+            label_statis = label_statis_val[label]
+            average = 0
+            for i in range(5):
+                average += label_statis[i][1]/5
+            shord_board_statis[val].append(average)
 
-# 目前仅对val1进行了统计
+    with open(os.path.join(RECORD_DIR, "short_board_statistics.txt"), 'w+') as f:
+        for i in range(13):
+            for j in range(5):
+                f.write("label: %d\n" % i)
+                f.write("val_%d top-5 f2-score avg: %f\n" % (j, shord_board_statis[j][i]))
 
+
+
+one_label_all = []
 for val_index in range(1, 6):
     all_label, one_label, thresholds = model_f2_statistics(path.MODEL_PATH, val_index,
                                                            "statistics_val%d_all.txt" % val_index)
     all_label, one_label, thresholds = model_f2_statistics_no_repeat(all_label, one_label, thresholds,
                                                                      "statistics_val%d_no_repeat.txt" % val_index)
+    one_label_all.append(one_label)
+    #
+    # model_corr_heapmap(all_label[:20], None, thresholds, val_index, "label_all.png")
+    # for i in range(13):
+    #     model_corr_heapmap(one_label[i][:20], i, thresholds, val_index, 'label_%d.png' % i)
 
-    model_corr_heapmap(all_label[:20], None, thresholds, val_index, "label_all.png")
-    for i in range(13):
-        model_corr_heapmap(one_label[i][:20], i, thresholds, val_index, 'label_%d.png' % i)
+shord_board_statistics(one_label_all)

@@ -256,11 +256,11 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
 
 def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     if model_config.input_norm:
-        pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
+        pre_datagen = data_loader.KerasGenerator(model_config=model_config, featurewise_center=True,
                                                  featurewise_std_normalization=True,
                                                  rescale=1. / 256)
     else:
-        pre_datagen = data_loader.KerasGenerator()
+        pre_datagen = data_loader.KerasGenerator(model_config=model_config)
 
     pre_datagen.check_mean_std_file(model_config)
     pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)

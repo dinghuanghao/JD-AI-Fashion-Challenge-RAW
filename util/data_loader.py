@@ -107,12 +107,12 @@ class KerasGenerator(ImageDataGenerator):
         self.tta = tta
         self.squre_crop = squre_crop
 
-        if not model_config.input_norm:
-            self.featurewise_std_normalization = False
-            self.featurewise_center = False
-            self.rescale = None
-
         if model_config is not None:
+            if not model_config.input_norm:
+                self.featurewise_std_normalization = False
+                self.featurewise_center = False
+                self.rescale = None
+
             if self.featurewise_center or self.featurewise_std_normalization:
                 self.check_mean_std_file(model_config)
                 # 将check和load合并为load
