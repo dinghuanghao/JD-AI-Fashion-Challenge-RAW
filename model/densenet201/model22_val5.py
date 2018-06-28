@@ -26,8 +26,8 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[1, 4, 8],
                                 lr=[0.0005, 0.00005, 0.000005],
-                                freeze_layers=[-1, 0.6, 5],
-                                data_visualization=True)
+                                data_visualization=True,
+                                freeze_layers=[-1, 0.6, 5])
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
@@ -108,7 +108,8 @@ def train():
                               lr=model_config.lr[i], weights=None)
 
             if i == init_stage:
-                model_config.save_log("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
+                model_config.save_log(
+                    "####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
                 model_config.save_log("####### initial epoch is %d, end epoch is %d" % (
@@ -121,7 +122,8 @@ def train():
                                     verbose=1,
                                     callbacks=[checkpoint, clr])
             else:
-                model_config.save_log("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
+                model_config.save_log(
+                    "####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
                 model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
 
                 model_config.save_log(
@@ -135,5 +137,5 @@ def train():
                                     callbacks=[checkpoint, clr])
 
     model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
-    model_config.save_log("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
-
+    model_config.save_log(
+        "####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))

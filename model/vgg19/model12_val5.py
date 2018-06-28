@@ -24,6 +24,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00001],
+                                data_visualization=True,
                                 freeze_layers=[-1, 0.6, 5],
                                 tta_crop=True)
 
