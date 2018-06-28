@@ -41,28 +41,28 @@ def predict_models(path, val_index=1):
             for i in evaluate_files:
                 os.remove(i)
 
-            # weights_file_sorted = {}
-            # for weights_file in weights_files:
-            #     index = re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1)
-            #     weights_file_sorted[int(index) - 1] = weights_file
-            # weights_file_sorted = [weights_file_sorted[k] for k in sorted(weights_file_sorted.keys())]
-            #
-            # for weights_file in weights_file_sorted:
-            #     model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
-            #     model_dir = re.match(r"(.*)\\record", weights_file).group(1)
-            #     model_path = os.path.join(model_dir, model_file)
-            #     root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
-            #     package = __import__(".".join([root_dir, type_dir, name]))
-            #     attr_get_model = getattr(getattr(getattr(package, type_dir), name), "get_model")
-            #     attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
-            #     attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1))
-            #
-            #     print("evaluate :%s" % weights_file)
-            #     if keras_util.get_prediction_path(weights_file) not in predict_files:
-            #         model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
-            #         model.load_weights(weights_file)
-            #         y_pred = keras_util.predict(model, attr_model_config, verbose=1)
-            #         keras_util.save_prediction_file(y_pred, weights_file)
+            weights_file_sorted = {}
+            for weights_file in weights_files:
+                index = re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1)
+                weights_file_sorted[int(index) - 1] = weights_file
+            weights_file_sorted = [weights_file_sorted[k] for k in sorted(weights_file_sorted.keys())]
+
+            for weights_file in weights_file_sorted:
+                model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
+                model_dir = re.match(r"(.*)\\record", weights_file).group(1)
+                model_path = os.path.join(model_dir, model_file)
+                root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
+                package = __import__(".".join([root_dir, type_dir, name]))
+                attr_get_model = getattr(getattr(getattr(package, type_dir), name), "get_model")
+                attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
+                attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1))
+
+                print("evaluate :%s" % weights_file)
+                if keras_util.get_prediction_path(weights_file) not in predict_files:
+                    model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
+                    model.load_weights(weights_file)
+                    y_pred = keras_util.predict(model, attr_model_config, verbose=1)
+                    keras_util.save_prediction_file(y_pred, weights_file)
 
             predict_files = [os.path.join(root_dir, predict_f) for root_dir, _, predict_fs in os.walk(root) for
                              predict_f in predict_fs if "predict" in predict_f]

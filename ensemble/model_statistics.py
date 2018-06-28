@@ -1,12 +1,12 @@
 import os
+import pathlib
 import re
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 from sklearn.metrics import fbeta_score
-import matplotlib.pyplot as plt
-
 
 import config
 from util import data_loader
@@ -15,15 +15,49 @@ from util import path
 RECORD_DIR = os.path.join(os.path.abspath("."), "record")
 
 
-def model_f2_statistics(path, val_index=1, save_file=None):
+def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_file):
+    all_label_best = {}
+    one_label_best = [{} for i in range(13)]
+    one_label_no_repeat = {}
+    all_label_no_repeat = []
+    for entry in all_label:
+        if entry[0].split('.')[0] not in all_label_best:
+            all_label_best[entry[0].split('.')[0]] = entry[1]
+            all_label_no_repeat.append(entry)
+
+    for label in one_label:
+        for entry in one_label[label]:
+            if entry[0].split('.')[0] not in one_label_best[label]:
+                one_label_best[label][entry[0].split('.')[0]] = entry[1]
+                if one_label_no_repeat.get(label) is None:
+                    one_label_no_repeat[label] = []
+                one_label_no_repeat[label].append(entry)
+
+    if save_file is not None:
+        record_dir = os.path.join(RECORD_DIR, "val%d" % val_index)
+        pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
+        with open(os.path.join(record_dir, save_file), "w") as f:
+            f.write("==========================All label==========================\n")
+            for i in all_label_no_repeat:
+                f.write("%f: %s\n" % (i[1], i[0]))
+
+            for i in range(len(one_label_no_repeat)):
+                f.write("\n\n\n\n\n==========================One label: %d==========================\n" % i)
+                for j in one_label_no_repeat[i]:
+                    f.write("%f: %s\n" % (j[1], j[0]))
+
+    return all_label_no_repeat, one_label_no_repeat, thresholds
+
+
+def model_f2_statistics(mode_path, val_index=1, save_file=None):
     """
     对model目录下的所有包含"evaluate"字段的文件进行统计，分别得到all-label、one-label统计
-    :param path: 需要统计的目录
+    :param mode_path: 需要统计的目录
     :param save_file: 输入文件
     :return:
     """
     evaluate_files = []
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in os.walk(mode_path):
         for file in files:
             if ("val%d" % val_index) not in root:
                 continue
@@ -38,8 +72,8 @@ def model_f2_statistics(path, val_index=1, save_file=None):
             weight_file = ""
             for i in f.readlines():
                 if "Weight" in i:
-                    weight_file = re.match(r"Weight: *(.*)", i).group(1)
-
+                    # 不同人训练出来的模型中，weight_file的根路径不同，此处进行一个转换
+                    weight_file = os.path.join(path.root_path, re.match(r"Weight:.*competition\\*(.*)", i).group(1))
                 if "Greedy F2-Score is:" in i:
                     if weight_file == "":
                         print("file %s is abnormal" % file)
@@ -48,8 +82,6 @@ def model_f2_statistics(path, val_index=1, save_file=None):
                 if "[label" in i:
                     if weight_file == "":
                         print("file %s is abnormal" % file)
-                    if weight_file == "":
-                        print("a")
                     label = re.match(r".*label *([0-9]*)", i).group(1)
                     greedy_f2 = re.match(r".*greedy-f2=(.*)\[", i).group(1)
                     threshold = re.match(r".*greedy-f2=.*\[(.*)\]", i).group(1)
@@ -63,7 +95,9 @@ def model_f2_statistics(path, val_index=1, save_file=None):
         one_label[i] = sorted(one_label[i].items(), key=lambda x: x[1], reverse=True)
 
     if save_file is not None:
-        with open(save_file, "w") as f:
+        record_dir = os.path.join(RECORD_DIR, "val%d" % val_index)
+        pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
+        with open(os.path.join(record_dir, save_file), "w") as f:
             f.write("==========================All label==========================\n")
             for i in all_label:
                 f.write("%f: %s\n" % (i[1], i[0]))
@@ -91,20 +125,16 @@ def path_2_model_name(weight_path):
     return "%s_%s_%s_%s" % (model_type, model_number, val, epoch), (model_type, model_number, val, epoch)
 
 
-def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target, allow_dup=False):
+def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target):
     _, val_files = data_loader.get_k_fold_files("1.txt", val_index, [config.DATA_TYPE_ORIGINAL])
     y = data_loader.get_labels(val_files)
     y = np.array(y, np.int8).reshape((-1, 13))
-    model_type = {}
     model_names = []
     model_predicts = []
     df = pd.DataFrame()
     for i in model_statis:
         weight_path = i[0]
         name, info = path_2_model_name(weight_path)
-        if model_type.get(info[0]) is not None and not allow_dup:
-            continue
-        model_type[info[0]] = 1
         if not os.path.exists(weight_path + ".predict.npy"):
             continue
         predict = np.load(weight_path + ".predict.npy")
@@ -131,18 +161,20 @@ def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target,
     ax = sns.heatmap(corr, annot=len(model_statis) < 10, cmap='YlGnBu')
     ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
     ax.set_yticklabels(ax.get_yticklabels(), rotation=0)
-    ax.get_figure().savefig(os.path.join(RECORD_DIR, target), dpi=100, bbox_inches='tight')
 
-
-all_label, one_label, thresholds = model_f2_statistics(path.MODEL_PATH, 1, "statistics_val1.txt")
-model_f2_statistics(path.MODEL_PATH, 2, "statistics_val2.txt")
-model_f2_statistics(path.MODEL_PATH, 3, "statistics_val3.txt")
-model_f2_statistics(path.MODEL_PATH, 4, "statistics_val4.txt")
-model_f2_statistics(path.MODEL_PATH, 5, "statistics_val5.txt")
+    record_dir = os.path.join(RECORD_DIR, "val%d" % val_index)
+    pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
+    ax.get_figure().savefig(os.path.join(record_dir, target), dpi=100, bbox_inches='tight')
 
 
 # 目前仅对val1进行了统计
-# model_corr_heapmap(all_label[:20], None, thresholds, 1, "label_all.png", True)
 
-# for i in range(13):
-#     model_corr_heapmap(one_label[i][:20], i, thresholds, 1, 'label_%d.png'%i, True)
+for val_index in range(1, 6):
+    all_label, one_label, thresholds = model_f2_statistics(path.MODEL_PATH, val_index,
+                                                           "statistics_val%d_all.txt" % val_index)
+    all_label, one_label, thresholds = model_f2_statistics_no_repeat(all_label, one_label, thresholds,
+                                                                     "statistics_val%d_no_repeat.txt" % val_index)
+
+    model_corr_heapmap(all_label[:20], None, thresholds, val_index, "label_all.png")
+    for i in range(13):
+        model_corr_heapmap(one_label[i][:20], i, thresholds, val_index, 'label_%d.png' % i)

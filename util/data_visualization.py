@@ -59,6 +59,7 @@ def show_label_class_type_bar():
     sns.barplot(x=label_class_type_name, y=get_label_class_type_sum())
     plt.show()
 
+
 def get_label_dic():
     data_list1 = data_loader.get_labels(data_loader.list_image_name(DATA_FILE))
     data_list2 = data_loader.get_labels(data_loader.list_image_name(DATA_COLOR_FILE))
@@ -74,6 +75,7 @@ def get_label_dic():
         for k, v in data_dic.items():
             log = k + " : " + str(v) + '\n'
             f.write(log)
+
 
 def show_label_calss_bar_per_epoch(train_file, record_dir):
     labels = data_loader.get_labels(train_file)

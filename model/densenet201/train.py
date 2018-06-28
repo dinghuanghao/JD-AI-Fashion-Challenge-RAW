@@ -1,3 +1,3 @@
-from model.densenet201 import model23_val5
+from model.densenet201 import model7_val2
 
-model23_val5.train()
+model7_val2.train()

@@ -25,8 +25,11 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.0005, 0.00005, 0.000005],
+                                freeze_layers=[-1, 0.6, 5],
                                 data_visualization=True,
-                                freeze_layers=[-1, 0.6, 5])
+                                tta_crop=True,
+                                tta_flip=True,
+                                input_norm=False)
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
@@ -79,18 +82,16 @@ def train():
                                           step_size=model_config.get_steps_per_epoch(i) / 2)
 
         train_flow = data_loader.KerasGenerator(model_config=model_config,
-                                                featurewise_center=True,
-                                                featurewise_std_normalization=True,
                                                 width_shift_range=0.15,
                                                 height_shift_range=0.1,
                                                 horizontal_flip=True,
-                                                real_transform=True,
-                                                rescale=1. / 256).flow_from_files(model_config.train_files, mode="fit",
-                                                                                  target_size=model_config.image_size,
-                                                                                  batch_size=
-                                                                                  model_config.train_batch_size[i],
-                                                                                  shuffle=True,
-                                                                                  label_position=model_config.label_position)
+                                                real_transform=True).flow_from_files(model_config.train_files,
+                                                                                     mode="fit",
+                                                                                     target_size=model_config.image_size,
+                                                                                     batch_size=
+                                                                                     model_config.train_batch_size[i],
+                                                                                     shuffle=True,
+                                                                                     label_position=model_config.label_position)
 
         if i == 0:
             model_config.save_log("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
@@ -107,7 +108,8 @@ def train():
                               lr=model_config.lr[i], weights=None)
 
             if i == init_stage:
-                model_config.save_log("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
+                model_config.save_log(
+                    "####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
                 model_config.save_log("####### initial epoch is %d, end epoch is %d" % (
@@ -120,7 +122,8 @@ def train():
                                     verbose=1,
                                     callbacks=[checkpoint, clr])
             else:
-                model_config.save_log("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
+                model_config.save_log(
+                    "####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
                 model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
 
                 model_config.save_log(
@@ -134,5 +137,5 @@ def train():
                                     callbacks=[checkpoint, clr])
 
     model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
-    model_config.save_log("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
-
+    model_config.save_log(
+        "####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
