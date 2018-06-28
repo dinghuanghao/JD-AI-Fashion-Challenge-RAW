@@ -63,3 +63,7 @@
 2018-06-28:09:55:35: start predict with tta index is 1
 2018-06-28:09:56:27: ####### train model spend 1944 seconds
 2018-06-28:09:56:27: ####### train model spend 194 seconds average
+2018-06-28:14:47:29: train files is 43926 before up sampling
+2018-06-28:14:47:30: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '15120', '0'], totaol: 15120
+2018-06-28:14:47:30: train files is 59046 after up sampling
+2018-06-28:14:47:36: train file: 59046, val file: 10982

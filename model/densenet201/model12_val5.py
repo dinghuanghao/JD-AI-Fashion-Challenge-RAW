@@ -1,5 +1,5 @@
 """
-去掉blue->red，去掉squre crop，和model 7比起来，仅仅是去掉了部分的blue -> red（model 7的blue->red只有几百张，而model 10是完整的）
+基于model 12
 """
 import math
 import os
@@ -25,7 +25,6 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.0005, 0.00005, 0.000005],
-                                data_visualization=True,
                                 freeze_layers=[-1, 0.6, 5])
 
 

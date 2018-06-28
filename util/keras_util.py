@@ -351,6 +351,8 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
 def get_prediction_path(weight_path):
     return weight_path + ".predict.npy"
 
+def get_weight_path(prediction_path):
+    return prediction_path[:-len(".predict.npy")]
 
 def save_prediction_file(prediction, weight_path, overwrite=False):
     prediction_path = get_prediction_path(weight_path)

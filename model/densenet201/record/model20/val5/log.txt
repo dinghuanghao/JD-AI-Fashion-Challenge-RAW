@@ -17,3 +17,7 @@
 2018-06-25:21:04:43: ####### initial epoch is 4, end epoch is 8
 2018-06-25:21:27:50: on epoch 5 end, save weight:F:\Projects\competition\model\densenet201\record\model20\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 2018-06-25:21:55:59: on epoch 6 end, save weight:F:\Projects\competition\model\densenet201\record\model20\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-06-28:14:32:03: train files is 43926 before up sampling
+2018-06-28:14:32:04: up sampling times: ['1215', '0', '0', '3165', '0', '0', '2355', '0', '0', '0', '0', '0', '4290'], totaol: 11025
+2018-06-28:14:32:04: train files is 54951 after up sampling
+2018-06-28:14:32:07: train file: 54951, val file: 10982

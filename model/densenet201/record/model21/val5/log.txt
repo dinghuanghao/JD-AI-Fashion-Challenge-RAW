@@ -29,3 +29,7 @@
 2018-06-26:01:27:51: on epoch 8 end, save weight:F:\Projects\competition\model\densenet201\record\model21\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 2018-06-26:01:28:48: ####### train model spend 4521 seconds
 2018-06-26:01:28:48: ####### train model spend 565 seconds average
+2018-06-28:14:32:41: train files is 43926 before up sampling
+2018-06-28:14:32:42: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14300'], totaol: 14300
+2018-06-28:14:32:42: train files is 58226 after up sampling
+2018-06-28:14:32:45: train file: 58226, val file: 10982
