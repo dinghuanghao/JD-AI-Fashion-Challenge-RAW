@@ -106,3 +106,15 @@
 2018-06-28:23:38:06: start predict with tta index is 7
 2018-06-28:23:39:12: start predict with tta index is 8
 2018-06-28:23:40:18: start predict with tta index is 9
+2018-06-29:00:02:25: on epoch 9 end, save weight:F:\Projects\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-29:00:02:29: start predict with tta
+2018-06-29:00:02:29: start predict with tta index is 0
+2018-06-29:00:03:28: start predict with tta index is 1
+2018-06-29:00:04:32: start predict with tta index is 2
+2018-06-29:00:05:34: start predict with tta index is 3
+2018-06-29:00:06:37: start predict with tta index is 4
+2018-06-29:00:07:40: start predict with tta index is 5
+2018-06-29:00:08:45: start predict with tta index is 6
+2018-06-29:00:09:51: start predict with tta index is 7
+2018-06-29:00:10:57: start predict with tta index is 8
+2018-06-29:00:12:03: start predict with tta index is 9
