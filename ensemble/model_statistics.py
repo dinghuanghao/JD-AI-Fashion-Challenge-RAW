@@ -167,7 +167,7 @@ def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target)
     ax.get_figure().savefig(os.path.join(record_dir, target), dpi=100, bbox_inches='tight')
 
 def shord_board_statistics(label_statis_all):
-    shord_board_statis = [[]] * 5
+    shord_board_statis = [[] for i in range(5)]
     for val in range(5):
         label_statis_val = label_statis_all[val]
         for label in range(13):
@@ -178,10 +178,11 @@ def shord_board_statistics(label_statis_all):
             shord_board_statis[val].append(average)
 
     with open(os.path.join(RECORD_DIR, "short_board_statistics.txt"), 'w+') as f:
+        f.write("Top-5 f2-score average\n")
         for i in range(13):
+            f.write("\n#######label %d\n" % i)
             for j in range(5):
-                f.write("label: %d\n" % i)
-                f.write("val_%d top-5 f2-score avg: %f\n" % (j, shord_board_statis[j][i]))
+                f.write("val %d: %f\n" % (j, shord_board_statis[j][i]))
 
 
 
