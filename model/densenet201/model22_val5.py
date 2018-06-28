@@ -21,12 +21,13 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 label_up_sampling=[50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                                 train_batch_size=[16, 16, 16],
-                                initial_epoch=1,
+                                initial_epoch=4,
                                 val_batch_size=256,
                                 predict_batch_size=256,
                                 epoch=[1, 4, 8],
                                 lr=[0.0005, 0.00005, 0.000005],
-                                freeze_layers=[-1, 0.6, 5])
+                                freeze_layers=[-1, 0.6, 5],
+                                data_visualization=True)
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
