@@ -49,8 +49,12 @@ def get_label_class_type_sum():
 
 
 def show_label_class_bar():
-    plt.figure(1, figsize=(10, 6))
-    sns.barplot(y=label_class_name, x=get_label_class_sum().tolist(), orient='h')
+    plt.figure(1, figsize=(15, 6))
+    _x = get_label_class_sum().tolist()
+    _y = label_class_name
+    for i in range(len(_y)):
+        _y[i] += '(%d)' % _x[i]
+    sns.barplot(y=_y, x=_x, orient='h')
     plt.show()
 
 
@@ -81,8 +85,12 @@ def show_label_calss_bar_per_epoch(train_file, record_dir):
     labels = data_loader.get_labels(train_file)
     labels = np.array(labels)
     df = pd.DataFrame(labels, columns=get_columns())
-    plt.figure(1, figsize=(10, 6))
-    sns.barplot(y=label_class_name, x=df.sum(axis=0).tolist(), orient='h')
+    _x = df.sum(axis=0).tolist()
+    _y = label_class_name
+    for i in range(len(_y)):
+        _y[i] += '(%d)' % _x[i]
+    plt.figure(1, figsize=(15, 6))
+    sns.barplot(y=_y, x=_x, orient='h')
     record_save = record_dir + '_' + 'label_calss_bar'
     plt.savefig(record_save)
 
