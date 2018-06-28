@@ -182,7 +182,7 @@ def shord_board_statistics(label_statis_all):
         for i in range(13):
             f.write("\n#######label %d\n" % i)
             for j in range(5):
-                f.write("val %d: %f\n" % (j, shord_board_statis[j][i]))
+                f.write("val %d: %f\n" % (j+1, shord_board_statis[j][i]))
 
 
 
