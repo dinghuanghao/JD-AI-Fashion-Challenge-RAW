@@ -106,3 +106,36 @@
 2018-06-28:23:38:06: start predict with tta index is 7
 2018-06-28:23:39:12: start predict with tta index is 8
 2018-06-28:23:40:18: start predict with tta index is 9
+2018-06-29:00:02:25: on epoch 9 end, save weight:F:\Projects\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-29:00:02:29: start predict with tta
+2018-06-29:00:02:29: start predict with tta index is 0
+2018-06-29:00:03:28: start predict with tta index is 1
+2018-06-29:00:04:32: start predict with tta index is 2
+2018-06-29:00:05:34: start predict with tta index is 3
+2018-06-29:00:06:37: start predict with tta index is 4
+2018-06-29:00:07:40: start predict with tta index is 5
+2018-06-29:00:08:45: start predict with tta index is 6
+2018-06-29:00:09:51: start predict with tta index is 7
+2018-06-29:00:10:57: start predict with tta index is 8
+2018-06-29:00:12:03: start predict with tta index is 9
+2018-06-29:00:32:10: add 8641 color augmentation file
+2018-06-29:00:32:11: train file: 52567, val file: 10982
+2018-06-29:07:29:26: ####### start train model
+2018-06-29:07:29:26: ####### init stage is 2
+2018-06-29:07:29:26: ####### lr=0.000005, freeze layers=5.000000 epoch=10
+2018-06-29:07:31:29: ####### load weight file: F:\Projects\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-29:07:32:02: ####### initial epoch is 9, end epoch is 10
+2018-06-29:07:56:11: on epoch 10 end, save weight:F:\Projects\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-06-29:08:05:48: start predict with tta
+2018-06-29:08:05:48: start predict with tta index is 0
+2018-06-29:08:07:03: start predict with tta index is 1
+2018-06-29:08:08:08: start predict with tta index is 2
+2018-06-29:08:09:14: start predict with tta index is 3
+2018-06-29:08:10:19: start predict with tta index is 4
+2018-06-29:08:11:25: start predict with tta index is 5
+2018-06-29:08:12:33: start predict with tta index is 6
+2018-06-29:08:13:41: start predict with tta index is 7
+2018-06-29:08:14:50: start predict with tta index is 8
+2018-06-29:08:15:59: start predict with tta index is 9
+2018-06-29:08:17:08: ####### train model spend 2862 seconds
+2018-06-29:08:17:08: ####### train model spend 286 seconds average
