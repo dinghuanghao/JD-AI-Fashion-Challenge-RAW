@@ -37,3 +37,115 @@
 2018-06-29:10:23:02: ####### load weight file: F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 2018-06-29:10:23:17: ####### initial epoch is 1, end epoch is 4
 2018-06-29:10:38:38: on epoch 2 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-06-29:10:42:21: start predict with tta
+2018-06-29:10:42:21: start predict with tta index is 0
+2018-06-29:10:43:10: start predict with tta index is 1
+2018-06-29:10:43:56: start predict with tta index is 2
+2018-06-29:10:44:42: start predict with tta index is 3
+2018-06-29:10:45:28: start predict with tta index is 4
+2018-06-29:10:46:14: start predict with tta index is 5
+2018-06-29:10:47:02: start predict with tta index is 6
+2018-06-29:10:47:51: start predict with tta index is 7
+2018-06-29:10:48:40: start predict with tta index is 8
+2018-06-29:10:49:29: start predict with tta index is 9
+2018-06-29:11:03:58: on epoch 3 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-06-29:11:04:00: start predict with tta
+2018-06-29:11:04:00: start predict with tta index is 0
+2018-06-29:11:04:43: start predict with tta index is 1
+2018-06-29:11:05:29: start predict with tta index is 2
+2018-06-29:11:06:16: start predict with tta index is 3
+2018-06-29:11:07:02: start predict with tta index is 4
+2018-06-29:11:07:49: start predict with tta index is 5
+2018-06-29:11:08:37: start predict with tta index is 6
+2018-06-29:11:09:27: start predict with tta index is 7
+2018-06-29:11:10:16: start predict with tta index is 8
+2018-06-29:11:11:05: start predict with tta index is 9
+2018-06-29:11:25:33: on epoch 4 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-29:11:25:36: start predict with tta
+2018-06-29:11:25:36: start predict with tta index is 0
+2018-06-29:11:26:19: start predict with tta index is 1
+2018-06-29:11:27:05: start predict with tta index is 2
+2018-06-29:11:27:52: start predict with tta index is 3
+2018-06-29:11:28:39: start predict with tta index is 4
+2018-06-29:11:29:25: start predict with tta index is 5
+2018-06-29:11:30:12: start predict with tta index is 6
+2018-06-29:11:31:01: start predict with tta index is 7
+2018-06-29:11:31:50: start predict with tta index is 8
+2018-06-29:11:32:39: start predict with tta index is 9
+2018-06-29:11:33:28: ####### lr=0.000010, freeze layers=5.000000 epoch=10
+2018-06-29:11:34:50: ####### load weight file: F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-06-29:11:35:11: ####### initial epoch is 4, end epoch is 10
+2018-06-29:11:50:37: on epoch 5 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-06-29:11:56:43: start predict with tta
+2018-06-29:11:56:43: start predict with tta index is 0
+2018-06-29:11:57:34: start predict with tta index is 1
+2018-06-29:11:58:20: start predict with tta index is 2
+2018-06-29:11:59:07: start predict with tta index is 3
+2018-06-29:11:59:54: start predict with tta index is 4
+2018-06-29:12:00:40: start predict with tta index is 5
+2018-06-29:12:01:28: start predict with tta index is 6
+2018-06-29:12:02:17: start predict with tta index is 7
+2018-06-29:12:03:07: start predict with tta index is 8
+2018-06-29:12:03:56: start predict with tta index is 9
+2018-06-29:12:18:35: on epoch 6 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-06-29:12:18:38: start predict with tta
+2018-06-29:12:18:38: start predict with tta index is 0
+2018-06-29:12:19:21: start predict with tta index is 1
+2018-06-29:12:20:08: start predict with tta index is 2
+2018-06-29:12:20:55: start predict with tta index is 3
+2018-06-29:12:21:41: start predict with tta index is 4
+2018-06-29:12:22:28: start predict with tta index is 5
+2018-06-29:12:23:16: start predict with tta index is 6
+2018-06-29:12:24:05: start predict with tta index is 7
+2018-06-29:12:24:54: start predict with tta index is 8
+2018-06-29:12:25:43: start predict with tta index is 9
+2018-06-29:12:40:19: on epoch 7 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-06-29:12:40:22: start predict with tta
+2018-06-29:12:40:22: start predict with tta index is 0
+2018-06-29:12:41:05: start predict with tta index is 1
+2018-06-29:12:41:51: start predict with tta index is 2
+2018-06-29:12:42:37: start predict with tta index is 3
+2018-06-29:12:43:23: start predict with tta index is 4
+2018-06-29:12:44:09: start predict with tta index is 5
+2018-06-29:12:44:56: start predict with tta index is 6
+2018-06-29:12:45:45: start predict with tta index is 7
+2018-06-29:12:46:33: start predict with tta index is 8
+2018-06-29:12:47:21: start predict with tta index is 9
+2018-06-29:13:01:59: on epoch 8 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-06-29:13:02:03: start predict with tta
+2018-06-29:13:02:03: start predict with tta index is 0
+2018-06-29:13:02:45: start predict with tta index is 1
+2018-06-29:13:03:32: start predict with tta index is 2
+2018-06-29:13:04:17: start predict with tta index is 3
+2018-06-29:13:05:03: start predict with tta index is 4
+2018-06-29:13:05:49: start predict with tta index is 5
+2018-06-29:13:06:37: start predict with tta index is 6
+2018-06-29:13:07:25: start predict with tta index is 7
+2018-06-29:13:08:14: start predict with tta index is 8
+2018-06-29:13:09:02: start predict with tta index is 9
+2018-06-29:13:23:38: on epoch 9 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-06-29:13:23:41: start predict with tta
+2018-06-29:13:23:41: start predict with tta index is 0
+2018-06-29:13:24:24: start predict with tta index is 1
+2018-06-29:13:25:10: start predict with tta index is 2
+2018-06-29:13:25:56: start predict with tta index is 3
+2018-06-29:13:26:42: start predict with tta index is 4
+2018-06-29:13:27:28: start predict with tta index is 5
+2018-06-29:13:28:15: start predict with tta index is 6
+2018-06-29:13:29:03: start predict with tta index is 7
+2018-06-29:13:29:53: start predict with tta index is 8
+2018-06-29:13:30:41: start predict with tta index is 9
+2018-06-29:13:45:22: on epoch 10 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-06-29:13:45:26: start predict with tta
+2018-06-29:13:45:26: start predict with tta index is 0
+2018-06-29:13:46:10: start predict with tta index is 1
+2018-06-29:13:46:58: start predict with tta index is 2
+2018-06-29:13:47:46: start predict with tta index is 3
+2018-06-29:13:48:34: start predict with tta index is 4
+2018-06-29:13:49:22: start predict with tta index is 5
+2018-06-29:13:50:12: start predict with tta index is 6
+2018-06-29:13:51:03: start predict with tta index is 7
+2018-06-29:13:51:55: start predict with tta index is 8
+2018-06-29:13:52:45: start predict with tta index is 9
+2018-06-29:13:53:35: ####### train model spend 13508 seconds
+2018-06-29:13:53:35: ####### train model spend 1350 seconds average

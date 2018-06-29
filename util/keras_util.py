@@ -13,6 +13,7 @@ import tensorflow as tf
 from keras.callbacks import Callback
 from sklearn.metrics import fbeta_score
 
+import config
 from util import data_loader
 from util import data_visualization as dv
 from util import metrics
@@ -231,14 +232,16 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     pre_datagen.tta = tta
     predict_times = 0
 
-    for files in model_config.val_files:
-        for i in range(tta.tta_times):
+    for i in range(len(model_config.val_files)):
+        files = model_config.val_files[i]
+        for j in range(tta.tta_times):
             predict_times += 1
-            model_config.save_log("start predict with tta index is %d" % i)
+            model_config.save_log(
+                "start predict with tta index is %d, data type is %s" % (j, model_config.data_type[i]))
             pre_flow = pre_datagen.flow_from_files(files, mode="predict",
                                                    target_size=model_config.image_size,
                                                    batch_size=model_config.predict_batch_size,
-                                                   tta_index=i)
+                                                   tta_index=j)
 
             if y_pred is None:
                 y_pred = np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
@@ -267,7 +270,9 @@ def predict(model: keras.Model, model_config: KerasModelConfig, verbose=1):
 
     y_pred = None
     start = time.time()
-    for files in model_config.val_files:
+    for i in range(len(model_config.val_files)):
+        files = model_config.val_files[i]
+        model_config.save_log("start predict data type %s" % model_config.data_type[i])
         pre_flow = pre_datagen.flow_from_files(files, mode="predict",
                                                target_size=model_config.image_size,
                                                batch_size=model_config.predict_batch_size)
@@ -351,8 +356,10 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
 def get_prediction_path(weight_path):
     return weight_path + ".predict.npy"
 
+
 def get_weight_path(prediction_path):
     return prediction_path[:-len(".predict.npy")]
+
 
 def save_prediction_file(prediction, weight_path, overwrite=False):
     prediction_path = get_prediction_path(weight_path)
