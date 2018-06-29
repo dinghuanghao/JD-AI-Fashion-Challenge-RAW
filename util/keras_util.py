@@ -40,7 +40,7 @@ class KerasModelConfig(object):
                  initial_epoch=0,
                  lr=(0.01,),
                  freeze_layers=(0,),
-                 tta_flip=False,
+                 tta_flip=True,
                  tta_crop=False,
                  debug=False):
 
