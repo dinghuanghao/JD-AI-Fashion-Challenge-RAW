@@ -30,7 +30,7 @@ def predict_models(path, val_index=1):
                 elif "evaluate" in file:
                     evaluate_files.append(os.path.join(root, file))
 
-            if len(weights_files) == 0:
+            if len(weights_files) == 0 and len(predict_files) == 0:
                 continue
 
             # 因为考虑到磁盘空间问题，可能会将Model Weight放到另外的目录
