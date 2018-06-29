@@ -1,15 +1,12 @@
 # 待处理问题                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-1. TTA(待测试)，如果TTA只进行flip，效果如何？
-2. 在statistics中处理evaluate目录问题（不同pc目录不同），进行自动转换
-3. 编写一个程序，将所有标签均在50%之后的模型罗列出来，进行删除
-4. 集成的时候，虽然有些模型的性能要差一些，例如resnet50，但是考虑到多样性以及自动学习权重，是否仍然应该将其假如到集成中？
-5. 验证blue -> red的效果（已在densenet201上验证了）
-6. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
-7. 试一试batch size 16
-8. 尝试不同尺寸的图片（能够支持不同阶段不同尺寸）
-9. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-10. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
+1. 检查每个模型，如果没有做input norm，那么KerasModelConfig中也一定将input_norm置为False，否则训练和预测不一致
+2. 编写一个程序，将所有标签均在50%之后的模型罗列出来，进行删除
+3. 集成的时候，虽然有些模型的性能要差一些，例如resnet50，但是考虑到多样性以及自动学习权重，是否仍然应该将其假如到集成中？
+4. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
+5. 尝试不同尺寸的图片（能够支持不同阶段不同尺寸）
+6. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
+7. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
 
 ## 数据不均衡问题
 
@@ -134,6 +131,20 @@ global steps = 21985
 
 
 ## 集成
+
+### 模型选择
+
+根据模型相关性分析得出以下关系：
+
+不同模型 < 相同模型的不同参数 < 相同模型相同参数的不同EPOCH
+
+考虑到模型的种类有限因此可能回基于前两种进行模型选择。
+
+stacking的核心是“准而不同、多而不同”。
+
+
+
+### stacking
 
 1. 降低bias：可用先基于单标签进行一次stacking（同一个模型内部），选出每个标签f2-score前k个最优模型，然后基于多次随机贪心的搜寻方式（或者用beam search），得出一个组合模型的f2-score排序（同一个模型的同一个标签不能出现两次），然后根据这个排序选出前n个输入下一个ensemb layer
 2. 降维、降低variance：同一个模型有太多的权重，如InceptionV3 val1就训练了10次。是否可以先进行一次bagging（每种模型选出bagging之后的几个，如两个），然后再输入到下一个ensemble layer

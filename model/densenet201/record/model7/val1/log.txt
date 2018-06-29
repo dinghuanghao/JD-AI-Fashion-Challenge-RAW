@@ -1,0 +1,12 @@
+2018-06-29:17:48:19: add 7392 color augmentation file
+2018-06-29:17:48:19: train file: 51319, val file: 10981
+2018-06-29:17:48:19: ####### start train model
+2018-06-29:17:48:19: ####### init stage is 0
+2018-06-29:17:48:19: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-06-29:17:48:22: ####### initial epoch is 0, end epoch is 1
+2018-06-29:17:53:23: on epoch 1 end, save weight:F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-29:17:54:32: start predict
+2018-06-29:17:54:32: start predict data type original
+2018-06-29:17:55:35: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-06-29:17:56:34: ####### load weight file: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-06-29:17:56:50: ####### initial epoch is 1, end epoch is 4
