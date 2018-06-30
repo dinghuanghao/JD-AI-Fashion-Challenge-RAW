@@ -3,7 +3,10 @@ import sys
 
 sys.path.append(os.path.abspath("../"))
 
-from model.densenet201 import model28_val1
+from model.xception import model21_val2
+from model.xception import model22_val2
+from model.xception import model23_val2
 
-
-model28_val1.train()
+model21_val2.train()
+model22_val2.train()
+model23_val2.train()
