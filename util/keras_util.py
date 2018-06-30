@@ -18,7 +18,7 @@ from util import data_loader
 from util import data_visualization as dv
 from util import metrics
 from util import path
-
+import config
 
 class KerasModelConfig(object):
     def __init__(self,
@@ -95,7 +95,7 @@ class KerasModelConfig(object):
             self.val_file_cnt += len(val_files)
             self.train_files += train_files
 
-        if label_color_augment is not None:
+        if label_color_augment is not None and config.DATA_TYPE_ORIGINAL in data_type:
 
             # 将当前用于train的所有图片名称构成一个dict
             train_file_dict = {}
