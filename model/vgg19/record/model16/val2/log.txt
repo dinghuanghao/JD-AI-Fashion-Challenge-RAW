@@ -60,3 +60,15 @@
 2018-06-30:12:18:37: ####### lr=0.000010, freeze layers=5.000000 epoch=10
 2018-06-30:12:19:47: ####### load weight file: F:\Projects\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 2018-06-30:12:20:04: ####### initial epoch is 4, end epoch is 10
+2018-06-30:12:36:11: on epoch 5 end, save weight:F:\Projects\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-06-30:12:40:18: start predict with tta
+2018-06-30:12:40:18: start predict with tta index is 0, data type is original
+2018-06-30:12:41:14: start predict with tta index is 1, data type is original
+2018-06-30:12:57:01: on epoch 6 end, save weight:F:\Projects\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-06-30:12:57:04: start predict with tta
+2018-06-30:12:57:04: start predict with tta index is 0, data type is original
+2018-06-30:12:57:55: start predict with tta index is 1, data type is original
+2018-06-30:13:13:22: on epoch 7 end, save weight:F:\Projects\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-06-30:13:13:25: start predict with tta
+2018-06-30:13:13:25: start predict with tta index is 0, data type is original
+2018-06-30:13:14:16: start predict with tta index is 1, data type is original
