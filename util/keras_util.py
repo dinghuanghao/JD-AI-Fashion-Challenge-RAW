@@ -2,6 +2,7 @@ import math
 import os
 import pathlib
 import random
+import re
 import time
 from queue import Queue
 from threading import Thread
@@ -13,7 +14,6 @@ import tensorflow as tf
 from keras.callbacks import Callback
 from sklearn.metrics import fbeta_score
 
-import config
 from util import data_loader
 from util import data_visualization as dv
 from util import metrics
@@ -57,6 +57,7 @@ class KerasModelConfig(object):
         self.data_type = data_type
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split("_")[0])
         self.record_dir = os.path.join(self.record_dir, "val%d" % self.val_index)
+        self.model_name = os.path.split(model_dir)[-1] + ": " + file_name
         self.fit_img_record_dir = os.path.join(os.path.join(self.record_dir, "image"), "fit")
         self.predict_img_record_dir = os.path.join(os.path.join(self.record_dir, "image"), "predict")
         self.log_file = os.path.join(self.record_dir, "log.txt")
@@ -73,14 +74,25 @@ class KerasModelConfig(object):
         self.tta_flip = tta_flip
         self.tta_crop = tta_crop
         self.debug = debug
+        self.label_color_augment = label_color_augment
+        self.downsampling = downsampling
+        self.label_up_sampling = label_up_sampling
+
         self.data_visualization = data_visualization
 
         self.val_files = []
         self.train_files = []
 
+        self.train_file_cnt = 0
+        self.val_file_cnt = 0
+        self.up_sampling_cnt = [0 for i in range(13)]
+        self.color_augment_cnt = 0
+        self.down_sampling_cnt = 0
+
         for i in self.data_type:
             train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, [i])
             self.val_files.append(val_files)
+            self.val_file_cnt += len(val_files)
             self.train_files += train_files
 
         if label_color_augment is not None:
@@ -105,23 +117,24 @@ class KerasModelConfig(object):
                         augment_files.append(augment_image_dirs[i])
                         break
             self.train_files += augment_files
-            self.save_log("add %d color augmentation file" % len(augment_files))
+            self.color_augment_cnt = len(augment_files)
+            self.save_log("add %d color augmentation file" % self.color_augment_cnt)
 
         if label_up_sampling is not None:
             self.save_log("train files is %d before up sampling" % len(self.train_files))
             sampling_files = []
-            sampling_times = [0 for i in range(13)]
             labels = data_loader.get_labels(self.train_files)
             for i in range(len(labels)):
                 for j in range(len(label_up_sampling)):
                     label = labels[i]
                     if label[j] > 0 and label_up_sampling[j] > 0:
                         sampling_files += [self.train_files[i]] * label_up_sampling[j]
-                        sampling_times[j] += label_up_sampling[j]
+                        self.up_sampling_cnt[j] += label_up_sampling[j]
 
             self.train_files += sampling_files
             self.save_log(
-                "up sampling times: %s, totaol: %d" % (str([str(i) for i in sampling_times]), sum(sampling_times)))
+                "up sampling times: %s, totaol: %d" % (
+                    str([str(i) for i in self.up_sampling_cnt]), sum(self.up_sampling_cnt)))
             self.save_log("train files is %d after up sampling" % len(self.train_files))
 
         self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
@@ -136,12 +149,14 @@ class KerasModelConfig(object):
                     ['0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
                 ]
                 if _label in _labels and random.random() > downsampling:
+                    self.down_sampling_cnt += 1
                     continue
                 else:
                     new_train_files.append(_)
             self.train_files = new_train_files
 
         random.shuffle(self.train_files)
+        self.train_file_cnt = len(self.train_files)
         self.train_files = np.array(self.train_files)
 
         if self.data_visualization:
@@ -210,6 +225,17 @@ class KerasModelConfig(object):
     def get_weights_path(self, epoch):
         return os.path.join(self.record_dir,
                             "%sweights.%03d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
+
+
+def dynamic_model_import(weights_file):
+    model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
+    model_dir = re.match(r"(.*)\\record", weights_file).group(1)
+    model_path = os.path.join(model_dir, model_file)
+    root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
+    package = __import__(".".join([root_dir, type_dir, name]))
+    attr_get_model = getattr(getattr(getattr(package, type_dir), name), "get_model")
+    attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
+    return attr_get_model, attr_model_config
 
 
 def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):

@@ -1,0 +1,100 @@
+
+
+Weight: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.235855
+F2-Score with threshold 0.1: 0.308294
+F2-Score with threshold 0.2: 0.275174
+Greedy F2-Score is: 0.398119
+[label 0]	smooth-f2=0.000395   greedy-f2=0.008592[0.000000]
+[label 1]	smooth-f2=0.051811   greedy-f2=0.403123[0.010000]
+[label 2]	smooth-f2=0.969294   greedy-f2=0.979861[0.160000]
+[label 3]	smooth-f2=0.000657   greedy-f2=0.024989[0.000000]
+[label 4]	smooth-f2=0.209765   greedy-f2=0.724271[0.000000]
+[label 5]	smooth-f2=0.285665   greedy-f2=0.572809[0.040000]
+[label 6]	smooth-f2=0.000241   greedy-f2=0.015292[0.000000]
+[label 7]	smooth-f2=0.024751   greedy-f2=0.249284[0.010000]
+[label 8]	smooth-f2=0.969036   greedy-f2=0.977843[0.150000]
+[label 9]	smooth-f2=0.084325   greedy-f2=0.474006[0.010000]
+[label 10]	smooth-f2=0.383861   greedy-f2=0.470062[0.170000]
+[label 11]	smooth-f2=0.007960   greedy-f2=0.146379[0.010000]
+[label 12]	smooth-f2=0.078358   greedy-f2=0.129032[0.980000]
+
+
+Weight: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.267073
+F2-Score with threshold 0.1: 0.352376
+F2-Score with threshold 0.2: 0.322077
+Greedy F2-Score is: 0.420855
+[label 0]	smooth-f2=0.001046   greedy-f2=0.008592[0.000000]
+[label 1]	smooth-f2=0.155866   greedy-f2=0.443881[0.010000]
+[label 2]	smooth-f2=0.950822   greedy-f2=0.979804[0.000000]
+[label 3]	smooth-f2=0.005176   greedy-f2=0.121951[0.010000]
+[label 4]	smooth-f2=0.418571   greedy-f2=0.724271[0.000000]
+[label 5]	smooth-f2=0.329326   greedy-f2=0.580743[0.050000]
+[label 6]	smooth-f2=0.001020   greedy-f2=0.034247[0.010000]
+[label 7]	smooth-f2=0.087535   greedy-f2=0.247593[0.020000]
+[label 8]	smooth-f2=0.936225   greedy-f2=0.977843[0.010000]
+[label 9]	smooth-f2=0.078587   greedy-f2=0.475157[0.010000]
+[label 10]	smooth-f2=0.371784   greedy-f2=0.455556[0.230000]
+[label 11]	smooth-f2=0.039062   greedy-f2=0.305810[0.010000]
+[label 12]	smooth-f2=0.096926   greedy-f2=0.115668[0.590000]
+
+
+Weight: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.426825
+F2-Score with threshold 0.1: 0.551345
+F2-Score with threshold 0.2: 0.546551
+Greedy F2-Score is: 0.588194
+[label 0]	smooth-f2=0.028996   greedy-f2=0.128866[0.030000]
+[label 1]	smooth-f2=0.429548   greedy-f2=0.663543[0.170000]
+[label 2]	smooth-f2=0.932393   greedy-f2=0.980282[0.090000]
+[label 3]	smooth-f2=0.211508   greedy-f2=0.333333[0.170000]
+[label 4]	smooth-f2=0.578532   greedy-f2=0.811626[0.200000]
+[label 5]	smooth-f2=0.537381   greedy-f2=0.736502[0.240000]
+[label 6]	smooth-f2=0.033159   greedy-f2=0.200000[0.050000]
+[label 7]	smooth-f2=0.232372   greedy-f2=0.464846[0.130000]
+[label 8]	smooth-f2=0.930613   greedy-f2=0.979502[0.150000]
+[label 9]	smooth-f2=0.424953   greedy-f2=0.625510[0.260000]
+[label 10]	smooth-f2=0.605138   greedy-f2=0.736314[0.230000]
+[label 11]	smooth-f2=0.228810   greedy-f2=0.531653[0.120000]
+[label 12]	smooth-f2=0.375326   greedy-f2=0.454545[0.430000]
+
+
+Weight: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.425835
+F2-Score with threshold 0.1: 0.564736
+F2-Score with threshold 0.2: 0.564151
+Greedy F2-Score is: 0.597566
+[label 0]	smooth-f2=0.060900   greedy-f2=0.250000[0.080000]
+[label 1]	smooth-f2=0.473735   greedy-f2=0.663164[0.180000]
+[label 2]	smooth-f2=0.918885   greedy-f2=0.980408[0.110000]
+[label 3]	smooth-f2=0.213002   greedy-f2=0.321637[0.080000]
+[label 4]	smooth-f2=0.583728   greedy-f2=0.812489[0.160000]
+[label 5]	smooth-f2=0.525051   greedy-f2=0.738346[0.230000]
+[label 6]	smooth-f2=0.047867   greedy-f2=0.207182[0.060000]
+[label 7]	smooth-f2=0.254033   greedy-f2=0.477286[0.190000]
+[label 8]	smooth-f2=0.917837   greedy-f2=0.979286[0.130000]
+[label 9]	smooth-f2=0.392812   greedy-f2=0.629412[0.210000]
+[label 10]	smooth-f2=0.597274   greedy-f2=0.732891[0.260000]
+[label 11]	smooth-f2=0.254436   greedy-f2=0.522894[0.140000]
+[label 12]	smooth-f2=0.296299   greedy-f2=0.453368[0.090000]
+
+
+Weight: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.456689
+F2-Score with threshold 0.1: 0.603063
+F2-Score with threshold 0.2: 0.583691
+Greedy F2-Score is: 0.618713
+[label 0]	smooth-f2=0.091193   greedy-f2=0.333333[0.090000]
+[label 1]	smooth-f2=0.522466   greedy-f2=0.689823[0.240000]
+[label 2]	smooth-f2=0.930760   greedy-f2=0.981362[0.090000]
+[label 3]	smooth-f2=0.239460   greedy-f2=0.364742[0.090000]
+[label 4]	smooth-f2=0.601757   greedy-f2=0.819653[0.120000]
+[label 5]	smooth-f2=0.577760   greedy-f2=0.746158[0.280000]
+[label 6]	smooth-f2=0.070592   greedy-f2=0.261044[0.080000]
+[label 7]	smooth-f2=0.283469   greedy-f2=0.492468[0.160000]
+[label 8]	smooth-f2=0.928197   greedy-f2=0.979767[0.100000]
+[label 9]	smooth-f2=0.462610   greedy-f2=0.632919[0.210000]
+[label 10]	smooth-f2=0.623675   greedy-f2=0.749178[0.190000]
+[label 11]	smooth-f2=0.314156   greedy-f2=0.537190[0.110000]
+[label 12]	smooth-f2=0.290864   greedy-f2=0.455635[0.040000]

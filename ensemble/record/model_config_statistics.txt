@@ -1,0 +1,2138 @@
+##############################label 0##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.486111
+model_name=inceptionv3: model18_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51319
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.451128
+model_name=densenet201: model7_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51319
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.521472
+model_name=xception: model11_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.451807
+model_name=xception: model8_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.375940
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.340909
+model_name=inceptionresnetv2: model5_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.481928
+model_name=densenet121: model16_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=55241
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
+label_up_sampling_cnt=['2370', '0', '0', '4260', '0', '0', '3420', '0', '0', '0', '0', '0', '6900']
+down_sampling=0.500000
+down_sampling_cnt=13084
+train_batch_size=['32', '32', '32']
+epoch=['2', '5', '10']
+lr=['0.001', '5e-05', '2e-06']
+freeze_layers=['-1', '0.5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.425532
+model_name=densenet201: model23_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=94806
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
+down_sampling=0.500000
+down_sampling_cnt=13069
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.485714
+model_name=densenet201: model7_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.466667
+model_name=vgg19: model9_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=False
+
+##############################label 1##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.700655
+model_name=densenet201: model4_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.694282
+model_name=densenet121: model13_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.3', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.689688
+model_name=densenet201: model25_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=44971
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14100']
+down_sampling=0.500000
+down_sampling_cnt=13055
+train_batch_size=['16', '16', '16']
+epoch=['2', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.684030
+model_name=vgg19: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.681361
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.677452
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.671551
+model_name=xception: model12_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '5', '12']
+lr=['0.01', '0.0001', '1e-06']
+freeze_layers=['-1', '0.8', '0.6']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.666735
+model_name=densenet201: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.670093
+model_name=densenet201: model4_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.669405
+model_name=densenet201: model25_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=45070
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14300']
+down_sampling=0.500000
+down_sampling_cnt=13156
+train_batch_size=['16', '16', '16']
+epoch=['2', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 2##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.982182
+model_name=densenet169: model3_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.982146
+model_name=densenet201: model7_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51319
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.982497
+model_name=xception: model7_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.982400
+model_name=xception: model11_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.982322
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.982211
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.982976
+model_name=xception: model11_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.982822
+model_name=inceptionresnetv2: model5_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.982570
+model_name=densenet201: model22_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=47976
+val_file_cnt=10982
+label_up_sampling=['50', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+label_up_sampling_cnt=['4050', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.982417
+model_name=densenet201: model8_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=62725
+val_file_cnt=10982
+label_color_augment=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+color_augment_cnt=18799
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 3##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.401338
+model_name=vgg19: model4_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.395137
+model_name=densenet121: model3_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.421456
+model_name=xception: model20_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=47121
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '15', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+label_up_sampling_cnt=['0', '0', '0', '3195', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.419847
+model_name=densenet201: model7_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51260
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.555556
+model_name=xception: model11_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.548246
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.522388
+model_name=densenet201: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.519288
+model_name=densenet201: model23_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=94806
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
+down_sampling=0.500000
+down_sampling_cnt=13069
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.539568
+model_name=densenet201: model12_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.509804
+model_name=densenet201: model15_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=56248
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '4', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=12322
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 4##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.829318
+model_name=vgg19: model4_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.827733
+model_name=densenet201: model1_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.828154
+model_name=densenet201: model7_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51260
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.827650
+model_name=vgg19: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.834154
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.833025
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.831143
+model_name=densenet201: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.829483
+model_name=vgg19: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.828609
+model_name=densenet201: model9_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '16', '16']
+epoch=['1', '4', '6', '10']
+lr=['0.0005', '5e-05', '5e-06', '1e-06']
+freeze_layers=['-1', '0.6', '5', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.828270
+model_name=vgg19: model4_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 5##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.763521
+model_name=vgg19: model2_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.760901
+model_name=densenet121: model10_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '42']
+epoch=['1', '4', '10']
+lr=['0.001', '5e-05', '2e-06']
+freeze_layers=['-1', '0.4', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.757057
+model_name=vgg19: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.754763
+model_name=densenet201: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.761167
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.759792
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.758664
+model_name=vgg19: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.758144
+model_name=densenet201: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.762784
+model_name=densenet201: model4_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.760880
+model_name=vgg19: model4_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 6##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.404040
+model_name=densenet201: model4_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.396825
+model_name=densenet201: model7_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51319
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.318627
+model_name=densenet201: model7_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51260
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.289474
+model_name=densenet201: model25_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=44971
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14100']
+down_sampling=0.500000
+down_sampling_cnt=13055
+train_batch_size=['16', '16', '16']
+epoch=['2', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.326923
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.320513
+model_name=densenet121: model16_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=54661
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7453
+label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
+label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
+down_sampling=0.500000
+down_sampling_cnt=13114
+train_batch_size=['32', '32', '32']
+epoch=['2', '5', '10']
+lr=['0.001', '5e-05', '2e-06']
+freeze_layers=['-1', '0.5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.450237
+model_name=densenet201: model23_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=94806
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
+down_sampling=0.500000
+down_sampling_cnt=13069
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.425532
+model_name=xception: model11_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.456731
+model_name=densenet201: model10_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.454545
+model_name=densenet201: model7_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 7##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.504096
+model_name=xception: model7_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.503597
+model_name=densenet201: model3_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.539245
+model_name=densenet201: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.534290
+model_name=xception: model11_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.515850
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.510096
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.494604
+model_name=inceptionresnetv2: model5_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.479813
+model_name=densenet201: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.489807
+model_name=densenet201: model4_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.486625
+model_name=vgg19: model7_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 8##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.980943
+model_name=xception: model2_val1.py
+image_resolution=224
+data_type=['segmented']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.980940
+model_name=xception: model19_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.981130
+model_name=vgg19: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.981109
+model_name=inceptionresnetv2: model5_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.980706
+model_name=xception: model11_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.980546
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.980375
+model_name=inceptionresnetv2: model5_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.980371
+model_name=xception: model11_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.980616
+model_name=xception: model14_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.980564
+model_name=inceptionresnetv2: model5_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+##############################label 9##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.640004
+model_name=densenet121: model6_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '5e-05', '5e-06']
+freeze_layers=['-1', '0.4', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.637093
+model_name=densenet201: model4_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.642934
+model_name=xception: model20_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=47121
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '15', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+label_up_sampling_cnt=['0', '0', '0', '3195', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.641224
+model_name=densenet201: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.643548
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.643002
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.642146
+model_name=xception: model11_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.639706
+model_name=densenet201: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.645991
+model_name=vgg19: model8_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.644230
+model_name=vgg19: model9_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=False
+
+##############################label 10##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.775000
+model_name=densenet169: model2_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.773282
+model_name=densenet169: model3_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.783214
+model_name=densenet201: model7_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51260
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.782609
+model_name=densenet201: model4_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.776759
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.766757
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.784102
+model_name=xception: model12_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '5', '12']
+lr=['0.01', '0.0001', '1e-06']
+freeze_layers=['-1', '0.8', '0.6']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.780841
+model_name=vgg19: model4_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.787326
+model_name=vgg19: model12_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.778609
+model_name=vgg19: model8_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=True
+
+##############################label 11##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.577270
+model_name=xception: model8_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.567416
+model_name=densenet169: model3_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.544810
+model_name=xception: model9_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.543960
+model_name=xception: model10_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.530744
+model_name=vgg19: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.530210
+model_name=densenet201: model4_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.545024
+model_name=xception: model12_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '5', '12']
+lr=['0.01', '0.0001', '1e-06']
+freeze_layers=['-1', '0.8', '0.6']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.538421
+model_name=xception: model11_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.540881
+model_name=vgg19: model8_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.534529
+model_name=vgg19: model12_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=True
+
+##############################label 12##############################
+---------------------val 1---------------------
+rank: 0, f2-score: 0.454545
+model_name=densenet201: model25_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=45690
+val_file_cnt=10981
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14750']
+down_sampling=0.500000
+down_sampling_cnt=12987
+train_batch_size=['16', '16', '16']
+epoch=['2', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.440252
+model_name=inceptionresnetv2: model5_val1.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 2---------------------
+rank: 0, f2-score: 0.552083
+model_name=vgg19: model16_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=66658
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
+down_sampling=0.800000
+down_sampling_cnt=5202
+train_batch_size=['16', '16', '32']
+epoch=['2', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.536105
+model_name=densenet201: model25_val2.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=44971
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14100']
+down_sampling=0.500000
+down_sampling_cnt=13055
+train_batch_size=['16', '16', '16']
+epoch=['2', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 3---------------------
+rank: 0, f2-score: 0.509165
+model_name=densenet121: model16_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=54661
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7453
+label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
+label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
+down_sampling=0.500000
+down_sampling_cnt=13114
+train_batch_size=['32', '32', '32']
+epoch=['2', '5', '10']
+lr=['0.001', '5e-05', '2e-06']
+freeze_layers=['-1', '0.5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.460526
+model_name=inceptionresnetv2: model5_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43927
+val_file_cnt=10981
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 4---------------------
+rank: 0, f2-score: 0.431034
+model_name=densenet201: model23_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=94806
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
+down_sampling=0.500000
+down_sampling_cnt=13069
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.408389
+model_name=xception: model11_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43926
+val_file_cnt=10982
+train_batch_size=['32', '32']
+epoch=['5', '10']
+lr=['0.0001', '1e-06']
+freeze_layers=['0', '0']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+---------------------val 5---------------------
+rank: 0, f2-score: 0.607595
+model_name=densenet201: model21_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=58226
+val_file_cnt=10982
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14300']
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '8']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.597561
+model_name=densenet201: model7_val5.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=51242
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7316
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '10']
+lr=['0.0005', '5e-05', '5e-06']
+freeze_layers=['-1', '0.6', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
