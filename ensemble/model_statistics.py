@@ -10,6 +10,7 @@ from sklearn.metrics import fbeta_score
 
 import config
 from util import data_loader
+from util import keras_util
 from util import path
 
 RECORD_DIR = os.path.join(os.path.abspath("."), "record")
@@ -166,6 +167,7 @@ def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target)
     pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
     ax.get_figure().savefig(os.path.join(record_dir, target), dpi=100, bbox_inches='tight')
 
+
 def shord_board_statistics(label_statis_all):
     shord_board_statis = [[] for i in range(5)]
     for val in range(5):
@@ -174,7 +176,7 @@ def shord_board_statistics(label_statis_all):
             label_statis = label_statis_val[label]
             average = 0
             for i in range(5):
-                average += label_statis[i][1]/5
+                average += label_statis[i][1] / 5
             shord_board_statis[val].append(average)
 
     with open(os.path.join(RECORD_DIR, "short_board_statistics.txt"), 'w+') as f:
@@ -182,9 +184,53 @@ def shord_board_statistics(label_statis_all):
         for i in range(13):
             f.write("\n#######label %d\n" % i)
             for j in range(5):
-                f.write("val %d: %f\n" % (j+1, shord_board_statis[j][i]))
+                f.write("val %d: %f\n" % (j + 1, shord_board_statis[j][i]))
 
 
+def model_config_statistics(label_statis_all):
+    with open(os.path.join(RECORD_DIR, "model_config_statistics.txt"), "w+") as f:
+        for label in range(13):
+            f.write("##############################label %d##############################\n" % label)
+            for val in range(5):
+                f.write("---------------------val %d---------------------\n" % (val + 1))
+                for rank in range(2):
+                    weight_file, f2 = label_statis_all[val][label][rank]
+                    _, model_config = keras_util.dynamic_model_import(weight_file)
+                    assert model_config.val_index == val + 1
+                    f.write("rank: %d, f2-score: %6f\n" % (rank, f2))
+                    f.write("model_name=%s\n" % model_config.model_name)
+                    f.write("image_resolution=%d\n" % model_config.image_resolution)
+                    f.write("data_type=%s\n" % str(model_config.data_type))
+                    f.write("label_position=%s\n" % str([str(i) for i in model_config.label_position]))
+
+                    f.write("train_file_cnt=%d\n" % model_config.train_file_cnt)
+                    f.write("val_file_cnt=%d\n" % model_config.val_file_cnt)
+                    try:
+                        f.write("label_color_augment=%s\n" % str([str(i) for i in model_config.label_color_augment]))
+                        f.write("color_augment_cnt=%d\n" % model_config.color_augment_cnt)
+                    except:
+                        pass
+
+                    try:
+                        f.write("label_up_sampling=%s\n" % str([str(i) for i in model_config.label_up_sampling]))
+                        f.write("label_up_sampling_cnt=%s\n" % str([str(i) for i in model_config.up_sampling_cnt]))
+                    except:
+                        pass
+
+                    try:
+                        f.write("down_sampling=%f\n" % model_config.downsampling)
+                        f.write("down_sampling_cnt=%d\n" % model_config.down_sampling_cnt)
+                    except:
+                        pass
+
+                    f.write("train_batch_size=%s\n" % str([str(i) for i in model_config.train_batch_size]))
+                    f.write("epoch=%s\n" % str([str(i) for i in model_config.epoch]))
+                    f.write("lr=%s\n" % str([str(i) for i in model_config.lr]))
+                    f.write("freeze_layers=%s\n" % str([str(i) for i in model_config.freeze_layers]))
+                    f.write("input_norm=%s\n" % model_config.input_norm)
+                    f.write("tta_flip=%s\n" % model_config.tta_flip)
+                    f.write("tta_crop=%s\n" % model_config.tta_crop)
+                    f.write("\n")
 
 one_label_all = []
 for val_index in range(1, 6):
@@ -199,3 +245,4 @@ for val_index in range(1, 6):
     #     model_corr_heapmap(one_label[i][:20], i, thresholds, val_index, 'label_%d.png' % i)
 
 shord_board_statistics(one_label_all)
+# model_config_statistics(one_label_all)

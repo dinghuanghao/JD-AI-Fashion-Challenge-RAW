@@ -48,13 +48,7 @@ def predict_models(path, val_index=1):
             weights_file_sorted = [weights_file_sorted[k] for k in sorted(weights_file_sorted.keys())]
 
             for weights_file in weights_file_sorted:
-                model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
-                model_dir = re.match(r"(.*)\\record", weights_file).group(1)
-                model_path = os.path.join(model_dir, model_file)
-                root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
-                package = __import__(".".join([root_dir, type_dir, name]))
-                attr_get_model = getattr(getattr(getattr(package, type_dir), name), "get_model")
-                attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
+                attr_get_model, attr_model_config = keras_util.dynamic_model_import(weights_file)
                 attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1))
 
                 print("evaluate :%s" % weights_file)
@@ -64,27 +58,27 @@ def predict_models(path, val_index=1):
                     y_pred = keras_util.predict(model, attr_model_config, verbose=1)
                     keras_util.save_prediction_file(y_pred, weights_file)
 
-            predict_files = [os.path.join(root_dir, predict_f) for root_dir, _, predict_fs in os.walk(root) for
-                             predict_f in predict_fs if "predict" in predict_f]
+        predict_files = [os.path.join(root_dir, predict_f) for root_dir, _, predict_fs in os.walk(root) for
+                         predict_f in predict_fs if "predict" in predict_f]
 
-            predict_file_sorted = {}
-            for predict_file in predict_files:
-                index = re.match(r".*weights\.0*(.*)\.hdf5", predict_file).group(1)
-                predict_file_sorted[int(index) - 1] = predict_file
-            predict_file_sorted = [predict_file_sorted[k] for k in sorted(predict_file_sorted.keys())]
+        predict_file_sorted = {}
+        for predict_file in predict_files:
+            index = re.match(r".*weights\.0*(.*)\.hdf5", predict_file).group(1)
+            predict_file_sorted[int(index) - 1] = predict_file
+        predict_file_sorted = [predict_file_sorted[k] for k in sorted(predict_file_sorted.keys())]
 
-            for predict_file in predict_file_sorted:
-                model_file = "_".join(re.match(r".*record\\(.*)\\\[", predict_file).group(1).split("\\"))
-                model_dir = re.match(r"(.*)\\record", predict_file).group(1)
-                model_path = os.path.join(model_dir, model_file)
-                root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
-                package = __import__(".".join([root_dir, type_dir, name]))
-                attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
-                attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", predict_file).group(1))
-                dv.show_label_calss_bar_per_epoch(attr_model_config.train_files, attr_model_config.record_dir)
-                y_pred = np.load(predict_file)
-                keras_util.evaluate(y_val[val_index], y_pred, keras_util.get_weight_path(predict_file),
-                                    attr_model_config)
+        for predict_file in predict_file_sorted:
+            model_file = "_".join(re.match(r".*record\\(.*)\\\[", predict_file).group(1).split("\\"))
+            model_dir = re.match(r"(.*)\\record", predict_file).group(1)
+            model_path = os.path.join(model_dir, model_file)
+            root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
+            package = __import__(".".join([root_dir, type_dir, name]))
+            attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
+            attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", predict_file).group(1))
+            dv.show_label_calss_bar_per_epoch(attr_model_config.train_files, attr_model_config.record_dir)
+            y_pred = np.load(predict_file)
+            keras_util.evaluate(y_val[val_index], y_pred, keras_util.get_weight_path(predict_file),
+                                attr_model_config)
 
 
 predict_models(os.path.join(path.MODEL_PATH), 1)
