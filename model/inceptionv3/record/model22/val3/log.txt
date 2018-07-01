@@ -1,0 +1,85 @@
+2018-07-01:02:19:02: train files is 43927 before up sampling
+2018-07-01:02:19:02: up sampling times: ['1275', '0', '0', '3270', '0', '0', '2295', '0', '0', '0', '0', '0', '4215'], totaol: 11055
+2018-07-01:02:19:02: train files is 54982 after up sampling
+2018-07-01:02:19:02: train file: 34154, val file: 10981
+2018-07-01:02:23:40: train files is 43927 before up sampling
+2018-07-01:02:23:41: up sampling times: ['1275', '0', '0', '3270', '0', '0', '2295', '0', '0', '0', '0', '0', '4215'], totaol: 11055
+2018-07-01:02:23:41: train files is 54982 after up sampling
+2018-07-01:02:23:41: train file: 34116, val file: 10981
+2018-07-01:02:26:49: train files is 43927 before up sampling
+2018-07-01:02:26:49: up sampling times: ['1275', '0', '0', '3270', '0', '0', '2295', '0', '0', '0', '0', '0', '4215'], totaol: 11055
+2018-07-01:02:26:49: train files is 54982 after up sampling
+2018-07-01:02:26:49: train file: 34133, val file: 10981
+2018-07-01:02:27:22: train files is 43927 before up sampling
+2018-07-01:02:27:22: up sampling times: ['1275', '0', '0', '3270', '0', '0', '2295', '0', '0', '0', '0', '0', '4215'], totaol: 11055
+2018-07-01:02:27:22: train files is 54982 after up sampling
+2018-07-01:02:27:22: train file: 34195, val file: 10981
+2018-07-01:02:28:27: train files is 43927 before up sampling
+2018-07-01:02:28:27: up sampling times: ['1275', '0', '0', '3270', '0', '0', '2295', '0', '0', '0', '0', '0', '4215'], totaol: 11055
+2018-07-01:02:28:27: train files is 54982 after up sampling
+2018-07-01:02:28:27: train file: 34134, val file: 10981
+2018-07-01:02:33:14: add 7453 color augmentation file
+2018-07-01:02:33:14: train files is 51380 before up sampling
+2018-07-01:02:33:14: up sampling times: ['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195'], totaol: 16395
+2018-07-01:02:33:14: train files is 67775 after up sampling
+2018-07-01:02:33:14: train file: 46904, val file: 10981
+2018-07-01:05:17:48: on epoch 1 end, save weight:D:\github\JDC\competition\model\inceptionv3\record\model22\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-01:05:18:57: start predict with tta
+2018-07-01:05:18:57: start predict with tta index is 0, data type is original
+2018-07-01:05:19:44: start predict with tta index is 1, data type is original
+2018-07-01:05:20:34: start predict with tta index is 2, data type is original
+2018-07-01:05:21:24: start predict with tta index is 3, data type is original
+2018-07-01:05:22:14: start predict with tta index is 4, data type is original
+2018-07-01:05:23:04: start predict with tta index is 5, data type is original
+2018-07-01:05:23:59: start predict with tta index is 6, data type is original
+2018-07-01:05:24:55: start predict with tta index is 7, data type is original
+2018-07-01:05:25:51: start predict with tta index is 8, data type is original
+2018-07-01:05:26:48: start predict with tta index is 9, data type is original
+2018-07-01:05:33:57: on epoch 2 end, save weight:D:\github\JDC\competition\model\inceptionv3\record\model22\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-01:05:35:20: start predict with tta
+2018-07-01:05:35:20: start predict with tta index is 0, data type is original
+2018-07-01:05:36:08: start predict with tta index is 1, data type is original
+2018-07-01:05:36:59: start predict with tta index is 2, data type is original
+2018-07-01:05:37:50: start predict with tta index is 3, data type is original
+2018-07-01:05:38:41: start predict with tta index is 4, data type is original
+2018-07-01:05:39:32: start predict with tta index is 5, data type is original
+2018-07-01:05:40:28: start predict with tta index is 6, data type is original
+2018-07-01:05:41:25: start predict with tta index is 7, data type is original
+2018-07-01:05:42:22: start predict with tta index is 8, data type is original
+2018-07-01:05:43:20: start predict with tta index is 9, data type is original
+2018-07-01:05:50:02: on epoch 3 end, save weight:D:\github\JDC\competition\model\inceptionv3\record\model22\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-01:05:50:03: start predict with tta
+2018-07-01:05:50:03: start predict with tta index is 0, data type is original
+2018-07-01:05:50:49: start predict with tta index is 1, data type is original
+2018-07-01:05:51:40: start predict with tta index is 2, data type is original
+2018-07-01:05:52:30: start predict with tta index is 3, data type is original
+2018-07-01:05:53:21: start predict with tta index is 4, data type is original
+2018-07-01:05:54:12: start predict with tta index is 5, data type is original
+2018-07-01:05:55:07: start predict with tta index is 6, data type is original
+2018-07-01:05:56:04: start predict with tta index is 7, data type is original
+2018-07-01:05:57:02: start predict with tta index is 8, data type is original
+2018-07-01:05:57:59: start predict with tta index is 9, data type is original
+2018-07-01:06:05:17: on epoch 4 end, save weight:D:\github\JDC\competition\model\inceptionv3\record\model22\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-01:06:06:51: start predict with tta
+2018-07-01:06:06:51: start predict with tta index is 0, data type is original
+2018-07-01:06:07:42: start predict with tta index is 1, data type is original
+2018-07-01:06:08:34: start predict with tta index is 2, data type is original
+2018-07-01:06:09:27: start predict with tta index is 3, data type is original
+2018-07-01:06:10:20: start predict with tta index is 4, data type is original
+2018-07-01:06:11:12: start predict with tta index is 5, data type is original
+2018-07-01:06:12:10: start predict with tta index is 6, data type is original
+2018-07-01:06:13:08: start predict with tta index is 7, data type is original
+2018-07-01:06:14:07: start predict with tta index is 8, data type is original
+2018-07-01:06:15:06: start predict with tta index is 9, data type is original
+2018-07-01:06:21:55: on epoch 5 end, save weight:D:\github\JDC\competition\model\inceptionv3\record\model22\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-01:06:21:57: start predict with tta
+2018-07-01:06:21:57: start predict with tta index is 0, data type is original
+2018-07-01:06:22:43: start predict with tta index is 1, data type is original
+2018-07-01:06:23:36: start predict with tta index is 2, data type is original
+2018-07-01:06:24:28: start predict with tta index is 3, data type is original
+2018-07-01:06:25:20: start predict with tta index is 4, data type is original
+2018-07-01:06:26:12: start predict with tta index is 5, data type is original
+2018-07-01:06:27:09: start predict with tta index is 6, data type is original
+2018-07-01:06:28:07: start predict with tta index is 7, data type is original
+2018-07-01:06:29:05: start predict with tta index is 8, data type is original
+2018-07-01:06:30:03: start predict with tta index is 9, data type is original
