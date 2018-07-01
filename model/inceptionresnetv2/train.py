@@ -1,3 +1,3 @@
-from  model.inceptionresnetv2 import model8_val2
+from model.inceptionresnetv2 import model10_val1
 
-model8_val2.train()
+model10_val1.train()

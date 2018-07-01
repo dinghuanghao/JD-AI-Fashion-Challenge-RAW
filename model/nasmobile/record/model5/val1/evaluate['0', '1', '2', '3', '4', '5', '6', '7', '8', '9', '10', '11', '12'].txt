@@ -118,3 +118,63 @@ Greedy F2-Score is: 0.599427
 [label 10]	smooth-f2=0.573368   greedy-f2=0.741771[0.140000]
 [label 11]	smooth-f2=0.302781   greedy-f2=0.518950[0.100000]
 [label 12]	smooth-f2=0.118422   greedy-f2=0.268065[0.040000]
+
+
+Weight: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.444632
+F2-Score with threshold 0.1: 0.575320
+F2-Score with threshold 0.2: 0.564035
+Greedy F2-Score is: 0.583545
+[label 0]	smooth-f2=0.248105   greedy-f2=0.390071[0.100000]
+[label 1]	smooth-f2=0.522856   greedy-f2=0.632480[0.140000]
+[label 2]	smooth-f2=0.922095   greedy-f2=0.980712[0.030000]
+[label 3]	smooth-f2=0.212126   greedy-f2=0.289017[0.120000]
+[label 4]	smooth-f2=0.599279   greedy-f2=0.811655[0.130000]
+[label 5]	smooth-f2=0.535430   greedy-f2=0.720633[0.170000]
+[label 6]	smooth-f2=0.153013   greedy-f2=0.237069[0.050000]
+[label 7]	smooth-f2=0.228075   greedy-f2=0.421412[0.060000]
+[label 8]	smooth-f2=0.928890   greedy-f2=0.978912[0.050000]
+[label 9]	smooth-f2=0.364520   greedy-f2=0.601047[0.070000]
+[label 10]	smooth-f2=0.524396   greedy-f2=0.724130[0.110000]
+[label 11]	smooth-f2=0.348696   greedy-f2=0.495913[0.080000]
+[label 12]	smooth-f2=0.192730   greedy-f2=0.303030[0.090000]
+
+
+Weight: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Smooth F2-Score: 0.426591
+F2-Score with threshold 0.1: 0.568650
+F2-Score with threshold 0.2: 0.537930
+Greedy F2-Score is: 0.585674
+[label 0]	smooth-f2=0.195792   greedy-f2=0.384615[0.060000]
+[label 1]	smooth-f2=0.483592   greedy-f2=0.627240[0.070000]
+[label 2]	smooth-f2=0.937538   greedy-f2=0.981395[0.040000]
+[label 3]	smooth-f2=0.201507   greedy-f2=0.300000[0.100000]
+[label 4]	smooth-f2=0.660426   greedy-f2=0.814007[0.160000]
+[label 5]	smooth-f2=0.559986   greedy-f2=0.733837[0.130000]
+[label 6]	smooth-f2=0.156878   greedy-f2=0.261438[0.420000]
+[label 7]	smooth-f2=0.221211   greedy-f2=0.418660[0.080000]
+[label 8]	smooth-f2=0.935600   greedy-f2=0.980010[0.050000]
+[label 9]	smooth-f2=0.348014   greedy-f2=0.601841[0.070000]
+[label 10]	smooth-f2=0.441571   greedy-f2=0.722652[0.050000]
+[label 11]	smooth-f2=0.247805   greedy-f2=0.468662[0.040000]
+[label 12]	smooth-f2=0.155765   greedy-f2=0.319410[0.070000]
+
+
+Weight: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Smooth F2-Score: 0.415909
+F2-Score with threshold 0.1: 0.548417
+F2-Score with threshold 0.2: 0.514802
+Greedy F2-Score is: 0.583949
+[label 0]	smooth-f2=0.093951   greedy-f2=0.255102[0.020000]
+[label 1]	smooth-f2=0.396577   greedy-f2=0.631992[0.040000]
+[label 2]	smooth-f2=0.958890   greedy-f2=0.981331[0.070000]
+[label 3]	smooth-f2=0.245149   greedy-f2=0.314815[0.150000]
+[label 4]	smooth-f2=0.641315   greedy-f2=0.811307[0.130000]
+[label 5]	smooth-f2=0.489885   greedy-f2=0.722304[0.100000]
+[label 6]	smooth-f2=0.115933   greedy-f2=0.307692[0.040000]
+[label 7]	smooth-f2=0.222914   greedy-f2=0.420957[0.060000]
+[label 8]	smooth-f2=0.956663   greedy-f2=0.979811[0.080000]
+[label 9]	smooth-f2=0.376159   greedy-f2=0.603130[0.070000]
+[label 10]	smooth-f2=0.548627   greedy-f2=0.729047[0.110000]
+[label 11]	smooth-f2=0.226751   greedy-f2=0.487528[0.020000]
+[label 12]	smooth-f2=0.134003   greedy-f2=0.346320[0.040000]

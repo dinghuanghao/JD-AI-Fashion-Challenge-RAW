@@ -16,7 +16,7 @@ from util import path
 RECORD_DIR = os.path.join(os.path.abspath("."), "record")
 
 
-def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_file=None):
+def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_dir=None, save_file=None):
     all_label_best = {}
     one_label_best = [{} for i in range(13)]
     one_label_no_repeat = {}
@@ -35,9 +35,7 @@ def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_file=No
                 one_label_no_repeat[label].append(entry)
 
     if save_file is not None:
-        record_dir = os.path.join(RECORD_DIR, "val%d" % val_index)
-        pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
-        with open(os.path.join(record_dir, save_file), "w") as f:
+        with open(os.path.join(save_dir, save_file), "w") as f:
             f.write("==========================All label==========================\n")
             for i in all_label_no_repeat:
                 f.write("%f: %s\n" % (i[1], i[0]))
@@ -50,7 +48,7 @@ def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_file=No
     return all_label_no_repeat, one_label_no_repeat, thresholds
 
 
-def model_f2_statistics(mode_path, val_index=1, save_file=None):
+def model_f2_statistics(mode_path, val_index=1, save_dir=None, save_file=None):
     """
     对model目录下的所有包含"evaluate"字段的文件进行统计，分别得到all-label、one-label统计
     :param mode_path: 需要统计的目录
@@ -96,9 +94,7 @@ def model_f2_statistics(mode_path, val_index=1, save_file=None):
         one_label[i] = sorted(one_label[i].items(), key=lambda x: x[1], reverse=True)
 
     if save_file is not None:
-        record_dir = os.path.join(RECORD_DIR, "val%d" % val_index)
-        pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
-        with open(os.path.join(record_dir, save_file), "w") as f:
+        with open(os.path.join(save_dir, save_file), "w") as f:
             f.write("==========================All label==========================\n")
             for i in all_label:
                 f.write("%f: %s\n" % (i[1], i[0]))
@@ -160,19 +156,18 @@ def model_coor(model_statis: list, label, thresholds, val_index):
     return df.corr()
 
 
-def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target):
+def model_corr_heapmap(model_statis: list, label, thresholds, val_index, save_dir, save_file):
     corr = model_coor(model_statis, label, thresholds, val_index)
     plt.gcf().clear()
-    ax = sns.heatmap(corr, annot=len(model_statis) < 10, cmap='YlGnBu')
+    sns.set(font_scale=0.6)
+    ax = sns.heatmap(corr, annot=True, annot_kws={"size": 5}, cmap='YlGnBu')
     ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
     ax.set_yticklabels(ax.get_yticklabels(), rotation=0)
-
-    record_dir = os.path.join(RECORD_DIR, "val%d" % val_index)
-    pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
-    ax.get_figure().savefig(os.path.join(record_dir, target), dpi=100, bbox_inches='tight')
+    ax.get_figure().savefig(os.path.join(save_dir, save_file), dpi=200, bbox_inches='tight')
+    return corr
 
 
-def shord_board_statistics(label_statis_all):
+def shord_board_statistics(label_statis_all, save_dir):
     shord_board_statis = [[] for i in range(5)]
     for val in range(5):
         label_statis_val = label_statis_all[val]
@@ -183,7 +178,7 @@ def shord_board_statistics(label_statis_all):
                 average += label_statis[i][1] / 5
             shord_board_statis[val].append(average)
 
-    with open(os.path.join(RECORD_DIR, "short_board_statistics.txt"), 'w+') as f:
+    with open(os.path.join(save_dir, "short_board_statistics.txt"), 'w+') as f:
         f.write("Top-5 f2-score average\n")
         for i in range(13):
             f.write("\n#######label %d\n" % i)
@@ -191,8 +186,8 @@ def shord_board_statistics(label_statis_all):
                 f.write("val %d: %f\n" % (j + 1, shord_board_statis[j][i]))
 
 
-def model_config_statistics(label_statis_all):
-    with open(os.path.join(RECORD_DIR, "model_config_statistics.txt"), "w+") as f:
+def model_config_statistics(label_statis_all, save_dir):
+    with open(os.path.join(save_dir, "model_config_statistics.txt"), "w+") as f:
         for label in range(13):
             f.write("##############################label %d##############################\n" % label)
             for val in range(5):
@@ -237,17 +232,29 @@ def model_config_statistics(label_statis_all):
                     f.write("\n")
 
 
-one_label_all = []
-for val_index in range(1, 6):
-    all_label, one_label, thresholds = model_f2_statistics(path.MODEL_PATH, val_index,
-                                                           "statistics_val%d_all.txt" % val_index)
-    all_label, one_label, thresholds = model_f2_statistics_no_repeat(all_label, one_label, thresholds,
-                                                                     "statistics_val%d_no_repeat.txt" % val_index)
-    one_label_all.append(one_label)
-    #
-    # model_corr_heapmap(all_label[:20], None, thresholds, val_index, "label_all.png")
-    # for i in range(13):
-    #     model_corr_heapmap(one_label[i][:20], i, thresholds, val_index, 'label_%d.png' % i)
+def do_statistics(target_dir, heapmap_num, short_board=False, model_config=False):
+    one_label_all = []
+    corr_all = [[] for i in range(5)]
+    for val_index in range(1, 6):
+        record_dir = os.path.join(target_dir, "val%d" % val_index)
+        pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
 
-shord_board_statistics(one_label_all)
-# model_config_statistics(one_label_all)
+        all_label, one_label, thresholds = model_f2_statistics(path.MODEL_PATH, val_index, record_dir,
+                                                               "statistics_val%d_all.txt" % val_index)
+        all_label, one_label, thresholds = model_f2_statistics_no_repeat(all_label, one_label, thresholds, record_dir,
+                                                                         "statistics_val%d_no_repeat.txt" % val_index)
+        one_label_all.append(one_label)
+
+        model_corr_heapmap(all_label[:heapmap_num], None, thresholds, val_index, record_dir, "label_all.png")
+        for i in range(13):
+            corr = model_corr_heapmap(one_label[i][:heapmap_num], i, thresholds, val_index, record_dir, 'label_%d.png' % i)
+            corr_all[val_index - 1].append(corr)
+            if short_board:
+                shord_board_statistics(one_label_all, target_dir)
+            if model_config:
+                model_config_statistics(one_label_all, target_dir)
+
+    return one_label_all, corr_all
+
+if __name__ == "__main__":
+    do_statistics(RECORD_DIR, 20)
