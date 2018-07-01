@@ -135,3 +135,12 @@
 2018-06-30:21:45:38: start predict with tta index is 9, data type is original
 2018-06-30:21:46:50: ####### train model spend 13317 seconds
 2018-06-30:21:46:50: ####### train model spend 1331 seconds average
+2018-07-01:02:31:11: add 7453 color augmentation file
+2018-07-01:02:31:11: train files is 51380 before up sampling
+2018-07-01:02:31:11: up sampling times: ['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195'], totaol: 16395
+2018-07-01:02:31:11: train files is 67775 after up sampling
+2018-07-01:02:31:12: train file: 54617, val file: 10981
+2018-07-01:02:31:12: ####### start train model
+2018-07-01:02:31:12: ####### init stage is 0
+2018-07-01:02:31:12: ####### lr=0.001000, freeze layers=-1.000000 epoch=2
+2018-07-01:02:31:13: ####### initial epoch is 0, end epoch is 2
