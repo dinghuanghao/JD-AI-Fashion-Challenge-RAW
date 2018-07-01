@@ -16,7 +16,7 @@ from util import path
 RECORD_DIR = os.path.join(os.path.abspath("."), "record")
 
 
-def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_file):
+def model_f2_statistics_no_repeat(all_label, one_label, thresholds, save_file=None):
     all_label_best = {}
     one_label_best = [{} for i in range(13)]
     one_label_no_repeat = {}
@@ -126,7 +126,7 @@ def path_2_model_name(weight_path):
     return "%s_%s_%s_%s" % (model_type, model_number, val, epoch), (model_type, model_number, val, epoch)
 
 
-def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target):
+def model_coor(model_statis: list, label, thresholds, val_index):
     _, val_files = data_loader.get_k_fold_files("1.txt", val_index, [config.DATA_TYPE_ORIGINAL])
     y = data_loader.get_labels(val_files)
     y = np.array(y, np.int8).reshape((-1, 13))
@@ -157,7 +157,11 @@ def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target)
         model_predicts.append(predict)
         model_names.append(name)
         df[name] = predict.flatten()
-    corr = df.corr()
+    return df.corr()
+
+
+def model_corr_heapmap(model_statis: list, label, thresholds, val_index, target):
+    corr = model_coor(model_statis, label, thresholds, val_index)
     plt.gcf().clear()
     ax = sns.heatmap(corr, annot=len(model_statis) < 10, cmap='YlGnBu')
     ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
@@ -231,6 +235,7 @@ def model_config_statistics(label_statis_all):
                     f.write("tta_flip=%s\n" % model_config.tta_flip)
                     f.write("tta_crop=%s\n" % model_config.tta_crop)
                     f.write("\n")
+
 
 one_label_all = []
 for val_index in range(1, 6):

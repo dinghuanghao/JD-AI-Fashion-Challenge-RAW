@@ -1,0 +1,34 @@
+2018-07-01:04:04:04: add 7392 color augmentation file
+2018-07-01:04:04:04: train files is 51319 before up sampling
+2018-07-01:04:04:04: up sampling times: ['2250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2250
+2018-07-01:04:04:04: train files is 53569 after up sampling
+2018-07-01:04:04:05: train file: 53569, val file: 10981
+2018-07-01:10:39:50: add 7392 color augmentation file
+2018-07-01:10:39:50: train files is 51319 before up sampling
+2018-07-01:10:39:50: up sampling times: ['2250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2250
+2018-07-01:10:39:50: train files is 53569 after up sampling
+2018-07-01:10:39:51: train file: 53569, val file: 10981
+2018-07-01:12:00:55: on epoch 1 end, save weight:F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-01:12:02:41: start predict with tta
+2018-07-01:12:02:41: start predict with tta index is 0, data type is original
+2018-07-01:12:03:12: start predict with tta index is 1, data type is original
+2018-07-01:12:20:33: on epoch 2 end, save weight:F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-01:12:24:50: start predict with tta
+2018-07-01:12:24:50: start predict with tta index is 0, data type is original
+2018-07-01:12:25:27: start predict with tta index is 1, data type is original
+2018-07-01:12:39:11: on epoch 3 end, save weight:F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-01:12:39:14: start predict with tta
+2018-07-01:12:39:14: start predict with tta index is 0, data type is original
+2018-07-01:12:39:42: start predict with tta index is 1, data type is original
+2018-07-01:12:53:20: on epoch 4 end, save weight:F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-01:12:53:24: start predict with tta
+2018-07-01:12:53:24: start predict with tta index is 0, data type is original
+2018-07-01:12:53:51: start predict with tta index is 1, data type is original
+2018-07-01:13:12:02: on epoch 5 end, save weight:F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-01:13:19:34: start predict with tta
+2018-07-01:13:19:34: start predict with tta index is 0, data type is original
+2018-07-01:13:20:21: start predict with tta index is 1, data type is original
+2018-07-01:13:34:46: on epoch 6 end, save weight:F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-01:13:34:50: start predict with tta
+2018-07-01:13:34:50: start predict with tta index is 0, data type is original
+2018-07-01:13:35:21: start predict with tta index is 1, data type is original

@@ -19,12 +19,16 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                                label_color_augment=[0, 1, 3, 5, 6, 7, 9, 10, 11, 12],
+                                label_up_sampling=[15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                                 train_batch_size=[32, 32, 32],
                                 val_batch_size=256,
                                 predict_batch_size=256,
                                 epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00005],
-                                freeze_layers=[-1, 0.4, 5])
+                                freeze_layers=[-1, 0.6, 5],
+                                input_norm=False,
+                                data_visualization=True)
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
@@ -77,13 +81,10 @@ def train():
                                           step_size=model_config.get_steps_per_epoch(i) / 2)
 
         train_flow = data_loader.KerasGenerator(model_config=model_config,
-                                                featurewise_center=True,
-                                                featurewise_std_normalization=True,
                                                 width_shift_range=0.15,
                                                 height_shift_range=0.1,
                                                 horizontal_flip=True,
-                                                real_transform=True,
-                                                rescale=1. / 256).flow_from_files(model_config.train_files, mode="fit",
+                                                real_transform=True).flow_from_files(model_config.train_files, mode="fit",
                                                                                   target_size=model_config.image_size,
                                                                                   batch_size=
                                                                                   model_config.train_batch_size[i],
