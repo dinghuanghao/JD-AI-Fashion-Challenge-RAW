@@ -1,0 +1,197 @@
+2018-07-02:02:00:10: add 7453 color augmentation file
+2018-07-02:02:00:10: train files is 51380 before up sampling
+2018-07-02:02:00:10: up sampling times: ['1360', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130'], totaol: 10930
+2018-07-02:02:00:10: train files is 62310 after up sampling
+2018-07-02:02:00:12: train file: 49362, val file: 10981
+2018-07-02:02:03:43: on epoch 1 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-02:02:03:46: start predict with tta
+2018-07-02:02:03:46: start predict with tta index is 0, data type is original
+2018-07-02:02:04:39: start predict with tta index is 1, data type is original
+2018-07-02:02:05:38: start predict with tta index is 2, data type is original
+2018-07-02:02:06:38: start predict with tta index is 3, data type is original
+2018-07-02:02:07:36: start predict with tta index is 4, data type is original
+2018-07-02:02:08:35: start predict with tta index is 5, data type is original
+2018-07-02:02:09:37: start predict with tta index is 6, data type is original
+2018-07-02:02:10:39: start predict with tta index is 7, data type is original
+2018-07-02:02:11:40: start predict with tta index is 8, data type is original
+2018-07-02:02:12:40: start predict with tta index is 9, data type is original
+2018-07-02:02:21:32: on epoch 2 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-02:02:21:40: start predict with tta
+2018-07-02:02:21:40: start predict with tta index is 0, data type is original
+2018-07-02:02:22:33: start predict with tta index is 1, data type is original
+2018-07-02:02:23:30: start predict with tta index is 2, data type is original
+2018-07-02:02:24:28: start predict with tta index is 3, data type is original
+2018-07-02:02:25:26: start predict with tta index is 4, data type is original
+2018-07-02:02:26:24: start predict with tta index is 5, data type is original
+2018-07-02:02:27:24: start predict with tta index is 6, data type is original
+2018-07-02:02:28:25: start predict with tta index is 7, data type is original
+2018-07-02:02:29:26: start predict with tta index is 8, data type is original
+2018-07-02:02:30:27: start predict with tta index is 9, data type is original
+2018-07-02:02:39:01: on epoch 3 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-02:02:39:01: start predict with tta
+2018-07-02:02:39:01: start predict with tta index is 0, data type is original
+2018-07-02:02:39:53: start predict with tta index is 1, data type is original
+2018-07-02:02:40:49: start predict with tta index is 2, data type is original
+2018-07-02:02:41:46: start predict with tta index is 3, data type is original
+2018-07-02:02:42:42: start predict with tta index is 4, data type is original
+2018-07-02:02:43:39: start predict with tta index is 5, data type is original
+2018-07-02:02:44:38: start predict with tta index is 6, data type is original
+2018-07-02:02:45:38: start predict with tta index is 7, data type is original
+2018-07-02:02:46:39: start predict with tta index is 8, data type is original
+2018-07-02:02:47:40: start predict with tta index is 9, data type is original
+2018-07-02:02:56:14: on epoch 4 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-02:02:56:15: start predict with tta
+2018-07-02:02:56:15: start predict with tta index is 0, data type is original
+2018-07-02:02:57:06: start predict with tta index is 1, data type is original
+2018-07-02:02:58:03: start predict with tta index is 2, data type is original
+2018-07-02:02:58:59: start predict with tta index is 3, data type is original
+2018-07-02:02:59:56: start predict with tta index is 4, data type is original
+2018-07-02:03:00:52: start predict with tta index is 5, data type is original
+2018-07-02:03:01:52: start predict with tta index is 6, data type is original
+2018-07-02:03:02:53: start predict with tta index is 7, data type is original
+2018-07-02:03:03:53: start predict with tta index is 8, data type is original
+2018-07-02:03:04:54: start predict with tta index is 9, data type is original
+2018-07-02:03:13:47: on epoch 5 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-02:03:13:59: start predict with tta
+2018-07-02:03:13:59: start predict with tta index is 0, data type is original
+2018-07-02:03:14:51: start predict with tta index is 1, data type is original
+2018-07-02:03:15:48: start predict with tta index is 2, data type is original
+2018-07-02:03:16:45: start predict with tta index is 3, data type is original
+2018-07-02:03:17:42: start predict with tta index is 4, data type is original
+2018-07-02:03:18:39: start predict with tta index is 5, data type is original
+2018-07-02:03:19:38: start predict with tta index is 6, data type is original
+2018-07-02:03:20:39: start predict with tta index is 7, data type is original
+2018-07-02:03:21:40: start predict with tta index is 8, data type is original
+2018-07-02:03:22:41: start predict with tta index is 9, data type is original
+2018-07-02:03:31:17: on epoch 6 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-02:03:31:18: start predict with tta
+2018-07-02:03:31:18: start predict with tta index is 0, data type is original
+2018-07-02:03:32:09: start predict with tta index is 1, data type is original
+2018-07-02:03:33:07: start predict with tta index is 2, data type is original
+2018-07-02:03:34:04: start predict with tta index is 3, data type is original
+2018-07-02:03:35:01: start predict with tta index is 4, data type is original
+2018-07-02:03:35:58: start predict with tta index is 5, data type is original
+2018-07-02:03:36:57: start predict with tta index is 6, data type is original
+2018-07-02:03:37:58: start predict with tta index is 7, data type is original
+2018-07-02:03:38:58: start predict with tta index is 8, data type is original
+2018-07-02:03:39:59: start predict with tta index is 9, data type is original
+2018-07-02:03:48:36: on epoch 7 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-02:03:48:37: start predict with tta
+2018-07-02:03:48:37: start predict with tta index is 0, data type is original
+2018-07-02:03:49:28: start predict with tta index is 1, data type is original
+2018-07-02:03:50:25: start predict with tta index is 2, data type is original
+2018-07-02:03:51:22: start predict with tta index is 3, data type is original
+2018-07-02:03:52:18: start predict with tta index is 4, data type is original
+2018-07-02:03:53:15: start predict with tta index is 5, data type is original
+2018-07-02:03:54:15: start predict with tta index is 6, data type is original
+2018-07-02:03:55:16: start predict with tta index is 7, data type is original
+2018-07-02:03:56:16: start predict with tta index is 8, data type is original
+2018-07-02:03:57:17: start predict with tta index is 9, data type is original
+2018-07-02:04:05:53: on epoch 8 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-02:04:05:54: start predict with tta
+2018-07-02:04:05:54: start predict with tta index is 0, data type is original
+2018-07-02:04:06:45: start predict with tta index is 1, data type is original
+2018-07-02:04:07:42: start predict with tta index is 2, data type is original
+2018-07-02:04:08:39: start predict with tta index is 3, data type is original
+2018-07-02:04:09:36: start predict with tta index is 4, data type is original
+2018-07-02:04:10:33: start predict with tta index is 5, data type is original
+2018-07-02:04:11:32: start predict with tta index is 6, data type is original
+2018-07-02:04:12:33: start predict with tta index is 7, data type is original
+2018-07-02:04:13:34: start predict with tta index is 8, data type is original
+2018-07-02:04:14:35: start predict with tta index is 9, data type is original
+2018-07-02:04:19:34: on epoch 1 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-02:04:19:49: start predict with tta
+2018-07-02:04:19:49: start predict with tta index is 0, data type is original
+2018-07-02:04:20:42: start predict with tta index is 1, data type is original
+2018-07-02:04:21:39: start predict with tta index is 2, data type is original
+2018-07-02:04:22:37: start predict with tta index is 3, data type is original
+2018-07-02:04:23:34: start predict with tta index is 4, data type is original
+2018-07-02:04:24:31: start predict with tta index is 5, data type is original
+2018-07-02:04:25:31: start predict with tta index is 6, data type is original
+2018-07-02:04:26:32: start predict with tta index is 7, data type is original
+2018-07-02:04:27:33: start predict with tta index is 8, data type is original
+2018-07-02:04:28:34: start predict with tta index is 9, data type is original
+2018-07-02:04:37:35: on epoch 2 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-02:04:37:56: start predict with tta
+2018-07-02:04:37:56: start predict with tta index is 0, data type is original
+2018-07-02:04:38:50: start predict with tta index is 1, data type is original
+2018-07-02:04:39:47: start predict with tta index is 2, data type is original
+2018-07-02:04:40:45: start predict with tta index is 3, data type is original
+2018-07-02:04:41:42: start predict with tta index is 4, data type is original
+2018-07-02:04:42:40: start predict with tta index is 5, data type is original
+2018-07-02:04:43:39: start predict with tta index is 6, data type is original
+2018-07-02:04:44:41: start predict with tta index is 7, data type is original
+2018-07-02:04:45:42: start predict with tta index is 8, data type is original
+2018-07-02:04:46:43: start predict with tta index is 9, data type is original
+2018-07-02:04:55:25: on epoch 3 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-02:04:55:26: start predict with tta
+2018-07-02:04:55:26: start predict with tta index is 0, data type is original
+2018-07-02:04:56:18: start predict with tta index is 1, data type is original
+2018-07-02:04:57:16: start predict with tta index is 2, data type is original
+2018-07-02:04:58:13: start predict with tta index is 3, data type is original
+2018-07-02:04:59:11: start predict with tta index is 4, data type is original
+2018-07-02:05:00:08: start predict with tta index is 5, data type is original
+2018-07-02:05:01:07: start predict with tta index is 6, data type is original
+2018-07-02:05:02:08: start predict with tta index is 7, data type is original
+2018-07-02:05:03:09: start predict with tta index is 8, data type is original
+2018-07-02:05:04:10: start predict with tta index is 9, data type is original
+2018-07-02:05:12:53: on epoch 4 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-02:05:12:54: start predict with tta
+2018-07-02:05:12:54: start predict with tta index is 0, data type is original
+2018-07-02:05:13:46: start predict with tta index is 1, data type is original
+2018-07-02:05:14:43: start predict with tta index is 2, data type is original
+2018-07-02:05:15:41: start predict with tta index is 3, data type is original
+2018-07-02:05:16:38: start predict with tta index is 4, data type is original
+2018-07-02:05:17:36: start predict with tta index is 5, data type is original
+2018-07-02:05:18:36: start predict with tta index is 6, data type is original
+2018-07-02:05:19:37: start predict with tta index is 7, data type is original
+2018-07-02:05:20:38: start predict with tta index is 8, data type is original
+2018-07-02:05:21:39: start predict with tta index is 9, data type is original
+2018-07-02:05:30:46: on epoch 5 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-02:05:31:13: start predict with tta
+2018-07-02:05:31:13: start predict with tta index is 0, data type is original
+2018-07-02:05:32:07: start predict with tta index is 1, data type is original
+2018-07-02:05:33:04: start predict with tta index is 2, data type is original
+2018-07-02:05:34:02: start predict with tta index is 3, data type is original
+2018-07-02:05:35:00: start predict with tta index is 4, data type is original
+2018-07-02:05:35:58: start predict with tta index is 5, data type is original
+2018-07-02:05:36:58: start predict with tta index is 6, data type is original
+2018-07-02:05:37:59: start predict with tta index is 7, data type is original
+2018-07-02:05:39:01: start predict with tta index is 8, data type is original
+2018-07-02:05:40:02: start predict with tta index is 9, data type is original
+2018-07-02:05:48:50: on epoch 6 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-02:05:48:50: start predict with tta
+2018-07-02:05:48:50: start predict with tta index is 0, data type is original
+2018-07-02:05:49:43: start predict with tta index is 1, data type is original
+2018-07-02:05:50:41: start predict with tta index is 2, data type is original
+2018-07-02:05:51:39: start predict with tta index is 3, data type is original
+2018-07-02:05:52:36: start predict with tta index is 4, data type is original
+2018-07-02:05:53:34: start predict with tta index is 5, data type is original
+2018-07-02:05:54:34: start predict with tta index is 6, data type is original
+2018-07-02:05:55:36: start predict with tta index is 7, data type is original
+2018-07-02:05:56:37: start predict with tta index is 8, data type is original
+2018-07-02:05:57:39: start predict with tta index is 9, data type is original
+2018-07-02:06:06:26: on epoch 7 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-02:06:06:27: start predict with tta
+2018-07-02:06:06:27: start predict with tta index is 0, data type is original
+2018-07-02:06:07:19: start predict with tta index is 1, data type is original
+2018-07-02:06:08:17: start predict with tta index is 2, data type is original
+2018-07-02:06:09:15: start predict with tta index is 3, data type is original
+2018-07-02:06:10:12: start predict with tta index is 4, data type is original
+2018-07-02:06:11:10: start predict with tta index is 5, data type is original
+2018-07-02:06:12:10: start predict with tta index is 6, data type is original
+2018-07-02:06:13:12: start predict with tta index is 7, data type is original
+2018-07-02:06:14:13: start predict with tta index is 8, data type is original
+2018-07-02:06:15:15: start predict with tta index is 9, data type is original
+2018-07-02:06:24:02: on epoch 8 end, save weight:D:\github\JDC\competition\model\resnet50\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-02:06:24:03: start predict with tta
+2018-07-02:06:24:03: start predict with tta index is 0, data type is original
+2018-07-02:06:24:55: start predict with tta index is 1, data type is original
+2018-07-02:06:25:53: start predict with tta index is 2, data type is original
+2018-07-02:06:26:51: start predict with tta index is 3, data type is original
+2018-07-02:06:27:48: start predict with tta index is 4, data type is original
+2018-07-02:06:28:46: start predict with tta index is 5, data type is original
+2018-07-02:06:29:46: start predict with tta index is 6, data type is original
+2018-07-02:06:30:48: start predict with tta index is 7, data type is original
+2018-07-02:06:31:49: start predict with tta index is 8, data type is original
+2018-07-02:06:32:51: start predict with tta index is 9, data type is original
