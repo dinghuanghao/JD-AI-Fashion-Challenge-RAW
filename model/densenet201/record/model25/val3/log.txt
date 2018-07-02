@@ -10,3 +10,11 @@
 2018-06-29:10:52:38: ####### init stage is 0
 2018-06-29:10:52:38: ####### lr=0.000500, freeze layers=-1.000000 epoch=2
 2018-06-29:10:52:40: ####### initial epoch is 0, end epoch is 2
+2018-07-02:00:24:19: train files is 43927 before up sampling
+2018-07-02:00:24:19: up sampling times: ['4250', '0', '0', '10900', '0', '0', '7650', '0', '0', '0', '0', '0', '14050'], totaol: 36850
+2018-07-02:00:24:19: train files is 80777 after up sampling
+2018-07-02:00:24:20: train file: 67762, val file: 10981
+2018-07-02:00:24:20: ####### start train model
+2018-07-02:00:24:20: ####### init stage is 0
+2018-07-02:00:24:20: ####### lr=0.000500, freeze layers=-1.000000 epoch=2
+2018-07-02:00:24:21: ####### initial epoch is 0, end epoch is 2

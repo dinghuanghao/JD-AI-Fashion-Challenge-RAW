@@ -1,10 +1,19 @@
 import os
 import sys
-
+from time import sleep
 sys.path.append(os.path.abspath("../"))
 
-from model.xception import model23_val2
-from model.nasmobile import model5_val1
+from model.densenet201 import model29_val3, model29_val4, model30_val3, model30_val4, model31_val3, model31_val4, \
+    model32_val3, model32_val4
 
-model23_val2.train()
-model5_val1.train()
+model29_val3.train()
+model29_val4.train()
+sleep(120)
+model30_val3.train()
+model30_val4.train()
+sleep(120)
+model31_val3.train()
+model31_val4.train()
+sleep(120)
+model32_val3.train()
+model32_val4.train()
