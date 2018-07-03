@@ -40,3 +40,8 @@
 2018-06-29:10:46:16: start predict
 2018-06-29:10:47:38: ####### train model spend 20738 seconds
 2018-06-29:10:47:38: ####### train model spend 2073 seconds average
+2018-07-03:09:56:54: add 7449 color augmentation file
+2018-07-03:09:56:54: train files is 51375 before up sampling
+2018-07-03:09:56:55: up sampling times: ['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000'], totaol: 56500
+2018-07-03:09:56:55: train files is 107875 after up sampling
+2018-07-03:09:56:56: train file: 94861, val file: 10982

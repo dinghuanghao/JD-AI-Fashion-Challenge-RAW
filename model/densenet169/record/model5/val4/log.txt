@@ -43,3 +43,8 @@
 2018-06-30:15:30:59: start predict with tta
 2018-06-30:15:30:59: start predict with tta index is 0, data type is original
 2018-06-30:15:32:19: start predict with tta index is 1, data type is original
+2018-07-03:09:57:45: add 7449 color augmentation file
+2018-07-03:09:57:45: train files is 51375 before up sampling
+2018-07-03:09:57:45: up sampling times: ['2370', '0', '0', '4260', '0', '0', '3420', '0', '0', '0', '0', '0', '6900'], totaol: 16950
+2018-07-03:09:57:45: train files is 68325 after up sampling
+2018-07-03:09:57:47: train file: 55257, val file: 10982

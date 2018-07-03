@@ -72,7 +72,7 @@ def model_f2_statistics(mode_path, val_index=1, save_dir=None, save_file=None):
             for i in f.readlines():
                 if "Weight" in i:
                     # 不同人训练出来的模型中，weight_file的根路径不同，此处进行一个转换
-                    weight_file = os.path.join(path.root_path, re.match(r"Weight:.*competition\\*(.*)", i).group(1))
+                    weight_file = os.path.join(path.root_path, pathlib.Path(re.match(r"Weight:.*competition[\\/]*(.*)", i).group(1)))
                 if "Greedy F2-Score is:" in i:
                     if weight_file == "":
                         print("file %s is abnormal" % file)
@@ -245,16 +245,17 @@ def do_statistics(target_dir, heapmap_num, short_board=False, model_config=False
                                                                          "statistics_val%d_no_repeat.txt" % val_index)
         one_label_all.append(one_label)
 
-        model_corr_heapmap(all_label[:heapmap_num], None, thresholds, val_index, record_dir, "label_all.png")
-        for i in range(13):
-            corr = model_corr_heapmap(one_label[i][:heapmap_num], i, thresholds, val_index, record_dir, 'label_%d.png' % i)
-            corr_all[val_index - 1].append(corr)
-            if short_board:
-                shord_board_statistics(one_label_all, target_dir)
-            if model_config:
-                model_config_statistics(one_label_all, target_dir)
+        # model_corr_heapmap(all_label[:heapmap_num], None, thresholds, val_index, record_dir, "label_all.png")
+        # for i in range(13):
+        #     corr = model_corr_heapmap(one_label[i][:heapmap_num], i, thresholds, val_index, record_dir, 'label_%d.png' % i)
+        #     corr_all[val_index - 1].append(corr)
+    if short_board:
+        shord_board_statistics(one_label_all, target_dir)
+    if model_config:
+        model_config_statistics(one_label_all, target_dir)
 
     return one_label_all, corr_all
 
 if __name__ == "__main__":
-    do_statistics(RECORD_DIR, 20)
+    # do_statistics(RECORD_DIR, 20)
+    do_statistics(RECORD_DIR, 20, True, True)

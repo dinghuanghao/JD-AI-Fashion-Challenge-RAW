@@ -107,3 +107,47 @@
 2018-07-01:17:56:10: start predict with tta index is 6, data type is original
 2018-07-01:17:56:59: start predict with tta index is 7, data type is original
 2018-07-01:17:57:47: start predict with tta index is 8, data type is original
+2018-07-01:17:58:36: start predict with tta index is 9, data type is original
+2018-07-01:18:13:58: on epoch 8 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-01:18:14:01: start predict with tta
+2018-07-01:18:14:01: start predict with tta index is 0, data type is original
+2018-07-01:18:14:45: start predict with tta index is 1, data type is original
+2018-07-01:18:15:33: start predict with tta index is 2, data type is original
+2018-07-01:18:16:21: start predict with tta index is 3, data type is original
+2018-07-01:18:17:09: start predict with tta index is 4, data type is original
+2018-07-01:18:17:56: start predict with tta index is 5, data type is original
+2018-07-01:18:18:45: start predict with tta index is 6, data type is original
+2018-07-01:18:19:35: start predict with tta index is 7, data type is original
+2018-07-01:18:20:25: start predict with tta index is 8, data type is original
+2018-07-01:18:21:15: start predict with tta index is 9, data type is original
+2018-07-01:18:36:42: on epoch 9 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-07-01:18:36:45: start predict with tta
+2018-07-01:18:36:45: start predict with tta index is 0, data type is original
+2018-07-01:18:37:29: start predict with tta index is 1, data type is original
+2018-07-01:18:38:17: start predict with tta index is 2, data type is original
+2018-07-01:18:39:04: start predict with tta index is 3, data type is original
+2018-07-01:18:39:51: start predict with tta index is 4, data type is original
+2018-07-01:18:40:38: start predict with tta index is 5, data type is original
+2018-07-01:18:41:27: start predict with tta index is 6, data type is original
+2018-07-01:18:42:17: start predict with tta index is 7, data type is original
+2018-07-01:18:43:08: start predict with tta index is 8, data type is original
+2018-07-01:18:43:58: start predict with tta index is 9, data type is original
+2018-07-01:18:59:26: on epoch 10 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-07-01:18:59:29: start predict with tta
+2018-07-01:18:59:29: start predict with tta index is 0, data type is original
+2018-07-01:19:00:13: start predict with tta index is 1, data type is original
+2018-07-01:19:00:59: start predict with tta index is 2, data type is original
+2018-07-01:19:01:45: start predict with tta index is 3, data type is original
+2018-07-01:19:02:32: start predict with tta index is 4, data type is original
+2018-07-01:19:03:18: start predict with tta index is 5, data type is original
+2018-07-01:19:04:06: start predict with tta index is 6, data type is original
+2018-07-01:19:04:54: start predict with tta index is 7, data type is original
+2018-07-01:19:05:41: start predict with tta index is 8, data type is original
+2018-07-01:19:06:29: start predict with tta index is 9, data type is original
+2018-07-01:19:07:18: ####### train model spend 10111 seconds
+2018-07-01:19:07:18: ####### train model spend 1011 seconds average
+2018-07-03:09:56:35: add 7392 color augmentation file
+2018-07-03:09:56:35: train files is 51319 before up sampling
+2018-07-03:09:56:36: up sampling times: ['2250', '0', '0', '4230', '0', '0', '3660', '0', '0', '0', '0', '0', '6555'], totaol: 16695
+2018-07-03:09:56:36: train files is 68014 after up sampling
+2018-07-03:09:56:37: train file: 55021, val file: 10981

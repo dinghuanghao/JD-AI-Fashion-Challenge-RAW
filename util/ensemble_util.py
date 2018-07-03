@@ -107,6 +107,7 @@ class ModelEnsemble(object):
     """
 
     def __init__(self, config: EnsembleConfig):
+        self.config = config
         pass
 
     def train_all_label(self):

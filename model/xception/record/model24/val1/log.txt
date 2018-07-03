@@ -1,0 +1,32 @@
+2018-07-02:22:57:10: add 7392 color augmentation file
+2018-07-02:22:57:10: train files is 51319 before up sampling
+2018-07-02:22:57:10: up sampling times: ['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0'], totaol: 12200
+2018-07-02:22:57:10: train files is 63519 after up sampling
+2018-07-02:22:57:11: train file: 58298, val file: 10981
+2018-07-02:22:57:30: add 7392 color augmentation file
+2018-07-02:22:57:30: train files is 51319 before up sampling
+2018-07-02:22:57:31: up sampling times: ['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0'], totaol: 12200
+2018-07-02:22:57:31: train files is 63519 after up sampling
+2018-07-02:22:57:32: train file: 58331, val file: 10981
+2018-07-02:22:57:40: ####### start train model
+2018-07-02:22:57:40: ####### init stage is 0
+2018-07-02:22:57:40: ####### lr=0.000100, freeze layers=0.000000 epoch=5
+2018-07-02:22:57:44: ####### initial epoch is 0, end epoch is 5
+2018-07-02:22:58:55: add 7392 color augmentation file
+2018-07-02:22:58:55: train files is 51319 before up sampling
+2018-07-02:22:58:55: up sampling times: ['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0'], totaol: 12200
+2018-07-02:22:58:55: train files is 63519 after up sampling
+2018-07-02:22:58:56: train file: 58362, val file: 10981
+2018-07-02:22:59:05: ####### start train model
+2018-07-02:22:59:05: ####### init stage is 0
+2018-07-02:22:59:05: ####### lr=0.000100, freeze layers=0.000000 epoch=5
+2018-07-02:22:59:08: ####### initial epoch is 0, end epoch is 5
+2018-07-02:23:00:06: add 7392 color augmentation file
+2018-07-02:23:00:06: train files is 51319 before up sampling
+2018-07-02:23:00:07: up sampling times: ['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0'], totaol: 12200
+2018-07-02:23:00:07: train files is 63519 after up sampling
+2018-07-02:23:00:08: train file: 58420, val file: 10981
+2018-07-02:23:00:16: ####### start train model
+2018-07-02:23:00:16: ####### init stage is 0
+2018-07-02:23:00:16: ####### lr=0.000100, freeze layers=0.000000 epoch=5
+2018-07-02:23:00:20: ####### initial epoch is 0, end epoch is 5

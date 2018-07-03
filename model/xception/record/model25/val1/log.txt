@@ -1,0 +1,38 @@
+2018-07-02:22:57:14: add 7392 color augmentation file
+2018-07-02:22:57:14: train files is 51319 before up sampling
+2018-07-02:22:57:14: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-02:22:57:14: train files is 73169 after up sampling
+2018-07-02:22:57:15: train file: 67888, val file: 10981
+2018-07-02:22:57:35: add 7392 color augmentation file
+2018-07-02:22:57:35: train files is 51319 before up sampling
+2018-07-02:22:57:35: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-02:22:57:35: train files is 73169 after up sampling
+2018-07-02:22:57:36: train file: 68015, val file: 10981
+2018-07-02:22:58:59: add 7392 color augmentation file
+2018-07-02:22:58:59: train files is 51319 before up sampling
+2018-07-02:22:58:59: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-02:22:58:59: train files is 73169 after up sampling
+2018-07-02:22:59:00: train file: 67964, val file: 10981
+2018-07-02:23:00:10: add 7392 color augmentation file
+2018-07-02:23:00:10: train files is 51319 before up sampling
+2018-07-02:23:00:11: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-02:23:00:11: train files is 73169 after up sampling
+2018-07-02:23:00:12: train file: 67951, val file: 10981
+2018-07-02:23:01:53: add 7392 color augmentation file
+2018-07-02:23:01:53: train files is 51319 before up sampling
+2018-07-02:23:01:53: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-02:23:01:53: train files is 73169 after up sampling
+2018-07-02:23:01:55: train file: 67975, val file: 10981
+2018-07-03:05:15:38: ####### start train model
+2018-07-03:05:15:38: ####### init stage is 0
+2018-07-03:05:15:38: ####### lr=0.000100, freeze layers=5.000000 epoch=5
+2018-07-03:05:15:43: ####### initial epoch is 0, end epoch is 5
+2018-07-03:09:19:46: add 7392 color augmentation file
+2018-07-03:09:19:46: train files is 51319 before up sampling
+2018-07-03:09:19:46: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-03:09:19:46: train files is 73169 after up sampling
+2018-07-03:09:19:48: train file: 67945, val file: 10981
+2018-07-03:09:19:52: ####### start train model
+2018-07-03:09:19:52: ####### init stage is 0
+2018-07-03:09:19:52: ####### lr=0.000100, freeze layers=5.000000 epoch=5
+2018-07-03:09:19:55: ####### initial epoch is 0, end epoch is 5

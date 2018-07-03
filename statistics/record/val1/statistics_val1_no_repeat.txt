@@ -1,7 +1,10 @@
 ==========================All label==========================
+0.637456: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.630237: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.629056: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.628655: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.624712: F:\Projects\competition\model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.623388: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.623006: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.622395: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.622332: F:\Projects\competition\model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -12,6 +15,8 @@
 0.620042: F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.619615: F:\Projects\competition\model\densenet169\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.617326: F:\Projects\competition\model\xception\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.616333: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+0.616176: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.616159: F:\Projects\competition\model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.616105: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.614813: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -33,7 +38,6 @@
 0.608180: F:\Projects\competition\model\xception\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.608152: F:\Projects\competition\model\resnet50\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.607970: F:\Projects\competition\model\xception\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.606823: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.605467: F:\Projects\competition\model\densenet201\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
 0.604434: F:\Projects\competition\model\densenet121\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.603809: F:\Projects\competition\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -84,7 +88,11 @@
 
 
 ==========================One label: 0==========================
+0.590909: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.508475: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+0.496183: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.486111: F:\Projects\competition\model\inceptionv3\record\model18\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.454545: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.451128: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.446429: F:\Projects\competition\model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.440252: F:\Projects\competition\model\densenet121\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -95,13 +103,13 @@
 0.431034: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.427350: F:\Projects\competition\model\nasmobile\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.419847: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.416667: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.416667: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.416667: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.413534: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.408163: F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.401786: F:\Projects\competition\model\densenet121\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.401786: F:\Projects\competition\model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.398773: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.393701: F:\Projects\competition\model\densenet169\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.393258: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
 0.388350: F:\Projects\competition\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -173,6 +181,7 @@
 0.694282: F:\Projects\competition\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.694255: F:\Projects\competition\model\vgg19\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.693927: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.692927: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.692789: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.692368: F:\Projects\competition\model\vgg19\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.691240: F:\Projects\competition\model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -184,6 +193,7 @@
 0.689622: F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.689382: F:\Projects\competition\model\inceptionv3\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.689187: F:\Projects\competition\model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.688434: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.688073: F:\Projects\competition\model\densenet169\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.688028: F:\Projects\competition\model\densenet121\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.687856: F:\Projects\competition\model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -210,14 +220,17 @@
 0.681511: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.681020: F:\Projects\competition\model\resnet50\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.679650: F:\Projects\competition\model\densenet121\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.678558: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.678348: F:\Projects\competition\model\inceptionresnetv2\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.678306: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.677782: F:\Projects\competition\model\inceptionv3\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.677525: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.676935: F:\Projects\competition\model\densenet121\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.676296: F:\Projects\competition\model\densenet121\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.675886: F:\Projects\competition\model\densenet121\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.675524: F:\Projects\competition\model\resnet50\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.675447: F:\Projects\competition\model\inceptionresnetv2\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.675066: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.674536: F:\Projects\competition\model\nasmobile\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.674004: F:\Projects\competition\model\densenet121\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.673832: F:\Projects\competition\model\inceptionv3\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -239,7 +252,6 @@
 0.661180: F:\Projects\competition\model\inceptionv3\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.660359: F:\Projects\competition\model\inceptionv3\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.658665: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.657698: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.656529: F:\Projects\competition\model\inceptionresnetv2\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.656527: F:\Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.652008: F:\Projects\competition\model\vgg16\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
@@ -280,6 +292,7 @@
 0.981693: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.981693: F:\Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.981672: F:\Projects\competition\model\resnet50\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.981671: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.981646: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981644: F:\Projects\competition\model\xception\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.981635: F:\Projects\competition\model\inceptionv3\record\model18\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -294,6 +307,7 @@
 0.981533: F:\Projects\competition\model\nasmobile\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981530: F:\Projects\competition\model\xception\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981522: F:\Projects\competition\model\densenet121\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.981510: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.981474: F:\Projects\competition\model\resnet50\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
 0.981471: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.981453: F:\Projects\competition\model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -305,16 +319,18 @@
 0.981404: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.981401: F:\Projects\competition\model\densenet121\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981395: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.981391: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981390: F:\Projects\competition\model\nasmobile\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981354: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.981353: F:\Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.981346: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.981335: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981334: F:\Projects\competition\model\densenet121\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.981318: F:\Projects\competition\model\resnet50\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.981298: F:\Projects\competition\model\inceptionv3\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.981292: F:\Projects\competition\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981275: F:\Projects\competition\model\resnet50\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.981273: F:\Projects\competition\model\resnet50\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
-0.981262: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.981217: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.981176: F:\Projects\competition\model\vgg19\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.981172: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -342,6 +358,7 @@
 0.401338: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.396825: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.395137: F:\Projects\competition\model\densenet121\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+0.393836: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.391156: F:\Projects\competition\model\xception\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.378549: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.374593: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -355,6 +372,7 @@
 0.366300: F:\Projects\competition\model\inceptionresnetv2\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.363636: F:\Projects\competition\model\densenet169\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.361446: F:\Projects\competition\model\inceptionv3\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.360656: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.360231: F:\Projects\competition\model\nasmobile\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.358423: F:\Projects\competition\model\resnet50\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.357143: F:\Projects\competition\model\densenet201\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -379,6 +397,7 @@
 0.344203: F:\Projects\competition\model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.344203: F:\Projects\competition\model\densenet121\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.343407: F:\Projects\competition\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.342466: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.342262: F:\Projects\competition\model\densenet121\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.342205: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.342105: F:\Projects\competition\model\xception\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -401,6 +420,7 @@
 0.324484: F:\Projects\competition\model\vgg19\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.324427: F:\Projects\competition\model\densenet121\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.324427: F:\Projects\competition\model\inceptionv3\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+0.323741: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.320755: F:\Projects\competition\model\vgg19\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.319865: F:\Projects\competition\model\xception\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.319767: F:\Projects\competition\model\densenet121\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -408,7 +428,6 @@
 0.319444: F:\Projects\competition\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.317726: F:\Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.315789: F:\Projects\competition\model\nasmobile\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.313390: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.312500: F:\Projects\competition\model\densenet121\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
 0.312500: F:\Projects\competition\model\inceptionresnetv2\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.306122: F:\Projects\competition\model\vgg16\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
@@ -417,6 +436,7 @@
 0.301887: F:\Projects\competition\model\inceptionv3\record\model17\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.296053: F:\Projects\competition\model\inceptionresnetv2\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.287770: F:\Projects\competition\model\resnet50\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.282392: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.153631: F:\Projects\competition\model\densenet201\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 
 
@@ -425,6 +445,7 @@
 
 ==========================One label: 4==========================
 0.829318: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.828058: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.827733: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.827328: F:\Projects\competition\model\densenet121\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.827295: F:\Projects\competition\model\densenet121\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -459,6 +480,7 @@
 0.823380: F:\Projects\competition\model\xception\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.823299: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.823249: F:\Projects\competition\model\xception\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.822956: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.822932: F:\Projects\competition\model\inceptionv3\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.822843: F:\Projects\competition\model\densenet121\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.822802: F:\Projects\competition\model\vgg19\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -475,16 +497,19 @@
 0.821208: F:\Projects\competition\model\inceptionv3\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.821092: F:\Projects\competition\model\densenet121\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.820864: F:\Projects\competition\model\densenet121\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.820702: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.820527: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.819852: F:\Projects\competition\model\nasmobile\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.819703: F:\Projects\competition\model\nasmobile\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.819577: F:\Projects\competition\model\inceptionv3\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.819274: F:\Projects\competition\model\nasmobile\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.819018: F:\Projects\competition\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.818998: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.818669: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.818269: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.817644: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.816534: F:\Projects\competition\model\inceptionv3\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.816056: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.815944: F:\Projects\competition\model\inceptionresnetv2\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.815912: F:\Projects\competition\model\inceptionv3\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.815468: F:\Projects\competition\model\inceptionv3\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -498,7 +523,6 @@
 0.813530: F:\Projects\competition\model\inceptionresnetv2\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.812954: F:\Projects\competition\model\inceptionv3\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.810428: F:\Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.809306: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.790342: F:\Projects\competition\model\resnet50\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.787580: F:\Projects\competition\model\inceptionv3\record\model17\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.786958: F:\Projects\competition\model\resnet50\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -510,6 +534,7 @@
 
 ==========================One label: 5==========================
 0.763521: F:\Projects\competition\model\vgg19\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.761451: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.760901: F:\Projects\competition\model\densenet121\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.760697: F:\Projects\competition\model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.760421: F:\Projects\competition\model\densenet121\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -539,8 +564,10 @@
 0.755171: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.755169: F:\Projects\competition\model\densenet121\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.754689: F:\Projects\competition\model\resnet50\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.754503: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.754312: F:\Projects\competition\model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.754165: F:\Projects\competition\model\densenet121\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.754082: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.753556: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.753418: F:\Projects\competition\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.753378: F:\Projects\competition\model\xception\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -550,9 +577,11 @@
 0.751219: F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.751087: F:\Projects\competition\model\xception\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.750248: F:\Projects\competition\model\resnet50\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.749976: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.749496: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.748823: F:\Projects\competition\model\inceptionv3\record\model18\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.748722: F:\Projects\competition\model\inceptionv3\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.748256: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.748228: F:\Projects\competition\model\inceptionv3\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.747331: F:\Projects\competition\model\xception\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.746914: F:\Projects\competition\model\xception\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -573,7 +602,6 @@
 0.737158: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.736956: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.736863: F:\Projects\competition\model\inceptionv3\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.736735: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.736670: F:\Projects\competition\model\inceptionv3\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.736614: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.735970: F:\Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -594,9 +622,11 @@
 
 
 ==========================One label: 6==========================
+0.416667: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.408163: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.404040: F:\Projects\competition\model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.396825: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.392670: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.384615: F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.365854: F:\Projects\competition\model\densenet121\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.364583: F:\Projects\competition\model\inceptionresnetv2\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -605,6 +635,7 @@
 0.360577: F:\Projects\competition\model\densenet121\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.350000: F:\Projects\competition\model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.348837: F:\Projects\competition\model\resnet50\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.013.hdf5
+0.345745: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.340909: F:\Projects\competition\model\inceptionv3\record\model18\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.329670: F:\Projects\competition\model\xception\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.326087: F:\Projects\competition\model\xception\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -613,12 +644,12 @@
 0.321101: F:\Projects\competition\model\resnet50\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.315789: F:\Projects\competition\model\densenet201\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
 0.313901: F:\Projects\competition\model\densenet121\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.312500: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.311005: F:\Projects\competition\model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.307692: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.307263: F:\Projects\competition\model\resnet50\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.306122: F:\Projects\competition\model\densenet121\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.304569: F:\Projects\competition\model\densenet121\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.303867: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.303867: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
 0.303867: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.303738: F:\Projects\competition\model\inceptionresnetv2\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -631,6 +662,7 @@
 0.286624: F:\Projects\competition\model\xception\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.286260: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.281385: F:\Projects\competition\model\resnet50\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.281250: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.280899: F:\Projects\competition\model\resnet50\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.280899: F:\Projects\competition\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.280172: F:\Projects\competition\model\resnet50\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -688,6 +720,7 @@
 0.499052: F:\Projects\competition\model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.498737: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.497862: F:\Projects\competition\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.496877: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 0.494332: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.493945: F:\Projects\competition\model\densenet121\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.493506: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -714,6 +747,7 @@
 0.483283: F:\Projects\competition\model\inceptionv3\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.483260: F:\Projects\competition\model\inceptionv3\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.482667: F:\Projects\competition\model\vgg19\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.482540: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.482315: F:\Projects\competition\model\resnet50\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.481962: F:\Projects\competition\model\xception\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.481928: F:\Projects\competition\model\resnet50\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -727,6 +761,8 @@
 0.478134: F:\Projects\competition\model\vgg16\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.477984: F:\Projects\competition\model\inceptionv3\record\model18\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.477387: F:\Projects\competition\model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.476580: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+0.476471: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.476048: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.476046: F:\Projects\competition\model\densenet121\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.475722: F:\Projects\competition\model\inceptionv3\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -742,13 +778,13 @@
 0.469858: F:\Projects\competition\model\nasmobile\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.469527: F:\Projects\competition\model\inceptionv3\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.468237: F:\Projects\competition\model\densenet121\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+0.465040: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.464323: F:\Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.463807: F:\Projects\competition\model\inceptionv3\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.462963: F:\Projects\competition\model\densenet121\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.462428: F:\Projects\competition\model\resnet50\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.462162: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.459899: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.458038: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.456897: F:\Projects\competition\model\densenet121\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
 0.451807: F:\Projects\competition\model\inceptionv3\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.449346: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -798,6 +834,7 @@
 0.980216: F:\Projects\competition\model\densenet121\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.980213: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.980197: F:\Projects\competition\model\densenet169\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.980193: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.980179: F:\Projects\competition\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.980171: F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.980146: F:\Projects\competition\model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
@@ -806,11 +843,14 @@
 0.980109: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.980109: F:\Projects\competition\model\resnet50\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.980097: F:\Projects\competition\model\densenet121\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+0.980086: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.980066: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.980066: F:\Projects\competition\model\inceptionv3\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.980062: F:\Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.980058: F:\Projects\competition\model\inceptionv3\record\model18\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.980049: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.980042: F:\Projects\competition\model\densenet121\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.980039: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.980013: F:\Projects\competition\model\inceptionresnetv2\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.980010: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.979992: F:\Projects\competition\model\resnet50\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -849,6 +889,7 @@
 
 
 ==========================One label: 9==========================
+0.641960: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.640004: F:\Projects\competition\model\densenet121\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.637093: F:\Projects\competition\model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.636174: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -869,6 +910,7 @@
 0.631548: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.630890: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.630869: F:\Projects\competition\model\nasmobile\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.630833: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.630713: F:\Projects\competition\model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.630549: F:\Projects\competition\model\densenet201\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.630164: F:\Projects\competition\model\inceptionv3\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -879,6 +921,7 @@
 0.629060: F:\Projects\competition\model\densenet121\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.628831: F:\Projects\competition\model\densenet121\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.628831: F:\Projects\competition\model\densenet121\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.628814: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.628584: F:\Projects\competition\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.628533: F:\Projects\competition\model\resnet50\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.628179: F:\Projects\competition\model\densenet121\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -896,6 +939,7 @@
 0.626194: F:\Projects\competition\model\vgg19\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.626045: F:\Projects\competition\model\densenet121\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.625744: F:\Projects\competition\model\xception\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.624858: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.624147: F:\Projects\competition\model\xception\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.624147: F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.623902: F:\Projects\competition\model\densenet121\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -909,6 +953,7 @@
 0.621348: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.620653: F:\Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.619707: F:\Projects\competition\model\nasmobile\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.619131: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.618821: F:\Projects\competition\model\inceptionv3\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.618259: F:\Projects\competition\model\nasmobile\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.617913: F:\Projects\competition\model\inceptionv3\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -918,7 +963,6 @@
 0.616060: F:\Projects\competition\model\inceptionresnetv2\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.615799: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.615596: F:\Projects\competition\model\inceptionv3\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.615312: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.614538: F:\Projects\competition\model\inceptionv3\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.613755: F:\Projects\competition\model\vgg16\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.609920: F:\Projects\competition\model\nasmobile\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -934,6 +978,7 @@
 
 
 ==========================One label: 10==========================
+0.791667: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.775000: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.773282: F:\Projects\competition\model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.772182: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -941,7 +986,9 @@
 0.771179: F:\Projects\competition\model\densenet121\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.770280: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.768777: F:\Projects\competition\model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.768573: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.767689: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.765094: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.764482: F:\Projects\competition\model\xception\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.763448: F:\Projects\competition\model\densenet121\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.762593: F:\Projects\competition\model\xception\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -951,12 +998,14 @@
 0.760000: F:\Projects\competition\model\vgg19\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.759925: F:\Projects\competition\model\densenet121\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.759923: F:\Projects\competition\model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+0.758703: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.758267: F:\Projects\competition\model\inceptionv3\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.757794: F:\Projects\competition\model\xception\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.757794: F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.756803: F:\Projects\competition\model\resnet50\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.756530: F:\Projects\competition\model\xception\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.756413: F:\Projects\competition\model\densenet121\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+0.756343: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.755608: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.754761: F:\Projects\competition\model\densenet121\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.753280: F:\Projects\competition\model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
@@ -980,7 +1029,6 @@
 0.746564: F:\Projects\competition\model\nasmobile\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.746429: F:\Projects\competition\model\densenet121\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.745421: F:\Projects\competition\model\inceptionv3\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.745342: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.745065: F:\Projects\competition\model\vgg16\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.744503: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.744379: F:\Projects\competition\model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -1025,6 +1073,7 @@
 0.566193: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.564470: F:\Projects\competition\model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.564369: F:\Projects\competition\model\inceptionresnetv2\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.561798: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.558723: F:\Projects\competition\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.558464: F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.556548: F:\Projects\competition\model\densenet121\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -1036,6 +1085,7 @@
 0.555861: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.555556: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.555250: F:\Projects\competition\model\inceptionresnetv2\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.554292: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.553663: F:\Projects\competition\model\densenet121\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.553456: F:\Projects\competition\model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.551802: F:\Projects\competition\model\resnet50\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -1047,8 +1097,10 @@
 0.549753: F:\Projects\competition\model\xception\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.549544: F:\Projects\competition\model\inceptionv3\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.549232: F:\Projects\competition\model\densenet121\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.548780: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.548636: F:\Projects\competition\model\xception\record\model19\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.548636: F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+0.547222: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.546875: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.546875: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.546286: F:\Projects\competition\model\densenet121\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -1080,6 +1132,7 @@
 0.528974: F:\Projects\competition\model\inceptionv3\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
 0.528024: F:\Projects\competition\model\nasmobile\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.527366: F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.526939: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.526906: F:\Projects\competition\model\inceptionv3\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.526617: F:\Projects\competition\model\inceptionv3\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.524494: F:\Projects\competition\model\inceptionv3\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -1093,7 +1146,6 @@
 0.508520: F:\Projects\competition\model\inceptionresnetv2\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.506857: F:\Projects\competition\model\inceptionv3\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.492512: F:\Projects\competition\model\inceptionv3\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.484680: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.457280: F:\Projects\competition\model\resnet50\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.456958: F:\Projects\competition\model\inceptionv3\record\model17\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.445813: F:\Projects\competition\model\resnet50\record\model8\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
@@ -1104,16 +1156,19 @@
 
 
 ==========================One label: 12==========================
+0.459459: F:\Projects\competition\model\xception\record\model26\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.455635: F:\Projects\competition\model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.440252: F:\Projects\competition\model\inceptionresnetv2\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.434243: F:\Projects\competition\model\densenet201\record\model28\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+0.422222: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.420168: F:\Projects\competition\model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.417790: F:\Projects\competition\model\densenet201\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.415677: F:\Projects\competition\model\xception\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.412946: F:\Projects\competition\model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.409836: F:\Projects\competition\model\inceptionresnetv2\record\model12\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.405405: F:\Projects\competition\model\densenet201\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.398707: F:\Projects\competition\model\xception\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-0.386473: F:\Projects\competition\model\inceptionresnetv2\record\model10\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+0.395894: F:\Projects\competition\model\inceptionresnetv2\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.385542: F:\Projects\competition\model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.385488: F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.383598: F:\Projects\competition\model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -1128,6 +1183,7 @@
 0.372208: F:\Projects\competition\model\densenet169\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.367647: F:\Projects\competition\model\vgg19\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.366748: F:\Projects\competition\model\densenet121\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+0.366748: F:\Projects\competition\model\densenet169\record\model7\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.366430: F:\Projects\competition\model\densenet121\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.363636: F:\Projects\competition\model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.359801: F:\Projects\competition\model\xception\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
