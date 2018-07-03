@@ -89,7 +89,7 @@ def show_label_calss_bar_per_epoch(train_file, record_dir):
     _y = label_class_name.copy()
     for i in range(len(_y)):
         _y[i] += '(%d)' % _x[i]
-    plt.figure(1, figsize=(15, 6))
+    plt.figure(figsize=(15, 6))
     sns.barplot(y=_y, x=_x, orient='h')
     record_save = record_dir + '_' + 'label_calss_bar'
     plt.savefig(record_save)
