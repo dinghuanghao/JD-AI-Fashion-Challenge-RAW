@@ -5,14 +5,14 @@ model_name=densenet169: model7_val1.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=57275
+train_file_cnt=57496
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '40', '0', '0', '0', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '11280', '0', '0', '0', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5324
+down_sampling_cnt=5103
 train_batch_size=['32', '32', '32']
 epoch=['2', '4', '10']
 lr=['0.0005', '5e-05', '5e-06']
@@ -26,14 +26,14 @@ model_name=inceptionresnetv2: model10_val1.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=55021
+train_file_cnt=54959
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
 label_up_sampling_cnt=['2250', '0', '0', '4230', '0', '0', '3660', '0', '0', '0', '0', '0', '6555']
 down_sampling=0.500000
-down_sampling_cnt=12993
+down_sampling_cnt=13055
 train_batch_size=['32', '32', '32']
 epoch=['2', '5', '10']
 lr=['0.001', '0.0001', '1e-05']
@@ -79,14 +79,14 @@ model_name=inceptionv3: model22_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=46842
+train_file_cnt=46900
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7453
 label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
 label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
 down_sampling=0.200000
-down_sampling_cnt=20933
+down_sampling_cnt=20875
 train_batch_size=['32', '32', '32']
 epoch=['1', '3', '5']
 lr=['0.001', '0.0001', '1e-05']
@@ -100,14 +100,14 @@ model_name=inceptionresnetv2: model9_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=62567
+train_file_cnt=62540
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7453
 label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
 label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
 down_sampling=0.800000
-down_sampling_cnt=5208
+down_sampling_cnt=5235
 train_batch_size=['32', '32', '32']
 epoch=['1', '4', '10']
 lr=['0.001', '0.0001', '1e-05']
@@ -117,44 +117,44 @@ tta_flip=True
 tta_crop=False
 
 ---------------------val 4---------------------
-rank: 0, f2-score: 0.481928
+rank: 0, f2-score: 0.509259
+model_name=vgg16: model3_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43790
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300']
+down_sampling=0.500000
+down_sampling_cnt=13235
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.481928
 model_name=densenet121: model16_val4.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=55120
+train_file_cnt=55365
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7449
 label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
 label_up_sampling_cnt=['2370', '0', '0', '4260', '0', '0', '3420', '0', '0', '0', '0', '0', '6900']
 down_sampling=0.500000
-down_sampling_cnt=13205
+down_sampling_cnt=12960
 train_batch_size=['32', '32', '32']
 epoch=['2', '5', '10']
 lr=['0.001', '5e-05', '2e-06']
 freeze_layers=['-1', '0.5', '5']
-input_norm=True
-tta_flip=True
-tta_crop=False
-
-rank: 1, f2-score: 0.425532
-model_name=densenet201: model23_val4.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=94861
-val_file_cnt=10982
-label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7449
-label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
-label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
-down_sampling=0.500000
-down_sampling_cnt=13014
-train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
-freeze_layers=['-1', '0.6', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
@@ -209,17 +209,23 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.694282
-model_name=densenet121: model13_val1.py
-image_resolution=224
+rank: 1, f2-score: 0.696634
+model_name=xception: model25_val1.py
+image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43927
+train_file_cnt=67821
 val_file_cnt=10981
-train_batch_size=['32', '32', '32']
-epoch=['1', '4', '10']
-lr=['0.001', '0.0001', '1e-05']
-freeze_layers=['-1', '0.3', '5']
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850']
+down_sampling=0.800000
+down_sampling_cnt=5348
+train_batch_size=['16', '16']
+epoch=['5', '10']
+lr=['0.0001', '5e-05']
+freeze_layers=['5', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
@@ -230,12 +236,12 @@ model_name=densenet201: model25_val2.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=45019
+train_file_cnt=44958
 val_file_cnt=10982
 label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14100']
 down_sampling=0.500000
-down_sampling_cnt=13007
+down_sampling_cnt=13068
 train_batch_size=['16', '16', '16']
 epoch=['2', '4', '8']
 lr=['0.0005', '5e-05', '5e-06']
@@ -291,7 +297,28 @@ tta_flip=True
 tta_crop=False
 
 ---------------------val 4---------------------
-rank: 0, f2-score: 0.671551
+rank: 0, f2-score: 0.672650
+model_name=vgg16: model3_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43790
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300']
+down_sampling=0.500000
+down_sampling_cnt=13235
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.671551
 model_name=xception: model12_val4.py
 image_resolution=224
 data_type=['original']
@@ -302,21 +329,6 @@ train_batch_size=['32', '32', '32']
 epoch=['1', '5', '12']
 lr=['0.01', '0.0001', '1e-06']
 freeze_layers=['-1', '0.8', '0.6']
-input_norm=True
-tta_flip=True
-tta_crop=False
-
-rank: 1, f2-score: 0.666735
-model_name=densenet201: model4_val4.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43926
-val_file_cnt=10982
-train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
-freeze_layers=['-1', '0.6', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
@@ -342,12 +354,12 @@ model_name=densenet201: model25_val5.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=45163
+train_file_cnt=45137
 val_file_cnt=10982
 label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14300']
 down_sampling=0.500000
-down_sampling_cnt=13063
+down_sampling_cnt=13089
 train_batch_size=['16', '16', '16']
 epoch=['2', '4', '8']
 lr=['0.0005', '5e-05', '5e-06']
@@ -540,12 +552,12 @@ model_name=densenet201: model25_val1.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=45683
+train_file_cnt=45656
 val_file_cnt=10981
 label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14750']
 down_sampling=0.500000
-down_sampling_cnt=12994
+down_sampling_cnt=13021
 train_batch_size=['16', '16', '16']
 epoch=['2', '4', '8']
 lr=['0.0005', '5e-05', '5e-06']
@@ -626,14 +638,14 @@ model_name=densenet169: model5_val4.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=55257
+train_file_cnt=55313
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7449
 label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
 label_up_sampling_cnt=['2370', '0', '0', '4260', '0', '0', '3420', '0', '0', '0', '0', '0', '6900']
 down_sampling=0.500000
-down_sampling_cnt=13068
+down_sampling_cnt=13012
 train_batch_size=['16', '16', '16']
 epoch=['2', '5', '10']
 lr=['0.0005', '5e-05', '5e-06']
@@ -714,14 +726,14 @@ model_name=xception: model26_val1.py
 image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58282
+train_file_cnt=58370
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5237
+down_sampling_cnt=5149
 train_batch_size=['16', '16']
 epoch=['5', '10']
 lr=['0.0001', '5e-05']
@@ -731,7 +743,28 @@ tta_flip=True
 tta_crop=False
 
 ---------------------val 2---------------------
-rank: 0, f2-score: 0.828154
+rank: 0, f2-score: 0.828815
+model_name=xception: model25_val2.py
+image_resolution=360
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=66738
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
+down_sampling=0.800000
+down_sampling_cnt=5122
+train_batch_size=['16', '16']
+epoch=['2', '10']
+lr=['0.0001', '1e-05']
+freeze_layers=['5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.828154
 model_name=densenet201: model7_val2.py
 image_resolution=224
 data_type=['original']
@@ -747,21 +780,6 @@ freeze_layers=['-1', '0.6', '5']
 input_norm=False
 tta_flip=True
 tta_crop=True
-
-rank: 1, f2-score: 0.827650
-model_name=vgg19: model4_val2.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43926
-val_file_cnt=10982
-train_batch_size=['32', '32', '32']
-epoch=['1', '4', '10']
-lr=['0.001', '0.0001', '1e-05']
-freeze_layers=['-1', '0.6', '5']
-input_norm=True
-tta_flip=True
-tta_crop=False
 
 ---------------------val 3---------------------
 rank: 0, f2-score: 0.834154
@@ -860,7 +878,28 @@ tta_crop=False
 
 ##############################label 5##############################
 ---------------------val 1---------------------
-rank: 0, f2-score: 0.763521
+rank: 0, f2-score: 0.764377
+model_name=xception: model25_val1.py
+image_resolution=360
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=67821
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850']
+down_sampling=0.800000
+down_sampling_cnt=5348
+train_batch_size=['16', '16']
+epoch=['5', '10']
+lr=['0.0001', '5e-05']
+freeze_layers=['5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.763521
 model_name=vgg19: model2_val1.py
 image_resolution=224
 data_type=['original']
@@ -875,29 +914,29 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.761451
-model_name=xception: model26_val1.py
+---------------------val 2---------------------
+rank: 0, f2-score: 0.758561
+model_name=xception: model25_val2.py
 image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58282
-val_file_cnt=10981
+train_file_cnt=66738
+val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7392
-label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
-label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0']
+color_augment_cnt=7334
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
 down_sampling=0.800000
-down_sampling_cnt=5237
+down_sampling_cnt=5122
 train_batch_size=['16', '16']
-epoch=['5', '10']
-lr=['0.0001', '5e-05']
-freeze_layers=['0', '0']
+epoch=['2', '10']
+lr=['0.0001', '1e-05']
+freeze_layers=['5', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
 
----------------------val 2---------------------
-rank: 0, f2-score: 0.757057
+rank: 1, f2-score: 0.757057
 model_name=vgg19: model4_val2.py
 image_resolution=224
 data_type=['original']
@@ -908,27 +947,6 @@ train_batch_size=['32', '32', '32']
 epoch=['1', '4', '10']
 lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
-tta_flip=True
-tta_crop=False
-
-rank: 1, f2-score: 0.755196
-model_name=xception: model24_val2.py
-image_resolution=324
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58087
-val_file_cnt=10982
-label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7334
-label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
-label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12000', '0', '0', '0', '0', '0', '0']
-down_sampling=0.800000
-down_sampling_cnt=5173
-train_batch_size=['16', '16']
-epoch=['5', '10']
-lr=['0.0001', '5e-05']
-freeze_layers=['0', '0']
 input_norm=True
 tta_flip=True
 tta_crop=False
@@ -1033,14 +1051,14 @@ model_name=xception: model26_val1.py
 image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58282
+train_file_cnt=58370
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5237
+down_sampling_cnt=5149
 train_batch_size=['16', '16']
 epoch=['5', '10']
 lr=['0.0001', '5e-05']
@@ -1054,14 +1072,14 @@ model_name=densenet201: model28_val1.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=67944
+train_file_cnt=67945
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850']
 down_sampling=0.800000
-down_sampling_cnt=5225
+down_sampling_cnt=5224
 train_batch_size=['16', '16', '16']
 epoch=['2', '4', '8']
 lr=['0.0005', '5e-05', '5e-06']
@@ -1076,14 +1094,14 @@ model_name=xception: model24_val2.py
 image_resolution=324
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58087
+train_file_cnt=58102
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7334
 label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12000', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5173
+down_sampling_cnt=5158
 train_batch_size=['16', '16']
 epoch=['5', '10']
 lr=['0.0001', '5e-05']
@@ -1092,99 +1110,109 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.318627
-model_name=densenet201: model7_val2.py
-image_resolution=224
+rank: 1, f2-score: 0.322581
+model_name=xception: model25_val2.py
+image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=51260
+train_file_cnt=66738
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7334
-train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
-freeze_layers=['-1', '0.6', '5']
-input_norm=False
-tta_flip=True
-tta_crop=True
-
----------------------val 3---------------------
-rank: 0, f2-score: 0.372093
-model_name=densenet169: model5_val3.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=54751
-val_file_cnt=10981
-label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7453
-label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
-label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
-down_sampling=0.500000
-down_sampling_cnt=13024
-train_batch_size=['16', '16', '16']
-epoch=['2', '5', '10']
-lr=['0.0005', '5e-05', '5e-06']
-freeze_layers=['-1', '0.6', '5']
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
+down_sampling=0.800000
+down_sampling_cnt=5122
+train_batch_size=['16', '16']
+epoch=['2', '10']
+lr=['0.0001', '1e-05']
+freeze_layers=['5', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.370370
-model_name=inceptionv3: model23_val3.py
+---------------------val 3---------------------
+rank: 0, f2-score: 0.420000
+model_name=vgg19: model17_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43763
+train_file_cnt=43996
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7453
 label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
 label_up_sampling_cnt=['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065']
 down_sampling=0.500000
-down_sampling_cnt=13082
-train_batch_size=['32', '32', '32']
-epoch=['1', '3', '5']
+down_sampling_cnt=12849
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '8']
 lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.396825
+model_name=vgg16: model3_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43860
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7453
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065']
+down_sampling=0.500000
+down_sampling_cnt=12985
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
 tta_flip=True
 tta_crop=True
 
 ---------------------val 4---------------------
-rank: 0, f2-score: 0.450237
+rank: 0, f2-score: 0.467290
+model_name=vgg19: model17_val4.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43946
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300']
+down_sampling=0.500000
+down_sampling_cnt=13079
+train_batch_size=['16', '16', '16']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.450237
 model_name=densenet201: model23_val4.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=94861
+train_file_cnt=94995
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7449
 label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
 label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
 down_sampling=0.500000
-down_sampling_cnt=13014
+down_sampling_cnt=12880
 train_batch_size=['16', '16', '16']
 epoch=['1', '4', '10']
 lr=['0.0005', '5e-05', '5e-06']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
-tta_flip=True
-tta_crop=False
-
-rank: 1, f2-score: 0.425532
-model_name=xception: model11_val4.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43926
-val_file_cnt=10982
-train_batch_size=['32', '32']
-epoch=['5', '10']
-lr=['0.0001', '1e-06']
-freeze_layers=['0', '0']
 input_norm=True
 tta_flip=True
 tta_crop=False
@@ -1545,14 +1573,14 @@ model_name=xception: model26_val1.py
 image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58282
+train_file_cnt=58370
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5237
+down_sampling_cnt=5149
 train_batch_size=['16', '16']
 epoch=['5', '10']
 lr=['0.0001', '5e-05']
@@ -1610,35 +1638,47 @@ tta_flip=True
 tta_crop=False
 
 ---------------------val 3---------------------
-rank: 0, f2-score: 0.643548
-model_name=vgg19: model4_val3.py
+rank: 0, f2-score: 0.650011
+model_name=vgg16: model3_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43927
+train_file_cnt=43860
 val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7453
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065']
+down_sampling=0.500000
+down_sampling_cnt=12985
 train_batch_size=['32', '32', '32']
-epoch=['1', '4', '10']
+epoch=['1', '4', '8']
 lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
-rank: 1, f2-score: 0.643002
-model_name=densenet201: model4_val3.py
+rank: 1, f2-score: 0.644489
+model_name=vgg19: model17_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43927
+train_file_cnt=43996
 val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7453
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065']
+down_sampling=0.500000
+down_sampling_cnt=12849
 train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
 ---------------------val 4---------------------
 rank: 0, f2-score: 0.642146
@@ -1656,20 +1696,26 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.639706
-model_name=densenet201: model4_val4.py
+rank: 1, f2-score: 0.640487
+model_name=vgg19: model17_val4.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43926
+train_file_cnt=43946
 val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7449
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300']
+down_sampling=0.500000
+down_sampling_cnt=13079
 train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
 ---------------------val 5---------------------
 rank: 0, f2-score: 0.645991
@@ -1709,14 +1755,14 @@ model_name=xception: model26_val1.py
 image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58282
+train_file_cnt=58370
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5237
+down_sampling_cnt=5149
 train_batch_size=['16', '16']
 epoch=['5', '10']
 lr=['0.0001', '5e-05']
@@ -1725,23 +1771,50 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.775000
-model_name=densenet169: model2_val1.py
-image_resolution=224
+rank: 1, f2-score: 0.777347
+model_name=xception: model25_val1.py
+image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43927
+train_file_cnt=67821
 val_file_cnt=10981
-train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
-freeze_layers=['-1', '0.6', '5']
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850']
+down_sampling=0.800000
+down_sampling_cnt=5348
+train_batch_size=['16', '16']
+epoch=['5', '10']
+lr=['0.0001', '5e-05']
+freeze_layers=['5', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
 
 ---------------------val 2---------------------
-rank: 0, f2-score: 0.783214
+rank: 0, f2-score: 0.790267
+model_name=xception: model25_val2.py
+image_resolution=360
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=66738
+val_file_cnt=10982
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7334
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
+down_sampling=0.800000
+down_sampling_cnt=5122
+train_batch_size=['16', '16']
+epoch=['2', '10']
+lr=['0.0001', '1e-05']
+freeze_layers=['5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.783214
 model_name=densenet201: model7_val2.py
 image_resolution=224
 data_type=['original']
@@ -1758,29 +1831,29 @@ input_norm=False
 tta_flip=True
 tta_crop=True
 
-rank: 1, f2-score: 0.783090
-model_name=xception: model24_val2.py
-image_resolution=324
+---------------------val 3---------------------
+rank: 0, f2-score: 0.777368
+model_name=vgg16: model3_val3.py
+image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58087
-val_file_cnt=10982
+train_file_cnt=43860
+val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7334
-label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
-label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12000', '0', '0', '0', '0', '0', '0']
-down_sampling=0.800000
-down_sampling_cnt=5173
-train_batch_size=['16', '16']
-epoch=['5', '10']
-lr=['0.0001', '5e-05']
-freeze_layers=['0', '0']
-input_norm=True
+color_augment_cnt=7453
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065']
+down_sampling=0.500000
+down_sampling_cnt=12985
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
----------------------val 3---------------------
-rank: 0, f2-score: 0.776759
+rank: 1, f2-score: 0.776759
 model_name=densenet201: model4_val3.py
 image_resolution=224
 data_type=['original']
@@ -1792,27 +1865,6 @@ epoch=['1', '4', '10']
 lr=['0.0005', '5e-05', '5e-06']
 freeze_layers=['-1', '0.6', '5']
 input_norm=True
-tta_flip=True
-tta_crop=False
-
-rank: 1, f2-score: 0.771597
-model_name=inceptionresnetv2: model9_val3.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=62567
-val_file_cnt=10981
-label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7453
-label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
-label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
-down_sampling=0.800000
-down_sampling_cnt=5208
-train_batch_size=['32', '32', '32']
-epoch=['1', '4', '10']
-lr=['0.001', '0.0001', '1e-05']
-freeze_layers=['-1', '0.6', '5']
-input_norm=False
 tta_flip=True
 tta_crop=False
 
@@ -1942,7 +1994,28 @@ tta_flip=True
 tta_crop=False
 
 ---------------------val 3---------------------
-rank: 0, f2-score: 0.530744
+rank: 0, f2-score: 0.545024
+model_name=vgg16: model3_val3.py
+image_resolution=224
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=43860
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7453
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065']
+down_sampling=0.500000
+down_sampling_cnt=12985
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
+input_norm=False
+tta_flip=True
+tta_crop=True
+
+rank: 1, f2-score: 0.530744
 model_name=vgg19: model4_val3.py
 image_resolution=224
 data_type=['original']
@@ -1952,21 +2025,6 @@ val_file_cnt=10981
 train_batch_size=['32', '32', '32']
 epoch=['1', '4', '10']
 lr=['0.001', '0.0001', '1e-05']
-freeze_layers=['-1', '0.6', '5']
-input_norm=True
-tta_flip=True
-tta_crop=False
-
-rank: 1, f2-score: 0.530210
-model_name=densenet201: model4_val3.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=43927
-val_file_cnt=10981
-train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
 freeze_layers=['-1', '0.6', '5']
 input_norm=True
 tta_flip=True
@@ -2036,19 +2094,40 @@ tta_crop=True
 
 ##############################label 12##############################
 ---------------------val 1---------------------
-rank: 0, f2-score: 0.459459
+rank: 0, f2-score: 0.494350
+model_name=xception: model25_val1.py
+image_resolution=360
+data_type=['original']
+label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+train_file_cnt=67821
+val_file_cnt=10981
+label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
+color_augment_cnt=7392
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850']
+down_sampling=0.800000
+down_sampling_cnt=5348
+train_batch_size=['16', '16']
+epoch=['5', '10']
+lr=['0.0001', '5e-05']
+freeze_layers=['5', '5']
+input_norm=True
+tta_flip=True
+tta_crop=False
+
+rank: 1, f2-score: 0.459459
 model_name=xception: model26_val1.py
 image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58282
+train_file_cnt=58370
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7392
 label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12200', '0', '0', '0', '0', '0', '0']
 down_sampling=0.800000
-down_sampling_cnt=5237
+down_sampling_cnt=5149
 train_batch_size=['16', '16']
 epoch=['5', '10']
 lr=['0.0001', '5e-05']
@@ -2057,64 +2136,45 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.455635
-model_name=densenet201: model25_val1.py
-image_resolution=224
-data_type=['original']
-label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=45683
-val_file_cnt=10981
-label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
-label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14750']
-down_sampling=0.500000
-down_sampling_cnt=12994
-train_batch_size=['16', '16', '16']
-epoch=['2', '4', '8']
-lr=['0.0005', '5e-05', '5e-06']
-freeze_layers=['-1', '0.6', '5']
-input_norm=True
-tta_flip=True
-tta_crop=False
-
 ---------------------val 2---------------------
-rank: 0, f2-score: 0.552083
-model_name=vgg19: model16_val2.py
-image_resolution=224
+rank: 0, f2-score: 0.582418
+model_name=xception: model25_val2.py
+image_resolution=360
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=66629
+train_file_cnt=66738
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7334
 label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
 label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
 down_sampling=0.800000
-down_sampling_cnt=5231
-train_batch_size=['16', '16', '32']
-epoch=['2', '4', '10']
-lr=['0.001', '0.0001', '1e-05']
-freeze_layers=['-1', '0.6', '5']
+down_sampling_cnt=5122
+train_batch_size=['16', '16']
+epoch=['2', '10']
+lr=['0.0001', '1e-05']
+freeze_layers=['5', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.549199
-model_name=xception: model24_val2.py
-image_resolution=324
+rank: 1, f2-score: 0.552083
+model_name=vgg19: model16_val2.py
+image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=58087
+train_file_cnt=66572
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7334
-label_up_sampling=['0', '0', '0', '0', '0', '0', '50', '0', '0', '0', '0', '0', '0']
-label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '12000', '0', '0', '0', '0', '0', '0']
+label_up_sampling=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '50']
+label_up_sampling_cnt=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600']
 down_sampling=0.800000
-down_sampling_cnt=5173
-train_batch_size=['16', '16']
-epoch=['5', '10']
-lr=['0.0001', '5e-05']
-freeze_layers=['0', '0']
+down_sampling_cnt=5288
+train_batch_size=['16', '16', '32']
+epoch=['2', '4', '10']
+lr=['0.001', '0.0001', '1e-05']
+freeze_layers=['-1', '0.6', '5']
 input_norm=True
 tta_flip=True
 tta_crop=False
@@ -2125,14 +2185,14 @@ model_name=densenet121: model16_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=54717
+train_file_cnt=54702
 val_file_cnt=10981
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7453
 label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
 label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
 down_sampling=0.500000
-down_sampling_cnt=13058
+down_sampling_cnt=13073
 train_batch_size=['32', '32', '32']
 epoch=['2', '5', '10']
 lr=['0.001', '5e-05', '2e-06']
@@ -2141,69 +2201,69 @@ input_norm=True
 tta_flip=True
 tta_crop=False
 
-rank: 1, f2-score: 0.482063
-model_name=densenet169: model5_val3.py
+rank: 1, f2-score: 0.502183
+model_name=resnet50: model17_val3.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=54751
+train_file_cnt=36994
 val_file_cnt=10981
-label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
-color_augment_cnt=7453
-label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
-label_up_sampling_cnt=['2040', '0', '0', '4650', '0', '0', '3510', '0', '0', '0', '0', '0', '6195']
-down_sampling=0.500000
-down_sampling_cnt=13024
-train_batch_size=['16', '16', '16']
-epoch=['2', '5', '10']
-lr=['0.0005', '5e-05', '5e-06']
+label_color_augment=['0', '3', '6', '12']
+color_augment_cnt=356
+label_up_sampling=['10', '0', '0', '10', '0', '0', '10', '0', '0', '0', '0', '0', '10']
+label_up_sampling_cnt=['1360', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130']
+down_sampling=0.300000
+down_sampling_cnt=18219
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
 ---------------------val 4---------------------
-rank: 0, f2-score: 0.431034
-model_name=densenet201: model23_val4.py
+rank: 0, f2-score: 0.495979
+model_name=vgg19: model17_val4.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=94861
+train_file_cnt=43946
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7449
-label_up_sampling=['50', '0', '0', '50', '0', '0', '50', '0', '0', '0', '0', '0', '50']
-label_up_sampling_cnt=['7900', '0', '0', '14200', '0', '0', '11400', '0', '0', '0', '0', '0', '23000']
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300']
 down_sampling=0.500000
-down_sampling_cnt=13014
+down_sampling_cnt=13079
 train_batch_size=['16', '16', '16']
-epoch=['1', '4', '10']
-lr=['0.0005', '5e-05', '5e-06']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
-rank: 1, f2-score: 0.417827
-model_name=densenet169: model5_val4.py
+rank: 1, f2-score: 0.464602
+model_name=vgg16: model3_val4.py
 image_resolution=224
 data_type=['original']
 label_position=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-train_file_cnt=55257
+train_file_cnt=43790
 val_file_cnt=10982
 label_color_augment=['0', '1', '3', '5', '6', '7', '9', '10', '11', '12']
 color_augment_cnt=7449
-label_up_sampling=['15', '0', '0', '15', '0', '0', '15', '0', '0', '0', '0', '0', '15']
-label_up_sampling_cnt=['2370', '0', '0', '4260', '0', '0', '3420', '0', '0', '0', '0', '0', '6900']
+label_up_sampling=['5', '0', '0', '5', '0', '0', '5', '0', '0', '0', '0', '0', '5']
+label_up_sampling_cnt=['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300']
 down_sampling=0.500000
-down_sampling_cnt=13068
-train_batch_size=['16', '16', '16']
-epoch=['2', '5', '10']
-lr=['0.0005', '5e-05', '5e-06']
+down_sampling_cnt=13235
+train_batch_size=['32', '32', '32']
+epoch=['1', '4', '8']
+lr=['0.001', '0.0001', '1e-05']
 freeze_layers=['-1', '0.6', '5']
-input_norm=True
+input_norm=False
 tta_flip=True
-tta_crop=False
+tta_crop=True
 
 ---------------------val 5---------------------
 rank: 0, f2-score: 0.607595
