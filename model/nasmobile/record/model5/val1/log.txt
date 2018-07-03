@@ -48,3 +48,23 @@
 2018-07-01:14:34:24: start predict with tta
 2018-07-01:14:34:24: start predict with tta index is 0, data type is original
 2018-07-01:14:34:54: start predict with tta index is 1, data type is original
+2018-07-02:00:23:30: add 7392 color augmentation file
+2018-07-02:00:23:30: train files is 51319 before up sampling
+2018-07-02:00:23:30: up sampling times: ['2250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2250
+2018-07-02:00:23:30: train files is 53569 after up sampling
+2018-07-02:00:23:30: train file: 53569, val file: 10981
+2018-07-02:00:25:40: add 7392 color augmentation file
+2018-07-02:00:25:40: train files is 51319 before up sampling
+2018-07-02:00:25:41: up sampling times: ['2250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2250
+2018-07-02:00:25:41: train files is 53569 after up sampling
+2018-07-02:00:25:41: train file: 53569, val file: 10981
+2018-07-02:00:35:54: add 7392 color augmentation file
+2018-07-02:00:35:54: train files is 51319 before up sampling
+2018-07-02:00:35:54: up sampling times: ['2250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2250
+2018-07-02:00:35:54: train files is 53569 after up sampling
+2018-07-02:00:35:55: train file: 53569, val file: 10981
+2018-07-02:00:50:46: add 7392 color augmentation file
+2018-07-02:00:50:46: train files is 51319 before up sampling
+2018-07-02:00:50:46: up sampling times: ['2250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2250
+2018-07-02:00:50:46: train files is 53569 after up sampling
+2018-07-02:00:50:47: train file: 53569, val file: 10981

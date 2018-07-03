@@ -86,7 +86,7 @@ def show_label_calss_bar_per_epoch(train_file, record_dir):
     labels = np.array(labels)
     df = pd.DataFrame(labels, columns=get_columns())
     _x = df.sum(axis=0).tolist()
-    _y = label_class_name
+    _y = label_class_name.copy()
     for i in range(len(_y)):
         _y[i] += '(%d)' % _x[i]
     plt.figure(1, figsize=(15, 6))
