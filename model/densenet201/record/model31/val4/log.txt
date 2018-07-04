@@ -1,0 +1,68 @@
+2018-07-03:02:21:46: add 387 color augmentation file
+2018-07-03:02:21:46: train files is 44313 before up sampling
+2018-07-03:02:21:46: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '23000'], totaol: 23000
+2018-07-03:02:21:46: train files is 67313 after up sampling
+2018-07-03:02:21:47: train file: 54290, val file: 10982
+2018-07-03:02:21:48: add 387 color augmentation file
+2018-07-03:02:21:48: train files is 44313 before up sampling
+2018-07-03:02:21:48: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '23000'], totaol: 23000
+2018-07-03:02:21:48: train files is 67313 after up sampling
+2018-07-03:02:21:49: train file: 54282, val file: 10982
+2018-07-03:17:18:33: add 387 color augmentation file
+2018-07-03:17:18:33: train files is 44313 before up sampling
+2018-07-03:17:18:33: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '23000'], totaol: 23000
+2018-07-03:17:18:33: train files is 67313 after up sampling
+2018-07-03:17:18:34: train file: 54305, val file: 10982
+2018-07-03:17:18:35: add 387 color augmentation file
+2018-07-03:17:18:35: train files is 44313 before up sampling
+2018-07-03:17:18:35: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '23000'], totaol: 23000
+2018-07-03:17:18:35: train files is 67313 after up sampling
+2018-07-03:17:18:36: train file: 54303, val file: 10982
+2018-07-03:20:02:54: ####### start train model
+2018-07-03:20:02:54: ####### init stage is 0
+2018-07-03:20:02:54: ####### lr=0.000500, freeze layers=-1.000000 epoch=2
+2018-07-03:20:02:56: ####### initial epoch is 0, end epoch is 2
+2018-07-03:20:09:46: on epoch 1 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-03:20:13:09: start predict with tta
+2018-07-03:20:13:09: start predict with tta index is 0, data type is original
+2018-07-03:20:14:40: start predict with tta index is 1, data type is original
+2018-07-03:20:22:55: on epoch 2 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-03:20:22:58: start predict with tta
+2018-07-03:20:22:58: start predict with tta index is 0, data type is original
+2018-07-03:20:24:24: start predict with tta index is 1, data type is original
+2018-07-03:20:25:59: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-07-03:20:26:18: ####### load weight file: D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-03:20:26:31: ####### initial epoch is 2, end epoch is 4
+2018-07-03:20:46:18: on epoch 3 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-03:20:50:53: start predict with tta
+2018-07-03:20:50:53: start predict with tta index is 0, data type is original
+2018-07-03:20:52:25: start predict with tta index is 1, data type is original
+2018-07-03:21:13:22: on epoch 4 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-03:21:13:25: start predict with tta
+2018-07-03:21:13:25: start predict with tta index is 0, data type is original
+2018-07-03:21:14:50: start predict with tta index is 1, data type is original
+2018-07-03:21:16:23: ####### lr=0.000005, freeze layers=5.000000 epoch=8
+2018-07-03:21:16:42: ####### load weight file: D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-03:21:17:01: ####### initial epoch is 4, end epoch is 8
+2018-07-03:21:36:59: on epoch 5 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-03:21:42:47: start predict with tta
+2018-07-03:21:42:47: start predict with tta index is 0, data type is original
+2018-07-03:21:44:18: start predict with tta index is 1, data type is original
+2018-07-03:22:05:32: on epoch 6 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-03:22:05:36: start predict with tta
+2018-07-03:22:05:36: start predict with tta index is 0, data type is original
+2018-07-03:22:07:02: start predict with tta index is 1, data type is original
+2018-07-03:22:29:20: on epoch 7 end, save weight:D:\github\JDC\competition\model\densenet201\record\model31\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-03:22:29:24: start predict with tta
+2018-07-03:22:29:24: start predict with tta index is 0, data type is original
+2018-07-03:22:30:54: start predict with tta index is 1, data type is original
+2018-07-03:22:55:37: add 387 color augmentation file
+2018-07-03:22:55:37: train files is 44313 before up sampling
+2018-07-03:22:55:37: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '23000'], totaol: 23000
+2018-07-03:22:55:37: train files is 67313 after up sampling
+2018-07-03:22:55:37: train file: 54385, val file: 10982
+2018-07-03:22:55:38: add 387 color augmentation file
+2018-07-03:22:55:38: train files is 44313 before up sampling
+2018-07-03:22:55:39: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '23000'], totaol: 23000
+2018-07-03:22:55:39: train files is 67313 after up sampling
+2018-07-03:22:55:39: train file: 54401, val file: 10982
