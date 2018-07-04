@@ -34,3 +34,7 @@
 2018-07-04:23:05:26: ####### lr=0.000010, freeze layers=5.000000 epoch=8
 2018-07-04:23:07:56: ####### load weight file: F:\Projects\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 2018-07-04:23:08:53: ####### initial epoch is 4, end epoch is 8
+2018-07-04:23:52:55: on epoch 5 end, save weight:F:\Projects\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-05:00:06:20: start predict with tta
+2018-07-05:00:06:20: start predict with tta index is 0, data type is original
+2018-07-05:00:08:16: start predict with tta index is 1, data type is original
