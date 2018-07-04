@@ -10,6 +10,7 @@ DATA_PATH = os.path.join(ROOT_PATH, "data")
 MODEL_PATH = os.path.join(ROOT_PATH, "model")
 TRAINING_RECORD_PATH = os.path.join(ROOT_PATH, "record")
 
+CACHE_PATH = os.path.join(DATA_PATH, "cache")
 IMAGES_PATH = os.path.join(DATA_PATH, "images")
 SPIDER_PATH = os.path.join(DATA_PATH, 'spider')
 K_FOLD_IMAGE_PATH = os.path.join(IMAGES_PATH, "k-fold")

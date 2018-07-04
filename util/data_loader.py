@@ -419,6 +419,32 @@ def get_label(filename):
     return label
 
 
+def get_k_fold_labels(val_index, target_label):
+    val_y = None
+    train_y = None
+    for val in range(1, 6):
+        predict_path = os.path.join(path.CACHE_PATH, "label_val%d.npy" % val)
+        if os.path.exists(predict_path):
+            labels = np.load(predict_path)
+        else:
+            _, val_files = get_k_fold_files("1.txt", val, [config.DATA_TYPE_ORIGINAL])
+            labels = get_labels(val_files)
+            labels = np.array(labels)
+            np.save(predict_path, labels)
+
+        labels = labels[:, target_label].reshape((-1, 1))
+
+        if val == val_index:
+            val_y = labels
+        else:
+            if train_y is None:
+                train_y = labels
+            else:
+                train_y = np.vstack((train_y, labels))
+
+    return train_y, val_y
+
+
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []
     val_names = []
