@@ -13,3 +13,32 @@
 2018-07-03:23:47:09: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '43700'], totaol: 43700
 2018-07-03:23:47:09: train files is 95019 after up sampling
 2018-07-03:23:47:10: train file: 88553, val file: 10981
+2018-07-04:07:46:14: on epoch 1 end, save weight:F:\Projects\competition\model\resnet50\record\model20\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-04:07:47:14: start predict with tta
+2018-07-04:07:47:14: start predict with tta index is 0, data type is original
+2018-07-04:07:48:56: start predict with tta index is 1, data type is original
+2018-07-04:08:29:09: on epoch 2 end, save weight:F:\Projects\competition\model\resnet50\record\model20\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-04:08:30:23: start predict with tta
+2018-07-04:08:30:23: start predict with tta index is 0, data type is original
+2018-07-04:08:32:05: start predict with tta index is 1, data type is original
+2018-07-04:09:10:59: on epoch 3 end, save weight:F:\Projects\competition\model\resnet50\record\model20\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-04:09:11:00: start predict with tta
+2018-07-04:09:11:00: start predict with tta index is 0, data type is original
+2018-07-04:09:12:36: start predict with tta index is 1, data type is original
+2018-07-04:09:52:06: on epoch 4 end, save weight:F:\Projects\competition\model\resnet50\record\model20\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-04:09:52:07: start predict with tta
+2018-07-04:09:52:07: start predict with tta index is 0, data type is original
+2018-07-04:09:53:46: start predict with tta index is 1, data type is original
+2018-07-04:12:14:03: add 7392 color augmentation file
+2018-07-04:12:14:03: train files is 51319 before up sampling
+2018-07-04:12:14:04: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '43700'], totaol: 43700
+2018-07-04:12:14:04: train files is 95019 after up sampling
+2018-07-04:12:14:04: train file: 88449, val file: 10981
+2018-07-04:12:51:09: on epoch 5 end, save weight:F:\Projects\competition\model\resnet50\record\model20\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-04:12:51:22: start predict with tta
+2018-07-04:12:51:22: start predict with tta index is 0, data type is original
+2018-07-04:12:53:02: start predict with tta index is 1, data type is original
+2018-07-04:13:30:44: on epoch 6 end, save weight:F:\Projects\competition\model\resnet50\record\model20\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-04:13:30:45: start predict with tta
+2018-07-04:13:30:45: start predict with tta index is 0, data type is original
+2018-07-04:13:32:21: start predict with tta index is 1, data type is original

@@ -1,3 +1,6 @@
+"""
+以model5 为基础
+"""
 import math
 import os
 import queue
@@ -13,27 +16,34 @@ from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
                                 model_path=os.path.abspath(__file__),
-                                image_resolution=400,
+                                image_resolution=324,
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 label_color_augment=[0, 1, 3, 5, 6, 7, 9, 10, 11, 12],
-                                label_up_sampling=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100],
-                                downsampling=0.75,
-                                initial_epoch=4,
                                 train_batch_size=[16, 16, 16],
+                                label_up_sampling=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60],
+                                downsampling=0.7,
+                                data_visualization=True,
                                 val_batch_size=128,
                                 predict_batch_size=128,
                                 epoch=[1, 4, 8],
-                                lr=[0.001, 0.0001, 0.00001],
-                                freeze_layers=[-1, 0.6, 5])
+                                lr=[0.001, 0.0002, 0.00001],
+                                freeze_layers=[-1, 0.6, 5],
+                                tta_flip=True,
+                                input_norm=False)
+
+
+def load_weight(model, epoch):
+    print("load weights:%s" % model_config.get_weights_path(epoch))
+    model.load_weights(model_config.get_weights_path(epoch))
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
-    base_model = keras.applications.ResNet50(include_top=False, weights=weights,
-                                             input_shape=model_config.image_shape, pooling="avg")
+    base_model = keras.applications.InceptionResNetV2(include_top=False, weights=weights,
+                                                      input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
-    x = Dense(512, use_bias=False)(x)
+    x = Dense(256, use_bias=False)(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
     predictions = Dense(units=output_dim, activation='sigmoid')(x)
@@ -66,24 +76,22 @@ def train():
     checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
 
     start = time.time()
-    print("####### start train model")
+    model_config.save_log("####### start train model")
 
     init_stage = model_config.get_init_stage()
-    print("####### init stage is %d" % init_stage)
+    model_config.save_log("####### init stage is %d" % init_stage)
 
     for i in range(init_stage, len(model_config.epoch)):
-        print("####### lr=%f, freeze layers=%2f epoch=%d" % (
+        model_config.save_log("####### lr=%f, freeze layers=%2f epoch=%d" % (
             model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
                                           step_size=model_config.get_steps_per_epoch(i) / 2)
 
         train_flow = data_loader.KerasGenerator(model_config=model_config,
-                                                featurewise_center=True,
-                                                featurewise_std_normalization=True,
                                                 width_shift_range=0.15,
                                                 height_shift_range=0.1,
                                                 horizontal_flip=True,
-                                                rescale=1. / 256).flow_from_files(model_config.train_files, mode="fit",
+                                                real_transform=True).flow_from_files(model_config.train_files, mode="fit",
                                                                                   target_size=model_config.image_size,
                                                                                   batch_size=
                                                                                   model_config.train_batch_size[i],
@@ -91,7 +99,7 @@ def train():
                                                                                   label_position=model_config.label_position)
 
         if i == 0:
-            print("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
+            model_config.save_log("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))
             model.fit_generator(generator=train_flow,
@@ -105,10 +113,10 @@ def train():
                               lr=model_config.lr[i], weights=None)
 
             if i == init_stage:
-                print("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
+                model_config.save_log("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
-                print("####### initial epoch is %d, end epoch is %d" % (
+                model_config.save_log("####### initial epoch is %d, end epoch is %d" % (
                     model_config.initial_epoch, model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
@@ -118,10 +126,10 @@ def train():
                                     verbose=1,
                                     callbacks=[checkpoint, clr])
             else:
-                print("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
+                model_config.save_log("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
                 model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
 
-                print(
+                model_config.save_log(
                     "####### initial epoch is %d, end epoch is %d" % (model_config.epoch[i - 1], model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
@@ -131,5 +139,5 @@ def train():
                                     verbose=1,
                                     callbacks=[checkpoint, clr])
 
-    print("####### train model spend %d seconds" % (time.time() - start))
-    print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
+    model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
+    model_config.save_log("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
