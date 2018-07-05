@@ -1,3 +1,6 @@
-from model.vgg16 import model2_val1
+from model.vgg16 import model4_val4, model5_val4
+from time import sleep
 
-model2_val1.train()
+model4_val4.train()
+sleep(1800)
+model5_val4.train()
