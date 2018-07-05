@@ -188,10 +188,10 @@ class EnsembleModel(object):
         #         model_config.label_position[i], one_label_smooth_f2_all[i], one_label_greedy_f2_all[i],
         #         one_label_greedy_threshold_all[i]))
 
-            # summary_val_value("val-label-%d/smooth-f2" % model_config.label_position[i], one_label_smooth_f2_all[i],
-            #                   model_config)
-            # summary_val_value("val-label-%d/greedy-f2" % model_config.label_position[i], one_label_greedy_f2_all[i],
-            #                   model_config)
+        # summary_val_value("val-label-%d/smooth-f2" % model_config.label_position[i], one_label_smooth_f2_all[i],
+        #                   model_config)
+        # summary_val_value("val-label-%d/greedy-f2" % model_config.label_position[i], one_label_greedy_f2_all[i],
+        #                   model_config)
 
         with open(os.path.join(self.record_dir,
                                "evaluate.txt"), "a") as f:
@@ -206,3 +206,9 @@ class EnsembleModel(object):
             #     f.write("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]\n" % (
             #         model_config.label_position[i], one_label_smooth_f2_all[i], one_label_greedy_f2_all[i],
             #         one_label_greedy_threshold_all[i]))
+
+
+def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是个带label的DMatrix
+    labels = dtrain.get_label()  # 提取label
+    thread_f2_02 = fbeta_score(labels, (np.array(preds) > 0.2).astype(np.int8), beta=2)
+    return 'F2-0.2', 1 - thread_f2_02

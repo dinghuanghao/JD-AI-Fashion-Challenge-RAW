@@ -1,5 +1,3 @@
-# from model.xception import model25_val1
-from model.xception import model25_val2
+from model.xception import model27_val1
 
-# model25_val1.train()
-model25_val2.train()
+model27_val1.train()

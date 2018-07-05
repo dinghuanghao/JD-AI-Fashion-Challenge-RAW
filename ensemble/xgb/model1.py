@@ -3,7 +3,7 @@ import os
 import xgboost as xgb
 
 from util import ensemble_util
-from util import keras_util
+
 
 class XGBoostModel(ensemble_util.EnsembleModel):
     def __init__(self, xgb_param=None, number_round=None,
@@ -15,25 +15,29 @@ class XGBoostModel(ensemble_util.EnsembleModel):
     def save_model(self, model, model_name):
         model.save_model(os.path.join(self.record_dir, model_name))
 
+    def get_model_name(self, val_index, label):
+        return "ensemble_val%d_label%d.xgb" % (val_index, label)
+
     def train_single_label(self, val_index, target_label):
         train_x, train_y, val_x, val_y = self.build_datasets(val_index=val_index, target_label=target_label)
         data_train = xgb.DMatrix(data=train_x, label=train_y)
         data_val = xgb.DMatrix(data=val_x, label=val_y)
 
-        evals = [(data_val, 'eval'), (data_train, 'train')]
+        evals = [(data_train, 'train'), (data_val, 'eval')]
 
-
-        bst = xgb.train(self.xgb_param, data_train, self.number_round, evals=evals, early_stopping_rounds=10)
+        bst = xgb.train(self.xgb_param, data_train, self.number_round, evals=evals, feval=ensemble_util.xgb_f2_metric,
+                        early_stopping_rounds=10)
         print("best_iteration:%4f,  best_score:%4f, best_ntree_limit=%4f" % (bst.best_iteration,
                                                                              bst.best_score,
                                                                              bst.best_ntree_limit))
-        self.save_model(bst, "ensemble_val%d_label%d_%03d" % (val_index, target_label, 0))
+        self.save_model(bst, self.get_model_name(val_index, target_label))
 
         data_eva = xgb.DMatrix(val_x)
         ypred = bst.predict(data_eva, ntree_limit=bst.best_ntree_limit)
         ypred = ypred.reshape((-1, 1))
-        self.evaluate(y_pred=ypred, y=val_y, weight_name="ensemble_val%d_label%d_%03d" % (val_index, target_label, 0))
+        self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, target_label))
         print("ok")
+
 
 model = XGBoostModel(model_path=os.path.abspath(__file__),
                      corr_threshold=0.9, search=20, top_n=5,
@@ -46,4 +50,6 @@ model = XGBoostModel(model_path=os.path.abspath(__file__),
                      },
                      number_round=1000,
                      )
-model.train_single_label(val_index=1, target_label=4)
+
+#TODO: 自动化调参
+model.train_single_label(val_index=1, target_label=3)
