@@ -1,0 +1,140 @@
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.389421
+F2-Score with threshold 0.1: 0.483778
+F2-Score with threshold 0.2: 0.512555
+Greedy F2-Score is: 0.565197
+[label 0]	smooth-f2=0.108902   greedy-f2=0.194805[0.880000]
+[label 1]	smooth-f2=0.438116   greedy-f2=0.572727[0.290000]
+[label 2]	smooth-f2=0.852306   greedy-f2=0.980775[0.030000]
+[label 3]	smooth-f2=0.147396   greedy-f2=0.414201[0.860000]
+[label 4]	smooth-f2=0.371976   greedy-f2=0.785734[0.070000]
+[label 5]	smooth-f2=0.484143   greedy-f2=0.697335[0.270000]
+[label 6]	smooth-f2=0.214461   greedy-f2=0.364078[0.640000]
+[label 7]	smooth-f2=0.243524   greedy-f2=0.385784[0.330000]
+[label 8]	smooth-f2=0.869232   greedy-f2=0.978496[0.030000]
+[label 9]	smooth-f2=0.376897   greedy-f2=0.569011[0.200000]
+[label 10]	smooth-f2=0.467638   greedy-f2=0.648673[0.220000]
+[label 11]	smooth-f2=0.270476   greedy-f2=0.415346[0.350000]
+[label 12]	smooth-f2=0.217407   greedy-f2=0.340599[0.720000]
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.451315
+F2-Score with threshold 0.1: 0.539371
+F2-Score with threshold 0.2: 0.559622
+Greedy F2-Score is: 0.584244
+[label 0]	smooth-f2=0.142728   greedy-f2=0.215054[0.410000]
+[label 1]	smooth-f2=0.468487   greedy-f2=0.598013[0.250000]
+[label 2]	smooth-f2=0.895615   greedy-f2=0.980939[0.030000]
+[label 3]	smooth-f2=0.285645   greedy-f2=0.422961[0.600000]
+[label 4]	smooth-f2=0.505296   greedy-f2=0.795994[0.110000]
+[label 5]	smooth-f2=0.539895   greedy-f2=0.716169[0.200000]
+[label 6]	smooth-f2=0.265402   greedy-f2=0.330033[0.110000]
+[label 7]	smooth-f2=0.290399   greedy-f2=0.395225[0.220000]
+[label 8]	smooth-f2=0.899386   greedy-f2=0.978632[0.030000]
+[label 9]	smooth-f2=0.428761   greedy-f2=0.589154[0.220000]
+[label 10]	smooth-f2=0.554454   greedy-f2=0.719748[0.220000]
+[label 11]	smooth-f2=0.297000   greedy-f2=0.425997[0.220000]
+[label 12]	smooth-f2=0.294024   greedy-f2=0.427252[0.480000]
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.458767
+F2-Score with threshold 0.1: 0.559715
+F2-Score with threshold 0.2: 0.575569
+Greedy F2-Score is: 0.585444
+[label 0]	smooth-f2=0.126321   greedy-f2=0.185185[0.300000]
+[label 1]	smooth-f2=0.477848   greedy-f2=0.608881[0.220000]
+[label 2]	smooth-f2=0.909695   greedy-f2=0.980995[0.010000]
+[label 3]	smooth-f2=0.295332   greedy-f2=0.402985[0.270000]
+[label 4]	smooth-f2=0.529100   greedy-f2=0.803038[0.110000]
+[label 5]	smooth-f2=0.552258   greedy-f2=0.724125[0.230000]
+[label 6]	smooth-f2=0.267477   greedy-f2=0.336134[0.220000]
+[label 7]	smooth-f2=0.305947   greedy-f2=0.404429[0.150000]
+[label 8]	smooth-f2=0.905787   greedy-f2=0.978418[0.010000]
+[label 9]	smooth-f2=0.435565   greedy-f2=0.595005[0.240000]
+[label 10]	smooth-f2=0.553259   greedy-f2=0.730055[0.140000]
+[label 11]	smooth-f2=0.298549   greedy-f2=0.423729[0.120000]
+[label 12]	smooth-f2=0.306834   greedy-f2=0.437788[0.230000]
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.470988
+F2-Score with threshold 0.1: 0.568156
+F2-Score with threshold 0.2: 0.582402
+Greedy F2-Score is: 0.591072
+[label 0]	smooth-f2=0.135863   greedy-f2=0.187500[0.370000]
+[label 1]	smooth-f2=0.499845   greedy-f2=0.619424[0.290000]
+[label 2]	smooth-f2=0.905683   greedy-f2=0.981101[0.010000]
+[label 3]	smooth-f2=0.325079   greedy-f2=0.451895[0.160000]
+[label 4]	smooth-f2=0.529663   greedy-f2=0.805004[0.100000]
+[label 5]	smooth-f2=0.564167   greedy-f2=0.730204[0.200000]
+[label 6]	smooth-f2=0.277522   greedy-f2=0.333333[0.390000]
+[label 7]	smooth-f2=0.317490   greedy-f2=0.432231[0.160000]
+[label 8]	smooth-f2=0.912011   greedy-f2=0.978723[0.010000]
+[label 9]	smooth-f2=0.454349   greedy-f2=0.600946[0.240000]
+[label 10]	smooth-f2=0.576559   greedy-f2=0.734962[0.230000]
+[label 11]	smooth-f2=0.316799   greedy-f2=0.422297[0.190000]
+[label 12]	smooth-f2=0.307817   greedy-f2=0.406321[0.200000]
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.472193
+F2-Score with threshold 0.1: 0.570527
+F2-Score with threshold 0.2: 0.578563
+Greedy F2-Score is: 0.586983
+[label 0]	smooth-f2=0.138563   greedy-f2=0.178571[0.210000]
+[label 1]	smooth-f2=0.497124   greedy-f2=0.620073[0.170000]
+[label 2]	smooth-f2=0.918834   greedy-f2=0.980756[0.010000]
+[label 3]	smooth-f2=0.336410   greedy-f2=0.449102[0.180000]
+[label 4]	smooth-f2=0.551332   greedy-f2=0.802075[0.100000]
+[label 5]	smooth-f2=0.563764   greedy-f2=0.727656[0.190000]
+[label 6]	smooth-f2=0.269353   greedy-f2=0.311005[0.430000]
+[label 7]	smooth-f2=0.312873   greedy-f2=0.425228[0.170000]
+[label 8]	smooth-f2=0.918349   greedy-f2=0.978393[0.010000]
+[label 9]	smooth-f2=0.446425   greedy-f2=0.598468[0.230000]
+[label 10]	smooth-f2=0.588277   greedy-f2=0.741445[0.180000]
+[label 11]	smooth-f2=0.300448   greedy-f2=0.415318[0.100000]
+[label 12]	smooth-f2=0.296751   greedy-f2=0.402685[0.160000]
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.472052
+F2-Score with threshold 0.1: 0.573043
+F2-Score with threshold 0.2: 0.570788
+Greedy F2-Score is: 0.588133
+[label 0]	smooth-f2=0.123132   greedy-f2=0.184049[0.010000]
+[label 1]	smooth-f2=0.502165   greedy-f2=0.630244[0.170000]
+[label 2]	smooth-f2=0.921920   greedy-f2=0.980845[0.010000]
+[label 3]	smooth-f2=0.321398   greedy-f2=0.432692[0.240000]
+[label 4]	smooth-f2=0.539883   greedy-f2=0.801312[0.120000]
+[label 5]	smooth-f2=0.572577   greedy-f2=0.732081[0.230000]
+[label 6]	smooth-f2=0.285592   greedy-f2=0.323383[0.630000]
+[label 7]	smooth-f2=0.310113   greedy-f2=0.421256[0.130000]
+[label 8]	smooth-f2=0.920558   greedy-f2=0.978388[0.010000]
+[label 9]	smooth-f2=0.454556   greedy-f2=0.601164[0.220000]
+[label 10]	smooth-f2=0.593936   greedy-f2=0.738523[0.170000]
+[label 11]	smooth-f2=0.297386   greedy-f2=0.424971[0.130000]
+[label 12]	smooth-f2=0.293460   greedy-f2=0.396825[0.150000]
+
+
+Weight: D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.470490
+F2-Score with threshold 0.1: 0.572643
+F2-Score with threshold 0.2: 0.564848
+Greedy F2-Score is: 0.587999
+[label 0]	smooth-f2=0.128909   greedy-f2=0.190476[0.050000]
+[label 1]	smooth-f2=0.496473   greedy-f2=0.623754[0.170000]
+[label 2]	smooth-f2=0.925226   greedy-f2=0.980901[0.010000]
+[label 3]	smooth-f2=0.312161   greedy-f2=0.428571[0.120000]
+[label 4]	smooth-f2=0.556587   greedy-f2=0.804587[0.110000]
+[label 5]	smooth-f2=0.569013   greedy-f2=0.730943[0.220000]
+[label 6]	smooth-f2=0.279316   greedy-f2=0.325000[0.520000]
+[label 7]	smooth-f2=0.298847   greedy-f2=0.415481[0.120000]
+[label 8]	smooth-f2=0.925223   greedy-f2=0.978007[0.000000]
+[label 9]	smooth-f2=0.456882   greedy-f2=0.604527[0.190000]
+[label 10]	smooth-f2=0.596438   greedy-f2=0.737056[0.200000]
+[label 11]	smooth-f2=0.287193   greedy-f2=0.417270[0.040000]
+[label 12]	smooth-f2=0.284097   greedy-f2=0.407407[0.170000]

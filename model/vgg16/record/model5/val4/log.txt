@@ -3,3 +3,104 @@
 2018-07-05:15:35:49: up sampling times: ['7900', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 7900
 2018-07-05:15:35:49: train files is 59275 after up sampling
 2018-07-05:15:35:49: train file: 46454, val file: 10982
+2018-07-06:01:51:16: add 7449 color augmentation file
+2018-07-06:01:51:16: train files is 51375 before up sampling
+2018-07-06:01:51:16: up sampling times: ['7900', '0', '0', '5680', '0', '0', '4560', '6300', '0', '0', '0', '5816', '6900'], totaol: 37156
+2018-07-06:01:51:16: train files is 88531 after up sampling
+2018-07-06:01:51:17: train file: 75414, val file: 10982
+2018-07-06:02:08:55: on epoch 1 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-06:02:09:37: start predict with tta
+2018-07-06:02:09:37: start predict with tta index is 0, data type is original
+2018-07-06:02:10:48: start predict with tta index is 1, data type is original
+2018-07-06:02:12:02: start predict with tta index is 2, data type is original
+2018-07-06:02:13:18: start predict with tta index is 3, data type is original
+2018-07-06:02:14:33: start predict with tta index is 4, data type is original
+2018-07-06:02:15:48: start predict with tta index is 5, data type is original
+2018-07-06:02:17:05: start predict with tta index is 6, data type is original
+2018-07-06:02:18:24: start predict with tta index is 7, data type is original
+2018-07-06:02:19:43: start predict with tta index is 8, data type is original
+2018-07-06:02:21:02: start predict with tta index is 9, data type is original
+2018-07-06:02:40:18: on epoch 2 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-06:02:41:49: start predict with tta
+2018-07-06:02:41:49: start predict with tta index is 0, data type is original
+2018-07-06:02:43:02: start predict with tta index is 1, data type is original
+2018-07-06:02:44:18: start predict with tta index is 2, data type is original
+2018-07-06:02:45:33: start predict with tta index is 3, data type is original
+2018-07-06:02:46:49: start predict with tta index is 4, data type is original
+2018-07-06:02:48:05: start predict with tta index is 5, data type is original
+2018-07-06:02:49:23: start predict with tta index is 6, data type is original
+2018-07-06:02:50:42: start predict with tta index is 7, data type is original
+2018-07-06:02:52:02: start predict with tta index is 8, data type is original
+2018-07-06:02:53:21: start predict with tta index is 9, data type is original
+2018-07-06:03:12:04: on epoch 3 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-06:03:12:06: start predict with tta
+2018-07-06:03:12:06: start predict with tta index is 0, data type is original
+2018-07-06:03:13:16: start predict with tta index is 1, data type is original
+2018-07-06:03:14:32: start predict with tta index is 2, data type is original
+2018-07-06:03:15:48: start predict with tta index is 3, data type is original
+2018-07-06:03:17:04: start predict with tta index is 4, data type is original
+2018-07-06:03:18:20: start predict with tta index is 5, data type is original
+2018-07-06:03:19:38: start predict with tta index is 6, data type is original
+2018-07-06:03:20:58: start predict with tta index is 7, data type is original
+2018-07-06:03:22:17: start predict with tta index is 8, data type is original
+2018-07-06:03:23:37: start predict with tta index is 9, data type is original
+2018-07-06:03:42:20: on epoch 4 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-06:03:42:22: start predict with tta
+2018-07-06:03:42:22: start predict with tta index is 0, data type is original
+2018-07-06:03:43:33: start predict with tta index is 1, data type is original
+2018-07-06:03:44:49: start predict with tta index is 2, data type is original
+2018-07-06:03:46:05: start predict with tta index is 3, data type is original
+2018-07-06:03:47:20: start predict with tta index is 4, data type is original
+2018-07-06:03:48:36: start predict with tta index is 5, data type is original
+2018-07-06:03:49:54: start predict with tta index is 6, data type is original
+2018-07-06:03:51:14: start predict with tta index is 7, data type is original
+2018-07-06:03:52:33: start predict with tta index is 8, data type is original
+2018-07-06:03:53:53: start predict with tta index is 9, data type is original
+2018-07-06:04:12:49: on epoch 5 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-06:04:15:13: start predict with tta
+2018-07-06:04:15:13: start predict with tta index is 0, data type is original
+2018-07-06:04:16:24: start predict with tta index is 1, data type is original
+2018-07-06:04:17:37: start predict with tta index is 2, data type is original
+2018-07-06:04:18:50: start predict with tta index is 3, data type is original
+2018-07-06:04:20:03: start predict with tta index is 4, data type is original
+2018-07-06:04:21:16: start predict with tta index is 5, data type is original
+2018-07-06:04:22:32: start predict with tta index is 6, data type is original
+2018-07-06:04:23:48: start predict with tta index is 7, data type is original
+2018-07-06:04:25:05: start predict with tta index is 8, data type is original
+2018-07-06:04:26:22: start predict with tta index is 9, data type is original
+2018-07-06:04:44:37: on epoch 6 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-06:04:44:39: start predict with tta
+2018-07-06:04:44:39: start predict with tta index is 0, data type is original
+2018-07-06:04:45:47: start predict with tta index is 1, data type is original
+2018-07-06:04:46:59: start predict with tta index is 2, data type is original
+2018-07-06:04:48:12: start predict with tta index is 3, data type is original
+2018-07-06:04:49:25: start predict with tta index is 4, data type is original
+2018-07-06:04:50:38: start predict with tta index is 5, data type is original
+2018-07-06:04:51:54: start predict with tta index is 6, data type is original
+2018-07-06:04:53:10: start predict with tta index is 7, data type is original
+2018-07-06:04:54:27: start predict with tta index is 8, data type is original
+2018-07-06:04:55:44: start predict with tta index is 9, data type is original
+2018-07-06:05:13:58: on epoch 7 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-06:05:14:00: start predict with tta
+2018-07-06:05:14:00: start predict with tta index is 0, data type is original
+2018-07-06:05:15:08: start predict with tta index is 1, data type is original
+2018-07-06:05:16:21: start predict with tta index is 2, data type is original
+2018-07-06:05:17:34: start predict with tta index is 3, data type is original
+2018-07-06:05:18:47: start predict with tta index is 4, data type is original
+2018-07-06:05:20:01: start predict with tta index is 5, data type is original
+2018-07-06:05:21:16: start predict with tta index is 6, data type is original
+2018-07-06:05:22:33: start predict with tta index is 7, data type is original
+2018-07-06:05:23:49: start predict with tta index is 8, data type is original
+2018-07-06:05:25:06: start predict with tta index is 9, data type is original
+2018-07-06:05:43:22: on epoch 8 end, save weight:D:\github\JDC\competition\model\vgg16\record\model5\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-06:05:43:24: start predict with tta
+2018-07-06:05:43:24: start predict with tta index is 0, data type is original
+2018-07-06:05:44:32: start predict with tta index is 1, data type is original
+2018-07-06:05:45:45: start predict with tta index is 2, data type is original
+2018-07-06:05:46:58: start predict with tta index is 3, data type is original
+2018-07-06:05:48:11: start predict with tta index is 4, data type is original
+2018-07-06:05:49:25: start predict with tta index is 5, data type is original
+2018-07-06:05:50:40: start predict with tta index is 6, data type is original
+2018-07-06:05:51:57: start predict with tta index is 7, data type is original
+2018-07-06:05:53:14: start predict with tta index is 8, data type is original
+2018-07-06:05:54:31: start predict with tta index is 9, data type is original
