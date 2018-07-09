@@ -245,11 +245,11 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
                                                  rescale=1. / 256,
                                                  model_config=model_config,
                                                  real_transform=True)
+        pre_datagen.check_mean_std_file(model_config)
+        pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
     else:
         pre_datagen = data_loader.KerasGenerator(model_config=model_config, real_transform=True)
 
-    pre_datagen.check_mean_std_file(model_config)
-    pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
 
     y_pred = None
     start = time.time()
@@ -258,6 +258,7 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     pre_datagen.tta = tta
     predict_times = 0
 
+    #TODO: 兼容传入指定file
     for i in range(len(model_config.val_files)):
         files = model_config.val_files[i]
         for j in range(tta.tta_times):

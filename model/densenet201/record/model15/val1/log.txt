@@ -1,0 +1,17 @@
+2018-07-09:17:00:01: add 12376 color augmentation file
+2018-07-09:17:00:01: train file: 56303, val file: 10981
+2018-07-09:17:00:01: ####### start train model
+2018-07-09:17:00:02: ####### init stage is 0
+2018-07-09:17:00:02: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-07-09:17:00:04: ####### initial epoch is 0, end epoch is 1
+2018-07-09:17:05:07: on epoch 1 end, save weight:F:\Projects\competition\model\densenet201\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-09:17:06:09: start predict with tta
+2018-07-09:17:06:09: start predict with tta index is 0, data type is original
+2018-07-09:17:07:11: start predict with tta index is 1, data type is original
+2018-07-09:17:08:11: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-07-09:17:09:06: ####### load weight file: F:\Projects\competition\model\densenet201\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-09:17:09:19: ####### initial epoch is 1, end epoch is 4
+2018-07-09:17:32:54: on epoch 2 end, save weight:F:\Projects\competition\model\densenet201\record\model15\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-09:17:36:01: start predict with tta
+2018-07-09:17:36:01: start predict with tta index is 0, data type is original
+2018-07-09:17:37:05: start predict with tta index is 1, data type is original
