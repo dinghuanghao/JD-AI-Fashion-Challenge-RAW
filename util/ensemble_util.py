@@ -155,7 +155,7 @@ class EnsembleModel(object):
     def train_single_label(self, val_index, label):
         pass
 
-    def evaluate(self, y, y_pred, weight_name):
+    def evaluate(self, y, y_pred, weight_name, xgb_param=None, save_evaluate=False):
         if y.shape[1] > 1:
             thread_f2_01 = fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='macro')
             thread_f2_02 = fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='macro')
@@ -166,6 +166,7 @@ class EnsembleModel(object):
         one_label_greedy_f2_all = []
         one_label_greedy_threshold_all = []
         one_label_smooth_f2_all = []
+        assert y.shape[-1] == 1
         for i in range(y.shape[-1]):
             one_label_smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
             one_label_greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
@@ -173,39 +174,28 @@ class EnsembleModel(object):
             one_label_greedy_f2_all.append(one_label_greedy_f2)
             one_label_greedy_threshold_all.append(greedy_threshold[0])
 
+        greedy_f2 = np.mean(one_label_greedy_f2_all)
+
         print("####### Smooth F2-Score is %6f #######" % np.mean(one_label_smooth_f2_all))
         print("####### F2-Score with threshold 0.1 is %6f #######" % thread_f2_01)
         print("####### F2-Score with threshold 0.2 is %6f #######" % thread_f2_02)
-        print("####### Greedy F2-Score is %6f #######" % np.mean(one_label_greedy_f2_all))
+        print("####### Greedy F2-Score is %6f #######" % greedy_f2)
 
-        # summary_val_value("val-label-all/smooth-f2", np.mean(one_label_smooth_f2_all), model_config)
-        # summary_val_value("val-label-all/thread-f2-01", thread_f2_01, model_config)
-        # summary_val_value("val-label-all/thread-f2-02", thread_f2_02, model_config)
-        # summary_val_value("val-label-all/greedy-f2", np.mean(one_label_greedy_f2_all), model_config)
-        #
-        # for i in range(len(one_label_greedy_f2_all)):
-        #     print("[label %d]\tsmooth-f2=%4f greedy-f2=%4f[%4f]" % (
-        #         model_config.label_position[i], one_label_smooth_f2_all[i], one_label_greedy_f2_all[i],
-        #         one_label_greedy_threshold_all[i]))
+        if save_evaluate:
+            with open(os.path.join(self.record_dir, "evaluate.txt"), "a") as f:
+                f.write("\n\n")
+                f.write("Weight: %s\n" % weight_name)
+                if xgb_param is not None:
+                    f.write("Eta: %f\n" % xgb_param['eta'])
+                    f.write("Max-depth: %d\n" % xgb_param['max_depth'])
 
-        # summary_val_value("val-label-%d/smooth-f2" % model_config.label_position[i], one_label_smooth_f2_all[i],
-        #                   model_config)
-        # summary_val_value("val-label-%d/greedy-f2" % model_config.label_position[i], one_label_greedy_f2_all[i],
-        #                   model_config)
+                f.write("Smooth F2-Score: %f\n" % np.mean(one_label_smooth_f2_all))
+                f.write("F2-Score with threshold 0.1: %f\n" % thread_f2_01)
+                f.write("F2-Score with threshold 0.2: %f\n" % thread_f2_02)
+                f.write("Best threshold: %f\n" % one_label_greedy_threshold_all[0])
+                f.write("Greedy F2-Score is: %f\n" % greedy_f2)
 
-        with open(os.path.join(self.record_dir,
-                               "evaluate.txt"), "a") as f:
-            f.write("\n\n")
-            f.write("Weight: %s\n" % weight_name)
-            f.write("Smooth F2-Score: %f\n" % np.mean(one_label_smooth_f2_all))
-            f.write("F2-Score with threshold 0.1: %f\n" % thread_f2_01)
-            f.write("F2-Score with threshold 0.2: %f\n" % thread_f2_02)
-            f.write("Greedy F2-Score is: %f\n" % np.mean(one_label_greedy_f2_all))
-
-            # for i in range(len(one_label_greedy_f2_all)):
-            #     f.write("[label %d]\tsmooth-f2=%4f   greedy-f2=%4f[%4f]\n" % (
-            #         model_config.label_position[i], one_label_smooth_f2_all[i], one_label_greedy_f2_all[i],
-            #         one_label_greedy_threshold_all[i]))
+        return greedy_f2
 
 
 def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是个带label的DMatrix
