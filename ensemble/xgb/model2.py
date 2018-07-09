@@ -78,7 +78,7 @@ class XGBoostModel(ensemble_util.EnsembleModel):
 
 
 model = XGBoostModel(model_path=os.path.abspath(__file__),
-                     corr_threshold=0.9, search=20, top_n=10,
+                     corr_threshold=0.9, search=20, top_n=5,
                      xgb_param={
                          'eta': [0.05, 0.1, 0.15, 0.2],
                          'silent': True,  # option for logging

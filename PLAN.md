@@ -5,7 +5,7 @@
 3. init statge bug（如果第一阶段多余1个epoch，那么init_epoch=1时，不会触发加载权重）
 4. 尝试不同尺寸的图片（能够支持不同阶段不同尺寸）
 5. stacking：xgboost、lightgbm、NN、逻辑回归、ridge回归
-6. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下。
+6. greedy f2和 smooth f2究竟哪个更能代表泛化能力？最终提交的时候两个都要试一下（基于二者分别进行集成）。
 
 ## 数据不均衡问题
 

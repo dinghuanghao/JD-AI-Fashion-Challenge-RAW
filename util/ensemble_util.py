@@ -202,3 +202,9 @@ def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是�
     labels = dtrain.get_label()  # 提取label
     thread_f2_02 = fbeta_score(labels, (np.array(preds) > 0.2).astype(np.int8), beta=2)
     return 'F2-0.2', 1 - thread_f2_02
+
+
+def xgb_greedy_f2_metric(preds, dtrain):
+    labels = dtrain.get_label()  # 提取label
+    thread_f2_02, _ = metrics.greedy_f2_score(labels, preds, 1)
+    return 'Greedy-F2', 1 - thread_f2_02
