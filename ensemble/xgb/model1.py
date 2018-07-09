@@ -1,5 +1,5 @@
-import os
 import copy
+import os
 
 import xgboost as xgb
 
@@ -23,7 +23,6 @@ class XGBoostModel(ensemble_util.EnsembleModel):
         for val_index in range(1, 6):
             for label in range(13):
                 self.train_single_label(val_index=val_index, label=label)
-
 
     def train_single_label(self, val_index, label):
         train_x, train_y, val_x, val_y = self.build_datasets(val_index=val_index, target_label=label)
