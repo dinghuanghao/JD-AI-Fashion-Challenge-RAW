@@ -19,9 +19,14 @@ class XGBoostModel(ensemble_util.EnsembleModel):
     def get_model_name(self, val_index, label):
         return "ensemble_val%d_label%d.xgb" % (val_index, label)
 
-    def train_single_label(self, val_index, target_label):
+    def train_all(self):
+        for val_index in range(1, 6):
+            for label in range(13):
+                self.train_single_label(val_index=val_index, label=label)
 
-        train_x, train_y, val_x, val_y = self.build_datasets(val_index=val_index, target_label=target_label)
+
+    def train_single_label(self, val_index, label):
+        train_x, train_y, val_x, val_y = self.build_datasets(val_index=val_index, target_label=label)
         data_train = xgb.DMatrix(data=train_x, label=train_y)
         data_val = xgb.DMatrix(data=val_x, label=val_y)
 
@@ -50,7 +55,7 @@ class XGBoostModel(ensemble_util.EnsembleModel):
                 data_eva = xgb.DMatrix(val_x)
                 ypred = bst.predict(data_eva, ntree_limit=bst.best_ntree_limit)
                 ypred = ypred.reshape((-1, 1))
-                f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, target_label))
+                f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
                 self.save_log("eta:%f, max_depth:%d, f2:%f" % (eta, max_depth, f2))
                 self.save_log("best_iteration:%4f,  best_score:%4f, best_ntree_limit=%4f" % (bst.best_iteration,
                                                                                              bst.best_score,
@@ -64,13 +69,13 @@ class XGBoostModel(ensemble_util.EnsembleModel):
                     best_pred = ypred
                     best_xgb_param = copy.deepcopy(xgb_param)
 
-        self.evaluate(y_pred=best_pred, y=val_y, weight_name=self.get_model_name(val_index, target_label),
+        self.evaluate(y_pred=best_pred, y=val_y, weight_name=self.get_model_name(val_index, label),
                       xgb_param=best_xgb_param, save_evaluate=True)
 
         self.save_log("save best model for val[%d] label[%d], f2[%f] eta[%f] max_depth[%d]" %
-                      (val_index, target_label, best_f2, best_eta, best_max_depth))
+                      (val_index, label, best_f2, best_eta, best_max_depth))
 
-        self.save_model(best_model, self.get_model_name(val_index, target_label))
+        self.save_model(best_model, self.get_model_name(val_index, label))
 
 
 model = XGBoostModel(model_path=os.path.abspath(__file__),
@@ -85,4 +90,4 @@ model = XGBoostModel(model_path=os.path.abspath(__file__),
                      number_round=1000,
                      )
 
-model.train_single_label(val_index=1, target_label=0)
+model.train_single_label(val_index=1, label=0)
