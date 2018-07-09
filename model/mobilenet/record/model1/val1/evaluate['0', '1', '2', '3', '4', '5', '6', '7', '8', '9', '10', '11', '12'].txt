@@ -1,0 +1,140 @@
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.367128
+F2-Score with threshold 0.1: 0.498050
+F2-Score with threshold 0.2: 0.503715
+Greedy F2-Score is: 0.527846
+[label 0]	smooth-f2=0.011871   greedy-f2=0.058140[0.060000]
+[label 1]	smooth-f2=0.393296   greedy-f2=0.591426[0.170000]
+[label 2]	smooth-f2=0.908581   greedy-f2=0.979804[0.000000]
+[label 3]	smooth-f2=0.073696   greedy-f2=0.219595[0.140000]
+[label 4]	smooth-f2=0.534272   greedy-f2=0.800412[0.130000]
+[label 5]	smooth-f2=0.482460   greedy-f2=0.714286[0.230000]
+[label 6]	smooth-f2=0.013564   greedy-f2=0.075529[0.030000]
+[label 7]	smooth-f2=0.153483   greedy-f2=0.388554[0.160000]
+[label 8]	smooth-f2=0.904173   greedy-f2=0.978328[0.170000]
+[label 9]	smooth-f2=0.363056   greedy-f2=0.590000[0.180000]
+[label 10]	smooth-f2=0.497781   greedy-f2=0.691372[0.150000]
+[label 11]	smooth-f2=0.169412   greedy-f2=0.432570[0.110000]
+[label 12]	smooth-f2=0.267017   greedy-f2=0.341981[0.650000]
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.400365
+F2-Score with threshold 0.1: 0.532644
+F2-Score with threshold 0.2: 0.529373
+Greedy F2-Score is: 0.555859
+[label 0]	smooth-f2=0.023376   greedy-f2=0.120192[0.030000]
+[label 1]	smooth-f2=0.444483   greedy-f2=0.630009[0.200000]
+[label 2]	smooth-f2=0.918482   greedy-f2=0.980069[0.120000]
+[label 3]	smooth-f2=0.135182   greedy-f2=0.260417[0.140000]
+[label 4]	smooth-f2=0.569388   greedy-f2=0.808012[0.170000]
+[label 5]	smooth-f2=0.520864   greedy-f2=0.727760[0.180000]
+[label 6]	smooth-f2=0.022996   greedy-f2=0.117188[0.050000]
+[label 7]	smooth-f2=0.215018   greedy-f2=0.423871[0.160000]
+[label 8]	smooth-f2=0.918050   greedy-f2=0.978896[0.100000]
+[label 9]	smooth-f2=0.411784   greedy-f2=0.597612[0.180000]
+[label 10]	smooth-f2=0.524142   greedy-f2=0.720626[0.160000]
+[label 11]	smooth-f2=0.204434   greedy-f2=0.495348[0.130000]
+[label 12]	smooth-f2=0.296547   greedy-f2=0.366162[0.270000]
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.405519
+F2-Score with threshold 0.1: 0.538019
+F2-Score with threshold 0.2: 0.535809
+Greedy F2-Score is: 0.564178
+[label 0]	smooth-f2=0.029939   greedy-f2=0.150215[0.040000]
+[label 1]	smooth-f2=0.460992   greedy-f2=0.630397[0.210000]
+[label 2]	smooth-f2=0.924754   greedy-f2=0.980456[0.140000]
+[label 3]	smooth-f2=0.141208   greedy-f2=0.273438[0.210000]
+[label 4]	smooth-f2=0.574234   greedy-f2=0.810525[0.170000]
+[label 5]	smooth-f2=0.527154   greedy-f2=0.730562[0.220000]
+[label 6]	smooth-f2=0.038008   greedy-f2=0.157895[0.080000]
+[label 7]	smooth-f2=0.223063   greedy-f2=0.427579[0.140000]
+[label 8]	smooth-f2=0.924610   greedy-f2=0.979243[0.120000]
+[label 9]	smooth-f2=0.390601   greedy-f2=0.608203[0.200000]
+[label 10]	smooth-f2=0.554568   greedy-f2=0.729167[0.140000]
+[label 11]	smooth-f2=0.207760   greedy-f2=0.501869[0.100000]
+[label 12]	smooth-f2=0.274852   greedy-f2=0.354767[0.050000]
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.412567
+F2-Score with threshold 0.1: 0.538102
+F2-Score with threshold 0.2: 0.537683
+Greedy F2-Score is: 0.566972
+[label 0]	smooth-f2=0.030034   greedy-f2=0.179856[0.030000]
+[label 1]	smooth-f2=0.464825   greedy-f2=0.635391[0.180000]
+[label 2]	smooth-f2=0.929205   greedy-f2=0.980297[0.130000]
+[label 3]	smooth-f2=0.168668   greedy-f2=0.269231[0.260000]
+[label 4]	smooth-f2=0.578062   greedy-f2=0.812984[0.170000]
+[label 5]	smooth-f2=0.537508   greedy-f2=0.730078[0.230000]
+[label 6]	smooth-f2=0.035066   greedy-f2=0.147059[0.070000]
+[label 7]	smooth-f2=0.227935   greedy-f2=0.433972[0.120000]
+[label 8]	smooth-f2=0.927792   greedy-f2=0.979385[0.130000]
+[label 9]	smooth-f2=0.404018   greedy-f2=0.609031[0.210000]
+[label 10]	smooth-f2=0.551692   greedy-f2=0.730057[0.200000]
+[label 11]	smooth-f2=0.232047   greedy-f2=0.499448[0.110000]
+[label 12]	smooth-f2=0.276515   greedy-f2=0.363850[0.050000]
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.415652
+F2-Score with threshold 0.1: 0.537583
+F2-Score with threshold 0.2: 0.536949
+Greedy F2-Score is: 0.564633
+[label 0]	smooth-f2=0.031426   greedy-f2=0.168919[0.030000]
+[label 1]	smooth-f2=0.472367   greedy-f2=0.635619[0.240000]
+[label 2]	smooth-f2=0.928343   greedy-f2=0.980591[0.090000]
+[label 3]	smooth-f2=0.169247   greedy-f2=0.269784[0.140000]
+[label 4]	smooth-f2=0.580522   greedy-f2=0.813196[0.160000]
+[label 5]	smooth-f2=0.535519   greedy-f2=0.729513[0.220000]
+[label 6]	smooth-f2=0.036092   greedy-f2=0.143541[0.070000]
+[label 7]	smooth-f2=0.236622   greedy-f2=0.438348[0.150000]
+[label 8]	smooth-f2=0.928423   greedy-f2=0.979480[0.080000]
+[label 9]	smooth-f2=0.410152   greedy-f2=0.606812[0.150000]
+[label 10]	smooth-f2=0.555467   greedy-f2=0.725072[0.220000]
+[label 11]	smooth-f2=0.244559   greedy-f2=0.494583[0.070000]
+[label 12]	smooth-f2=0.274734   greedy-f2=0.354767[0.030000]
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.416879
+F2-Score with threshold 0.1: 0.542592
+F2-Score with threshold 0.2: 0.537227
+Greedy F2-Score is: 0.570637
+[label 0]	smooth-f2=0.034261   greedy-f2=0.205479[0.040000]
+[label 1]	smooth-f2=0.469432   greedy-f2=0.641727[0.190000]
+[label 2]	smooth-f2=0.931262   greedy-f2=0.980674[0.080000]
+[label 3]	smooth-f2=0.178537   greedy-f2=0.269784[0.160000]
+[label 4]	smooth-f2=0.585436   greedy-f2=0.813116[0.180000]
+[label 5]	smooth-f2=0.541448   greedy-f2=0.731932[0.210000]
+[label 6]	smooth-f2=0.037839   greedy-f2=0.162162[0.080000]
+[label 7]	smooth-f2=0.245300   greedy-f2=0.434668[0.120000]
+[label 8]	smooth-f2=0.930182   greedy-f2=0.979587[0.090000]
+[label 9]	smooth-f2=0.413708   greedy-f2=0.608937[0.190000]
+[label 10]	smooth-f2=0.546780   greedy-f2=0.729240[0.170000]
+[label 11]	smooth-f2=0.239878   greedy-f2=0.500709[0.060000]
+[label 12]	smooth-f2=0.265361   greedy-f2=0.360262[0.020000]
+
+
+Weight: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.419001
+F2-Score with threshold 0.1: 0.549917
+F2-Score with threshold 0.2: 0.536000
+Greedy F2-Score is: 0.570187
+[label 0]	smooth-f2=0.038119   greedy-f2=0.218579[0.050000]
+[label 1]	smooth-f2=0.472207   greedy-f2=0.637525[0.200000]
+[label 2]	smooth-f2=0.931256   greedy-f2=0.980688[0.090000]
+[label 3]	smooth-f2=0.181344   greedy-f2=0.276753[0.190000]
+[label 4]	smooth-f2=0.586137   greedy-f2=0.813981[0.180000]
+[label 5]	smooth-f2=0.542650   greedy-f2=0.734218[0.220000]
+[label 6]	smooth-f2=0.038394   greedy-f2=0.144231[0.070000]
+[label 7]	smooth-f2=0.239232   greedy-f2=0.438413[0.110000]
+[label 8]	smooth-f2=0.931477   greedy-f2=0.979472[0.080000]
+[label 9]	smooth-f2=0.417977   greedy-f2=0.608642[0.170000]
+[label 10]	smooth-f2=0.558735   greedy-f2=0.731418[0.200000]
+[label 11]	smooth-f2=0.239314   greedy-f2=0.501120[0.100000]
+[label 12]	smooth-f2=0.270170   greedy-f2=0.347395[0.060000]

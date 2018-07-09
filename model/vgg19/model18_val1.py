@@ -29,6 +29,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 epoch=[1, 3, 6],
                                 lr=[0.001, 0.0001, 0.00001],
                                 freeze_layers=[-1, 0.6, 0],
+                                tta_crop=True,
                                 tta_flip=True,
                                 input_norm=False)
 
@@ -57,7 +58,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr=lr, decay=0.0005))
+                  optimizer=keras.optimizers.Adam(lr=lr))
     # model.summary()
     print("basic model have %d layers" % len(base_model.layers))
     return model

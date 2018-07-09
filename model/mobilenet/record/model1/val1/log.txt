@@ -1,0 +1,72 @@
+2018-07-06:22:54:50: add 7392 color augmentation file
+2018-07-06:22:54:50: train files is 51319 before up sampling
+2018-07-06:22:54:50: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-06:22:54:50: train files is 73169 after up sampling
+2018-07-06:22:54:52: train file: 68055, val file: 10981
+2018-07-06:22:54:52: ####### start train model
+2018-07-06:22:54:52: ####### init stage is 0
+2018-07-06:22:54:52: ####### lr=0.000500, freeze layers=0.000000 epoch=1
+2018-07-06:22:54:55: ####### initial epoch is 0, end epoch is 1
+2018-07-06:22:58:22: add 7392 color augmentation file
+2018-07-06:22:58:22: train files is 51319 before up sampling
+2018-07-06:22:58:23: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-06:22:58:23: train files is 73169 after up sampling
+2018-07-06:22:58:24: train file: 67956, val file: 10981
+2018-07-06:22:58:24: ####### start train model
+2018-07-06:22:58:24: ####### init stage is 0
+2018-07-06:22:58:24: ####### lr=0.000500, freeze layers=0.000000 epoch=1
+2018-07-06:22:58:27: ####### initial epoch is 0, end epoch is 1
+2018-07-06:22:59:40: add 7392 color augmentation file
+2018-07-06:22:59:40: train files is 51319 before up sampling
+2018-07-06:22:59:41: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-06:22:59:41: train files is 73169 after up sampling
+2018-07-06:22:59:42: train file: 67976, val file: 10981
+2018-07-06:22:59:42: ####### start train model
+2018-07-06:22:59:42: ####### init stage is 0
+2018-07-06:22:59:42: ####### lr=0.000500, freeze layers=0.000000 epoch=1
+2018-07-06:22:59:46: ####### initial epoch is 0, end epoch is 1
+2018-07-06:23:01:32: add 7392 color augmentation file
+2018-07-06:23:01:32: train files is 51319 before up sampling
+2018-07-06:23:01:32: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '21850'], totaol: 21850
+2018-07-06:23:01:32: train files is 73169 after up sampling
+2018-07-06:23:01:34: train file: 67942, val file: 10981
+2018-07-06:23:01:42: ####### start train model
+2018-07-06:23:01:42: ####### init stage is 0
+2018-07-06:23:01:42: ####### lr=0.000500, freeze layers=0.000000 epoch=1
+2018-07-06:23:01:45: ####### initial epoch is 0, end epoch is 1
+2018-07-06:23:10:17: on epoch 1 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-06:23:10:22: start predict with tta
+2018-07-06:23:10:22: start predict with tta index is 0, data type is original
+2018-07-06:23:10:59: start predict with tta index is 1, data type is original
+2018-07-06:23:11:39: ####### lr=0.000050, freeze layers=0.600000 epoch=3
+2018-07-06:23:11:54: ####### load weight file: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-06:23:11:57: ####### initial epoch is 1, end epoch is 3
+2018-07-06:23:20:07: on epoch 2 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-06:23:20:14: start predict with tta
+2018-07-06:23:20:14: start predict with tta index is 0, data type is original
+2018-07-06:23:20:43: start predict with tta index is 1, data type is original
+2018-07-06:23:29:15: on epoch 3 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-06:23:29:15: start predict with tta
+2018-07-06:23:29:15: start predict with tta index is 0, data type is original
+2018-07-06:23:29:43: start predict with tta index is 1, data type is original
+2018-07-06:23:30:19: ####### lr=0.000005, freeze layers=5.000000 epoch=7
+2018-07-06:23:30:33: ####### load weight file: F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-06:23:30:36: ####### initial epoch is 3, end epoch is 7
+2018-07-06:23:38:29: on epoch 4 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-06:23:38:39: start predict with tta
+2018-07-06:23:38:39: start predict with tta index is 0, data type is original
+2018-07-06:23:39:09: start predict with tta index is 1, data type is original
+2018-07-06:23:47:36: on epoch 5 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-06:23:47:37: start predict with tta
+2018-07-06:23:47:37: start predict with tta index is 0, data type is original
+2018-07-06:23:48:07: start predict with tta index is 1, data type is original
+2018-07-06:23:56:58: on epoch 6 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-06:23:56:58: start predict with tta
+2018-07-06:23:56:58: start predict with tta index is 0, data type is original
+2018-07-06:23:57:30: start predict with tta index is 1, data type is original
+2018-07-07:00:06:19: on epoch 7 end, save weight:F:\Projects\competition\model\mobilenet\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-07:00:06:19: start predict with tta
+2018-07-07:00:06:19: start predict with tta index is 0, data type is original
+2018-07-07:00:06:50: start predict with tta index is 1, data type is original
+2018-07-07:00:07:31: ####### train model spend 3948 seconds
+2018-07-07:00:07:31: ####### train model spend 564 seconds average

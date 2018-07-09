@@ -1,0 +1,48 @@
+2018-07-07:12:18:49: train files is 43927 before up sampling
+2018-07-07:12:18:49: up sampling times: ['0', '0', '0', '4120', '0', '0', '0', '0', '0', '0', '0', '0', '14750'], totaol: 18870
+2018-07-07:12:18:50: train files is 62797 after up sampling
+2018-07-07:12:18:52: train file: 57576, val file: 10981
+2018-07-07:12:18:52: ####### start train model
+2018-07-07:12:18:52: ####### init stage is 0
+2018-07-07:12:18:52: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-07-07:12:18:54: ####### initial epoch is 0, end epoch is 1
+2018-07-07:12:24:27: on epoch 1 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-07:12:25:36: start predict with tta
+2018-07-07:12:25:36: start predict with tta index is 0, data type is segmented
+2018-07-07:12:26:42: start predict with tta index is 1, data type is segmented
+2018-07-07:12:27:43: ####### lr=0.000050, freeze layers=0.600000 epoch=3
+2018-07-07:12:28:44: ####### load weight file: F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-07:12:28:59: ####### initial epoch is 1, end epoch is 3
+2018-07-07:12:52:59: on epoch 2 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-07:12:56:17: start predict with tta
+2018-07-07:12:56:17: start predict with tta index is 0, data type is segmented
+2018-07-07:12:57:18: start predict with tta index is 1, data type is segmented
+2018-07-07:13:20:41: on epoch 3 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-07:13:20:43: start predict with tta
+2018-07-07:13:20:43: start predict with tta index is 0, data type is segmented
+2018-07-07:13:21:41: start predict with tta index is 1, data type is segmented
+2018-07-07:13:22:43: ####### lr=0.000005, freeze layers=5.000000 epoch=8
+2018-07-07:13:24:08: ####### load weight file: F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-07:13:24:29: ####### initial epoch is 3, end epoch is 8
+2018-07-07:13:49:21: on epoch 4 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-07:13:55:15: start predict with tta
+2018-07-07:13:55:15: start predict with tta index is 0, data type is segmented
+2018-07-07:13:56:24: start predict with tta index is 1, data type is segmented
+2018-07-07:14:20:34: on epoch 5 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-07:14:20:38: start predict with tta
+2018-07-07:14:20:38: start predict with tta index is 0, data type is segmented
+2018-07-07:14:21:37: start predict with tta index is 1, data type is segmented
+2018-07-07:14:45:46: on epoch 6 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-07:14:45:50: start predict with tta
+2018-07-07:14:45:50: start predict with tta index is 0, data type is segmented
+2018-07-07:14:46:49: start predict with tta index is 1, data type is segmented
+2018-07-07:15:10:57: on epoch 7 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-07:15:11:00: start predict with tta
+2018-07-07:15:11:00: start predict with tta index is 0, data type is segmented
+2018-07-07:15:12:00: start predict with tta index is 1, data type is segmented
+2018-07-07:15:36:08: on epoch 8 end, save weight:F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-07:15:36:11: start predict with tta
+2018-07-07:15:36:11: start predict with tta index is 0, data type is segmented
+2018-07-07:15:37:11: start predict with tta index is 1, data type is segmented
+2018-07-07:15:38:16: ####### train model spend 11963 seconds
+2018-07-07:15:38:16: ####### train model spend 1495 seconds average

@@ -57,7 +57,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr=lr, decay=0.0005))
+                  optimizer=keras.optimizers.SGD(lr=lr, momentum=0.9, decay=0.0001))
     # model.summary()
     print("basic model have %d layers" % len(base_model.layers))
     return model

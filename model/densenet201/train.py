@@ -1,3 +1,3 @@
-from model.densenet201 import model33_val1
+from model.densenet201 import model36_val1
 
-model33_val1.train()
+model36_val1.train()

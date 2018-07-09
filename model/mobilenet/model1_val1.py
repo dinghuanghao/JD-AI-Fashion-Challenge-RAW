@@ -1,5 +1,5 @@
 """
-以model 4为基础，新增real crop
+以model4 为原型，新增up sampling
 """
 import math
 import os
@@ -20,22 +20,21 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 label_color_augment=[0, 1, 3, 5, 6, 7, 9, 10, 11, 12],
+                                label_up_sampling=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50],
+                                downsampling=0.8,
                                 train_batch_size=[16, 16, 16],
-                                label_up_sampling=[10, 0, 0, 10, 0, 0, 10, 0, 0, 0, 0, 0, 10],
                                 data_visualization=True,
-                                downsampling=0.5,
                                 val_batch_size=256,
                                 predict_batch_size=256,
-                                epoch=[1, 3, 6],
-                                lr=[0.001, 0.0001, 0.00001],
-                                freeze_layers=[-1, 0.6, 0],
-                                tta_flip=True,
-                                input_norm=False)
+                                epoch=[1, 3, 7],
+                                lr=[0.0005, 0.00005, 0.000005],
+                                freeze_layers=[0, 0.6, 5],
+                                tta_flip=True)
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
-    base_model = keras.applications.DenseNet169(include_top=False, weights=weights,
-                                                input_shape=model_config.image_shape, pooling="avg")
+    base_model = keras.applications.MobileNet(include_top=False, weights=weights,
+                                              input_shape=model_config.image_shape, pooling="avg")
 
     x = base_model.output
     x = Dense(256, use_bias=False)(x)
@@ -57,7 +56,7 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
         print("freeze %d basic layers, lr=%f" % (freeze_layers, lr))
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=keras.optimizers.Adam(lr=lr, decay=0.0005))
+                  optimizer=keras.optimizers.Adam(lr=lr))
     # model.summary()
     print("basic model have %d layers" % len(base_model.layers))
     return model
@@ -142,3 +141,4 @@ def train():
     model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
     model_config.save_log(
         "####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
+
