@@ -199,6 +199,7 @@ class EnsembleModel(object):
             evaluate[weight_name] = {}
             evaluate[weight_name]['eta'] = xgb_param['eta']
             evaluate[weight_name]['max_depth'] = xgb_param['max_depth']
+            evaluate[weight_name]['min_child_weight'] = xgb_param['min_child_weight']
             evaluate[weight_name]['best_iteration'] = xgb_param['best_iteration']
             evaluate[weight_name]['best_ntree_limit'] = xgb_param['best_ntree_limit']
             evaluate[weight_name]['smooth_f2'] = np.mean(one_label_smooth_f2_all)
@@ -217,14 +218,14 @@ def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是�
     return 'F2-0.2', 1 - thread_f2_02
 
 
-def xgb_greedy_f2_metric(preds, dtrain):
+def xgb_greedy_f2_metric(preds, dtrain, step=100):
     labels = dtrain.get_label()  # 提取label
-    thread_f2_02, _ = metrics.greedy_f2_score(labels, preds, 1)
+    thread_f2_02, _ = metrics.greedy_f2_score(labels, preds, 1, step)
     return 'Greedy-F2', 1 - thread_f2_02
 
 
 class XGBoostModel(EnsembleModel):
-    def __init__(self, xgb_param=None, number_round=None, eval_func=None,
+    def __init__(self, xgb_param:dict=None, number_round=None, eval_func=None,
                  *args, **kwargs):
         super(XGBoostModel, self).__init__(*args, **kwargs)
         self.xgb_param = xgb_param
@@ -237,6 +238,13 @@ class XGBoostModel(EnsembleModel):
             self.eval_func = eval_func
 
         pathlib.Path(self.model_dir).mkdir(parents=True, exist_ok=True)
+
+        if self.xgb_param.get('min_child_weight', None) is None:
+            self.xgb_param['min_child_weight'] = [1]
+        if self.xgb_param.get('eta', None) is None:
+            self.xgb_param['eta'] = [0.3]
+        if self.xgb_param.get('max_depth', None) is None:
+            self.xgb_param['max_depth'] = [6]
 
     def load_model(self, val_index, label):
         booster = xgb.Booster()
@@ -266,46 +274,50 @@ class XGBoostModel(EnsembleModel):
         best_model = None
         best_pred = None
         best_xgb_param = None
+        best_min_child_weight = None
 
         for eta in self.xgb_param["eta"]:
-            for max_depth in range(self.xgb_param['max_depth'][0], self.xgb_param['max_depth'][1]):
-                xgb_param = {
-                    'eta': eta,
-                    'silent': self.xgb_param['silent'],  # option for logging
-                    'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
-                    'max_depth': max_depth  # depth of the trees in the boosting process
-                }
+            for max_depth in self.xgb_param['max_depth']:
+                for min_child_weight in self.xgb_param['min_child_weight']:
+                    xgb_param = {
+                        'eta': eta,
+                        'silent': self.xgb_param['silent'],  # option for logging
+                        'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
+                        'max_depth': max_depth,  # depth of the trees in the boosting process
+                        'min_child_weight': min_child_weight
+                    }
 
-                bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
-                                feval=self.eval_func,
-                                early_stopping_rounds=10)
+                    bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
+                                    feval=self.eval_func,
+                                    early_stopping_rounds=10)
 
-                data_eva = xgb.DMatrix(val_x)
-                ypred = bst.predict(data_eva, ntree_limit=bst.best_ntree_limit)
-                ypred = ypred.reshape((-1, 1))
-                f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
-                self.save_log("eta:%f, max_depth:%d, f2:%f" % (eta, max_depth, f2))
-                self.save_log("best_iteration:%4f,  best_score:%4f, best_ntree_limit=%4f" % (bst.best_iteration,
-                                                                                             bst.best_score,
-                                                                                             bst.best_ntree_limit))
-                self.save_log("\n")
+                    data_eva = xgb.DMatrix(val_x)
+                    ypred = bst.predict(data_eva, ntree_limit=bst.best_ntree_limit)
+                    ypred = ypred.reshape((-1, 1))
+                    f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
+                    self.save_log("eta:%f, max_depth:%d, f2:%f" % (eta, max_depth, f2))
+                    self.save_log("best_iteration:%4f,  best_score:%4f, best_ntree_limit=%4f" % (bst.best_iteration,
+                                                                                                 bst.best_score,
+                                                                                                 bst.best_ntree_limit))
+                    self.save_log("\n")
 
-                if f2 > best_f2:
-                    best_f2 = f2
-                    best_model = bst
-                    best_eta = eta
-                    best_max_depth = max_depth
-                    best_pred = ypred
-                    best_xgb_param = copy.deepcopy(xgb_param)
-                    best_xgb_param['best_ntree_limit'] = bst.best_ntree_limit
-                    best_xgb_param['best_iteration'] = bst.best_iteration
+                    if f2 > best_f2:
+                        best_f2 = f2
+                        best_model = bst
+                        best_eta = eta
+                        best_max_depth = max_depth
+                        best_min_child_weight = min_child_weight
+                        best_pred = ypred
+                        best_xgb_param = copy.deepcopy(xgb_param)
+                        best_xgb_param['best_ntree_limit'] = bst.best_ntree_limit
+                        best_xgb_param['best_iteration'] = bst.best_iteration
 
         self.evaluate(y_pred=best_pred, y=val_y, weight_name=self.get_model_name(val_index, label),
                       xgb_param=best_xgb_param, save_evaluate=True)
 
         self.save_log(
-            "save best model for val[%d] label[%d], f2[%f] eta[%f] max_depth[%d] best_ntree[%d] best_iter[%d]" %
-            (val_index, label, best_f2, best_eta, best_max_depth, best_xgb_param['best_ntree_limit'],
+            "save best model for val[%d] label[%d], f2[%f] eta[%f] max_depth[%d]  best_min_child_weight[%f] best_ntree[%d] best_iter[%d]" %
+            (val_index, label, best_f2, best_eta, best_max_depth, best_min_child_weight, best_xgb_param['best_ntree_limit'],
              best_xgb_param['best_iteration']))
 
         self.save_model(best_model, val_index, label)

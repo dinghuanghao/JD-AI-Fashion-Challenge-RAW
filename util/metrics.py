@@ -218,15 +218,15 @@ def best_f2_score(true_labels, predictions, label_num=13):
     return score, opt_output.x
 
 
-def greedy_f2_score(y_true, y_pred, label_num=13):
+def greedy_f2_score(y_true, y_pred, label_num=13, step=100):
     threshold = [0.10] * label_num
     best_score = 0
     best_threshold = [t for t in threshold]
 
     for i in range(label_num):
         threshold = [t for t in best_threshold]
-        for j in range(100):
-            threshold[i] = j / 100.
+        for j in range(step):
+            threshold[i] = j / float(step)
             if label_num > 1:
                 score = fbeta_score(y_true, (np.array(y_pred) > threshold).astype(np.int8), beta=2, average='macro')
             else:
