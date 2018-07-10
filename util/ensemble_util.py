@@ -1,9 +1,11 @@
+import copy
 import json
 import os
 import pathlib
 import time
 
 import numpy as np
+import xgboost as xgb
 from sklearn.metrics import fbeta_score
 
 from statistics import model_statistics as statis
@@ -35,6 +37,7 @@ class EnsembleModel(object):
         self.log_file = os.path.join(self.record_dir, "log.txt")
         self.meta_model_txt = os.path.join(self.record_dir, "meta_model.txt")
         self.meta_mode_json = os.path.join(self.record_dir, "meta_model.json")
+        self.evaluate_json = os.path.join(self.record_dir, "evaluate.json")
 
         pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
         pathlib.Path(self.statistics_dir).mkdir(parents=True, exist_ok=True)
@@ -104,8 +107,18 @@ class EnsembleModel(object):
         if not os.path.exists(self.meta_model_txt):
             return None
 
-        # TODO: 将文件路径进行转换
         with open(self.meta_mode_json, "r") as f:
+            return json.load(f)
+
+    def save_evaluate_json(self, evaluate):
+        with open(self.evaluate_json, "w+") as f:
+            json.dump(evaluate, f)
+
+    def get_evaluate_json(self):
+        if not os.path.exists(self.evaluate_json):
+            return {}
+
+        with open(self.evaluate_json, "r") as f:
             return json.load(f)
 
     def build_datasets(self, val_index, target_label, train_label=None):
@@ -182,18 +195,18 @@ class EnsembleModel(object):
         print("####### Greedy F2-Score is %6f #######" % greedy_f2)
 
         if save_evaluate:
-            with open(os.path.join(self.record_dir, "evaluate.txt"), "a") as f:
-                f.write("\n\n")
-                f.write("Weight: %s\n" % weight_name)
-                if xgb_param is not None:
-                    f.write("Eta: %f\n" % xgb_param['eta'])
-                    f.write("Max-depth: %d\n" % xgb_param['max_depth'])
-
-                f.write("Smooth F2-Score: %f\n" % np.mean(one_label_smooth_f2_all))
-                f.write("F2-Score with threshold 0.1: %f\n" % thread_f2_01)
-                f.write("F2-Score with threshold 0.2: %f\n" % thread_f2_02)
-                f.write("Best threshold: %f\n" % one_label_greedy_threshold_all[0])
-                f.write("Greedy F2-Score is: %f\n" % greedy_f2)
+            evaluate = self.get_evaluate_json()
+            evaluate[weight_name] = {}
+            evaluate[weight_name]['eta'] = xgb_param['eta']
+            evaluate[weight_name]['max_depth'] = xgb_param['max_depth']
+            evaluate[weight_name]['best_iteration'] = xgb_param['best_iteration']
+            evaluate[weight_name]['best_ntree_limit'] = xgb_param['best_ntree_limit']
+            evaluate[weight_name]['smooth_f2'] = np.mean(one_label_smooth_f2_all)
+            evaluate[weight_name]['f2_0.1'] = thread_f2_01
+            evaluate[weight_name]['f2_0.2'] = thread_f2_02
+            evaluate[weight_name]['greedy_threshold'] = one_label_greedy_threshold_all[0]
+            evaluate[weight_name]['greedy_f2'] = greedy_f2
+            self.save_evaluate_json(evaluate)
 
         return greedy_f2
 
@@ -208,3 +221,107 @@ def xgb_greedy_f2_metric(preds, dtrain):
     labels = dtrain.get_label()  # 提取label
     thread_f2_02, _ = metrics.greedy_f2_score(labels, preds, 1)
     return 'Greedy-F2', 1 - thread_f2_02
+
+
+class XGBoostModel(EnsembleModel):
+    def __init__(self, xgb_param=None, number_round=None, eval_func=None,
+                 *args, **kwargs):
+        super(XGBoostModel, self).__init__(*args, **kwargs)
+        self.xgb_param = xgb_param
+        self.number_round = number_round
+        self.best_ntree_json = os.path.join(self.record_dir, "best_ntree.json")
+        self.model_dir = os.path.join(self.record_dir, "booster")
+        if eval_func is None:
+            self.eval_func = xgb_f2_metric
+        else:
+            self.eval_func = eval_func
+
+        pathlib.Path(self.model_dir).mkdir(parents=True, exist_ok=True)
+
+    def load_model(self, val_index, label):
+        booster = xgb.Booster()
+        booster.load_model(os.path.join(self.model_dir, self.get_model_name(val_index, label)))
+        return booster
+
+    def save_model(self, model, val_index, label):
+        model.save_model(os.path.join(self.model_dir, self.get_model_name(val_index, label)))
+
+    def get_model_name(self, val_index, label):
+        return "ensemble_val%d_label%d.xgb" % (val_index, label)
+
+    def train_all_label(self):
+        for val_index in range(1, 6):
+            for label in range(13):
+                self.train_single_label(val_index=val_index, label=label)
+
+    def train_single_label(self, val_index, label):
+        train_x, train_y, val_x, val_y = self.build_datasets(val_index=val_index, target_label=label)
+        data_train = xgb.DMatrix(data=train_x, label=train_y)
+        data_val = xgb.DMatrix(data=val_x, label=val_y)
+
+        evals = [(data_train, 'train'), (data_val, 'eval')]
+        best_f2 = 0
+        best_eta = 0
+        best_max_depth = 0
+        best_model = None
+        best_pred = None
+        best_xgb_param = None
+
+        for eta in self.xgb_param["eta"]:
+            for max_depth in range(self.xgb_param['max_depth'][0], self.xgb_param['max_depth'][1]):
+                xgb_param = {
+                    'eta': eta,
+                    'silent': self.xgb_param['silent'],  # option for logging
+                    'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
+                    'max_depth': max_depth  # depth of the trees in the boosting process
+                }
+
+                bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
+                                feval=self.eval_func,
+                                early_stopping_rounds=10)
+
+                data_eva = xgb.DMatrix(val_x)
+                ypred = bst.predict(data_eva, ntree_limit=bst.best_ntree_limit)
+                ypred = ypred.reshape((-1, 1))
+                f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
+                self.save_log("eta:%f, max_depth:%d, f2:%f" % (eta, max_depth, f2))
+                self.save_log("best_iteration:%4f,  best_score:%4f, best_ntree_limit=%4f" % (bst.best_iteration,
+                                                                                             bst.best_score,
+                                                                                             bst.best_ntree_limit))
+                self.save_log("\n")
+
+                if f2 > best_f2:
+                    best_f2 = f2
+                    best_model = bst
+                    best_eta = eta
+                    best_max_depth = max_depth
+                    best_pred = ypred
+                    best_xgb_param = copy.deepcopy(xgb_param)
+                    best_xgb_param['best_ntree_limit'] = bst.best_ntree_limit
+                    best_xgb_param['best_iteration'] = bst.best_iteration
+
+        self.evaluate(y_pred=best_pred, y=val_y, weight_name=self.get_model_name(val_index, label),
+                      xgb_param=best_xgb_param, save_evaluate=True)
+
+        self.save_log(
+            "save best model for val[%d] label[%d], f2[%f] eta[%f] max_depth[%d] best_ntree[%d] best_iter[%d]" %
+            (val_index, label, best_f2, best_eta, best_max_depth, best_xgb_param['best_ntree_limit'],
+             best_xgb_param['best_iteration']))
+
+        self.save_model(best_model, val_index, label)
+
+        # 测试load_model是否正确
+        # model = self.load_model(val_index, label)
+        # data_eva = xgb.DMatrix(val_x)
+        # ypred = model.predict(data_eva, ntree_limit=best_ntree_dict[self.get_model_name(val_index, label)])
+        # ypred = ypred.reshape((-1, 1))
+        # f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
+        # assert abs((f2 - best_f2) / f2) < 0.001
+
+    def predict_all_label(self):
+        for val_index in range(1, 6):
+            for label in range(13):
+                self.predict_one_label(val_index, label)
+
+    def predict_one_label(self, val_index, label, ntree_limit):
+        bst = self.load_model(val_index, label)
