@@ -323,12 +323,12 @@ class XGBoostModel(EnsembleModel):
         self.save_model(best_model, val_index, label)
 
         # 测试load_model是否正确
-        # model = self.load_model(val_index, label)
-        # data_eva = xgb.DMatrix(val_x)
-        # ypred = model.predict(data_eva, ntree_limit=best_ntree_dict[self.get_model_name(val_index, label)])
-        # ypred = ypred.reshape((-1, 1))
-        # f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
-        # assert abs((f2 - best_f2) / f2) < 0.001
+        model = self.load_model(val_index, label)
+        data_eva = xgb.DMatrix(val_x)
+        ypred = model.predict(data_eva, ntree_limit=best_xgb_param['best_ntree_limit'])
+        ypred = ypred.reshape((-1, 1))
+        f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
+        assert abs((f2 - best_f2) / f2) < 0.001
 
     def predict_all_label(self):
         for val_index in range(1, 6):
