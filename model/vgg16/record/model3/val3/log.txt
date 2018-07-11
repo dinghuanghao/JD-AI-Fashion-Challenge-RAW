@@ -202,3 +202,8 @@
 2018-07-09:13:52:51: up sampling times: ['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065'], totaol: 5465
 2018-07-09:13:52:51: train files is 56845 after up sampling
 2018-07-09:13:52:52: train file: 43862, val file: 10981
+2018-07-10:23:24:31: add 7453 color augmentation file
+2018-07-10:23:24:31: train files is 51380 before up sampling
+2018-07-10:23:24:31: up sampling times: ['680', '0', '0', '1550', '0', '0', '1170', '0', '0', '0', '0', '0', '2065'], totaol: 5465
+2018-07-10:23:24:31: train files is 56845 after up sampling
+2018-07-10:23:24:32: train file: 43926, val file: 10981
