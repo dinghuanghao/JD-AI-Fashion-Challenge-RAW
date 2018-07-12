@@ -13,6 +13,15 @@ from util import data_loader
 from util import keras_util
 from util import metrics
 
+#根据模型1， 2， 3， 4， 9的结果统计，选择了一定范围内的阈值而非0~1之间的所有可能阈值
+SPARSE_F2_THRESHOLD = []
+for i in range(5, 30):
+    SPARSE_F2_THRESHOLD.append(i / 100)
+for i in range(30, 51, 5):
+    SPARSE_F2_THRESHOLD.append(i / 100)
+
+print("f2 threshold is :", SPARSE_F2_THRESHOLD)
+
 
 class EnsembleModel(object):
     """
@@ -85,6 +94,8 @@ class EnsembleModel(object):
         else:
             self.save_log("load meta model info")
 
+        self.meta_model_statistics()
+
     def save_log(self, log):
         log = time.strftime("%Y-%m-%d:%H:%M:%S") + ": " + log
         print(log)
@@ -102,6 +113,18 @@ class EnsembleModel(object):
                         f.write("[f2 %4f]:%s\n" % (meta_model[1], meta_model[0]))
         with open(self.meta_mode_json, "w+") as f:
             json.dump(self.meta_model_all, f)
+
+    def meta_model_statistics(self):
+        models = []
+        for val in self.meta_model_all:
+            for label in val:
+                for top_n in label:
+                    models.append(top_n[0])
+        model_set = set(models)
+        with open(os.path.join(self.statistics_dir, "meta_model_statis.txt"), "w+") as f:
+            f.write("model_number: %d\n" % len(model_set))
+            for model in model_set:
+                f.write("%s\n" % model)
 
     def get_meta_model(self):
         if not os.path.exists(self.meta_model_txt):
@@ -214,18 +237,38 @@ class EnsembleModel(object):
 
 def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是个带label的DMatrix
     labels = dtrain.get_label()  # 提取label
-    thread_f2_02 = fbeta_score(labels, (np.array(preds) > 0.2).astype(np.int8), beta=2)
-    return 'F2-0.2', 1 - thread_f2_02
+    f2_02 = fbeta_score(labels, (np.array(preds) > 0.2).astype(np.int8), beta=2)
+    return 'F2-0.2', 1 - f2_02
 
 
 def xgb_greedy_f2_metric(preds, dtrain, step=100):
     labels = dtrain.get_label()  # 提取label
-    thread_f2_02, _ = metrics.greedy_f2_score(labels, preds, 1, step)
-    return 'Greedy-F2', 1 - thread_f2_02
+    greedy_f2, _ = metrics.greedy_f2_score(labels, preds, 1, step)
+    return 'Greedy-F2', 1 - greedy_f2
+
+
+def sparse_greedy_f2_score(y_true, y_pred):
+    best_score = 0
+    best_threshold = 0
+
+    for i in SPARSE_F2_THRESHOLD:
+        threshold = i
+        score = fbeta_score(y_true, (np.array(y_pred) > threshold).astype(np.int8), beta=2)
+        if score > best_score:
+            best_score = score
+            best_threshold = threshold
+
+    return best_score, best_threshold
+
+
+def xgb_sparse_greedy_f2_metric(preds, dtrain):
+    labels = dtrain.get_label()  # 提取label
+    greedy_f2, _ = sparse_greedy_f2_score(labels, preds)
+    return 'Sparse-Greedy-F2', 1 - greedy_f2
 
 
 class XGBoostModel(EnsembleModel):
-    def __init__(self, xgb_param:dict=None, number_round=None, eval_func=None,
+    def __init__(self, xgb_param: dict = None, number_round=None, eval_func=None,
                  *args, **kwargs):
         super(XGBoostModel, self).__init__(*args, **kwargs)
         self.xgb_param = xgb_param
@@ -260,7 +303,9 @@ class XGBoostModel(EnsembleModel):
     def train_all_label(self):
         for val_index in range(1, 6):
             for label in range(13):
-                self.train_single_label(val_index=val_index, label=label)
+                evaluate = self.get_evaluate_json()
+                if self.get_model_name(val_index, label) not in evaluate:
+                    self.train_single_label(val_index=val_index, label=label)
 
     def train_single_label(self, val_index, label):
         train_x, train_y, val_x, val_y = self.build_datasets(val_index=val_index, target_label=label)
@@ -317,18 +362,19 @@ class XGBoostModel(EnsembleModel):
 
         self.save_log(
             "save best model for val[%d] label[%d], f2[%f] eta[%f] max_depth[%d]  best_min_child_weight[%f] best_ntree[%d] best_iter[%d]" %
-            (val_index, label, best_f2, best_eta, best_max_depth, best_min_child_weight, best_xgb_param['best_ntree_limit'],
+            (val_index, label, best_f2, best_eta, best_max_depth, best_min_child_weight,
+             best_xgb_param['best_ntree_limit'],
              best_xgb_param['best_iteration']))
 
         self.save_model(best_model, val_index, label)
 
         # 测试load_model是否正确
-        model = self.load_model(val_index, label)
-        data_eva = xgb.DMatrix(val_x)
-        ypred = model.predict(data_eva, ntree_limit=best_xgb_param['best_ntree_limit'])
-        ypred = ypred.reshape((-1, 1))
-        f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
-        assert abs((f2 - best_f2) / f2) < 0.001
+        # model = self.load_model(val_index, label)
+        # data_eva = xgb.DMatrix(val_x)
+        # ypred = model.predict(data_eva, ntree_limit=best_xgb_param['best_ntree_limit'])
+        # ypred = ypred.reshape((-1, 1))
+        # f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
+        # assert abs((f2 - best_f2) / f2) < 0.001
 
     def predict_all_label(self):
         for val_index in range(1, 6):
@@ -337,3 +383,7 @@ class XGBoostModel(EnsembleModel):
 
     def predict_one_label(self, val_index, label, ntree_limit):
         bst = self.load_model(val_index, label)
+
+
+if __name__ == '__main__':
+    pass
