@@ -1,3 +1,4 @@
+import re
 import copy
 import json
 import os
@@ -12,8 +13,9 @@ from statistics import model_statistics as statis
 from util import data_loader
 from util import keras_util
 from util import metrics
+from util import path
 
-#根据模型1， 2， 3， 4， 9的结果统计，选择了一定范围内的阈值而非0~1之间的所有可能阈值
+# 根据模型1， 2， 3， 4， 9的结果统计，选择了一定范围内的阈值而非0~1之间的所有可能阈值
 SPARSE_F2_THRESHOLD = []
 for i in range(5, 30):
     SPARSE_F2_THRESHOLD.append(i / 100)
@@ -33,6 +35,7 @@ class EnsembleModel(object):
                  corr_threshold=0.9,
                  search=20,
                  top_n=5,
+                 meta_model_dir  = path.root_path,
                  debug=False
                  ):
         file_name = os.path.basename(model_path)
@@ -42,6 +45,7 @@ class EnsembleModel(object):
         self.search = search
         self.top_n = top_n
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split(".")[0])
+        self.meta_model_dir = meta_model_dir
         self.statistics_dir = os.path.join(self.record_dir, "statistics")
         self.log_file = os.path.join(self.record_dir, "log.txt")
         self.meta_model_txt = os.path.join(self.record_dir, "meta_model.txt")
@@ -143,6 +147,43 @@ class EnsembleModel(object):
 
         with open(self.evaluate_json, "r") as f:
             return json.load(f)
+
+    def get_meta_predict(self):
+        original_test_file = []
+        segmented_test_file = []
+        with open(path.TEST_DATA_TXT, 'r') as f:
+            for i in f.readlines():
+                image_name = i.split(",")[0] + ".jpg"
+                original_test_file.append(os.path.join(path.ORIGINAL_TEST_IMAGES_PATH, image_name))
+                segmented_test_file.append(os.path.join(path.SEGMENTED_TEST_IMAGES_PATH, image_name))
+
+        for val in self.meta_model_all:
+            for label in val:
+                for top_n in label:
+                    meta_model_path = top_n[0]
+                    unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
+                    identifier = "-".join(unique_path.split("\\"))
+                    cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
+                    if os.path.exists(cnn_result_path):
+                        continue
+                    weight_file = os.path.join(path.root_path, pathlib.Path(unique_path))
+                    real_weight_file = os.path.join(self.meta_model_dir, pathlib.Path(unique_path))
+                    self.save_log("weight file %s, real weight file %s" % (weight_file, real_weight_file))
+                    attr_get_model, attr_model_config = keras_util.dynamic_model_import(weight_file)
+                    model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
+                    model.load_weights(real_weight_file)
+                    attr_model_config.val_files = []
+                    for data_type in attr_model_config.data_type:
+                        if data_type == path.DATA_TYPE_ORIGINAL:
+                            self.save_log("model %s use original data" % unique_path)
+                            attr_model_config.val_files.append(original_test_file)
+                        if data_type == path.DATA_TYPE_SEGMENTED:
+                            self.save_log("model %s use segmented data" % unique_path)
+                            attr_model_config.val_files.append(segmented_test_file)
+
+                    y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
+                    keras_util.save_prediction_file(y_pred, cnn_result_path)
+
 
     def build_datasets(self, val_index, target_label, train_label=None):
         assert len(self.meta_model_all) == 5

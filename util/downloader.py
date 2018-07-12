@@ -1,4 +1,6 @@
+import os
 import concurrent.futures
+import pathlib
 import time
 
 import tensorflow as tf
@@ -62,6 +64,8 @@ def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, i
     :return:
     """
 
+    pathlib.Path(os.path.join(photo_save_subdir, photo_save_subdir)).mkdir(parents=True, exist_ok=True)
+
     with open(txt_dir) as f:
         lines = []
         for i in range(thread_number):
@@ -80,6 +84,6 @@ def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, i
 
 
 if __name__ == '__main__':
-    download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR, is_test=False,
-                    thread_number=16)
-    # download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR, is_test=True, thread_number=1)
+    # download_photos(path.TRAIN_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TRAIN_IMAGES_SUBDIR, is_test=False,thread_number=16)
+    download_photos(path.TEST_DATA_TXT, path.ORIGINAL_IMAGES_PATH, path.TEST_IMAGES_SUBDIR, is_test=True,
+                    thread_number=8)

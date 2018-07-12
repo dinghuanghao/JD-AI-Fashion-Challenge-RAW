@@ -258,7 +258,6 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     pre_datagen.tta = tta
     predict_times = 0
 
-    #TODO: 兼容传入指定file
     for i in range(len(model_config.val_files)):
         files = model_config.val_files[i]
         for j in range(tta.tta_times):
@@ -277,7 +276,7 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
                 y_pred += np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
                                                            verbose=verbose, workers=16))
 
-    assert y_pred.shape[0] == model_config.val_y.shape[0]
+    # assert y_pred.shape[0] == model_config.val_y.shape[0]
 
     y_pred = y_pred / (len(model_config.data_type) * tta.tta_times)
     print("####### predict %d times, spend %d seconds total ######" % (predict_times, time.time() - start))

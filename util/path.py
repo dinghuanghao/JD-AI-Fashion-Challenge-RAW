@@ -10,6 +10,15 @@ DATA_PATH = os.path.join(ROOT_PATH, "data")
 MODEL_PATH = os.path.join(ROOT_PATH, "model")
 ENSEMBLE_PATH = os.path.join(ROOT_PATH, "ensemble")
 
+RESULT_PATH = os.path.join(DATA_PATH, "result")
+CNN_RESULT_PATH = os.path.join(RESULT_PATH, "cnn")
+XGB_RESULT_PATH = os.path.join(RESULT_PATH, "xgb")
+pathlib.Path(CNN_RESULT_PATH).mkdir(parents=True, exist_ok=True)
+pathlib.Path(XGB_RESULT_PATH).mkdir(parents=True, exist_ok=True)
+
+DATA_TYPE_ORIGINAL = "original"
+DATA_TYPE_SEGMENTED = "segmented"
+
 XGBOOST_ENSEMBLE_PATH = os.path.join(ENSEMBLE_PATH, "xgb")
 
 CACHE_PATH = os.path.join(DATA_PATH, "cache")
@@ -33,7 +42,7 @@ GREEN_TO_YELLOW_PATH = os.path.join(GREEN_IMAGE_PATH, "yellow")
 YELLOW_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "yellow")
 YELLOW_ORIGINAL_PATH = os.path.join(YELLOW_IMAGE_PATH, "original")
 
-ORANGE_IMAGE_PATH= os.path.join(COLOR_AUGMENTED_PATH, "orange")
+ORANGE_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "orange")
 ORANGE_ORIGINAL_PATH = os.path.join(ORANGE_IMAGE_PATH, "original")
 
 RED_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "red")
@@ -41,7 +50,6 @@ RED_ORIGINAL_PATH = os.path.join(RED_IMAGE_PATH, "original")
 
 RED_IMAGE_PATH = os.path.join(COLOR_AUGMENTED_PATH, "red")
 RED_ORIGINAL_PATH = os.path.join(RED_IMAGE_PATH, "original")
-
 
 DEBUG_TRAIN_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "train")
 DEBUG_VAL_IMAGES_PATH = os.path.join(os.path.join(IMAGES_PATH, "debug"), "val")
