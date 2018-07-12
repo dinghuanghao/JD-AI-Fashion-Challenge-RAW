@@ -20,6 +20,7 @@ from util import metrics
 from util import path
 import config
 
+
 class KerasModelConfig(object):
     def __init__(self,
                  k_fold_file,
@@ -226,6 +227,12 @@ class KerasModelConfig(object):
         return os.path.join(self.record_dir,
                             "%sweights.%03d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
 
+    def predict_tta_all(self, model):
+        for epoch in range(self.epoch[-1]):
+            model.load_weights(self.get_weights_path(epoch))
+            predict = predict_tta(model, self)
+            save_prediction_file(predict, self.get_weights_path(epoch), True)
+            evaluate(self.val_y, predict, self.get_weights_path(epoch), self)
 
 def dynamic_model_import(weights_file):
     model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
@@ -249,7 +256,6 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
         pre_datagen.load_image_global_mean_std(model_config.image_mean_file, model_config.image_std_file)
     else:
         pre_datagen = data_loader.KerasGenerator(model_config=model_config, real_transform=True)
-
 
     y_pred = None
     start = time.time()
