@@ -228,11 +228,14 @@ class KerasModelConfig(object):
                             "%sweights.%03d.hdf5" % (str([str(j) for j in self.label_position]), epoch))
 
     def predict_tta_all(self, model):
-        for epoch in range(self.epoch[-1]):
-            model.load_weights(self.get_weights_path(epoch))
+        for epoch in range(1, self.epoch[-1]):
+            unique_path = re.match(r".*competition[\\/]*(.*)", self.get_weights_path(epoch)).group(1)
+            real_weight_file = os.path.join("E:\\backup\\jdfc", pathlib.Path(unique_path))
+            model.load_weights(real_weight_file)
             predict = predict_tta(model, self)
             save_prediction_file(predict, self.get_weights_path(epoch), True)
             evaluate(self.val_y, predict, self.get_weights_path(epoch), self)
+
 
 def dynamic_model_import(weights_file):
     model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
