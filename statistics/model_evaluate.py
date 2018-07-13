@@ -2,6 +2,8 @@ import os
 import re
 import sys
 import numpy as np
+import pathlib
+
 sys.path.append(os.path.abspath("../"))
 import config
 from util import data_loader
@@ -16,13 +18,30 @@ for i in range(1, 6):
     y_val[i] = np.array(data_loader.get_labels(val1_val_files), np.bool)
 
 
+def check_invalid_model(path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if "model" in file and "val" in file and ".py" in file and "pyc" not in file:
+                record_dir = os.path.join(os.path.join(root, "record"), file.split("_")[0])
+                record_dir = os.path.join(record_dir, file.split("_")[1].split(".")[0])
+
+                weight_path = os.path.join(record_dir,
+                             "%sweights.%03d.hdf5" % (str([str(j) for j in range(13)]), 3))
+
+                unique_path = re.match(r".*competition[\\/]*(.*)", weight_path).group(1)
+                real_weight_file = os.path.join("E:\\backup\\jdfc", pathlib.Path(unique_path))
+                if not os.path.exists(real_weight_file):
+                    # if "val1" in real_weight_file or "val2" in real_weight_file or "val5" in real_weight_file:
+                    print("%s" % os.path.join(root, file))
+
 def predict_tta_all(path):
     for root, dirs, files in os.walk(path):
         for file in files:
             if "model" in file and "val" in file and ".py" in file and "pyc" not in file:
                 print("start predict tta %s" % os.path.join(root, file))
                 model_name = file.split(".")[0]
-                attr_get_model, attr_model_config = keras_util.dynamic_model_import(model_path_in=os.path.join(root, model_name))
+                attr_get_model, attr_model_config = keras_util.dynamic_model_import(
+                    model_path_in=os.path.join(root, model_name))
                 model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
                 attr_model_config.predict_tta_all(model)
 
@@ -99,4 +118,5 @@ def predict_models(path, val_index=1):
 # predict_models(os.path.join(path.MODEL_PATH), 5)
 
 if __name__ == '__main__':
-    predict_tta_all(path.MODEL_PATH)
+    # predict_tta_all(path.MODEL_PATH)
+    check_invalid_model(path.MODEL_PATH)
