@@ -20,6 +20,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 train_batch_size=[32, 32, 32],
                                 label_up_sampling=[10, 0, 0, 10, 0, 0, 10, 0, 0, 0, 0, 0, 10],
                                 data_visualization=True,
+                                initial_epoch=6,
                                 downsampling=0.4,
                                 val_batch_size=256,
                                 predict_batch_size=256,
@@ -100,7 +101,7 @@ def train():
             model.fit_generator(generator=train_flow,
                                 steps_per_epoch=model_config.get_steps_per_epoch(i),
                                 epochs=model_config.epoch[i],
-                                workers=16,
+                                workers=8,
                                 verbose=1,
                                 callbacks=[checkpoint, clr])
         else:
