@@ -225,6 +225,34 @@ class EnsembleModel(object):
         return train_x.astype(np.float32), train_y.astype(np.float32), val_x.astype(np.float32), val_y.astype(
             np.float32)
 
+    def model_rank(self, rank_n):
+        for val_index in range(1, 6):
+            val_model = self.meta_model_all[val_index - 1]
+            model_dict = {}
+            for label in val_model:
+                for top_n in label:
+                    if model_dict.get(top_n[0]) == None:
+                        model_dict[top_n[0]] = 1
+                    else:
+                        model_dict[top_n[0]] += 1
+
+            model_sorted = sorted(model_dict.items(), key=lambda d:d[1], reverse=True)
+            if val_index == 1:
+                mode = "w+"
+            else:
+                mode = "a"
+            with open(os.path.join(self.record_dir, "meta_model_rank.txt"), mode) as f:
+                cnt = 0
+                f.write("================================================\n")
+                f.write("val %d\n" % val_index)
+                for i in model_sorted:
+                    f.write("%d: %s\n" % (i[1], i[0]))
+                    cnt += 1
+                    if cnt >= rank_n:
+                        break
+
+
+
     def train_all_label(self):
         pass
 
