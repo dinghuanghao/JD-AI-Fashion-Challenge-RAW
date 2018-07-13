@@ -225,6 +225,33 @@ class EnsembleModel(object):
         return train_x.astype(np.float32), train_y.astype(np.float32), val_x.astype(np.float32), val_y.astype(
             np.float32)
 
+    def build_all_datasets(self):
+        assert len(self.meta_model_all) == 5
+        data_x = None
+        labels = [i for i in range(13)]
+        samples_cnt = 0
+        for val in range(1, 6):
+            meta_model_val = self.meta_model_all[val - 1]
+            predict_val = None
+            assert len(meta_model_val) == 13
+            for label in labels:
+                meta_model_label = meta_model_val[label]
+                for meta_model in meta_model_label:
+                    predicts = np.load(keras_util.get_prediction_path(meta_model[0]))
+                    predict_label = predicts[:, label].reshape((-1, 1))
+                    samples_cnt += predict_label.shape[0]
+                    if predict_val is None:
+                        predict_val = np.copy(predict_label)
+                    else:
+                        predict_val = np.hstack((predict_val, predict_label))
+            if data_x is None:
+                data_x = np.copy(predict_val)
+            else:
+                data_x = np.vstack((data_x, predict_val))
+            assert predict_val.shape[1] == len(labels) * self.top_n
+        data_y = data_loader.get_k_fold_all_labels()
+        return data_x.astype(np.float32), data_y.astype(np.float32)
+
     def train_all_label(self):
         pass
 
@@ -274,6 +301,20 @@ class EnsembleModel(object):
 
         return greedy_f2
 
+    def get_model_param(self, weight_name):
+        evaluate = self.get_evaluate_json()
+        param_dic = {}
+        param_dic['eta'] = evaluate[weight_name]['eta']
+        param_dic['max_depth'] = evaluate[weight_name]['max_depth']
+        # param_dic['min_child_weight'] = evaluate[weight_name]['min_child_weight']
+        param_dic['best_iteration'] = evaluate[weight_name]['best_iteration']
+        param_dic['best_ntree_limit'] = evaluate[weight_name]['best_ntree_limit']
+        param_dic['smooth_f2'] = evaluate[weight_name]['smooth_f2']
+        param_dic['f2_0.1'] = evaluate[weight_name]['f2_0.1']
+        param_dic['f2_0.2'] = evaluate[weight_name]['f2_0.2']
+        param_dic['greedy_threshold'] = evaluate[weight_name]['greedy_threshold']
+        param_dic['greedy_f2'] = evaluate[weight_name]['greedy_f2']
+        return param_dic
 
 def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是个带label的DMatrix
     labels = dtrain.get_label()  # 提取label
@@ -417,14 +458,58 @@ class XGBoostModel(EnsembleModel):
         # f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
         # assert abs((f2 - best_f2) / f2) < 0.001
 
-    def predict_all_label(self):
-        for val_index in range(1, 6):
-            for label in range(13):
-                self.predict_one_label(val_index, label)
+    def predict_all_label(self, data):
+        '''
+        :param data:
+        :return:[](13, 5),每一个元素是每个模型的预测结果array
+        '''
+        data = xgb.DMatrix(data)
+        predict_dic = []
+        for label in range(13):
+            predict_dic.append([])
+            for val_index in range(1, 6):
+                predict_dic[label].append([])
+                model_name = self.get_model_name(val_index, label)
+                model_param = self.get_model_param(model_name)
+                predict_dic[label][val_index - 1] = self.predict_one_label(val_index, label, data, model_param['best_ntree_limit'])
+        assert len(predict_dic) == 13
+        assert len(predict_dic[0]) == 5
+        for i in range(13):
+            for j in range(5):
+                assert predict_dic[i][j].shape == predict_dic[0][0].shape
+        return predict_dic
 
-    def predict_one_label(self, val_index, label, ntree_limit):
+    def predict_one_label(self, val_index, label, data, ntree_limit):
         bst = self.load_model(val_index, label)
+        data_pred = bst.predict(data, ntree_limit)
+        return data_pred
 
+    def predict_real(self, data, mode='vote'):
+        data_pred = copy.deepcopy(self.predict_all_label(data))
+        predict_real_value = []
+        if mode == 'vote':
+            for val_index in range(5):
+                predict_real_value.append([])
+                for label in range(13):
+                    model_name = self.get_model_name(val_index + 1, label)
+                    model_param = self.get_model_param(model_name)
+                    for i in range(len(data_pred[label][val_index])):
+                        data_pred[label][val_index][i] = 1 if \
+                            data_pred[label][val_index][i] > model_param['greedy_threshold'] else -1
+                    if predict_real_value[val_index] == []:
+                        predict_real_value[val_index] = \
+                            np.copy(data_pred[label][val_index].reshape((1, -1)))
+                    else:
+                        predict_real_value[val_index] = np.vstack((predict_real_value[val_index],
+                                                                   data_pred[label][val_index].reshape((1, -1))))
+            predict_real_result = np.zeros((13, len(predict_real_value[0][0])))
+            for val_index in range(5):
+                for label in range(13):
+                    predict_real_result[label] += predict_real_value[val_index][label]
+            for i in range(predict_real_result.shape[0]):
+                for j in range(predict_real_result.shape[1]):
+                    predict_real_result[i][j] = 1 if predict_real_result[i][j] > 0 else 0
+            return predict_real_result.transpose()
 
 if __name__ == '__main__':
     pass
