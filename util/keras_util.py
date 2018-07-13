@@ -72,8 +72,8 @@ class KerasModelConfig(object):
         self.freeze_layers = freeze_layers
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
-        self.tta_flip = tta_flip
-        self.tta_crop = tta_crop
+        self.tta_flip = True
+        self.tta_crop = False
         self.debug = debug
         self.label_color_augment = label_color_augment
         self.downsampling = downsampling
