@@ -148,6 +148,21 @@ class EnsembleModel(object):
         with open(self.evaluate_json, "r") as f:
             return json.load(f)
 
+    def find_segmented_model(self):
+        for val in self.meta_model_all:
+            for label in val:
+                for top_n in label:
+                    meta_model_path = top_n[0]
+                    unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
+                    identifier = "-".join(unique_path.split("\\"))
+                    cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
+                    weight_file = os.path.join(path.root_path, pathlib.Path(unique_path))
+                    real_weight_file = os.path.join(self.meta_model_dir, pathlib.Path(unique_path))
+                    attr_get_model, attr_model_config = keras_util.dynamic_model_import(weight_file)
+                    if path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
+                        print(meta_model_path)
+
+
     def get_meta_predict(self):
         original_test_file = []
         segmented_test_file = []
@@ -236,7 +251,7 @@ class EnsembleModel(object):
                     else:
                         model_dict[top_n[0].split(".")[0]] += 1
 
-            model_sorted = sorted(model_dict.items(), key=lambda d:d[1], reverse=True)
+            model_sorted = sorted(model_dict.items(), key=lambda d: d[1], reverse=True)
             if val_index == 1:
                 mode = "w+"
             else:
@@ -250,8 +265,6 @@ class EnsembleModel(object):
                     cnt += 1
                     if cnt >= rank_n:
                         break
-
-
 
     def train_all_label(self):
         pass

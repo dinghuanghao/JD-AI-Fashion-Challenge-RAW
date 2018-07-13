@@ -243,10 +243,10 @@ def segment():
 
 if __name__ == "__main__":
     model = get_mrcnn_model()
-    image_names = data_loader.list_image_name(path.ORIGINAL_TRAIN_IMAGES_PATH)
+    image_names = data_loader.list_image_name(path.ORIGINAL_TEST_IMAGES_PATH)
 
     # 将原始数据进行人像分割并保存
-    image_segmentation(model, path.ORIGINAL_TRAIN_IMAGES_PATH, image_names, path.SEGMENTED_TRAIN_IMAGES_PATH,
+    image_segmentation(model, path.ORIGINAL_TEST_IMAGES_PATH, image_names, path.SEGMENTED_TEST_IMAGES_PATH,
                        ['person'], False)
     # image_names = data_loader.list_image_name(path.ERROR_ORIGINAL_IMAGES_PATH)
     #
