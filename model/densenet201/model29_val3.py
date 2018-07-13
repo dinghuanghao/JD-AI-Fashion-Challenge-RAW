@@ -26,6 +26,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 epoch=[1, 4, 10],
                                 lr=[0.0005, 0.00005, 0.000005],
                                 data_visualization=True,
+                                tta_flip=True,
                                 freeze_layers=[-1, 0.6, 5])
 
 

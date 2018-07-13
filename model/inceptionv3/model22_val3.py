@@ -28,8 +28,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 epoch=[1, 3, 5],
                                 lr=[0.001, 0.0001, 0.00001],
                                 freeze_layers=[-1, 0.6, 5],
-                                tta_crop=True,
-                                tta_flip=True)
+                                tta_crop=True)
 
 
 def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
