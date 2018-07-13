@@ -444,6 +444,21 @@ def get_k_fold_labels(val_index, target_label):
 
     return train_y, val_y
 
+def get_k_fold_all_labels():
+    val_y = None
+    for val in range(1, 6):
+        predict_path = os.path.join(path.CACHE_PATH, "label_val%d.npy" % val)
+        if os.path.exists(predict_path):
+            labels = np.load(predict_path)
+        else:
+            _, val_files = get_k_fold_files("1.txt", val, [config.DATA_TYPE_ORIGINAL])
+            labels = get_labels(val_files)
+            labels = np.array(labels)
+        if val_y is None:
+            val_y = np.copy(labels)
+        else:
+            val_y = np.vstack((val_y, labels))
+    return val_y
 
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []
