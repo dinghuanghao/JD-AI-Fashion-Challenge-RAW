@@ -31,8 +31,8 @@ def check_invalid_model(path):
                 unique_path = re.match(r".*competition[\\/]*(.*)", weight_path).group(1)
                 real_weight_file = os.path.join("E:\\backup\\jdfc", pathlib.Path(unique_path))
                 if not os.path.exists(real_weight_file):
-                    # if "val1" in real_weight_file or "val2" in real_weight_file or "val5" in real_weight_file:
-                    print("%s" % os.path.join(root, file))
+                    if "val3" in real_weight_file:
+                        print("%s" % os.path.join(root, file))
 
 def predict_tta_all(path):
     for root, dirs, files in os.walk(path):
