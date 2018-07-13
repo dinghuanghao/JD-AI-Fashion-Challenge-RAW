@@ -78,7 +78,7 @@ def download_photos(txt_dir: str, photo_save_dir: str, photo_save_subdir: str, i
             futures = []
             start_time = time.time()
             for l in lines:
-                futures.append(executor.submit(do_download(l, photo_save_dir, photo_save_subdir, is_test)))
+                futures.append(executor.submit(do_download, l, photo_save_dir, photo_save_subdir, is_test))
             concurrent.futures.wait(futures)
             print("下载所有图片共花费 %f 秒" % (time.time() - start_time))
 

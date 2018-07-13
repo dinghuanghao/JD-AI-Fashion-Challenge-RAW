@@ -148,7 +148,22 @@ class EnsembleModel(object):
         with open(self.evaluate_json, "r") as f:
             return json.load(f)
 
-    def get_meta_predict(self):
+    def find_segmented_model(self):
+        for val in self.meta_model_all:
+            for label in val:
+                for top_n in label:
+                    meta_model_path = top_n[0]
+                    unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
+                    identifier = "-".join(unique_path.split("\\"))
+                    cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
+                    weight_file = os.path.join(path.root_path, pathlib.Path(unique_path))
+                    real_weight_file = os.path.join(self.meta_model_dir, pathlib.Path(unique_path))
+                    attr_get_model, attr_model_config = keras_util.dynamic_model_import(weight_file)
+                    if path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
+                        print(meta_model_path)
+
+
+    def get_meta_predict(self, val_index, get_segmented):
         original_test_file = []
         segmented_test_file = []
         with open(path.TEST_DATA_TXT, 'r') as f:
@@ -157,8 +172,9 @@ class EnsembleModel(object):
                 original_test_file.append(os.path.join(path.ORIGINAL_TEST_IMAGES_PATH, image_name))
                 segmented_test_file.append(os.path.join(path.SEGMENTED_TEST_IMAGES_PATH, image_name))
 
-        for val in self.meta_model_all:
-            for label in val:
+        for val in val_index:
+            val_model = self.meta_model_all[val - 1]
+            for label in val_model:
                 for top_n in label:
                     meta_model_path = top_n[0]
                     unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
@@ -166,10 +182,20 @@ class EnsembleModel(object):
                     cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
                     if os.path.exists(cnn_result_path):
                         continue
+
                     weight_file = os.path.join(path.root_path, pathlib.Path(unique_path))
                     real_weight_file = os.path.join(self.meta_model_dir, pathlib.Path(unique_path))
-                    self.save_log("weight file %s, real weight file %s" % (weight_file, real_weight_file))
+                    if not os.path.exists(real_weight_file):
+                        self.save_log("weight not existed, %s " % real_weight_file)
+                        continue
+
+                    # self.save_log("weight file %s, real weight file %s" % (weight_file, real_weight_file))
                     attr_get_model, attr_model_config = keras_util.dynamic_model_import(weight_file)
+
+                    if not get_segmented and path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
+                        self.save_log("not train segmented model, %s" % real_weight_file)
+                        continue
+
                     model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
                     model.load_weights(real_weight_file)
                     attr_model_config.val_files = []
@@ -251,6 +277,32 @@ class EnsembleModel(object):
             assert predict_val.shape[1] == len(labels) * self.top_n
         data_y = data_loader.get_k_fold_all_labels()
         return data_x.astype(np.float32), data_y.astype(np.float32)
+    
+    def model_rank(self, rank_n):
+        for val_index in range(1, 6):
+            val_model = self.meta_model_all[val_index - 1]
+            model_dict = {}
+            for label in val_model:
+                for top_n in label:
+                    if model_dict.get(top_n[0].split(".")[0]) == None:
+                        model_dict[top_n[0].split(".")[0]] = 1
+                    else:
+                        model_dict[top_n[0].split(".")[0]] += 1
+
+            model_sorted = sorted(model_dict.items(), key=lambda d: d[1], reverse=True)
+            if val_index == 1:
+                mode = "w+"
+            else:
+                mode = "a"
+            with open(os.path.join(self.record_dir, "meta_model_rank.txt"), mode) as f:
+                cnt = 0
+                f.write("================================================\n")
+                f.write("val %d\n" % val_index)
+                for i in model_sorted:
+                    f.write("%d: %s\n" % (i[1], i[0]))
+                    cnt += 1
+                    if cnt >= rank_n:
+                        break
 
     def train_all_label(self):
         pass

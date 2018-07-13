@@ -13,8 +13,10 @@ ENSEMBLE_PATH = os.path.join(ROOT_PATH, "ensemble")
 RESULT_PATH = os.path.join(DATA_PATH, "result")
 CNN_RESULT_PATH = os.path.join(RESULT_PATH, "cnn")
 XGB_RESULT_PATH = os.path.join(RESULT_PATH, "xgb")
+SUBMIT_RESULT_PATH = os.path.join(RESULT_PATH, "submit")
 pathlib.Path(CNN_RESULT_PATH).mkdir(parents=True, exist_ok=True)
 pathlib.Path(XGB_RESULT_PATH).mkdir(parents=True, exist_ok=True)
+pathlib.Path(SUBMIT_RESULT_PATH).mkdir(parents=True, exist_ok=True)
 
 DATA_TYPE_ORIGINAL = "original"
 DATA_TYPE_SEGMENTED = "segmented"

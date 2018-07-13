@@ -16,4 +16,4 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.get_meta_predict()
+model.get_meta_predict([1, 2], False)

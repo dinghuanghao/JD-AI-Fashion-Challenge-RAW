@@ -1,0 +1,37 @@
+2018-07-13:15:32:17: add 7449 color augmentation file
+2018-07-13:15:32:17: train files is 51375 before up sampling
+2018-07-13:15:32:17: up sampling times: ['790', '0', '0', '1420', '0', '0', '1140', '0', '0', '0', '0', '0', '2300'], totaol: 5650
+2018-07-13:15:32:17: train files is 57025 after up sampling
+2018-07-13:15:32:18: train file: 43899, val file: 10982
+2018-07-13:15:35:35: on epoch 1 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-13:15:36:22: start predict with tta
+2018-07-13:15:36:22: start predict with tta index is 0, data type is original
+2018-07-13:15:37:15: start predict with tta index is 1, data type is original
+2018-07-13:15:50:08: on epoch 2 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-13:15:52:37: start predict with tta
+2018-07-13:15:52:37: start predict with tta index is 0, data type is original
+2018-07-13:15:53:28: start predict with tta index is 1, data type is original
+2018-07-13:16:03:39: on epoch 3 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-13:16:03:41: start predict with tta
+2018-07-13:16:03:41: start predict with tta index is 0, data type is original
+2018-07-13:16:04:27: start predict with tta index is 1, data type is original
+2018-07-13:16:14:52: on epoch 4 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-13:16:14:54: start predict with tta
+2018-07-13:16:14:54: start predict with tta index is 0, data type is original
+2018-07-13:16:15:41: start predict with tta index is 1, data type is original
+2018-07-13:16:29:13: on epoch 5 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-13:16:33:25: start predict with tta
+2018-07-13:16:33:25: start predict with tta index is 0, data type is original
+2018-07-13:16:34:21: start predict with tta index is 1, data type is original
+2018-07-13:16:44:56: on epoch 6 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-13:16:44:59: start predict with tta
+2018-07-13:16:44:59: start predict with tta index is 0, data type is original
+2018-07-13:16:45:47: start predict with tta index is 1, data type is original
+2018-07-13:16:56:22: on epoch 7 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-13:16:56:25: start predict with tta
+2018-07-13:16:56:25: start predict with tta index is 0, data type is original
+2018-07-13:16:57:14: start predict with tta index is 1, data type is original
+2018-07-13:17:07:56: on epoch 8 end, save weight:F:\Projects\competition\model\vgg16\record\model3\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-13:17:07:59: start predict with tta
+2018-07-13:17:07:59: start predict with tta index is 0, data type is original
+2018-07-13:17:08:47: start predict with tta index is 1, data type is original

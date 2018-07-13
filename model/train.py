@@ -35,4 +35,3 @@ from model.nasmobile import model6_val3, model7_val3
 
 from model.resnet50 import model16_val3, model17_val3
 model17_val3.train()
-

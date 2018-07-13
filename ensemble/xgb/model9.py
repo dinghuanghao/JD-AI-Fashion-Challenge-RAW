@@ -15,3 +15,5 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    )
 
 # model.train_all_label()
+# model.model_rank(20)
+# model.find_segmented_model()
