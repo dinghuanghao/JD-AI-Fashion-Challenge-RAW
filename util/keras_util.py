@@ -231,16 +231,23 @@ class KerasModelConfig(object):
         for epoch in range(1, self.epoch[-1]):
             unique_path = re.match(r".*competition[\\/]*(.*)", self.get_weights_path(epoch)).group(1)
             real_weight_file = os.path.join("E:\\backup\\jdfc", pathlib.Path(unique_path))
+            if not os.path.exists(real_weight_file):
+                self.save_log("weight not existed in %s" % real_weight_file)
+                continue
             model.load_weights(real_weight_file)
             predict = predict_tta(model, self)
             save_prediction_file(predict, self.get_weights_path(epoch), True)
             evaluate(self.val_y, predict, self.get_weights_path(epoch), self)
 
 
-def dynamic_model_import(weights_file):
-    model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
-    model_dir = re.match(r"(.*)\\record", weights_file).group(1)
-    model_path = os.path.join(model_dir, model_file)
+def dynamic_model_import(weights_file=None, model_path_in=None):
+    if model_path_in is None:
+        model_file = "_".join(re.match(r".*record\\(.*)\\\[", weights_file).group(1).split("\\"))
+        model_dir = re.match(r"(.*)\\record", weights_file).group(1)
+        model_path = os.path.join(model_dir, model_file)
+    else:
+        model_path = model_path_in
+
     root_dir, type_dir, name = re.match(r".*competition\\(.*)", model_path).group(1).split("\\")
     package = __import__(".".join([root_dir, type_dir, name]))
     attr_get_model = getattr(getattr(getattr(package, type_dir), name), "get_model")

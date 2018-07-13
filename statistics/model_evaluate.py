@@ -1,8 +1,8 @@
 import os
 import re
-
+import sys
 import numpy as np
-
+sys.path.append(os.path.abspath("../"))
 import config
 from util import data_loader
 from util import data_visualization as dv
@@ -14,6 +14,17 @@ for i in range(1, 6):
     val1_train_files, val1_val_files = data_loader.get_k_fold_files("1.txt", i, [config.DATA_TYPE_SEGMENTED],
                                                                     shuffle=False)
     y_val[i] = np.array(data_loader.get_labels(val1_val_files), np.bool)
+
+
+def predict_tta_all(path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if "model" in file and "val" in file and ".py" in file and "pyc" not in file:
+                print("start predict tta %s" % os.path.join(root, file))
+                model_name = file.split(".")[0]
+                attr_get_model, attr_model_config = keras_util.dynamic_model_import(model_path_in=os.path.join(root, model_name))
+                model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
+                attr_model_config.predict_tta_all(model)
 
 
 def predict_models(path, val_index=1):
@@ -81,8 +92,11 @@ def predict_models(path, val_index=1):
                                     attr_model_config)
 
 
-predict_models(os.path.join(path.MODEL_PATH), 1)
-predict_models(os.path.join(path.MODEL_PATH), 2)
-predict_models(os.path.join(path.MODEL_PATH), 3)
-predict_models(os.path.join(path.MODEL_PATH), 4)
-predict_models(os.path.join(path.MODEL_PATH), 5)
+# predict_models(os.path.join(path.MODEL_PATH), 1)
+# predict_models(os.path.join(path.MODEL_PATH), 2)
+# predict_models(os.path.join(path.MODEL_PATH), 3)
+# predict_models(os.path.join(path.MODEL_PATH), 4)
+# predict_models(os.path.join(path.MODEL_PATH), 5)
+
+if __name__ == '__main__':
+    predict_tta_all(path.MODEL_PATH)

@@ -1,2 +1,19 @@
 2018-06-29:09:51:42: train file: 43927, val file: 10981
 2018-07-03:09:57:04: train file: 43927, val file: 10981
+2018-07-13:00:11:39: start predict with tta index is 0, data type is original
+2018-07-13:00:12:21: start predict with tta index is 1, data type is original
+2018-07-13:00:13:14: start predict with tta index is 0, data type is original
+2018-07-13:00:13:52: start predict with tta index is 1, data type is original
+2018-07-13:00:14:44: start predict with tta index is 0, data type is original
+2018-07-13:00:15:23: start predict with tta index is 1, data type is original
+2018-07-13:00:16:16: start predict with tta index is 0, data type is original
+2018-07-13:00:16:53: start predict with tta index is 1, data type is original
+2018-07-13:00:17:46: start predict with tta index is 0, data type is original
+2018-07-13:00:18:24: start predict with tta index is 1, data type is original
+2018-07-13:00:19:17: start predict with tta index is 0, data type is original
+2018-07-13:00:19:55: start predict with tta index is 1, data type is original
+2018-07-13:00:20:48: start predict with tta index is 0, data type is original
+2018-07-13:00:21:26: start predict with tta index is 1, data type is original
+2018-07-13:00:22:19: start predict with tta index is 0, data type is original
+2018-07-13:00:22:56: start predict with tta index is 1, data type is original
+2018-07-13:00:23:48: weight not existed in E:\backup\jdfc\model\densenet121\record\model13\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5

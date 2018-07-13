@@ -35,7 +35,7 @@ class EnsembleModel(object):
                  corr_threshold=0.9,
                  search=20,
                  top_n=5,
-                 meta_model_dir  = path.root_path,
+                 meta_model_dir=path.root_path,
                  debug=False
                  ):
         file_name = os.path.basename(model_path)
@@ -183,7 +183,6 @@ class EnsembleModel(object):
 
                     y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
                     keras_util.save_prediction_file(y_pred, cnn_result_path)
-
 
     def build_datasets(self, val_index, target_label, train_label=None):
         assert len(self.meta_model_all) == 5
@@ -370,7 +369,8 @@ class XGBoostModel(EnsembleModel):
                         'silent': self.xgb_param['silent'],  # option for logging
                         'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
                         'max_depth': max_depth,  # depth of the trees in the boosting process
-                        'min_child_weight': min_child_weight
+                        'min_child_weight': min_child_weight,
+                        'nthread': 4
                     }
 
                     bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
