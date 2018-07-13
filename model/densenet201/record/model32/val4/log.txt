@@ -1,16 +1,15 @@
-2018-07-03:02:21:51: train files is 43926 before up sampling
-2018-07-03:02:21:51: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '15000'], totaol: 15000
-2018-07-03:02:21:51: train files is 58926 after up sampling
-2018-07-03:02:21:51: train file: 45763, val file: 10982
-2018-07-03:17:18:38: train files is 43926 before up sampling
-2018-07-03:17:18:38: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '15000'], totaol: 15000
-2018-07-03:17:18:38: train files is 58926 after up sampling
-2018-07-03:17:18:38: train file: 45807, val file: 10982
-2018-07-09:13:50:51: train files is 43926 before up sampling
-2018-07-09:13:50:51: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '15000'], totaol: 15000
-2018-07-09:13:50:51: train files is 58926 after up sampling
-2018-07-09:13:50:52: train file: 45948, val file: 10982
-2018-07-10:23:24:18: train files is 43926 before up sampling
-2018-07-10:23:24:18: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '15000'], totaol: 15000
-2018-07-10:23:24:18: train files is 58926 after up sampling
-2018-07-10:23:24:19: train file: 45883, val file: 10982
+2018-07-13:17:48:05: train files is 43926 before up sampling
+2018-07-13:17:48:05: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '15000'], totaol: 15000
+2018-07-13:17:48:05: train files is 58926 after up sampling
+2018-07-13:17:48:06: train file: 45910, val file: 10982
+2018-07-13:17:48:06: ####### start train model
+2018-07-13:17:48:06: ####### init stage is 0
+2018-07-13:17:48:06: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-07-13:17:48:09: ####### initial epoch is 0, end epoch is 1
+2018-07-13:17:52:49: on epoch 1 end, save weight:F:\Projects\competition\model\densenet201\record\model32\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-13:17:53:56: start predict with tta
+2018-07-13:17:53:56: start predict with tta index is 0, data type is original
+2018-07-13:17:55:02: start predict with tta index is 1, data type is original
+2018-07-13:17:56:04: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-07-13:17:57:05: ####### load weight file: F:\Projects\competition\model\densenet201\record\model32\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-13:17:57:20: ####### initial epoch is 1, end epoch is 4

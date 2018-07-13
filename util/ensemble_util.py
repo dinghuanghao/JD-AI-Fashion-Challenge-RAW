@@ -231,10 +231,10 @@ class EnsembleModel(object):
             model_dict = {}
             for label in val_model:
                 for top_n in label:
-                    if model_dict.get(top_n[0]) == None:
-                        model_dict[top_n[0]] = 1
+                    if model_dict.get(top_n[0].split(".")[0]) == None:
+                        model_dict[top_n[0].split(".")[0]] = 1
                     else:
-                        model_dict[top_n[0]] += 1
+                        model_dict[top_n[0].split(".")[0]] += 1
 
             model_sorted = sorted(model_dict.items(), key=lambda d:d[1], reverse=True)
             if val_index == 1:
