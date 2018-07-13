@@ -203,14 +203,14 @@ class KerasIterator(Iterator):
 
         self.tta_index = tta_index
 
-        if mode == 'fit':
-            self.debug_img_trans(self.generator.model_config.fit_img_record_dir)
-        elif mode == 'predict' and self.generator.tta is not None and self.tta_index is not None:
-            print("save predict img")
-            record_dir = os.path.join(self.generator.model_config.predict_img_record_dir,
-                                      str(self.tta_index))
-            pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
-            self.debug_img_trans(record_dir)
+        # if mode == 'fit':
+        #     self.debug_img_trans(self.generator.model_config.fit_img_record_dir)
+        # elif mode == 'predict' and self.generator.tta is not None and self.tta_index is not None:
+        #     print("save predict img")
+        #     record_dir = os.path.join(self.generator.model_config.predict_img_record_dir,
+        #                               str(self.tta_index))
+        #     pathlib.Path(record_dir).mkdir(parents=True, exist_ok=True)
+        #     self.debug_img_trans(record_dir)
 
         # Init parent class
         super(KerasIterator, self).__init__(len(self.img_files), batch_size, shuffle, seed)
