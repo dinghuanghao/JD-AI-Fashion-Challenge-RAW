@@ -1,0 +1,140 @@
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.253631
+F2-Score with threshold 0.1: 0.319322
+F2-Score with threshold 0.2: 0.295077
+Greedy F2-Score is: 0.398602
+[label 0]	smooth-f2=0.000153   greedy-f2=0.007242[0.000000]
+[label 1]	smooth-f2=0.024390   greedy-f2=0.296039[0.000000]
+[label 2]	smooth-f2=0.953010   greedy-f2=0.980654[0.000000]
+[label 3]	smooth-f2=0.000264   greedy-f2=0.027605[0.000000]
+[label 4]	smooth-f2=0.242502   greedy-f2=0.746618[0.010000]
+[label 5]	smooth-f2=0.275445   greedy-f2=0.596846[0.040000]
+[label 6]	smooth-f2=0.000491   greedy-f2=0.018834[0.000000]
+[label 7]	smooth-f2=0.008517   greedy-f2=0.113053[0.000000]
+[label 8]	smooth-f2=0.976930   greedy-f2=0.978138[0.330000]
+[label 9]	smooth-f2=0.494180   greedy-f2=0.559857[0.510000]
+[label 10]	smooth-f2=0.258067   greedy-f2=0.519807[0.020000]
+[label 11]	smooth-f2=0.001795   greedy-f2=0.105851[0.000000]
+[label 12]	smooth-f2=0.061466   greedy-f2=0.231278[0.990000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.417993
+F2-Score with threshold 0.1: 0.562857
+F2-Score with threshold 0.2: 0.546737
+Greedy F2-Score is: 0.598138
+[label 0]	smooth-f2=0.026761   greedy-f2=0.297619[0.040000]
+[label 1]	smooth-f2=0.423217   greedy-f2=0.611324[0.140000]
+[label 2]	smooth-f2=0.922158   greedy-f2=0.981203[0.040000]
+[label 3]	smooth-f2=0.217969   greedy-f2=0.420561[0.160000]
+[label 4]	smooth-f2=0.641978   greedy-f2=0.811697[0.300000]
+[label 5]	smooth-f2=0.507038   greedy-f2=0.745837[0.140000]
+[label 6]	smooth-f2=0.138121   greedy-f2=0.264317[0.120000]
+[label 7]	smooth-f2=0.163212   greedy-f2=0.420020[0.090000]
+[label 8]	smooth-f2=0.927782   greedy-f2=0.978875[0.050000]
+[label 9]	smooth-f2=0.342372   greedy-f2=0.614962[0.110000]
+[label 10]	smooth-f2=0.571061   greedy-f2=0.754979[0.100000]
+[label 11]	smooth-f2=0.237744   greedy-f2=0.476956[0.060000]
+[label 12]	smooth-f2=0.314500   greedy-f2=0.397436[0.070000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.447675
+F2-Score with threshold 0.1: 0.581147
+F2-Score with threshold 0.2: 0.588481
+Greedy F2-Score is: 0.607287
+[label 0]	smooth-f2=0.089219   greedy-f2=0.227273[0.120000]
+[label 1]	smooth-f2=0.490839   greedy-f2=0.630171[0.220000]
+[label 2]	smooth-f2=0.920410   greedy-f2=0.981267[0.040000]
+[label 3]	smooth-f2=0.261801   greedy-f2=0.428571[0.120000]
+[label 4]	smooth-f2=0.517124   greedy-f2=0.814094[0.130000]
+[label 5]	smooth-f2=0.590620   greedy-f2=0.747221[0.360000]
+[label 6]	smooth-f2=0.157458   greedy-f2=0.256410[0.340000]
+[label 7]	smooth-f2=0.207608   greedy-f2=0.443165[0.110000]
+[label 8]	smooth-f2=0.916040   greedy-f2=0.979316[0.080000]
+[label 9]	smooth-f2=0.445854   greedy-f2=0.611117[0.220000]
+[label 10]	smooth-f2=0.501290   greedy-f2=0.762613[0.070000]
+[label 11]	smooth-f2=0.303195   greedy-f2=0.507901[0.180000]
+[label 12]	smooth-f2=0.418311   greedy-f2=0.505618[0.290000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.458030
+F2-Score with threshold 0.1: 0.599683
+F2-Score with threshold 0.2: 0.591113
+Greedy F2-Score is: 0.612076
+[label 0]	smooth-f2=0.096659   greedy-f2=0.214286[0.300000]
+[label 1]	smooth-f2=0.441155   greedy-f2=0.634200[0.100000]
+[label 2]	smooth-f2=0.935467   greedy-f2=0.981491[0.090000]
+[label 3]	smooth-f2=0.323435   greedy-f2=0.500000[0.170000]
+[label 4]	smooth-f2=0.613291   greedy-f2=0.817364[0.150000]
+[label 5]	smooth-f2=0.597423   greedy-f2=0.751379[0.200000]
+[label 6]	smooth-f2=0.167951   greedy-f2=0.311203[0.100000]
+[label 7]	smooth-f2=0.203426   greedy-f2=0.446217[0.130000]
+[label 8]	smooth-f2=0.933439   greedy-f2=0.979144[0.080000]
+[label 9]	smooth-f2=0.404702   greedy-f2=0.621497[0.150000]
+[label 10]	smooth-f2=0.602373   greedy-f2=0.761605[0.240000]
+[label 11]	smooth-f2=0.238222   greedy-f2=0.500000[0.120000]
+[label 12]	smooth-f2=0.396852   greedy-f2=0.438596[0.310000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.483024
+F2-Score with threshold 0.1: 0.614053
+F2-Score with threshold 0.2: 0.614050
+Greedy F2-Score is: 0.630854
+[label 0]	smooth-f2=0.147785   greedy-f2=0.252525[0.130000]
+[label 1]	smooth-f2=0.508980   greedy-f2=0.659688[0.160000]
+[label 2]	smooth-f2=0.935693   greedy-f2=0.981667[0.040000]
+[label 3]	smooth-f2=0.330449   greedy-f2=0.470219[0.270000]
+[label 4]	smooth-f2=0.609091   greedy-f2=0.821941[0.180000]
+[label 5]	smooth-f2=0.593565   greedy-f2=0.756445[0.230000]
+[label 6]	smooth-f2=0.224859   greedy-f2=0.374449[0.180000]
+[label 7]	smooth-f2=0.243670   greedy-f2=0.463062[0.110000]
+[label 8]	smooth-f2=0.933910   greedy-f2=0.979729[0.070000]
+[label 9]	smooth-f2=0.439993   greedy-f2=0.639472[0.150000]
+[label 10]	smooth-f2=0.614546   greedy-f2=0.770572[0.150000]
+[label 11]	smooth-f2=0.301367   greedy-f2=0.541420[0.120000]
+[label 12]	smooth-f2=0.395410   greedy-f2=0.489914[0.120000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.486731
+F2-Score with threshold 0.1: 0.611932
+F2-Score with threshold 0.2: 0.619225
+Greedy F2-Score is: 0.634115
+[label 0]	smooth-f2=0.164715   greedy-f2=0.261194[0.060000]
+[label 1]	smooth-f2=0.527973   greedy-f2=0.672310[0.140000]
+[label 2]	smooth-f2=0.936045   greedy-f2=0.981797[0.040000]
+[label 3]	smooth-f2=0.310080   greedy-f2=0.484848[0.180000]
+[label 4]	smooth-f2=0.604675   greedy-f2=0.822337[0.160000]
+[label 5]	smooth-f2=0.598534   greedy-f2=0.757171[0.270000]
+[label 6]	smooth-f2=0.237664   greedy-f2=0.400943[0.220000]
+[label 7]	smooth-f2=0.268450   greedy-f2=0.467109[0.130000]
+[label 8]	smooth-f2=0.933907   greedy-f2=0.979640[0.040000]
+[label 9]	smooth-f2=0.455344   greedy-f2=0.640943[0.150000]
+[label 10]	smooth-f2=0.602171   greedy-f2=0.772377[0.130000]
+[label 11]	smooth-f2=0.307828   greedy-f2=0.526634[0.130000]
+[label 12]	smooth-f2=0.380116   greedy-f2=0.476190[0.060000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.490806
+F2-Score with threshold 0.1: 0.610792
+F2-Score with threshold 0.2: 0.619988
+Greedy F2-Score is: 0.635810
+[label 0]	smooth-f2=0.176051   greedy-f2=0.266667[0.490000]
+[label 1]	smooth-f2=0.529526   greedy-f2=0.665526[0.170000]
+[label 2]	smooth-f2=0.934780   greedy-f2=0.981735[0.040000]
+[label 3]	smooth-f2=0.344903   greedy-f2=0.493631[0.280000]
+[label 4]	smooth-f2=0.616911   greedy-f2=0.822757[0.180000]
+[label 5]	smooth-f2=0.585277   greedy-f2=0.756115[0.240000]
+[label 6]	smooth-f2=0.255498   greedy-f2=0.416667[0.220000]
+[label 7]	smooth-f2=0.284506   greedy-f2=0.465565[0.130000]
+[label 8]	smooth-f2=0.932973   greedy-f2=0.979392[0.040000]
+[label 9]	smooth-f2=0.455941   greedy-f2=0.642984[0.120000]
+[label 10]	smooth-f2=0.613714   greedy-f2=0.776722[0.190000]
+[label 11]	smooth-f2=0.282060   greedy-f2=0.522269[0.060000]
+[label 12]	smooth-f2=0.368343   greedy-f2=0.475504[0.080000]
