@@ -4,6 +4,7 @@ from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    corr_threshold=0.9, search=5, top_n=2,
+                                   meta_model_dir="H:\\backup",
                                    xgb_param={
                                        'eta': [0.15],
                                        'silent': True,  # option for logging
@@ -17,4 +18,4 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 # model.train_all_label()
 # model.model_rank(10)
 
-model.get_meta_predict([5], False)
+model.get_meta_predict([3, 5], False)
