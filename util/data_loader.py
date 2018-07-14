@@ -1,5 +1,6 @@
 import math
 import os
+import shutil
 import pathlib
 import random
 import re
@@ -569,9 +570,24 @@ def image_repair():
         img = cv2.imread(name)
         cv2.imwrite(name, img)
 
+def weight_name_repair():
+    repair_dict = {}
+    for root, dirs, files in os.walk(path.MODEL_PATH):
+        for file in files:
+            if "weights." in file or "evaluate" in file:
+                if r"[_0_, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_, _10_, _11_, _12_]" in file:
+                    a = file.replace(r"_", r"'")
+                    repair_dict[os.path.join(root, file)] = os.path.join(root, a)
+                    print(a)
+
+    for item in repair_dict.items():
+        os.rename(item[0], item[1])
+
+
 
 if __name__ == '__main__':
-    image_repair()
+    weight_name_repair()
+    # image_repair()
     # remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
     # remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
 
