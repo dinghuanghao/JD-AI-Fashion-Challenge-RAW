@@ -47462,3 +47462,5 @@
 2018-07-14:18:52:29: load meta model info
 2018-07-14:18:56:06: weight not existed, E:\backup\jdfc\model\densenet201\record\model23\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
 2018-07-14:18:56:06: file existed F:\Projects\competition\data\result\cnn\model-vgg16-record-model3-val4-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:19:00:28: model model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5 use original data
+2018-07-14:19:08:29: model model\xception\record\model30\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 use original data
