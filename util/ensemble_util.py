@@ -18,7 +18,7 @@ from util import path
 
 # 根据模型1， 2， 3， 4， 9的结果统计，选择了一定范围内的阈值而非0~1之间的所有可能阈值
 SPARSE_F2_THRESHOLD = []
-for i in range(5, 30):
+for i in range(3, 30, 3):
     SPARSE_F2_THRESHOLD.append(i / 100)
 for i in range(30, 51, 5):
     SPARSE_F2_THRESHOLD.append(i / 100)
@@ -489,7 +489,7 @@ class XGBoostModel(EnsembleModel):
                         'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
                         'max_depth': max_depth,  # depth of the trees in the boosting process
                         'min_child_weight': min_child_weight,
-                        'nthread': 4
+                        'nthread': 8
                     }
 
                     bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,

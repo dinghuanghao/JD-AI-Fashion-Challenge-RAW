@@ -19,8 +19,8 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 
 # model.train_all_label()
 # model.model_rank(10)
-# model.get_meta_predict([4], False)
-model.find_segmented_model()
+model.get_meta_predict([1, 2, 4, 5], False)
+# model.find_segmented_model()
 # model.model_merge(["model19", "model21"])
 
 
