@@ -256,3 +256,6 @@
 2018-07-14:09:17:02: not train segmented model, E:\backup\jdfc\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 2018-07-14:09:17:02: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model3-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
 2018-07-14:09:17:18: model model\xception\record\model29\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 use original data
+2018-07-14:09:21:04: model model\vgg19\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5 use original data
+2018-07-14:09:23:55: model model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5 use original data
+2018-07-14:09:26:46: model model\densenet121\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 use original data

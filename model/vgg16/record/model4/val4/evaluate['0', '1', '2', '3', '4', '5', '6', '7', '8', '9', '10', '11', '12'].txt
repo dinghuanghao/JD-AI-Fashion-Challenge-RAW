@@ -1,0 +1,240 @@
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.162230
+F2-Score with threshold 0.1: 0.170066
+F2-Score with threshold 0.2: 0.166693
+Greedy F2-Score is: 0.337015
+[label 0]	smooth-f2=0.000000   greedy-f2=0.004253[0.000000]
+[label 1]	smooth-f2=0.000000   greedy-f2=0.295121[0.000000]
+[label 2]	smooth-f2=0.974848   greedy-f2=0.980654[0.000000]
+[label 3]	smooth-f2=0.000000   greedy-f2=0.016459[0.000000]
+[label 4]	smooth-f2=0.000000   greedy-f2=0.710584[0.000000]
+[label 5]	smooth-f2=0.131849   greedy-f2=0.489718[0.000000]
+[label 6]	smooth-f2=0.000000   greedy-f2=0.018429[0.000000]
+[label 7]	smooth-f2=0.000000   greedy-f2=0.076512[0.000000]
+[label 8]	smooth-f2=0.977692   greedy-f2=0.978007[0.000000]
+[label 9]	smooth-f2=0.000004   greedy-f2=0.433146[0.000000]
+[label 10]	smooth-f2=0.000000   greedy-f2=0.227518[0.000000]
+[label 11]	smooth-f2=0.000000   greedy-f2=0.102485[0.000000]
+[label 12]	smooth-f2=0.024590   greedy-f2=0.048309[0.050000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.424285
+F2-Score with threshold 0.1: 0.563450
+F2-Score with threshold 0.2: 0.550436
+Greedy F2-Score is: 0.593594
+[label 0]	smooth-f2=0.042624   greedy-f2=0.212766[0.070000]
+[label 1]	smooth-f2=0.465940   greedy-f2=0.632960[0.210000]
+[label 2]	smooth-f2=0.913716   greedy-f2=0.981263[0.050000]
+[label 3]	smooth-f2=0.199843   greedy-f2=0.434028[0.280000]
+[label 4]	smooth-f2=0.517604   greedy-f2=0.810734[0.140000]
+[label 5]	smooth-f2=0.535266   greedy-f2=0.730765[0.250000]
+[label 6]	smooth-f2=0.055165   greedy-f2=0.199005[0.090000]
+[label 7]	smooth-f2=0.215658   greedy-f2=0.448622[0.090000]
+[label 8]	smooth-f2=0.916174   greedy-f2=0.978959[0.130000]
+[label 9]	smooth-f2=0.471777   greedy-f2=0.614976[0.310000]
+[label 10]	smooth-f2=0.645538   greedy-f2=0.765953[0.210000]
+[label 11]	smooth-f2=0.189245   greedy-f2=0.487528[0.090000]
+[label 12]	smooth-f2=0.347153   greedy-f2=0.419162[0.400000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.427112
+F2-Score with threshold 0.1: 0.573012
+F2-Score with threshold 0.2: 0.567115
+Greedy F2-Score is: 0.599957
+[label 0]	smooth-f2=0.071344   greedy-f2=0.286885[0.150000]
+[label 1]	smooth-f2=0.487597   greedy-f2=0.643584[0.250000]
+[label 2]	smooth-f2=0.917337   greedy-f2=0.980706[0.020000]
+[label 3]	smooth-f2=0.214441   greedy-f2=0.397260[0.120000]
+[label 4]	smooth-f2=0.455786   greedy-f2=0.806955[0.100000]
+[label 5]	smooth-f2=0.596290   greedy-f2=0.740741[0.340000]
+[label 6]	smooth-f2=0.087340   greedy-f2=0.245902[0.110000]
+[label 7]	smooth-f2=0.185685   greedy-f2=0.444328[0.080000]
+[label 8]	smooth-f2=0.918167   greedy-f2=0.978076[0.020000]
+[label 9]	smooth-f2=0.448276   greedy-f2=0.606388[0.250000]
+[label 10]	smooth-f2=0.585895   greedy-f2=0.733811[0.200000]
+[label 11]	smooth-f2=0.242173   greedy-f2=0.502527[0.120000]
+[label 12]	smooth-f2=0.342123   greedy-f2=0.432277[0.330000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.455855
+F2-Score with threshold 0.1: 0.586563
+F2-Score with threshold 0.2: 0.579133
+Greedy F2-Score is: 0.605508
+[label 0]	smooth-f2=0.065240   greedy-f2=0.181818[0.090000]
+[label 1]	smooth-f2=0.504008   greedy-f2=0.640413[0.160000]
+[label 2]	smooth-f2=0.924682   greedy-f2=0.981409[0.040000]
+[label 3]	smooth-f2=0.260088   greedy-f2=0.436137[0.170000]
+[label 4]	smooth-f2=0.591394   greedy-f2=0.813164[0.160000]
+[label 5]	smooth-f2=0.596849   greedy-f2=0.734262[0.290000]
+[label 6]	smooth-f2=0.137953   greedy-f2=0.280172[0.070000]
+[label 7]	smooth-f2=0.273395   greedy-f2=0.448348[0.130000]
+[label 8]	smooth-f2=0.929813   greedy-f2=0.978684[0.040000]
+[label 9]	smooth-f2=0.444429   greedy-f2=0.618986[0.170000]
+[label 10]	smooth-f2=0.618814   greedy-f2=0.757719[0.310000]
+[label 11]	smooth-f2=0.274662   greedy-f2=0.506478[0.150000]
+[label 12]	smooth-f2=0.304792   greedy-f2=0.494012[0.120000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.471142
+F2-Score with threshold 0.1: 0.608977
+F2-Score with threshold 0.2: 0.596405
+Greedy F2-Score is: 0.621471
+[label 0]	smooth-f2=0.107977   greedy-f2=0.260870[0.100000]
+[label 1]	smooth-f2=0.523013   greedy-f2=0.656322[0.150000]
+[label 2]	smooth-f2=0.928576   greedy-f2=0.981632[0.040000]
+[label 3]	smooth-f2=0.304177   greedy-f2=0.442478[0.160000]
+[label 4]	smooth-f2=0.585921   greedy-f2=0.816374[0.110000]
+[label 5]	smooth-f2=0.603261   greedy-f2=0.748073[0.220000]
+[label 6]	smooth-f2=0.198144   greedy-f2=0.355556[0.130000]
+[label 7]	smooth-f2=0.260392   greedy-f2=0.447354[0.110000]
+[label 8]	smooth-f2=0.933066   greedy-f2=0.979315[0.040000]
+[label 9]	smooth-f2=0.480225   greedy-f2=0.631665[0.190000]
+[label 10]	smooth-f2=0.627283   greedy-f2=0.762342[0.160000]
+[label 11]	smooth-f2=0.281082   greedy-f2=0.517690[0.070000]
+[label 12]	smooth-f2=0.291727   greedy-f2=0.479452[0.040000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.480215
+F2-Score with threshold 0.1: 0.606175
+F2-Score with threshold 0.2: 0.595693
+Greedy F2-Score is: 0.618186
+[label 0]	smooth-f2=0.108997   greedy-f2=0.255474[0.070000]
+[label 1]	smooth-f2=0.527782   greedy-f2=0.654028[0.120000]
+[label 2]	smooth-f2=0.932078   greedy-f2=0.981618[0.020000]
+[label 3]	smooth-f2=0.314572   greedy-f2=0.445402[0.140000]
+[label 4]	smooth-f2=0.613506   greedy-f2=0.817591[0.140000]
+[label 5]	smooth-f2=0.599398   greedy-f2=0.748120[0.180000]
+[label 6]	smooth-f2=0.202560   greedy-f2=0.368852[0.100000]
+[label 7]	smooth-f2=0.274220   greedy-f2=0.447598[0.100000]
+[label 8]	smooth-f2=0.934725   greedy-f2=0.979211[0.020000]
+[label 9]	smooth-f2=0.476131   greedy-f2=0.624868[0.150000]
+[label 10]	smooth-f2=0.650861   greedy-f2=0.764438[0.310000]
+[label 11]	smooth-f2=0.297118   greedy-f2=0.506361[0.060000]
+[label 12]	smooth-f2=0.310850   greedy-f2=0.442857[0.060000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.480485
+F2-Score with threshold 0.1: 0.607486
+F2-Score with threshold 0.2: 0.596371
+Greedy F2-Score is: 0.621133
+[label 0]	smooth-f2=0.108731   greedy-f2=0.255102[0.130000]
+[label 1]	smooth-f2=0.539716   greedy-f2=0.657694[0.110000]
+[label 2]	smooth-f2=0.936276   greedy-f2=0.981631[0.010000]
+[label 3]	smooth-f2=0.307830   greedy-f2=0.436893[0.240000]
+[label 4]	smooth-f2=0.608306   greedy-f2=0.818178[0.130000]
+[label 5]	smooth-f2=0.604533   greedy-f2=0.748743[0.210000]
+[label 6]	smooth-f2=0.221994   greedy-f2=0.400000[0.100000]
+[label 7]	smooth-f2=0.291628   greedy-f2=0.462910[0.130000]
+[label 8]	smooth-f2=0.935318   greedy-f2=0.979435[0.030000]
+[label 9]	smooth-f2=0.482274   greedy-f2=0.624803[0.150000]
+[label 10]	smooth-f2=0.639053   greedy-f2=0.760843[0.290000]
+[label 11]	smooth-f2=0.281592   greedy-f2=0.505288[0.090000]
+[label 12]	smooth-f2=0.289051   greedy-f2=0.443213[0.030000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Smooth F2-Score: 0.484089
+F2-Score with threshold 0.1: 0.604750
+F2-Score with threshold 0.2: 0.585111
+Greedy F2-Score is: 0.616906
+[label 0]	smooth-f2=0.110215   greedy-f2=0.255102[0.120000]
+[label 1]	smooth-f2=0.542329   greedy-f2=0.648491[0.120000]
+[label 2]	smooth-f2=0.937031   greedy-f2=0.981658[0.010000]
+[label 3]	smooth-f2=0.309506   greedy-f2=0.431894[0.340000]
+[label 4]	smooth-f2=0.622798   greedy-f2=0.815888[0.130000]
+[label 5]	smooth-f2=0.608119   greedy-f2=0.744373[0.150000]
+[label 6]	smooth-f2=0.227579   greedy-f2=0.371094[0.100000]
+[label 7]	smooth-f2=0.283434   greedy-f2=0.455083[0.130000]
+[label 8]	smooth-f2=0.935561   greedy-f2=0.979482[0.020000]
+[label 9]	smooth-f2=0.488038   greedy-f2=0.619626[0.160000]
+[label 10]	smooth-f2=0.635380   greedy-f2=0.757969[0.180000]
+[label 11]	smooth-f2=0.300435   greedy-f2=0.508671[0.080000]
+[label 12]	smooth-f2=0.292737   greedy-f2=0.450450[0.060000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Smooth F2-Score: 0.483502
+F2-Score with threshold 0.1: 0.605566
+F2-Score with threshold 0.2: 0.583476
+Greedy F2-Score is: 0.617410
+[label 0]	smooth-f2=0.108130   greedy-f2=0.264423[0.020000]
+[label 1]	smooth-f2=0.535813   greedy-f2=0.642691[0.100000]
+[label 2]	smooth-f2=0.939085   greedy-f2=0.981695[0.010000]
+[label 3]	smooth-f2=0.321218   greedy-f2=0.445860[0.210000]
+[label 4]	smooth-f2=0.616958   greedy-f2=0.815967[0.090000]
+[label 5]	smooth-f2=0.607468   greedy-f2=0.741690[0.170000]
+[label 6]	smooth-f2=0.232106   greedy-f2=0.392157[0.100000]
+[label 7]	smooth-f2=0.271937   greedy-f2=0.448393[0.080000]
+[label 8]	smooth-f2=0.938663   greedy-f2=0.979378[0.020000]
+[label 9]	smooth-f2=0.488382   greedy-f2=0.620643[0.120000]
+[label 10]	smooth-f2=0.643965   greedy-f2=0.758148[0.230000]
+[label 11]	smooth-f2=0.290314   greedy-f2=0.503007[0.050000]
+[label 12]	smooth-f2=0.291488   greedy-f2=0.432277[0.050000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+Smooth F2-Score: 0.485183
+F2-Score with threshold 0.1: 0.603334
+F2-Score with threshold 0.2: 0.579741
+Greedy F2-Score is: 0.615873
+[label 0]	smooth-f2=0.111316   greedy-f2=0.241379[0.010000]
+[label 1]	smooth-f2=0.539186   greedy-f2=0.644136[0.090000]
+[label 2]	smooth-f2=0.938806   greedy-f2=0.981591[0.010000]
+[label 3]	smooth-f2=0.326363   greedy-f2=0.460317[0.220000]
+[label 4]	smooth-f2=0.616547   greedy-f2=0.815448[0.090000]
+[label 5]	smooth-f2=0.603329   greedy-f2=0.741161[0.150000]
+[label 6]	smooth-f2=0.232921   greedy-f2=0.381526[0.110000]
+[label 7]	smooth-f2=0.279204   greedy-f2=0.450631[0.090000]
+[label 8]	smooth-f2=0.939133   greedy-f2=0.979200[0.010000]
+[label 9]	smooth-f2=0.494272   greedy-f2=0.620457[0.120000]
+[label 10]	smooth-f2=0.645064   greedy-f2=0.758514[0.240000]
+[label 11]	smooth-f2=0.284515   greedy-f2=0.505857[0.040000]
+[label 12]	smooth-f2=0.296726   greedy-f2=0.426136[0.050000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
+Smooth F2-Score: 0.485752
+F2-Score with threshold 0.1: 0.601069
+F2-Score with threshold 0.2: 0.580911
+Greedy F2-Score is: 0.614308
+[label 0]	smooth-f2=0.117261   greedy-f2=0.252525[0.140000]
+[label 1]	smooth-f2=0.540666   greedy-f2=0.642491[0.110000]
+[label 2]	smooth-f2=0.937062   greedy-f2=0.981530[0.010000]
+[label 3]	smooth-f2=0.332991   greedy-f2=0.454545[0.240000]
+[label 4]	smooth-f2=0.609772   greedy-f2=0.815040[0.090000]
+[label 5]	smooth-f2=0.605681   greedy-f2=0.741058[0.160000]
+[label 6]	smooth-f2=0.232637   greedy-f2=0.387755[0.120000]
+[label 7]	smooth-f2=0.285453   greedy-f2=0.445243[0.080000]
+[label 8]	smooth-f2=0.937257   greedy-f2=0.979414[0.010000]
+[label 9]	smooth-f2=0.495127   greedy-f2=0.619758[0.120000]
+[label 10]	smooth-f2=0.643362   greedy-f2=0.755430[0.210000]
+[label 11]	smooth-f2=0.283920   greedy-f2=0.502405[0.040000]
+[label 12]	smooth-f2=0.293587   greedy-f2=0.408805[0.120000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
+Smooth F2-Score: 0.486059
+F2-Score with threshold 0.1: 0.598611
+F2-Score with threshold 0.2: 0.580699
+Greedy F2-Score is: 0.612892
+[label 0]	smooth-f2=0.118650   greedy-f2=0.263158[0.150000]
+[label 1]	smooth-f2=0.540462   greedy-f2=0.644196[0.120000]
+[label 2]	smooth-f2=0.937903   greedy-f2=0.981528[0.010000]
+[label 3]	smooth-f2=0.331413   greedy-f2=0.443038[0.230000]
+[label 4]	smooth-f2=0.619303   greedy-f2=0.815490[0.080000]
+[label 5]	smooth-f2=0.605841   greedy-f2=0.740922[0.200000]
+[label 6]	smooth-f2=0.234688   greedy-f2=0.394191[0.130000]
+[label 7]	smooth-f2=0.278153   greedy-f2=0.440854[0.070000]
+[label 8]	smooth-f2=0.937949   greedy-f2=0.979332[0.010000]
+[label 9]	smooth-f2=0.495670   greedy-f2=0.615291[0.100000]
+[label 10]	smooth-f2=0.641492   greedy-f2=0.752223[0.180000]
+[label 11]	smooth-f2=0.283100   greedy-f2=0.494898[0.030000]
+[label 12]	smooth-f2=0.294142   greedy-f2=0.402477[0.110000]
