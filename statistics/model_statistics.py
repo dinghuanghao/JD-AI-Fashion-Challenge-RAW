@@ -264,4 +264,4 @@ def do_statistics(target_dir, heapmap_num, short_board=False, model_config=False
 
 if __name__ == "__main__":
     # do_statistics(RECORD_DIR, 20)
-    do_statistics(RECORD_DIR, 20, True, True)
+    do_statistics(RECORD_DIR, 20, short_board=True)
