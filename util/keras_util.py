@@ -287,10 +287,10 @@ def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
 
             if y_pred is None:
                 y_pred = np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                                          verbose=verbose, workers=16))
+                                                          verbose=verbose, workers=12))
             else:
                 y_pred += np.array(model.predict_generator(pre_flow, steps=len(files) / model_config.predict_batch_size,
-                                                           verbose=verbose, workers=16))
+                                                           verbose=verbose, workers=12))
 
     # assert y_pred.shape[0] == model_config.val_y.shape[0]
 
