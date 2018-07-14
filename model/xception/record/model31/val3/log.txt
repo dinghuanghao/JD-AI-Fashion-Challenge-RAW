@@ -1,0 +1,54 @@
+2018-07-13:17:31:37: add 356 color augmentation file
+2018-07-13:17:31:37: train files is 44283 before up sampling
+2018-07-13:17:31:37: up sampling times: ['2720', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130'], totaol: 12290
+2018-07-13:17:31:37: train files is 56573 after up sampling
+2018-07-13:17:31:37: train file: 43564, val file: 10981
+2018-07-13:23:05:11: ####### start train model
+2018-07-13:23:05:11: ####### init stage is 0
+2018-07-13:23:05:11: ####### lr=0.000100, freeze layers=5.000000 epoch=2
+2018-07-13:23:05:17: ####### initial epoch is 0, end epoch is 2
+2018-07-13:23:27:37: on epoch 1 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-13:23:27:47: start predict with tta
+2018-07-13:23:27:47: start predict with tta index is 0, data type is original
+2018-07-13:23:29:36: start predict with tta index is 1, data type is original
+2018-07-13:23:53:26: on epoch 2 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-13:23:53:26: start predict with tta
+2018-07-13:23:53:26: start predict with tta index is 0, data type is original
+2018-07-13:23:55:14: start predict with tta index is 1, data type is original
+2018-07-13:23:57:05: ####### lr=0.000010, freeze layers=5.000000 epoch=10
+2018-07-13:23:57:12: ####### load weight file: D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-13:23:57:15: ####### initial epoch is 2, end epoch is 10
+2018-07-14:00:20:44: on epoch 3 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-14:00:20:56: start predict with tta
+2018-07-14:00:20:56: start predict with tta index is 0, data type is original
+2018-07-14:00:22:45: start predict with tta index is 1, data type is original
+2018-07-14:00:47:43: on epoch 4 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-14:00:47:43: start predict with tta
+2018-07-14:00:47:43: start predict with tta index is 0, data type is original
+2018-07-14:00:49:31: start predict with tta index is 1, data type is original
+2018-07-14:01:14:34: on epoch 5 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-14:01:14:35: start predict with tta
+2018-07-14:01:14:35: start predict with tta index is 0, data type is original
+2018-07-14:01:16:23: start predict with tta index is 1, data type is original
+2018-07-14:01:41:33: on epoch 6 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-14:01:41:33: start predict with tta
+2018-07-14:01:41:33: start predict with tta index is 0, data type is original
+2018-07-14:01:43:21: start predict with tta index is 1, data type is original
+2018-07-14:02:08:21: on epoch 7 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-14:02:08:21: start predict with tta
+2018-07-14:02:08:21: start predict with tta index is 0, data type is original
+2018-07-14:02:10:09: start predict with tta index is 1, data type is original
+2018-07-14:02:35:04: on epoch 8 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-14:02:35:05: start predict with tta
+2018-07-14:02:35:05: start predict with tta index is 0, data type is original
+2018-07-14:02:36:52: start predict with tta index is 1, data type is original
+2018-07-14:03:01:47: on epoch 9 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-07-14:03:01:47: start predict with tta
+2018-07-14:03:01:47: start predict with tta index is 0, data type is original
+2018-07-14:03:03:34: start predict with tta index is 1, data type is original
+2018-07-14:03:28:28: on epoch 10 end, save weight:D:\github\JDC\competition\model\xception\record\model31\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-07-14:03:28:28: start predict with tta
+2018-07-14:03:28:28: start predict with tta index is 0, data type is original
+2018-07-14:03:30:15: start predict with tta index is 1, data type is original
+2018-07-14:03:32:06: ####### train model spend 16015 seconds
+2018-07-14:03:32:06: ####### train model spend 1601 seconds average

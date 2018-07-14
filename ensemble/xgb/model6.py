@@ -17,9 +17,10 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.train_all_label()
+# model.train_all_label()
 
 data_x, data_y = model.build_all_datasets()
+# train_x, train_y, data_x, data_y = model.build_datasets()
 print(data_x.shape)
 print(data_y[1, :])
 pre_y = model.predict_real(data_x)

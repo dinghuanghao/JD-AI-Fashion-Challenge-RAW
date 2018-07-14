@@ -1,0 +1,120 @@
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.213179
+F2-Score with threshold 0.1: 0.216252
+F2-Score with threshold 0.2: 0.215691
+Greedy F2-Score is: 0.299723
+[label 0]	smooth-f2=0.000000   greedy-f2=0.005306[0.000000]
+[label 1]	smooth-f2=0.007339   greedy-f2=0.276101[0.000000]
+[label 2]	smooth-f2=0.974411   greedy-f2=0.980461[0.000000]
+[label 3]	smooth-f2=0.000000   greedy-f2=0.017794[0.000000]
+[label 4]	smooth-f2=0.000682   greedy-f2=0.665450[0.000000]
+[label 5]	smooth-f2=0.482686   greedy-f2=0.485945[0.000000]
+[label 6]	smooth-f2=0.000000   greedy-f2=0.027122[0.000000]
+[label 7]	smooth-f2=0.000000   greedy-f2=0.034283[0.000000]
+[label 8]	smooth-f2=0.978243   greedy-f2=0.978500[0.000000]
+[label 9]	smooth-f2=0.000000   greedy-f2=0.025323[0.000000]
+[label 10]	smooth-f2=0.229111   greedy-f2=0.260557[0.000000]
+[label 11]	smooth-f2=0.092039   greedy-f2=0.101416[0.000000]
+[label 12]	smooth-f2=0.006818   greedy-f2=0.038137[0.000000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.465461
+F2-Score with threshold 0.1: 0.589719
+F2-Score with threshold 0.2: 0.589937
+Greedy F2-Score is: 0.611986
+[label 0]	smooth-f2=0.186637   greedy-f2=0.344828[0.100000]
+[label 1]	smooth-f2=0.475233   greedy-f2=0.643075[0.140000]
+[label 2]	smooth-f2=0.928329   greedy-f2=0.981706[0.060000]
+[label 3]	smooth-f2=0.335790   greedy-f2=0.423077[0.440000]
+[label 4]	smooth-f2=0.582131   greedy-f2=0.818958[0.110000]
+[label 5]	smooth-f2=0.564678   greedy-f2=0.738712[0.210000]
+[label 6]	smooth-f2=0.192002   greedy-f2=0.324074[0.200000]
+[label 7]	smooth-f2=0.226092   greedy-f2=0.445279[0.120000]
+[label 8]	smooth-f2=0.928406   greedy-f2=0.979444[0.060000]
+[label 9]	smooth-f2=0.441825   greedy-f2=0.620969[0.170000]
+[label 10]	smooth-f2=0.639053   greedy-f2=0.740874[0.330000]
+[label 11]	smooth-f2=0.296674   greedy-f2=0.470723[0.120000]
+[label 12]	smooth-f2=0.254142   greedy-f2=0.424107[0.130000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.477891
+F2-Score with threshold 0.1: 0.586575
+F2-Score with threshold 0.2: 0.589441
+Greedy F2-Score is: 0.605862
+[label 0]	smooth-f2=0.103431   greedy-f2=0.190476[0.140000]
+[label 1]	smooth-f2=0.512052   greedy-f2=0.650624[0.180000]
+[label 2]	smooth-f2=0.930135   greedy-f2=0.981247[0.030000]
+[label 3]	smooth-f2=0.319067   greedy-f2=0.380228[0.200000]
+[label 4]	smooth-f2=0.582281   greedy-f2=0.816048[0.120000]
+[label 5]	smooth-f2=0.594270   greedy-f2=0.737982[0.240000]
+[label 6]	smooth-f2=0.294900   greedy-f2=0.346535[0.560000]
+[label 7]	smooth-f2=0.251543   greedy-f2=0.464304[0.100000]
+[label 8]	smooth-f2=0.928877   greedy-f2=0.979808[0.060000]
+[label 9]	smooth-f2=0.461801   greedy-f2=0.624010[0.200000]
+[label 10]	smooth-f2=0.612553   greedy-f2=0.741644[0.240000]
+[label 11]	smooth-f2=0.292774   greedy-f2=0.488680[0.080000]
+[label 12]	smooth-f2=0.328893   greedy-f2=0.474614[0.190000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.482672
+F2-Score with threshold 0.1: 0.587867
+F2-Score with threshold 0.2: 0.579191
+Greedy F2-Score is: 0.608583
+[label 0]	smooth-f2=0.085473   greedy-f2=0.224359[0.010000]
+[label 1]	smooth-f2=0.541068   greedy-f2=0.656306[0.120000]
+[label 2]	smooth-f2=0.939976   greedy-f2=0.981640[0.020000]
+[label 3]	smooth-f2=0.309972   greedy-f2=0.401338[0.040000]
+[label 4]	smooth-f2=0.604201   greedy-f2=0.821232[0.110000]
+[label 5]	smooth-f2=0.617762   greedy-f2=0.742442[0.270000]
+[label 6]	smooth-f2=0.211259   greedy-f2=0.317073[0.160000]
+[label 7]	smooth-f2=0.293075   greedy-f2=0.468750[0.130000]
+[label 8]	smooth-f2=0.940939   greedy-f2=0.980192[0.020000]
+[label 9]	smooth-f2=0.495859   greedy-f2=0.630097[0.190000]
+[label 10]	smooth-f2=0.631945   greedy-f2=0.753494[0.270000]
+[label 11]	smooth-f2=0.304031   greedy-f2=0.497018[0.100000]
+[label 12]	smooth-f2=0.299174   greedy-f2=0.437637[0.080000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.478146
+F2-Score with threshold 0.1: 0.589149
+F2-Score with threshold 0.2: 0.562731
+Greedy F2-Score is: 0.604172
+[label 0]	smooth-f2=0.074792   greedy-f2=0.217391[0.020000]
+[label 1]	smooth-f2=0.529205   greedy-f2=0.653041[0.100000]
+[label 2]	smooth-f2=0.942886   greedy-f2=0.981515[0.010000]
+[label 3]	smooth-f2=0.322163   greedy-f2=0.394265[0.040000]
+[label 4]	smooth-f2=0.607148   greedy-f2=0.817808[0.060000]
+[label 5]	smooth-f2=0.620249   greedy-f2=0.740036[0.280000]
+[label 6]	smooth-f2=0.188470   greedy-f2=0.305164[0.070000]
+[label 7]	smooth-f2=0.290476   greedy-f2=0.475904[0.130000]
+[label 8]	smooth-f2=0.943197   greedy-f2=0.979828[0.020000]
+[label 9]	smooth-f2=0.483791   greedy-f2=0.622735[0.140000]
+[label 10]	smooth-f2=0.642127   greedy-f2=0.755528[0.190000]
+[label 11]	smooth-f2=0.311255   greedy-f2=0.496005[0.100000]
+[label 12]	smooth-f2=0.260141   greedy-f2=0.415020[0.020000]
+
+
+Weight: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.487073
+F2-Score with threshold 0.1: 0.592113
+F2-Score with threshold 0.2: 0.564319
+Greedy F2-Score is: 0.606010
+[label 0]	smooth-f2=0.088191   greedy-f2=0.238095[0.030000]
+[label 1]	smooth-f2=0.543507   greedy-f2=0.649338[0.110000]
+[label 2]	smooth-f2=0.939617   greedy-f2=0.981260[0.010000]
+[label 3]	smooth-f2=0.330919   greedy-f2=0.447471[0.070000]
+[label 4]	smooth-f2=0.631703   greedy-f2=0.817167[0.090000]
+[label 5]	smooth-f2=0.615859   greedy-f2=0.737551[0.220000]
+[label 6]	smooth-f2=0.179211   greedy-f2=0.288462[0.070000]
+[label 7]	smooth-f2=0.314085   greedy-f2=0.451370[0.090000]
+[label 8]	smooth-f2=0.939575   greedy-f2=0.979310[0.010000]
+[label 9]	smooth-f2=0.498958   greedy-f2=0.628687[0.120000]
+[label 10]	smooth-f2=0.650975   greedy-f2=0.752634[0.230000]
+[label 11]	smooth-f2=0.304247   greedy-f2=0.485098[0.060000]
+[label 12]	smooth-f2=0.295103   greedy-f2=0.421687[0.030000]

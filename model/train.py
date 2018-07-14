@@ -3,16 +3,16 @@ import sys
 from time import sleep
 sys.path.append(os.path.abspath("../"))
 
-from model.xception import model21_val3, model22_val3, model30_val3, model31_val3
-model30_val3.train()
-model31_val3.train()
-
-from model.vgg16 import model3_val3, model4_val3, model5_val3
-model3_val3.train()
-
-from model.vgg19 import model17_val3, model18_val3
-model17_val3.train()
-model18_val3.train()
+# from model.xception import model21_val3, model22_val3, model30_val3, model31_val3
+# model30_val3.train()
+# model31_val3.train()
+#
+# from model.vgg16 import model3_val3, model4_val3, model5_val3
+# model3_val3.train()
+#
+# from model.vgg19 import model17_val3, model18_val3
+# model17_val3.train()
+# model18_val3.train()
 
 from model.densenet121 import model16_val3
 model16_val3.train()
