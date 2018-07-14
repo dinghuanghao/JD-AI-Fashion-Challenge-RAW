@@ -1,0 +1,52 @@
+2018-07-14:12:20:09: add 7449 color augmentation file
+2018-07-14:12:20:09: train files is 51375 before up sampling
+2018-07-14:12:20:09: up sampling times: ['0', '0', '0', '11360', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 11360
+2018-07-14:12:20:09: train files is 62735 after up sampling
+2018-07-14:12:20:10: train file: 57558, val file: 10982
+2018-07-14:12:23:40: on epoch 1 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-14:12:24:16: start predict with tta
+2018-07-14:12:24:16: start predict with tta index is 0, data type is original
+2018-07-14:12:24:56: start predict with tta index is 1, data type is original
+2018-07-14:12:28:32: on epoch 2 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-14:12:28:33: start predict with tta
+2018-07-14:12:28:33: start predict with tta index is 0, data type is original
+2018-07-14:12:29:11: start predict with tta index is 1, data type is original
+2018-07-14:12:39:55: on epoch 3 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-14:12:42:02: start predict with tta
+2018-07-14:12:42:02: start predict with tta index is 0, data type is original
+2018-07-14:12:42:45: start predict with tta index is 1, data type is original
+2018-07-14:12:51:44: on epoch 4 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-14:12:51:45: start predict with tta
+2018-07-14:12:51:45: start predict with tta index is 0, data type is original
+2018-07-14:12:52:23: start predict with tta index is 1, data type is original
+2018-07-14:13:03:46: on epoch 5 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-14:13:07:24: start predict with tta
+2018-07-14:13:07:24: start predict with tta index is 0, data type is original
+2018-07-14:13:08:09: start predict with tta index is 1, data type is original
+2018-07-14:13:17:17: on epoch 6 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-14:13:17:19: start predict with tta
+2018-07-14:13:17:19: start predict with tta index is 0, data type is original
+2018-07-14:13:17:57: start predict with tta index is 1, data type is original
+2018-07-14:13:27:03: on epoch 7 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-14:13:27:05: start predict with tta
+2018-07-14:13:27:05: start predict with tta index is 0, data type is original
+2018-07-14:13:27:43: start predict with tta index is 1, data type is original
+2018-07-14:13:36:45: on epoch 8 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-14:13:36:47: start predict with tta
+2018-07-14:13:36:47: start predict with tta index is 0, data type is original
+2018-07-14:13:37:25: start predict with tta index is 1, data type is original
+2018-07-14:13:46:28: on epoch 9 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-07-14:13:46:30: start predict with tta
+2018-07-14:13:46:30: start predict with tta index is 0, data type is original
+2018-07-14:13:47:08: start predict with tta index is 1, data type is original
+2018-07-14:13:56:10: on epoch 10 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-07-14:13:56:12: start predict with tta
+2018-07-14:13:56:12: start predict with tta index is 0, data type is original
+2018-07-14:13:56:50: start predict with tta index is 1, data type is original
+2018-07-15:01:54:30: add 7449 color augmentation file
+2018-07-15:01:54:30: train files is 51375 before up sampling
+2018-07-15:01:54:31: up sampling times: ['0', '0', '0', '11360', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 11360
+2018-07-15:01:54:31: train files is 62735 after up sampling
+2018-07-15:01:54:32: train file: 57488, val file: 10982
+2018-07-15:01:55:23: start predict with tta index is 0, data type is original
+2018-07-15:01:56:13: start predict with tta index is 1, data type is original

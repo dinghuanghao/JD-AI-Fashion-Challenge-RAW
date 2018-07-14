@@ -18,7 +18,7 @@ from util import path
 
 # 根据模型1， 2， 3， 4， 9的结果统计，选择了一定范围内的阈值而非0~1之间的所有可能阈值
 SPARSE_F2_THRESHOLD = []
-for i in range(5, 30):
+for i in range(3, 30, 3):
     SPARSE_F2_THRESHOLD.append(i / 100)
 for i in range(30, 51, 5):
     SPARSE_F2_THRESHOLD.append(i / 100)
@@ -181,7 +181,7 @@ class EnsembleModel(object):
                     identifier = "-".join(unique_path.split("\\"))
                     cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
                     if os.path.exists(keras_util.get_prediction_path(cnn_result_path)):
-                        self.save_log("file existed %s" % keras_util.get_prediction_path(cnn_result_path))
+                        # self.save_log("file existed %s" % keras_util.get_prediction_path(cnn_result_path))
                         continue
 
                     weight_file = os.path.join(path.root_path, pathlib.Path(unique_path))
@@ -202,7 +202,7 @@ class EnsembleModel(object):
                     attr_model_config.val_files = []
                     for data_type in attr_model_config.data_type:
                         if data_type == path.DATA_TYPE_ORIGINAL:
-                            self.save_log("model %s use original data" % unique_path)
+                            # self.save_log("model %s use original data" % unique_path)
                             attr_model_config.val_files.append(original_test_file)
                         if data_type == path.DATA_TYPE_SEGMENTED:
                             self.save_log("model %s use segmented data" % unique_path)
@@ -489,7 +489,7 @@ class XGBoostModel(EnsembleModel):
                         'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
                         'max_depth': max_depth,  # depth of the trees in the boosting process
                         'min_child_weight': min_child_weight,
-                        'nthread': 4
+                        'nthread': 8
                     }
 
                     bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
