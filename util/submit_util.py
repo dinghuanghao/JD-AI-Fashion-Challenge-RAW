@@ -20,4 +20,4 @@ def build_test_submit(predict_file):
 
 if __name__ == '__main__':
     build_test_submit(os.path.join(path.CNN_RESULT_PATH,
-                              r"model-densenet169-record-model5-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy"))
+                              r"model-densenet169-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy"))
