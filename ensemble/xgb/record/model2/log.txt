@@ -47080,3 +47080,98 @@
 2018-07-14:12:37:47: weight not existed, F:\Projects\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
 2018-07-14:12:39:03: model model\xception\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
 2018-07-14:12:42:06: model model\xception\record\model27\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5 use original data
+2018-07-14:12:45:07: load meta model info
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet169-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet169-record-model5-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model15-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-inceptionresnetv2-record-model10-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model29-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model4-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model25-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet121-record-model13-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model3-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet169-record-model3-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:45:07: not train segmented model, E:\backup\jdfc\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model5-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model4-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model25-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet121-record-model3-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-inceptionresnetv2-record-model11-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model4-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model26-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model1-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet121-record-model2-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet121-record-model12-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model29-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model25-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model2-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model15-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model26-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model26-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model28-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:12:45:07: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model19-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:46:02: model model\densenet201\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5 use original data
+2018-07-14:12:47:58: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:12:47:58: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:49:05: model model\densenet201\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
+2018-07-14:12:51:00: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model15-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:51:00: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model19-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:12:51:00: not train segmented model, E:\backup\jdfc\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-14:12:51:00: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model19-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:12:51:00: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model6-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:12:51:00: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model7-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5.predict.npy
+2018-07-14:12:51:26: model model\xception\record\model11\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 use original data
+2018-07-14:12:52:50: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model29-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:12:52:50: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model26-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5.predict.npy
+2018-07-14:12:53:41: model model\densenet121\record\model6\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
+2018-07-14:12:55:05: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model4-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:12:56:39: model model\densenet201\record\model25\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5 use original data
+2018-07-14:12:58:36: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:12:58:36: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model26-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5.predict.npy
+2018-07-14:12:58:36: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model29-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:12:58:36: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model25-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:13:00:14: model model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5 use original data
+2018-07-14:13:01:47: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model8-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:13:03:31: model model\densenet169\record\model3\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5 use original data
+2018-07-14:13:07:46: model model\nasmobile\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
+2018-07-14:13:11:44: model model\densenet169\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
+2018-07-14:13:15:25: model model\densenet121\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5 use original data
+2018-07-14:13:17:06: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model25-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5.predict.npy
+2018-07-14:13:17:06: file existed F:\Projects\competition\data\result\cnn\model-densenet201-record-model33-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:13:17:06: file existed F:\Projects\competition\data\result\cnn\model-resnet50-record-model20-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5.predict.npy
+2018-07-14:13:17:06: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model19-val1-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:13:17:06: not train segmented model, E:\backup\jdfc\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-14:13:17:06: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model11-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5.predict.npy
+2018-07-14:13:18:09: model model\xception\record\model28\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 use original data
+2018-07-14:13:21:33: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model8-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:13:24:33: model model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5 use original data
+2018-07-14:13:26:39: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model10-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:13:30:33: model model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
+2018-07-14:13:34:54: model model\xception\record\model28\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 use original data
+2018-07-14:13:38:36: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5.predict.npy
+2018-07-14:13:38:36: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model4-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:13:43:14: model model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5 use original data
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model7-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5.predict.npy
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model11-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model10-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model9-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5.predict.npy
+2018-07-14:13:46:10: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model20-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5.predict.npy
+2018-07-14:13:51:33: model model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data
+2018-07-14:13:54:41: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model24-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:14:00:32: model model\inceptionresnetv2\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 use original data
+2018-07-14:14:03:39: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model28-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:14:03:39: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model25-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:14:10:12: model model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5 use original data
+2018-07-14:14:13:40: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model4-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5.predict.npy
+2018-07-14:14:13:40: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model27-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5.predict.npy
+2018-07-14:14:13:40: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model25-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5.predict.npy
+2018-07-14:14:13:40: file existed F:\Projects\competition\data\result\cnn\model-vgg19-record-model4-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5.predict.npy
+2018-07-14:14:13:40: file existed F:\Projects\competition\data\result\cnn\model-xception-record-model24-val2-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5.predict.npy
+2018-07-14:14:21:01: model model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 use original data

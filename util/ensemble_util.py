@@ -162,7 +162,6 @@ class EnsembleModel(object):
                     if path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
                         print(meta_model_path)
 
-
     def get_meta_predict(self, val_index, get_segmented):
         original_test_file = []
         segmented_test_file = []
@@ -278,7 +277,7 @@ class EnsembleModel(object):
             assert predict_val.shape[1] == len(labels) * self.top_n
         data_y = data_loader.get_k_fold_all_labels()
         return data_x.astype(np.float32), data_y.astype(np.float32)
-    
+
     def model_rank(self, rank_n):
         for val_index in range(1, 6):
             val_model = self.meta_model_all[val_index - 1]
@@ -368,6 +367,7 @@ class EnsembleModel(object):
         param_dic['greedy_threshold'] = evaluate[weight_name]['greedy_threshold']
         param_dic['greedy_f2'] = evaluate[weight_name]['greedy_f2']
         return param_dic
+
 
 def xgb_f2_metric(preds, dtrain):  # preds是结果（概率值），dtrain是个带label的DMatrix
     labels = dtrain.get_label()  # 提取label
@@ -504,12 +504,12 @@ class XGBoostModel(EnsembleModel):
         self.save_model(best_model, val_index, label)
 
         # 测试load_model是否正确
-        # model = self.load_model(val_index, label)
-        # data_eva = xgb.DMatrix(val_x)
-        # ypred = model.predict(data_eva, ntree_limit=best_xgb_param['best_ntree_limit'])
-        # ypred = ypred.reshape((-1, 1))
-        # f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
-        # assert abs((f2 - best_f2) / f2) < 0.001
+        model = self.load_model(val_index, label)
+        data_eva = xgb.DMatrix(val_x)
+        ypred = model.predict(data_eva, ntree_limit=best_xgb_param['best_ntree_limit'])
+        ypred = ypred.reshape((-1, 1))
+        f2 = self.evaluate(y_pred=ypred, y=val_y, weight_name=self.get_model_name(val_index, label))
+        assert abs((f2 - best_f2) / f2) < 0.001
 
     def predict_all_label(self, data):
         '''
@@ -524,7 +524,8 @@ class XGBoostModel(EnsembleModel):
                 predict_dic[label].append([])
                 model_name = self.get_model_name(val_index, label)
                 model_param = self.get_model_param(model_name)
-                predict_dic[label][val_index - 1] = self.predict_one_label(val_index, label, data, model_param['best_ntree_limit'])
+                predict_dic[label][val_index - 1] = self.predict_one_label(val_index, label, data,
+                                                                           model_param['best_ntree_limit'])
         assert len(predict_dic) == 13
         assert len(predict_dic[0]) == 5
         for i in range(13):
@@ -534,35 +535,31 @@ class XGBoostModel(EnsembleModel):
 
     def predict_one_label(self, val_index, label, data, ntree_limit):
         bst = self.load_model(val_index, label)
-        data_pred = bst.predict(data, ntree_limit)
+        data_pred = bst.predict(data, ntree_limit=ntree_limit)
         return data_pred
 
     def predict_real(self, data, mode='vote'):
-        data_pred = copy.deepcopy(self.predict_all_label(data))
-        predict_real_value = []
+        xgb_pred = copy.deepcopy(self.predict_all_label(data))
+        xgb_result = [[] for i in range(5)]
         if mode == 'vote':
             for val_index in range(5):
-                predict_real_value.append([])
                 for label in range(13):
                     model_name = self.get_model_name(val_index + 1, label)
                     model_param = self.get_model_param(model_name)
-                    for i in range(len(data_pred[label][val_index])):
-                        data_pred[label][val_index][i] = 1 if \
-                            data_pred[label][val_index][i] > model_param['greedy_threshold'] else -1
-                    if predict_real_value[val_index] == []:
-                        predict_real_value[val_index] = \
-                            np.copy(data_pred[label][val_index].reshape((1, -1)))
+                    xgb_pred[label][val_index] = np.where(
+                        xgb_pred[label][val_index] > model_param['greedy_threshold'], 1, -1).reshape((1, -1))
+                    if len(xgb_result[val_index]) == 0:
+                        xgb_result[val_index] = np.copy(xgb_pred[label][val_index])
                     else:
-                        predict_real_value[val_index] = np.vstack((predict_real_value[val_index],
-                                                                   data_pred[label][val_index].reshape((1, -1))))
-            predict_real_result = np.zeros((13, len(predict_real_value[0][0])))
+                        xgb_result[val_index] = np.vstack((xgb_result[val_index], xgb_pred[label][val_index]))
+            result = np.zeros((13, len(xgb_result[0][0])))
             for val_index in range(5):
                 for label in range(13):
-                    predict_real_result[label] += predict_real_value[val_index][label]
-            for i in range(predict_real_result.shape[0]):
-                for j in range(predict_real_result.shape[1]):
-                    predict_real_result[i][j] = 1 if predict_real_result[i][j] > 0 else 0
-            return predict_real_result.transpose()
+                    result[label] += xgb_result[val_index][label]
+
+            result = np.where(result > 0, 1, 0)
+            return result.transpose()
+
 
 if __name__ == '__main__':
     pass

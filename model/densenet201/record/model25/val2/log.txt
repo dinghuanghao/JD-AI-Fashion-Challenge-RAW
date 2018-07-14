@@ -62,3 +62,5 @@
 2018-07-10:23:23:41: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '14100'], totaol: 14100
 2018-07-10:23:23:41: train files is 58026 after up sampling
 2018-07-10:23:23:42: train file: 44914, val file: 10982
+2018-07-14:13:30:33: start predict with tta index is 0, data type is original
+2018-07-14:13:31:59: start predict with tta index is 1, data type is original
