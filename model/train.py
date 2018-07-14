@@ -55,5 +55,5 @@ from model.densenet169 import model5_val3
 # model22_val3.train()
 
 
-from model.inceptionv3 import model14_val4
-model14_val4.train()
+from model.densenet169 import model7_val4
+model7_val4.train()

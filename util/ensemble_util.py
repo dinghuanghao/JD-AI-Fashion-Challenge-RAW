@@ -163,7 +163,7 @@ class EnsembleModel(object):
                     if path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
                         print(meta_model_path)
 
-    def get_meta_predict(self, val_index, get_segmented):
+    def get_meta_predict(self, val_index, get_segmented=False):
         original_test_file = []
         segmented_test_file = []
         with open(path.TEST_DATA_TXT, 'r') as f:

@@ -3,7 +3,8 @@ import os
 from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
-                                   corr_threshold=0.9, search=20, top_n=10,
+                                   corr_threshold=0.9, search=20, top_n=5,
+                                   meta_model_dir="E:\\backup\\jdfc",
                                    xgb_param={
                                        'eta': [0.1, 0.15, 0.2, 0.25],
                                        'silent': True,  # option for logging
@@ -15,3 +16,6 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    )
 
 # model.train_all_label()
+# model.model_rank(10)
+model.get_meta_predict([1, 2, 4], False)
+# model.find_segmented_model()
