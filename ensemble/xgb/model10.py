@@ -1,8 +1,5 @@
 import os
-import warnings
-import sklearn.exceptions
-warnings.filterwarnings("ignore", category=sklearn.exceptions.UndefinedMetricWarning)
-from sklearn.metrics import fbeta_score
+
 from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
@@ -18,6 +15,6 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    )
 
 # model.train_all_label()
+# model.model_rank(10)
 
-data_x, data_y = model.build_all_datasets()
-model.predict_real_f2(data_x, data_y)
+model.get_meta_predict([5], False)
