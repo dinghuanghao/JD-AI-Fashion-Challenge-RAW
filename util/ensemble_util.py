@@ -560,6 +560,19 @@ class XGBoostModel(EnsembleModel):
             result = np.where(result > 0, 1, 0)
             return result.transpose()
 
+    def predict_real_f2(self, data_x, data_y, mode='vote'):
+        pre_y = self.predict_real(data_x, mode=mode)
+        record_file = os.path.join(self.record_dir, "predict_real_f2_score.txt")
+        f2_score = []
+        for i in range(13):
+            f2_score.append(fbeta_score(data_y[:, i], pre_y[:, i], beta=2))
+        with open(record_file, 'w') as f:
+            for i in range(13):
+                f.write("Label%d f2_score: %s\n" % (i, str(f2_score[i])))
+            f.write('=' * 20)
+            f.write('\n')
+            f.write("Total f2_score: %s\n" % str(sum(f2_score) / 13))
+        print("==========predict_real_f2 SUCCESS==========")
 
 if __name__ == '__main__':
     pass

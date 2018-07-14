@@ -34,3 +34,31 @@
 2018-07-14:14:42:55: start predict with tta
 2018-07-14:14:42:55: start predict with tta index is 0, data type is original
 2018-07-14:14:44:16: start predict with tta index is 1, data type is original
+2018-07-14:15:04:19: on epoch 7 end, save weight:D:\github\JDC\competition\model\densenet201\record\model29\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-14:15:04:22: start predict with tta
+2018-07-14:15:04:22: start predict with tta index is 0, data type is original
+2018-07-14:15:05:43: start predict with tta index is 1, data type is original
+2018-07-14:15:25:27: on epoch 8 end, save weight:D:\github\JDC\competition\model\densenet201\record\model29\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-14:15:25:30: start predict with tta
+2018-07-14:15:25:30: start predict with tta index is 0, data type is original
+2018-07-14:15:26:51: start predict with tta index is 1, data type is original
+2018-07-14:15:46:39: on epoch 9 end, save weight:D:\github\JDC\competition\model\densenet201\record\model29\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-07-14:15:46:41: start predict with tta
+2018-07-14:15:46:41: start predict with tta index is 0, data type is original
+2018-07-14:15:48:04: start predict with tta index is 1, data type is original
+2018-07-14:16:08:07: on epoch 10 end, save weight:D:\github\JDC\competition\model\densenet201\record\model29\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-07-14:16:08:09: start predict with tta
+2018-07-14:16:08:09: start predict with tta index is 0, data type is original
+2018-07-14:16:09:31: start predict with tta index is 1, data type is original
+2018-07-14:16:11:00: ####### train model spend 12841 seconds
+2018-07-14:16:11:00: ####### train model spend 1284 seconds average
+2018-07-14:16:43:11: add 7453 color augmentation file
+2018-07-14:16:43:11: train file: 51380, val file: 10981
+2018-07-14:16:43:26: start predict with tta index is 0, data type is original
+2018-07-14:16:44:47: start predict with tta index is 1, data type is original
+2018-07-14:16:48:41: start predict with tta index is 0, data type is original
+2018-07-14:16:50:02: start predict with tta index is 1, data type is original
+2018-07-14:16:51:52: start predict with tta index is 0, data type is original
+2018-07-14:16:53:10: start predict with tta index is 1, data type is original
+2018-07-14:16:55:04: start predict with tta index is 0, data type is original
+2018-07-14:16:56:23: start predict with tta index is 1, data type is original
