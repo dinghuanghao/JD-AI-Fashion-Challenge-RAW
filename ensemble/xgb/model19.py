@@ -17,15 +17,17 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.train_all_label()
+if __name__ == "__main__":
 
-data_x, data_y = model.build_all_datasets()
-print(data_x.shape)
-print(data_y[:4, :])
-pre_y = model.predict_real(data_x)
-print(pre_y[:4, :])
+    model.train_all_label()
 
-print(data_y.shape)
-print(pre_y.shape)
-for i in range(13):
-    print(fbeta_score(data_y[:, i], pre_y[:, i], beta=2))
+    data_x, data_y = model.build_all_datasets()
+    print(data_x.shape)
+    print(data_y[:4, :])
+    pre_y = model.predict_real(data_x)
+    print(pre_y[:4, :])
+
+    print(data_y.shape)
+    print(pre_y.shape)
+    for i in range(13):
+        print(fbeta_score(data_y[:, i], pre_y[:, i], beta=2))

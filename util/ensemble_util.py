@@ -1,3 +1,4 @@
+import shutil
 import re
 import copy
 import json
@@ -433,6 +434,30 @@ class XGBoostModel(EnsembleModel):
 
     def get_model_name(self, val_index, label):
         return "ensemble_val%d_label%d.xgb" % (val_index, label)
+
+    def model_merge(self, model_names:list):
+        xgb_models = []
+        for model_name in model_names:
+            package = __import__(".".join(["ensemble", "xgb", model_name]))
+            xgb_models.append(getattr(getattr(getattr(package, "xgb"), model_name), "model"))
+
+        target_evaluate = copy.deepcopy(xgb_models[0].get_evaluate_json())
+        for booster_name in xgb_models[0].get_evaluate_json().keys():
+            target_evaluate[booster_name]["greedy_f2"] = -1
+            for xgb_model in xgb_models:
+                evaluate = xgb_model.get_evaluate_json()
+                if evaluate[booster_name]["greedy_f2"] > target_evaluate[booster_name]["greedy_f2"]:
+                    target_evaluate[booster_name] = copy.deepcopy(evaluate[booster_name])
+                    src = os.path.join(xgb_model.model_dir, booster_name)
+                    dst =  os.path.join(self.model_dir, booster_name)
+                    self.save_log("copy model, %s -> %s" % (src, dst))
+                    shutil.copy(src, dst)
+
+        self.save_evaluate_json(target_evaluate)
+
+
+
+
 
     def train_all_label(self):
         for val_index in range(1, 6):

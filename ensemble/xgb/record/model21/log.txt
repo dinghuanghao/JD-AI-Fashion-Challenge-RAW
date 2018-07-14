@@ -1,0 +1,853 @@
+2018-07-14:17:49:58: load meta model info
+2018-07-14:17:49:59: eta:0.050000, max_depth:5, f2:0.512821
+2018-07-14:17:49:59: best_iteration:0.000000,  best_score:0.991408, best_ntree_limit=1.000000
+2018-07-14:17:49:59: 
+
+2018-07-14:17:50:00: eta:0.050000, max_depth:6, f2:0.515873
+2018-07-14:17:50:00: best_iteration:0.000000,  best_score:0.991408, best_ntree_limit=1.000000
+2018-07-14:17:50:00: 
+
+2018-07-14:17:50:01: eta:0.050000, max_depth:7, f2:0.391304
+2018-07-14:17:50:01: best_iteration:0.000000,  best_score:0.991408, best_ntree_limit=1.000000
+2018-07-14:17:50:01: 
+
+2018-07-14:17:50:01: save best model for val[1] label[0], f2[0.515873] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:02: eta:0.050000, max_depth:5, f2:0.686591
+2018-07-14:17:50:02: best_iteration:0.000000,  best_score:0.692672, best_ntree_limit=1.000000
+2018-07-14:17:50:02: 
+
+2018-07-14:17:50:03: eta:0.050000, max_depth:6, f2:0.690516
+2018-07-14:17:50:03: best_iteration:0.000000,  best_score:0.692672, best_ntree_limit=1.000000
+2018-07-14:17:50:03: 
+
+2018-07-14:17:50:04: eta:0.050000, max_depth:7, f2:0.688090
+2018-07-14:17:50:04: best_iteration:0.000000,  best_score:0.692672, best_ntree_limit=1.000000
+2018-07-14:17:50:04: 
+
+2018-07-14:17:50:04: save best model for val[1] label[1], f2[0.690516] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:05: eta:0.050000, max_depth:5, f2:0.981759
+2018-07-14:17:50:05: best_iteration:0.000000,  best_score:0.020196, best_ntree_limit=1.000000
+2018-07-14:17:50:05: 
+
+2018-07-14:17:50:06: eta:0.050000, max_depth:6, f2:0.981739
+2018-07-14:17:50:06: best_iteration:0.000000,  best_score:0.020196, best_ntree_limit=1.000000
+2018-07-14:17:50:06: 
+
+2018-07-14:17:50:08: eta:0.050000, max_depth:7, f2:0.981436
+2018-07-14:17:50:08: best_iteration:0.000000,  best_score:0.020196, best_ntree_limit=1.000000
+2018-07-14:17:50:08: 
+
+2018-07-14:17:50:09: save best model for val[1] label[2], f2[0.981759] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:11: eta:0.050000, max_depth:5, f2:0.347490
+2018-07-14:17:50:11: best_iteration:0.000000,  best_score:0.975011, best_ntree_limit=1.000000
+2018-07-14:17:50:11: 
+
+2018-07-14:17:50:12: eta:0.050000, max_depth:6, f2:0.407801
+2018-07-14:17:50:12: best_iteration:0.000000,  best_score:0.975011, best_ntree_limit=1.000000
+2018-07-14:17:50:12: 
+
+2018-07-14:17:50:13: eta:0.050000, max_depth:7, f2:0.404930
+2018-07-14:17:50:14: best_iteration:0.000000,  best_score:0.975011, best_ntree_limit=1.000000
+2018-07-14:17:50:14: 
+
+2018-07-14:17:50:14: save best model for val[1] label[3], f2[0.407801] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:16: eta:0.050000, max_depth:5, f2:0.829439
+2018-07-14:17:50:16: best_iteration:0.000000,  best_score:0.275729, best_ntree_limit=1.000000
+2018-07-14:17:50:16: 
+
+2018-07-14:17:50:18: eta:0.050000, max_depth:6, f2:0.826763
+2018-07-14:17:50:18: best_iteration:0.000000,  best_score:0.275729, best_ntree_limit=1.000000
+2018-07-14:17:50:18: 
+
+2018-07-14:17:50:20: eta:0.050000, max_depth:7, f2:0.826459
+2018-07-14:17:50:20: best_iteration:0.000000,  best_score:0.275729, best_ntree_limit=1.000000
+2018-07-14:17:50:20: 
+
+2018-07-14:17:50:20: save best model for val[1] label[4], f2[0.829439] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:22: eta:0.050000, max_depth:5, f2:0.755841
+2018-07-14:17:50:22: best_iteration:0.000000,  best_score:0.513036, best_ntree_limit=1.000000
+2018-07-14:17:50:22: 
+
+2018-07-14:17:50:23: eta:0.050000, max_depth:6, f2:0.758771
+2018-07-14:17:50:23: best_iteration:0.000000,  best_score:0.513036, best_ntree_limit=1.000000
+2018-07-14:17:50:23: 
+
+2018-07-14:17:50:24: eta:0.050000, max_depth:7, f2:0.755744
+2018-07-14:17:50:24: best_iteration:0.000000,  best_score:0.513036, best_ntree_limit=1.000000
+2018-07-14:17:50:24: 
+
+2018-07-14:17:50:25: save best model for val[1] label[5], f2[0.758771] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:26: eta:0.050000, max_depth:5, f2:0.350877
+2018-07-14:17:50:26: best_iteration:0.000000,  best_score:0.984708, best_ntree_limit=1.000000
+2018-07-14:17:50:26: 
+
+2018-07-14:17:50:26: eta:0.050000, max_depth:6, f2:0.272727
+2018-07-14:17:50:26: best_iteration:0.000000,  best_score:0.984708, best_ntree_limit=1.000000
+2018-07-14:17:50:26: 
+
+2018-07-14:17:50:27: eta:0.050000, max_depth:7, f2:0.272727
+2018-07-14:17:50:27: best_iteration:0.000000,  best_score:0.984708, best_ntree_limit=1.000000
+2018-07-14:17:50:27: 
+
+2018-07-14:17:50:27: save best model for val[1] label[6], f2[0.350877] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:29: eta:0.050000, max_depth:5, f2:0.499347
+2018-07-14:17:50:29: best_iteration:0.000000,  best_score:0.892616, best_ntree_limit=1.000000
+2018-07-14:17:50:29: 
+
+2018-07-14:17:50:30: eta:0.050000, max_depth:6, f2:0.506608
+2018-07-14:17:50:30: best_iteration:0.000000,  best_score:0.892616, best_ntree_limit=1.000000
+2018-07-14:17:50:30: 
+
+2018-07-14:17:50:31: eta:0.050000, max_depth:7, f2:0.506927
+2018-07-14:17:50:31: best_iteration:0.000000,  best_score:0.892616, best_ntree_limit=1.000000
+2018-07-14:17:50:31: 
+
+2018-07-14:17:50:31: save best model for val[1] label[7], f2[0.506927] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:32: eta:0.050000, max_depth:5, f2:0.980900
+2018-07-14:17:50:32: best_iteration:0.000000,  best_score:0.022254, best_ntree_limit=1.000000
+2018-07-14:17:50:32: 
+
+2018-07-14:17:50:34: eta:0.050000, max_depth:6, f2:0.980785
+2018-07-14:17:50:34: best_iteration:0.000000,  best_score:0.022254, best_ntree_limit=1.000000
+2018-07-14:17:50:34: 
+
+2018-07-14:17:50:35: eta:0.050000, max_depth:7, f2:0.980363
+2018-07-14:17:50:35: best_iteration:0.000000,  best_score:0.022254, best_ntree_limit=1.000000
+2018-07-14:17:50:35: 
+
+2018-07-14:17:50:35: save best model for val[1] label[8], f2[0.980900] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:36: eta:0.050000, max_depth:5, f2:0.633542
+2018-07-14:17:50:36: best_iteration:0.000000,  best_score:0.578030, best_ntree_limit=1.000000
+2018-07-14:17:50:36: 
+
+2018-07-14:17:50:38: eta:0.050000, max_depth:6, f2:0.632664
+2018-07-14:17:50:38: best_iteration:0.000000,  best_score:0.578030, best_ntree_limit=1.000000
+2018-07-14:17:50:38: 
+
+2018-07-14:17:50:39: eta:0.050000, max_depth:7, f2:0.628680
+2018-07-14:17:50:39: best_iteration:0.000000,  best_score:0.578030, best_ntree_limit=1.000000
+2018-07-14:17:50:39: 
+
+2018-07-14:17:50:39: save best model for val[1] label[9], f2[0.633542] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:40: eta:0.050000, max_depth:5, f2:0.778986
+2018-07-14:17:50:40: best_iteration:0.000000,  best_score:0.735444, best_ntree_limit=1.000000
+2018-07-14:17:50:40: 
+
+2018-07-14:17:50:41: eta:0.050000, max_depth:6, f2:0.775299
+2018-07-14:17:50:41: best_iteration:0.000000,  best_score:0.735444, best_ntree_limit=1.000000
+2018-07-14:17:50:41: 
+
+2018-07-14:17:50:43: eta:0.050000, max_depth:7, f2:0.775124
+2018-07-14:17:50:43: best_iteration:0.000000,  best_score:0.735444, best_ntree_limit=1.000000
+2018-07-14:17:50:43: 
+
+2018-07-14:17:50:43: save best model for val[1] label[10], f2[0.778986] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:44: eta:0.050000, max_depth:5, f2:0.569932
+2018-07-14:17:50:44: best_iteration:0.000000,  best_score:0.892616, best_ntree_limit=1.000000
+2018-07-14:17:50:44: 
+
+2018-07-14:17:50:45: eta:0.050000, max_depth:6, f2:0.572660
+2018-07-14:17:50:45: best_iteration:0.000000,  best_score:0.892616, best_ntree_limit=1.000000
+2018-07-14:17:50:45: 
+
+2018-07-14:17:50:46: eta:0.050000, max_depth:7, f2:0.567073
+2018-07-14:17:50:46: best_iteration:0.000000,  best_score:0.892616, best_ntree_limit=1.000000
+2018-07-14:17:50:46: 
+
+2018-07-14:17:50:47: save best model for val[1] label[11], f2[0.572660] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:48: eta:0.050000, max_depth:5, f2:0.407855
+2018-07-14:17:50:48: best_iteration:0.000000,  best_score:0.970654, best_ntree_limit=1.000000
+2018-07-14:17:50:48: 
+
+2018-07-14:17:50:49: eta:0.050000, max_depth:6, f2:0.419162
+2018-07-14:17:50:49: best_iteration:0.000000,  best_score:0.970654, best_ntree_limit=1.000000
+2018-07-14:17:50:49: 
+
+2018-07-14:17:50:50: eta:0.050000, max_depth:7, f2:0.417910
+2018-07-14:17:50:50: best_iteration:0.000000,  best_score:0.970654, best_ntree_limit=1.000000
+2018-07-14:17:50:50: 
+
+2018-07-14:17:50:51: save best model for val[1] label[12], f2[0.419162] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:52: eta:0.050000, max_depth:5, f2:0.472973
+2018-07-14:17:50:52: best_iteration:0.000000,  best_score:0.987827, best_ntree_limit=1.000000
+2018-07-14:17:50:52: 
+
+2018-07-14:17:50:53: eta:0.050000, max_depth:6, f2:0.381944
+2018-07-14:17:50:53: best_iteration:0.000000,  best_score:0.987827, best_ntree_limit=1.000000
+2018-07-14:17:50:53: 
+
+2018-07-14:17:50:54: eta:0.050000, max_depth:7, f2:0.381944
+2018-07-14:17:50:54: best_iteration:0.000000,  best_score:0.987827, best_ntree_limit=1.000000
+2018-07-14:17:50:54: 
+
+2018-07-14:17:50:54: save best model for val[2] label[0], f2[0.472973] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:55: eta:0.050000, max_depth:5, f2:0.695289
+2018-07-14:17:50:55: best_iteration:0.000000,  best_score:0.701053, best_ntree_limit=1.000000
+2018-07-14:17:50:55: 
+
+2018-07-14:17:50:56: eta:0.050000, max_depth:6, f2:0.685338
+2018-07-14:17:50:56: best_iteration:0.000000,  best_score:0.701053, best_ntree_limit=1.000000
+2018-07-14:17:50:56: 
+
+2018-07-14:17:50:58: eta:0.050000, max_depth:7, f2:0.668412
+2018-07-14:17:50:58: best_iteration:0.000000,  best_score:0.701053, best_ntree_limit=1.000000
+2018-07-14:17:50:58: 
+
+2018-07-14:17:50:58: save best model for val[2] label[1], f2[0.695289] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:50:59: eta:0.050000, max_depth:5, f2:0.981537
+2018-07-14:17:50:59: best_iteration:0.000000,  best_score:0.019982, best_ntree_limit=1.000000
+2018-07-14:17:50:59: 
+
+2018-07-14:17:51:00: eta:0.050000, max_depth:6, f2:0.981519
+2018-07-14:17:51:00: best_iteration:0.000000,  best_score:0.019982, best_ntree_limit=1.000000
+2018-07-14:17:51:00: 
+
+2018-07-14:17:51:01: eta:0.050000, max_depth:7, f2:0.981572
+2018-07-14:17:51:01: best_iteration:0.000000,  best_score:0.019982, best_ntree_limit=1.000000
+2018-07-14:17:51:01: 
+
+2018-07-14:17:51:01: save best model for val[2] label[2], f2[0.981572] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:02: eta:0.050000, max_depth:5, f2:0.256917
+2018-07-14:17:51:02: best_iteration:0.000000,  best_score:0.978082, best_ntree_limit=1.000000
+2018-07-14:17:51:02: 
+
+2018-07-14:17:51:03: eta:0.050000, max_depth:6, f2:0.272374
+2018-07-14:17:51:03: best_iteration:0.000000,  best_score:0.978082, best_ntree_limit=1.000000
+2018-07-14:17:51:03: 
+
+2018-07-14:17:51:04: eta:0.050000, max_depth:7, f2:0.272374
+2018-07-14:17:51:04: best_iteration:0.000000,  best_score:0.978082, best_ntree_limit=1.000000
+2018-07-14:17:51:04: 
+
+2018-07-14:17:51:04: save best model for val[2] label[3], f2[0.272374] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:05: eta:0.050000, max_depth:5, f2:0.826345
+2018-07-14:17:51:05: best_iteration:0.000000,  best_score:0.278428, best_ntree_limit=1.000000
+2018-07-14:17:51:05: 
+
+2018-07-14:17:51:06: eta:0.050000, max_depth:6, f2:0.829192
+2018-07-14:17:51:06: best_iteration:0.000000,  best_score:0.278428, best_ntree_limit=1.000000
+2018-07-14:17:51:06: 
+
+2018-07-14:17:51:07: eta:0.050000, max_depth:7, f2:0.829192
+2018-07-14:17:51:07: best_iteration:0.000000,  best_score:0.278428, best_ntree_limit=1.000000
+2018-07-14:17:51:07: 
+
+2018-07-14:17:51:07: save best model for val[2] label[4], f2[0.829192] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:08: eta:0.050000, max_depth:5, f2:0.756322
+2018-07-14:17:51:08: best_iteration:0.000000,  best_score:0.507839, best_ntree_limit=1.000000
+2018-07-14:17:51:08: 
+
+2018-07-14:17:51:09: eta:0.050000, max_depth:6, f2:0.741348
+2018-07-14:17:51:09: best_iteration:0.000000,  best_score:0.507839, best_ntree_limit=1.000000
+2018-07-14:17:51:09: 
+
+2018-07-14:17:51:11: eta:0.050000, max_depth:7, f2:0.740606
+2018-07-14:17:51:11: best_iteration:0.000000,  best_score:0.507839, best_ntree_limit=1.000000
+2018-07-14:17:51:11: 
+
+2018-07-14:17:51:11: save best model for val[2] label[5], f2[0.756322] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:12: eta:0.050000, max_depth:5, f2:0.203488
+2018-07-14:17:51:12: best_iteration:0.000000,  best_score:0.983378, best_ntree_limit=1.000000
+2018-07-14:17:51:12: 
+
+2018-07-14:17:51:13: eta:0.050000, max_depth:6, f2:0.232558
+2018-07-14:17:51:13: best_iteration:0.000000,  best_score:0.983378, best_ntree_limit=1.000000
+2018-07-14:17:51:13: 
+
+2018-07-14:17:51:14: eta:0.050000, max_depth:7, f2:0.232558
+2018-07-14:17:51:14: best_iteration:0.000000,  best_score:0.983378, best_ntree_limit=1.000000
+2018-07-14:17:51:14: 
+
+2018-07-14:17:51:14: save best model for val[2] label[6], f2[0.232558] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:16: eta:0.050000, max_depth:5, f2:0.531460
+2018-07-14:17:51:16: best_iteration:0.000000,  best_score:0.885818, best_ntree_limit=1.000000
+2018-07-14:17:51:16: 
+
+2018-07-14:17:51:17: eta:0.050000, max_depth:6, f2:0.521528
+2018-07-14:17:51:17: best_iteration:0.000000,  best_score:0.885818, best_ntree_limit=1.000000
+2018-07-14:17:51:17: 
+
+2018-07-14:17:51:18: eta:0.050000, max_depth:7, f2:0.523952
+2018-07-14:17:51:18: best_iteration:0.000000,  best_score:0.885818, best_ntree_limit=1.000000
+2018-07-14:17:51:18: 
+
+2018-07-14:17:51:18: save best model for val[2] label[7], f2[0.531460] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:20: eta:0.050000, max_depth:5, f2:0.979340
+2018-07-14:17:51:20: best_iteration:0.000000,  best_score:0.021842, best_ntree_limit=1.000000
+2018-07-14:17:51:20: 
+
+2018-07-14:17:51:21: eta:0.050000, max_depth:6, f2:0.980326
+2018-07-14:17:51:21: best_iteration:0.000000,  best_score:0.021842, best_ntree_limit=1.000000
+2018-07-14:17:51:21: 
+
+2018-07-14:17:51:22: eta:0.050000, max_depth:7, f2:0.979536
+2018-07-14:17:51:22: best_iteration:0.000000,  best_score:0.021842, best_ntree_limit=1.000000
+2018-07-14:17:51:22: 
+
+2018-07-14:17:51:22: save best model for val[2] label[8], f2[0.980326] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:23: eta:0.050000, max_depth:5, f2:0.629954
+2018-07-14:17:51:23: best_iteration:0.000000,  best_score:0.583688, best_ntree_limit=1.000000
+2018-07-14:17:51:23: 
+
+2018-07-14:17:51:24: eta:0.050000, max_depth:6, f2:0.629954
+2018-07-14:17:51:24: best_iteration:0.000000,  best_score:0.583688, best_ntree_limit=1.000000
+2018-07-14:17:51:24: 
+
+2018-07-14:17:51:25: eta:0.050000, max_depth:7, f2:0.630016
+2018-07-14:17:51:25: best_iteration:0.000000,  best_score:0.583688, best_ntree_limit=1.000000
+2018-07-14:17:51:25: 
+
+2018-07-14:17:51:25: save best model for val[2] label[9], f2[0.630016] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:26: eta:0.050000, max_depth:5, f2:0.782828
+2018-07-14:17:51:26: best_iteration:0.000000,  best_score:0.726490, best_ntree_limit=1.000000
+2018-07-14:17:51:26: 
+
+2018-07-14:17:51:27: eta:0.050000, max_depth:6, f2:0.782239
+2018-07-14:17:51:27: best_iteration:0.000000,  best_score:0.726490, best_ntree_limit=1.000000
+2018-07-14:17:51:27: 
+
+2018-07-14:17:51:28: eta:0.050000, max_depth:7, f2:0.794031
+2018-07-14:17:51:28: best_iteration:0.000000,  best_score:0.726490, best_ntree_limit=1.000000
+2018-07-14:17:51:28: 
+
+2018-07-14:17:51:28: save best model for val[2] label[10], f2[0.794031] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:29: eta:0.050000, max_depth:5, f2:0.533742
+2018-07-14:17:51:29: best_iteration:0.000000,  best_score:0.894912, best_ntree_limit=1.000000
+2018-07-14:17:51:29: 
+
+2018-07-14:17:51:30: eta:0.050000, max_depth:6, f2:0.536481
+2018-07-14:17:51:30: best_iteration:0.000000,  best_score:0.894912, best_ntree_limit=1.000000
+2018-07-14:17:51:30: 
+
+2018-07-14:17:51:31: eta:0.050000, max_depth:7, f2:0.530547
+2018-07-14:17:51:31: best_iteration:0.000000,  best_score:0.894912, best_ntree_limit=1.000000
+2018-07-14:17:51:31: 
+
+2018-07-14:17:51:31: save best model for val[2] label[11], f2[0.536481] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:32: eta:0.050000, max_depth:5, f2:0.626350
+2018-07-14:17:51:32: best_iteration:0.000000,  best_score:0.965038, best_ntree_limit=1.000000
+2018-07-14:17:51:32: 
+
+2018-07-14:17:51:33: eta:0.050000, max_depth:6, f2:0.619658
+2018-07-14:17:51:33: best_iteration:0.000000,  best_score:0.965038, best_ntree_limit=1.000000
+2018-07-14:17:51:33: 
+
+2018-07-14:17:51:34: eta:0.050000, max_depth:7, f2:0.584677
+2018-07-14:17:51:34: best_iteration:0.000000,  best_score:0.965038, best_ntree_limit=1.000000
+2018-07-14:17:51:34: 
+
+2018-07-14:17:51:34: save best model for val[2] label[12], f2[0.626350] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:35: eta:0.050000, max_depth:5, f2:0.336538
+2018-07-14:17:51:35: best_iteration:0.000000,  best_score:0.991408, best_ntree_limit=1.000000
+2018-07-14:17:51:35: 
+
+2018-07-14:17:51:36: eta:0.050000, max_depth:6, f2:0.336538
+2018-07-14:17:51:36: best_iteration:0.000000,  best_score:0.991408, best_ntree_limit=1.000000
+2018-07-14:17:51:36: 
+
+2018-07-14:17:51:36: eta:0.050000, max_depth:7, f2:0.343137
+2018-07-14:17:51:36: best_iteration:0.000000,  best_score:0.991408, best_ntree_limit=1.000000
+2018-07-14:17:51:37: 
+
+2018-07-14:17:51:37: save best model for val[3] label[0], f2[0.343137] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:38: eta:0.050000, max_depth:5, f2:0.682047
+2018-07-14:17:51:38: best_iteration:0.000000,  best_score:0.704471, best_ntree_limit=1.000000
+2018-07-14:17:51:38: 
+
+2018-07-14:17:51:39: eta:0.050000, max_depth:6, f2:0.681635
+2018-07-14:17:51:39: best_iteration:0.000000,  best_score:0.704471, best_ntree_limit=1.000000
+2018-07-14:17:51:39: 
+
+2018-07-14:17:51:40: eta:0.050000, max_depth:7, f2:0.682047
+2018-07-14:17:51:40: best_iteration:0.000000,  best_score:0.704471, best_ntree_limit=1.000000
+2018-07-14:17:51:40: 
+
+2018-07-14:17:51:40: save best model for val[3] label[1], f2[0.682047] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:41: eta:0.050000, max_depth:5, f2:0.980982
+2018-07-14:17:51:41: best_iteration:0.000000,  best_score:0.019539, best_ntree_limit=1.000000
+2018-07-14:17:51:41: 
+
+2018-07-14:17:51:42: eta:0.050000, max_depth:6, f2:0.980982
+2018-07-14:17:51:42: best_iteration:0.000000,  best_score:0.019539, best_ntree_limit=1.000000
+2018-07-14:17:51:42: 
+
+2018-07-14:17:51:43: eta:0.050000, max_depth:7, f2:0.981001
+2018-07-14:17:51:43: best_iteration:0.000000,  best_score:0.019539, best_ntree_limit=1.000000
+2018-07-14:17:51:43: 
+
+2018-07-14:17:51:43: save best model for val[3] label[2], f2[0.981001] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:44: eta:0.050000, max_depth:5, f2:0.553097
+2018-07-14:17:51:44: best_iteration:0.000000,  best_score:0.980281, best_ntree_limit=1.000000
+2018-07-14:17:51:44: 
+
+2018-07-14:17:51:45: eta:0.050000, max_depth:6, f2:0.558036
+2018-07-14:17:51:45: best_iteration:0.000000,  best_score:0.980281, best_ntree_limit=1.000000
+2018-07-14:17:51:45: 
+
+2018-07-14:17:51:46: eta:0.050000, max_depth:7, f2:0.558036
+2018-07-14:17:51:46: best_iteration:0.000000,  best_score:0.980281, best_ntree_limit=1.000000
+2018-07-14:17:51:46: 
+
+2018-07-14:17:51:46: save best model for val[3] label[3], f2[0.558036] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:47: eta:0.050000, max_depth:5, f2:0.832039
+2018-07-14:17:51:47: best_iteration:0.000000,  best_score:0.273723, best_ntree_limit=1.000000
+2018-07-14:17:51:47: 
+
+2018-07-14:17:51:48: eta:0.050000, max_depth:6, f2:0.832001
+2018-07-14:17:51:48: best_iteration:0.000000,  best_score:0.273723, best_ntree_limit=1.000000
+2018-07-14:17:51:48: 
+
+2018-07-14:17:51:49: eta:0.050000, max_depth:7, f2:0.832381
+2018-07-14:17:51:49: best_iteration:0.000000,  best_score:0.273723, best_ntree_limit=1.000000
+2018-07-14:17:51:49: 
+
+2018-07-14:17:51:49: save best model for val[3] label[4], f2[0.832381] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:50: eta:0.050000, max_depth:5, f2:0.755098
+2018-07-14:17:51:50: best_iteration:0.000000,  best_score:0.514055, best_ntree_limit=1.000000
+2018-07-14:17:51:50: 
+
+2018-07-14:17:51:51: eta:0.050000, max_depth:6, f2:0.755027
+2018-07-14:17:51:51: best_iteration:0.000000,  best_score:0.514055, best_ntree_limit=1.000000
+2018-07-14:17:51:51: 
+
+2018-07-14:17:51:52: eta:0.050000, max_depth:7, f2:0.755962
+2018-07-14:17:51:52: best_iteration:0.000000,  best_score:0.514055, best_ntree_limit=1.000000
+2018-07-14:17:51:52: 
+
+2018-07-14:17:51:52: save best model for val[3] label[5], f2[0.755962] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:53: eta:0.050000, max_depth:5, f2:0.250000
+2018-07-14:17:51:53: best_iteration:0.000000,  best_score:0.980281, best_ntree_limit=1.000000
+2018-07-14:17:51:53: 
+
+2018-07-14:17:51:54: eta:0.050000, max_depth:6, f2:0.226131
+2018-07-14:17:51:54: best_iteration:0.000000,  best_score:0.980281, best_ntree_limit=1.000000
+2018-07-14:17:51:54: 
+
+2018-07-14:17:51:55: eta:0.050000, max_depth:7, f2:0.220588
+2018-07-14:17:51:55: best_iteration:0.000000,  best_score:0.980281, best_ntree_limit=1.000000
+2018-07-14:17:51:55: 
+
+2018-07-14:17:51:55: save best model for val[3] label[6], f2[0.250000] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:56: eta:0.050000, max_depth:5, f2:0.513353
+2018-07-14:17:51:56: best_iteration:0.000000,  best_score:0.883558, best_ntree_limit=1.000000
+2018-07-14:17:51:56: 
+
+2018-07-14:17:51:57: eta:0.050000, max_depth:6, f2:0.514488
+2018-07-14:17:51:57: best_iteration:0.000000,  best_score:0.883558, best_ntree_limit=1.000000
+2018-07-14:17:51:57: 
+
+2018-07-14:17:51:58: eta:0.050000, max_depth:7, f2:0.514488
+2018-07-14:17:51:58: best_iteration:0.000000,  best_score:0.883558, best_ntree_limit=1.000000
+2018-07-14:17:51:58: 
+
+2018-07-14:17:51:58: save best model for val[3] label[7], f2[0.514488] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:51:59: eta:0.050000, max_depth:5, f2:0.980154
+2018-07-14:17:51:59: best_iteration:0.000000,  best_score:0.021500, best_ntree_limit=1.000000
+2018-07-14:17:51:59: 
+
+2018-07-14:17:52:00: eta:0.050000, max_depth:6, f2:0.979317
+2018-07-14:17:52:00: best_iteration:0.000000,  best_score:0.021500, best_ntree_limit=1.000000
+2018-07-14:17:52:00: 
+
+2018-07-14:17:52:01: eta:0.050000, max_depth:7, f2:0.979172
+2018-07-14:17:52:01: best_iteration:0.000000,  best_score:0.021500, best_ntree_limit=1.000000
+2018-07-14:17:52:01: 
+
+2018-07-14:17:52:01: save best model for val[3] label[8], f2[0.980154] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:02: eta:0.050000, max_depth:5, f2:0.640862
+2018-07-14:17:52:02: best_iteration:0.000000,  best_score:0.575838, best_ntree_limit=1.000000
+2018-07-14:17:52:02: 
+
+2018-07-14:17:52:03: eta:0.050000, max_depth:6, f2:0.639218
+2018-07-14:17:52:03: best_iteration:0.000000,  best_score:0.575838, best_ntree_limit=1.000000
+2018-07-14:17:52:03: 
+
+2018-07-14:17:52:04: eta:0.050000, max_depth:7, f2:0.633668
+2018-07-14:17:52:04: best_iteration:0.000000,  best_score:0.575838, best_ntree_limit=1.000000
+2018-07-14:17:52:04: 
+
+2018-07-14:17:52:04: save best model for val[3] label[9], f2[0.640862] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:05: eta:0.050000, max_depth:5, f2:0.761847
+2018-07-14:17:52:05: best_iteration:0.000000,  best_score:0.740564, best_ntree_limit=1.000000
+2018-07-14:17:52:05: 
+
+2018-07-14:17:52:06: eta:0.050000, max_depth:6, f2:0.760738
+2018-07-14:17:52:06: best_iteration:0.000000,  best_score:0.740564, best_ntree_limit=1.000000
+2018-07-14:17:52:06: 
+
+2018-07-14:17:52:07: eta:0.050000, max_depth:7, f2:0.762332
+2018-07-14:17:52:07: best_iteration:0.000000,  best_score:0.740564, best_ntree_limit=1.000000
+2018-07-14:17:52:07: 
+
+2018-07-14:17:52:07: save best model for val[3] label[10], f2[0.762332] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:09: eta:0.050000, max_depth:5, f2:0.527508
+2018-07-14:17:52:09: best_iteration:0.000000,  best_score:0.897968, best_ntree_limit=1.000000
+2018-07-14:17:52:09: 
+
+2018-07-14:17:52:09: eta:0.050000, max_depth:6, f2:0.526486
+2018-07-14:17:52:09: best_iteration:0.000000,  best_score:0.897968, best_ntree_limit=1.000000
+2018-07-14:17:52:09: 
+
+2018-07-14:17:52:10: eta:0.050000, max_depth:7, f2:0.523594
+2018-07-14:17:52:10: best_iteration:0.000000,  best_score:0.897968, best_ntree_limit=1.000000
+2018-07-14:17:52:10: 
+
+2018-07-14:17:52:10: save best model for val[3] label[11], f2[0.527508] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:11: eta:0.050000, max_depth:5, f2:0.334190
+2018-07-14:17:52:11: best_iteration:0.000000,  best_score:0.964605, best_ntree_limit=1.000000
+2018-07-14:17:52:11: 
+
+2018-07-14:17:52:12: eta:0.050000, max_depth:6, f2:0.243243
+2018-07-14:17:52:12: best_iteration:0.000000,  best_score:0.964605, best_ntree_limit=1.000000
+2018-07-14:17:52:12: 
+
+2018-07-14:17:52:13: eta:0.050000, max_depth:7, f2:0.234160
+2018-07-14:17:52:13: best_iteration:0.000000,  best_score:0.964605, best_ntree_limit=1.000000
+2018-07-14:17:52:13: 
+
+2018-07-14:17:52:13: save best model for val[3] label[12], f2[0.334190] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:14: eta:0.050000, max_depth:5, f2:0.404040
+2018-07-14:17:52:14: best_iteration:0.000000,  best_score:0.992758, best_ntree_limit=1.000000
+2018-07-14:17:52:14: 
+
+2018-07-14:17:52:15: eta:0.050000, max_depth:6, f2:0.409091
+2018-07-14:17:52:15: best_iteration:0.000000,  best_score:0.992758, best_ntree_limit=1.000000
+2018-07-14:17:52:15: 
+
+2018-07-14:17:52:15: eta:0.050000, max_depth:7, f2:0.409091
+2018-07-14:17:52:15: best_iteration:0.000000,  best_score:0.992758, best_ntree_limit=1.000000
+2018-07-14:17:52:15: 
+
+2018-07-14:17:52:16: save best model for val[4] label[0], f2[0.409091] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:17: eta:0.050000, max_depth:5, f2:0.679855
+2018-07-14:17:52:17: best_iteration:0.000000,  best_score:0.703961, best_ntree_limit=1.000000
+2018-07-14:17:52:17: 
+
+2018-07-14:17:52:18: eta:0.050000, max_depth:6, f2:0.670103
+2018-07-14:17:52:18: best_iteration:0.000000,  best_score:0.703961, best_ntree_limit=1.000000
+2018-07-14:17:52:18: 
+
+2018-07-14:17:52:19: eta:0.050000, max_depth:7, f2:0.671872
+2018-07-14:17:52:19: best_iteration:0.000000,  best_score:0.703961, best_ntree_limit=1.000000
+2018-07-14:17:52:19: 
+
+2018-07-14:17:52:19: save best model for val[4] label[1], f2[0.679855] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:20: eta:0.050000, max_depth:5, f2:0.982591
+2018-07-14:17:52:20: best_iteration:0.000000,  best_score:0.019346, best_ntree_limit=1.000000
+2018-07-14:17:52:20: 
+
+2018-07-14:17:52:21: eta:0.050000, max_depth:6, f2:0.982687
+2018-07-14:17:52:21: best_iteration:0.000000,  best_score:0.019346, best_ntree_limit=1.000000
+2018-07-14:17:52:21: 
+
+2018-07-14:17:52:22: eta:0.050000, max_depth:7, f2:0.982785
+2018-07-14:17:52:22: best_iteration:0.000000,  best_score:0.019346, best_ntree_limit=1.000000
+2018-07-14:17:52:22: 
+
+2018-07-14:17:52:22: save best model for val[4] label[2], f2[0.982785] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:23: eta:0.050000, max_depth:5, f2:0.450000
+2018-07-14:17:52:23: best_iteration:0.000000,  best_score:0.972395, best_ntree_limit=1.000000
+2018-07-14:17:52:23: 
+
+2018-07-14:17:52:24: eta:0.050000, max_depth:6, f2:0.442359
+2018-07-14:17:52:24: best_iteration:0.000000,  best_score:0.972395, best_ntree_limit=1.000000
+2018-07-14:17:52:24: 
+
+2018-07-14:17:52:25: eta:0.050000, max_depth:7, f2:0.441176
+2018-07-14:17:52:25: best_iteration:0.000000,  best_score:0.972395, best_ntree_limit=1.000000
+2018-07-14:17:52:25: 
+
+2018-07-14:17:52:25: save best model for val[4] label[3], f2[0.450000] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:26: eta:0.050000, max_depth:5, f2:0.825571
+2018-07-14:17:52:26: best_iteration:0.000000,  best_score:0.282610, best_ntree_limit=1.000000
+2018-07-14:17:52:26: 
+
+2018-07-14:17:52:27: eta:0.050000, max_depth:6, f2:0.825532
+2018-07-14:17:52:27: best_iteration:0.000000,  best_score:0.282610, best_ntree_limit=1.000000
+2018-07-14:17:52:27: 
+
+2018-07-14:17:52:28: eta:0.050000, max_depth:7, f2:0.821160
+2018-07-14:17:52:28: best_iteration:0.000000,  best_score:0.282610, best_ntree_limit=1.000000
+2018-07-14:17:52:28: 
+
+2018-07-14:17:52:28: save best model for val[4] label[4], f2[0.825571] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:29: eta:0.050000, max_depth:5, f2:0.760458
+2018-07-14:17:52:29: best_iteration:0.000000,  best_score:0.510358, best_ntree_limit=1.000000
+2018-07-14:17:52:29: 
+
+2018-07-14:17:52:30: eta:0.050000, max_depth:6, f2:0.755858
+2018-07-14:17:52:30: best_iteration:0.000000,  best_score:0.510358, best_ntree_limit=1.000000
+2018-07-14:17:52:30: 
+
+2018-07-14:17:52:31: eta:0.050000, max_depth:7, f2:0.755264
+2018-07-14:17:52:31: best_iteration:0.000000,  best_score:0.510358, best_ntree_limit=1.000000
+2018-07-14:17:52:31: 
+
+2018-07-14:17:52:31: save best model for val[4] label[5], f2[0.760458] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:32: eta:0.050000, max_depth:5, f2:0.363636
+2018-07-14:17:52:32: best_iteration:0.000000,  best_score:0.981166, best_ntree_limit=1.000000
+2018-07-14:17:52:32: 
+
+2018-07-14:17:52:33: eta:0.050000, max_depth:6, f2:0.363636
+2018-07-14:17:52:33: best_iteration:0.000000,  best_score:0.981166, best_ntree_limit=1.000000
+2018-07-14:17:52:33: 
+
+2018-07-14:17:52:34: eta:0.050000, max_depth:7, f2:0.380435
+2018-07-14:17:52:34: best_iteration:0.000000,  best_score:0.981166, best_ntree_limit=1.000000
+2018-07-14:17:52:34: 
+
+2018-07-14:17:52:34: save best model for val[4] label[6], f2[0.380435] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:35: eta:0.050000, max_depth:5, f2:0.498873
+2018-07-14:17:52:35: best_iteration:0.000000,  best_score:0.886947, best_ntree_limit=1.000000
+2018-07-14:17:52:35: 
+
+2018-07-14:17:52:36: eta:0.050000, max_depth:6, f2:0.497456
+2018-07-14:17:52:36: best_iteration:0.000000,  best_score:0.886947, best_ntree_limit=1.000000
+2018-07-14:17:52:36: 
+
+2018-07-14:17:52:36: eta:0.050000, max_depth:7, f2:0.487089
+2018-07-14:17:52:36: best_iteration:0.000000,  best_score:0.886947, best_ntree_limit=1.000000
+2018-07-14:17:52:36: 
+
+2018-07-14:17:52:37: save best model for val[4] label[7], f2[0.498873] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:38: eta:0.050000, max_depth:5, f2:0.980373
+2018-07-14:17:52:38: best_iteration:0.000000,  best_score:0.021993, best_ntree_limit=1.000000
+2018-07-14:17:52:38: 
+
+2018-07-14:17:52:39: eta:0.050000, max_depth:6, f2:0.979612
+2018-07-14:17:52:39: best_iteration:0.000000,  best_score:0.021993, best_ntree_limit=1.000000
+2018-07-14:17:52:39: 
+
+2018-07-14:17:52:40: eta:0.050000, max_depth:7, f2:0.979139
+2018-07-14:17:52:40: best_iteration:0.000000,  best_score:0.021993, best_ntree_limit=1.000000
+2018-07-14:17:52:40: 
+
+2018-07-14:17:52:40: save best model for val[4] label[8], f2[0.980373] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:41: eta:0.050000, max_depth:5, f2:0.638057
+2018-07-14:17:52:41: best_iteration:0.000000,  best_score:0.567405, best_ntree_limit=1.000000
+2018-07-14:17:52:41: 
+
+2018-07-14:17:52:42: eta:0.050000, max_depth:6, f2:0.638057
+2018-07-14:17:52:42: best_iteration:0.000000,  best_score:0.567405, best_ntree_limit=1.000000
+2018-07-14:17:52:42: 
+
+2018-07-14:17:52:43: eta:0.050000, max_depth:7, f2:0.638374
+2018-07-14:17:52:43: best_iteration:0.000000,  best_score:0.567405, best_ntree_limit=1.000000
+2018-07-14:17:52:43: 
+
+2018-07-14:17:52:43: save best model for val[4] label[9], f2[0.638374] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:44: eta:0.050000, max_depth:5, f2:0.779630
+2018-07-14:17:52:44: best_iteration:0.000000,  best_score:0.730956, best_ntree_limit=1.000000
+2018-07-14:17:52:44: 
+
+2018-07-14:17:52:45: eta:0.050000, max_depth:6, f2:0.779498
+2018-07-14:17:52:45: best_iteration:0.000000,  best_score:0.730956, best_ntree_limit=1.000000
+2018-07-14:17:52:45: 
+
+2018-07-14:17:52:46: eta:0.050000, max_depth:7, f2:0.788930
+2018-07-14:17:52:46: best_iteration:0.000000,  best_score:0.730956, best_ntree_limit=1.000000
+2018-07-14:17:52:46: 
+
+2018-07-14:17:52:46: save best model for val[4] label[10], f2[0.788930] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:47: eta:0.050000, max_depth:5, f2:0.538991
+2018-07-14:17:52:47: best_iteration:0.000000,  best_score:0.894149, best_ntree_limit=1.000000
+2018-07-14:17:52:47: 
+
+2018-07-14:17:52:48: eta:0.050000, max_depth:6, f2:0.538065
+2018-07-14:17:52:48: best_iteration:0.000000,  best_score:0.894149, best_ntree_limit=1.000000
+2018-07-14:17:52:48: 
+
+2018-07-14:17:52:49: eta:0.050000, max_depth:7, f2:0.510266
+2018-07-14:17:52:49: best_iteration:0.000000,  best_score:0.894149, best_ntree_limit=1.000000
+2018-07-14:17:52:49: 
+
+2018-07-14:17:52:49: save best model for val[4] label[11], f2[0.538991] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:50: eta:0.050000, max_depth:5, f2:0.411765
+2018-07-14:17:52:50: best_iteration:0.000000,  best_score:0.972831, best_ntree_limit=1.000000
+2018-07-14:17:52:50: 
+
+2018-07-14:17:52:51: eta:0.050000, max_depth:6, f2:0.402299
+2018-07-14:17:52:51: best_iteration:0.000000,  best_score:0.972831, best_ntree_limit=1.000000
+2018-07-14:17:52:51: 
+
+2018-07-14:17:52:52: eta:0.050000, max_depth:7, f2:0.393258
+2018-07-14:17:52:52: best_iteration:0.000000,  best_score:0.972831, best_ntree_limit=1.000000
+2018-07-14:17:52:52: 
+
+2018-07-14:17:52:52: save best model for val[4] label[12], f2[0.411765] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:53: eta:0.050000, max_depth:5, f2:0.413534
+2018-07-14:17:52:53: best_iteration:0.000000,  best_score:0.989615, best_ntree_limit=1.000000
+2018-07-14:17:52:53: 
+
+2018-07-14:17:52:53: eta:0.050000, max_depth:6, f2:0.444444
+2018-07-14:17:52:53: best_iteration:0.000000,  best_score:0.989615, best_ntree_limit=1.000000
+2018-07-14:17:52:53: 
+
+2018-07-14:17:52:54: eta:0.050000, max_depth:7, f2:0.441176
+2018-07-14:17:52:54: best_iteration:0.000000,  best_score:0.989615, best_ntree_limit=1.000000
+2018-07-14:17:52:54: 
+
+2018-07-14:17:52:54: save best model for val[5] label[0], f2[0.444444] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:55: eta:0.050000, max_depth:5, f2:0.654004
+2018-07-14:17:52:55: best_iteration:0.000000,  best_score:0.709294, best_ntree_limit=1.000000
+2018-07-14:17:52:55: 
+
+2018-07-14:17:52:56: eta:0.050000, max_depth:6, f2:0.665564
+2018-07-14:17:52:56: best_iteration:0.000000,  best_score:0.709294, best_ntree_limit=1.000000
+2018-07-14:17:52:56: 
+
+2018-07-14:17:52:57: eta:0.050000, max_depth:7, f2:0.662524
+2018-07-14:17:52:57: best_iteration:0.000000,  best_score:0.709294, best_ntree_limit=1.000000
+2018-07-14:17:52:57: 
+
+2018-07-14:17:52:58: save best model for val[5] label[1], f2[0.665564] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:52:59: eta:0.050000, max_depth:5, f2:0.982273
+2018-07-14:17:52:59: best_iteration:0.000000,  best_score:0.019473, best_ntree_limit=1.000000
+2018-07-14:17:52:59: 
+
+2018-07-14:17:53:00: eta:0.050000, max_depth:6, f2:0.982120
+2018-07-14:17:53:00: best_iteration:0.000000,  best_score:0.019473, best_ntree_limit=1.000000
+2018-07-14:17:53:00: 
+
+2018-07-14:17:53:01: eta:0.050000, max_depth:7, f2:0.982080
+2018-07-14:17:53:01: best_iteration:0.000000,  best_score:0.019473, best_ntree_limit=1.000000
+2018-07-14:17:53:01: 
+
+2018-07-14:17:53:01: save best model for val[5] label[2], f2[0.982273] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:02: eta:0.050000, max_depth:5, f2:0.286344
+2018-07-14:17:53:02: best_iteration:0.000000,  best_score:0.977204, best_ntree_limit=1.000000
+2018-07-14:17:53:02: 
+
+2018-07-14:17:53:02: eta:0.050000, max_depth:6, f2:0.286344
+2018-07-14:17:53:02: best_iteration:0.000000,  best_score:0.977204, best_ntree_limit=1.000000
+2018-07-14:17:53:02: 
+
+2018-07-14:17:53:03: eta:0.050000, max_depth:7, f2:0.286344
+2018-07-14:17:53:03: best_iteration:0.000000,  best_score:0.977204, best_ntree_limit=1.000000
+2018-07-14:17:53:03: 
+
+2018-07-14:17:53:03: save best model for val[5] label[3], f2[0.286344] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:05: eta:0.050000, max_depth:5, f2:0.815407
+2018-07-14:17:53:05: best_iteration:0.000000,  best_score:0.283604, best_ntree_limit=1.000000
+2018-07-14:17:53:05: 
+
+2018-07-14:17:53:05: eta:0.050000, max_depth:6, f2:0.815370
+2018-07-14:17:53:05: best_iteration:0.000000,  best_score:0.283604, best_ntree_limit=1.000000
+2018-07-14:17:53:05: 
+
+2018-07-14:17:53:06: eta:0.050000, max_depth:7, f2:0.822356
+2018-07-14:17:53:07: best_iteration:0.000000,  best_score:0.283604, best_ntree_limit=1.000000
+2018-07-14:17:53:07: 
+
+2018-07-14:17:53:07: save best model for val[5] label[4], f2[0.822356] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:08: eta:0.050000, max_depth:5, f2:0.761675
+2018-07-14:17:53:08: best_iteration:0.000000,  best_score:0.499563, best_ntree_limit=1.000000
+2018-07-14:17:53:08: 
+
+2018-07-14:17:53:09: eta:0.050000, max_depth:6, f2:0.761675
+2018-07-14:17:53:09: best_iteration:0.000000,  best_score:0.499563, best_ntree_limit=1.000000
+2018-07-14:17:53:09: 
+
+2018-07-14:17:53:10: eta:0.050000, max_depth:7, f2:0.759738
+2018-07-14:17:53:10: best_iteration:0.000000,  best_score:0.499563, best_ntree_limit=1.000000
+2018-07-14:17:53:10: 
+
+2018-07-14:17:53:10: save best model for val[5] label[5], f2[0.761675] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:11: eta:0.050000, max_depth:5, f2:0.380711
+2018-07-14:17:53:11: best_iteration:0.000000,  best_score:0.982050, best_ntree_limit=1.000000
+2018-07-14:17:53:11: 
+
+2018-07-14:17:53:12: eta:0.050000, max_depth:6, f2:0.371287
+2018-07-14:17:53:12: best_iteration:0.000000,  best_score:0.982050, best_ntree_limit=1.000000
+2018-07-14:17:53:12: 
+
+2018-07-14:17:53:12: eta:0.050000, max_depth:7, f2:0.371287
+2018-07-14:17:53:12: best_iteration:0.000000,  best_score:0.982050, best_ntree_limit=1.000000
+2018-07-14:17:53:12: 
+
+2018-07-14:17:53:13: save best model for val[5] label[6], f2[0.380711] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:14: eta:0.050000, max_depth:5, f2:0.482857
+2018-07-14:17:53:14: best_iteration:0.000000,  best_score:0.889212, best_ntree_limit=1.000000
+2018-07-14:17:53:14: 
+
+2018-07-14:17:53:14: eta:0.050000, max_depth:6, f2:0.482857
+2018-07-14:17:53:14: best_iteration:0.000000,  best_score:0.889212, best_ntree_limit=1.000000
+2018-07-14:17:53:14: 
+
+2018-07-14:17:53:15: eta:0.050000, max_depth:7, f2:0.415861
+2018-07-14:17:53:15: best_iteration:0.000000,  best_score:0.889212, best_ntree_limit=1.000000
+2018-07-14:17:53:15: 
+
+2018-07-14:17:53:15: save best model for val[5] label[7], f2[0.482857] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:17: eta:0.050000, max_depth:5, f2:0.978688
+2018-07-14:17:53:17: best_iteration:0.000000,  best_score:0.021713, best_ntree_limit=1.000000
+2018-07-14:17:53:17: 
+
+2018-07-14:17:53:17: eta:0.050000, max_depth:6, f2:0.978935
+2018-07-14:17:53:18: best_iteration:0.000000,  best_score:0.021713, best_ntree_limit=1.000000
+2018-07-14:17:53:18: 
+
+2018-07-14:17:53:18: eta:0.050000, max_depth:7, f2:0.978976
+2018-07-14:17:53:18: best_iteration:0.000000,  best_score:0.021713, best_ntree_limit=1.000000
+2018-07-14:17:53:19: 
+
+2018-07-14:17:53:19: save best model for val[5] label[8], f2[0.978976] eta[0.050000] max_depth[7]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:20: eta:0.050000, max_depth:5, f2:0.638505
+2018-07-14:17:53:20: best_iteration:0.000000,  best_score:0.565850, best_ntree_limit=1.000000
+2018-07-14:17:53:20: 
+
+2018-07-14:17:53:21: eta:0.050000, max_depth:6, f2:0.637481
+2018-07-14:17:53:21: best_iteration:0.000000,  best_score:0.565850, best_ntree_limit=1.000000
+2018-07-14:17:53:21: 
+
+2018-07-14:17:53:22: eta:0.050000, max_depth:7, f2:0.633026
+2018-07-14:17:53:22: best_iteration:0.000000,  best_score:0.565850, best_ntree_limit=1.000000
+2018-07-14:17:53:22: 
+
+2018-07-14:17:53:22: save best model for val[5] label[9], f2[0.638505] eta[0.050000] max_depth[5]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:23: eta:0.050000, max_depth:5, f2:0.782420
+2018-07-14:17:53:23: best_iteration:0.000000,  best_score:0.736313, best_ntree_limit=1.000000
+2018-07-14:17:53:23: 
+
+2018-07-14:17:53:24: eta:0.050000, max_depth:6, f2:0.783249
+2018-07-14:17:53:24: best_iteration:0.000000,  best_score:0.736313, best_ntree_limit=1.000000
+2018-07-14:17:53:24: 
+
+2018-07-14:17:53:25: eta:0.050000, max_depth:7, f2:0.779174
+2018-07-14:17:53:25: best_iteration:0.000000,  best_score:0.736313, best_ntree_limit=1.000000
+2018-07-14:17:53:25: 
+
+2018-07-14:17:53:25: save best model for val[5] label[10], f2[0.783249] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:26: eta:0.050000, max_depth:5, f2:0.515654
+2018-07-14:17:53:26: best_iteration:0.000000,  best_score:0.899129, best_ntree_limit=1.000000
+2018-07-14:17:53:26: 
+
+2018-07-14:17:53:27: eta:0.050000, max_depth:6, f2:0.537353
+2018-07-14:17:53:27: best_iteration:0.000000,  best_score:0.899129, best_ntree_limit=1.000000
+2018-07-14:17:53:27: 
+
+2018-07-14:17:53:28: eta:0.050000, max_depth:7, f2:0.536184
+2018-07-14:17:53:28: best_iteration:0.000000,  best_score:0.899129, best_ntree_limit=1.000000
+2018-07-14:17:53:28: 
+
+2018-07-14:17:53:28: save best model for val[5] label[11], f2[0.537353] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:17:53:29: eta:0.050000, max_depth:5, f2:0.511364
+2018-07-14:17:53:29: best_iteration:0.000000,  best_score:0.966761, best_ntree_limit=1.000000
+2018-07-14:17:53:29: 
+
+2018-07-14:17:53:30: eta:0.050000, max_depth:6, f2:0.559896
+2018-07-14:17:53:30: best_iteration:0.000000,  best_score:0.966761, best_ntree_limit=1.000000
+2018-07-14:17:53:30: 
+
+2018-07-14:17:53:30: eta:0.050000, max_depth:7, f2:0.555556
+2018-07-14:17:53:31: best_iteration:0.000000,  best_score:0.966761, best_ntree_limit=1.000000
+2018-07-14:17:53:31: 
+
+2018-07-14:17:53:31: save best model for val[5] label[12], f2[0.559896] eta[0.050000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[1] best_iter[0]
+2018-07-14:18:18:39: load meta model info
+2018-07-14:18:19:04: load meta model info
+2018-07-14:18:20:01: load meta model info
+2018-07-14:18:20:59: load meta model info
+2018-07-14:18:22:17: load meta model info
+2018-07-14:18:24:01: load meta model info
+2018-07-14:18:25:07: load meta model info
