@@ -26,7 +26,7 @@ test_x = model.build_test_datasets()
 pre_y = model.predict_test(test_x, output_avg=True)
 model.save_submit(pre_y, model.file_name)
 
-# data_x, data_y = model.build_all_datasets()
+data_x, data_y = model.build_all_datasets()
 # print(data_x.shape)
 # print(data_y[:4, :])
 # pre_y = model.predict_real(data_x)
