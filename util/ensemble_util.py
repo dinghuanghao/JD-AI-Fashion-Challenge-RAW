@@ -252,6 +252,40 @@ class EnsembleModel(object):
         return train_x.astype(np.float32), train_y.astype(np.float32), val_x.astype(np.float32), val_y.astype(
             np.float32)
 
+    def get_meta_model_test_predict(self, meta_model_path):
+        unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
+        identifier = "-".join(unique_path.split("\\"))
+        model_path = os.path.join(path.CNN_RESULT_PATH, identifier)
+        predict_path = keras_util.get_prediction_path(model_path)
+        try:
+            assert os.path.exists(predict_path)
+        except:
+            print(predict_path)
+        return np.load(predict_path)
+
+    def build_test_datasets(self):
+        assert len(self.meta_model_all) == 5
+        data_x = []
+        labels = [i for i in range(13)]
+        samples_cnt = 0
+        for val in range(1, 6):
+            meta_model_val = self.meta_model_all[val - 1]
+            predict_val = None
+            assert len(meta_model_val) == 13
+            for label in labels:
+                meta_model_label = meta_model_val[label]
+                for meta_model in meta_model_label:
+                    predicts = self.get_meta_model_test_predict(meta_model[0])
+                    predict_label = predicts[:, label].reshape((-1, 1))
+                    samples_cnt += predict_label.shape[0]
+                    if predict_val is None:
+                        predict_val = np.copy(predict_label)
+                    else:
+                        predict_val = np.hstack((predict_val, predict_label))
+            data_x.append(predict_val)
+            assert predict_val.shape[1] == len(labels) * self.top_n
+        return data_x.astype(np.float32)
+
     def build_all_datasets(self):
         assert len(self.meta_model_all) == 5
         data_x = None

@@ -22901,3 +22901,6 @@
 2018-07-15:09:15:18: save best model for val[5] label[12], f2[0.678851] eta[0.200000] max_depth[3]  best_min_child_weight[3.000000] best_ntree[15] best_iter[14]
 2018-07-15:09:42:47: load meta model info
 2018-07-15:09:45:03: load meta model info
+2018-07-15:15:32:23: load meta model info
+2018-07-15:15:32:23: weight not existed, E:\backup\jdfc\model\vgg16\record\model3\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
+2018-07-15:15:32:23: weight not existed, E:\backup\jdfc\model\vgg16\record\model3\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5 
