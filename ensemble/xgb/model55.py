@@ -1,3 +1,4 @@
+import pandas as pd
 import os
 import numpy as np
 
@@ -19,4 +20,6 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 
 # model.model_merge(["model51", "model52", "model53", "model54"])
 
-model.build_and_predict_test()
+# model.build_and_predict_test()
+
+df = pd.DataFrame()
