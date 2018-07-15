@@ -13,6 +13,7 @@ from sklearn.metrics import fbeta_score
 from statistics import model_statistics as statis
 from util import data_loader
 from util import keras_util
+from util import submit_util
 from util import metrics
 from util import path
 
@@ -480,14 +481,16 @@ class XGBoostModel(EnsembleModel):
         target_evaluate = copy.deepcopy(xgb_models[0].get_evaluate_json())
         for booster_name in xgb_models[0].get_evaluate_json().keys():
             target_evaluate[booster_name]["greedy_f2"] = -1
+            best_xgb_model = None
             for xgb_model in xgb_models:
                 evaluate = xgb_model.get_evaluate_json()
                 if evaluate[booster_name]["greedy_f2"] > target_evaluate[booster_name]["greedy_f2"]:
                     target_evaluate[booster_name] = copy.deepcopy(evaluate[booster_name])
-                    src = os.path.join(xgb_model.model_dir, booster_name)
-                    dst =  os.path.join(self.model_dir, booster_name)
-                    self.save_log("copy model, %s -> %s" % (src, dst))
-                    shutil.copy(src, dst)
+                    best_xgb_model = xgb_model
+            src = os.path.join(best_xgb_model.model_dir, booster_name)
+            dst =  os.path.join(self.model_dir, booster_name)
+            self.save_log("copy model, %s -> %s" % (src, dst))
+            shutil.copy(src, dst)
 
         self.save_evaluate_json(target_evaluate)
 
@@ -598,6 +601,19 @@ class XGBoostModel(EnsembleModel):
         bst = self.load_model(val_index, label)
         data_pred = bst.predict(data, ntree_limit=ntree_limit)
         return data_pred
+
+    def build_and_predict_test(self):
+        test_x = self.build_test_datasets()
+
+        # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
+        pre_y = self.predict_test(test_x, output_avg=True)
+        np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg.npy" % self.file_name), pre_y)
+        submit_util.save_submit(pre_y, "xgb_%s_avg.txt" % self.file_name)
+
+        # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
+        pre_y = self.predict_test(test_x, output_avg=False)
+        np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s.npy" % self.file_name), pre_y)
+        submit_util.save_submit(pre_y, "xgb_%s.txt" % self.file_name)
 
     def predict_test(self, data_list, output_avg=False, mode='vote'):
         predicts = []
