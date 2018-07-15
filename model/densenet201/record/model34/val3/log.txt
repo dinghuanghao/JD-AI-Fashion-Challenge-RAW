@@ -1,5 +1,62 @@
-2018-07-14:12:36:58: add 356 color augmentation file
-2018-07-14:12:36:58: train files is 44283 before up sampling
-2018-07-14:12:36:58: up sampling times: ['13600', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 13600
-2018-07-14:12:36:58: train files is 57883 after up sampling
-2018-07-14:12:36:58: train file: 44962, val file: 10981
+2018-07-14:10:32:02: add 356 color augmentation file
+2018-07-14:10:32:02: train files is 44283 before up sampling
+2018-07-14:10:32:02: up sampling times: ['13600', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 13600
+2018-07-14:10:32:02: train files is 57883 after up sampling
+2018-07-14:10:32:03: train file: 44851, val file: 10981
+2018-07-14:15:42:25: add 356 color augmentation file
+2018-07-14:15:42:25: train files is 44283 before up sampling
+2018-07-14:15:42:25: up sampling times: ['13600', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 13600
+2018-07-14:15:42:25: train files is 57883 after up sampling
+2018-07-14:15:42:26: train file: 44936, val file: 10981
+2018-07-14:17:41:31: ####### start train model
+2018-07-14:17:41:31: ####### init stage is 0
+2018-07-14:17:41:31: ####### lr=0.000500, freeze layers=-1.000000 epoch=1
+2018-07-14:17:41:35: ####### initial epoch is 0, end epoch is 1
+2018-07-14:17:47:00: on epoch 1 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-14:17:52:48: start predict with tta
+2018-07-14:17:52:48: start predict with tta index is 0, data type is original
+2018-07-14:17:53:45: start predict with tta index is 1, data type is original
+2018-07-14:17:54:38: ####### lr=0.000050, freeze layers=0.600000 epoch=4
+2018-07-14:17:55:52: ####### load weight file: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-14:17:56:27: ####### initial epoch is 1, end epoch is 4
+2018-07-14:18:09:31: on epoch 2 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-14:18:17:26: start predict with tta
+2018-07-14:18:17:26: start predict with tta index is 0, data type is original
+2018-07-14:18:18:29: start predict with tta index is 1, data type is original
+2018-07-14:18:30:57: on epoch 3 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-14:18:30:59: start predict with tta
+2018-07-14:18:30:59: start predict with tta index is 0, data type is original
+2018-07-14:18:31:45: start predict with tta index is 1, data type is original
+2018-07-14:18:44:13: on epoch 4 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-14:18:44:15: start predict with tta
+2018-07-14:18:44:15: start predict with tta index is 0, data type is original
+2018-07-14:18:45:01: start predict with tta index is 1, data type is original
+2018-07-14:18:45:54: ####### lr=0.000005, freeze layers=5.000000 epoch=10
+2018-07-14:18:47:26: ####### load weight file: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-14:18:48:12: ####### initial epoch is 4, end epoch is 10
+2018-07-14:19:01:41: on epoch 5 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-14:19:11:39: start predict with tta
+2018-07-14:19:11:39: start predict with tta index is 0, data type is original
+2018-07-14:19:12:48: start predict with tta index is 1, data type is original
+2018-07-14:19:25:33: on epoch 6 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-14:19:25:35: start predict with tta
+2018-07-14:19:25:35: start predict with tta index is 0, data type is original
+2018-07-14:19:26:22: start predict with tta index is 1, data type is original
+2018-07-14:19:39:06: on epoch 7 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-14:19:39:08: start predict with tta
+2018-07-14:19:39:08: start predict with tta index is 0, data type is original
+2018-07-14:19:39:55: start predict with tta index is 1, data type is original
+2018-07-14:19:52:37: on epoch 8 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-14:19:52:40: start predict with tta
+2018-07-14:19:52:40: start predict with tta index is 0, data type is original
+2018-07-14:19:53:26: start predict with tta index is 1, data type is original
+2018-07-14:20:06:06: on epoch 9 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-07-14:20:06:08: start predict with tta
+2018-07-14:20:06:08: start predict with tta index is 0, data type is original
+2018-07-14:20:06:54: start predict with tta index is 1, data type is original
+2018-07-14:20:19:36: on epoch 10 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-07-14:20:19:38: start predict with tta
+2018-07-14:20:19:38: start predict with tta index is 0, data type is original
+2018-07-14:20:20:24: start predict with tta index is 1, data type is original
+2018-07-14:20:21:17: ####### train model spend 9585 seconds
+2018-07-14:20:21:17: ####### train model spend 958 seconds average
