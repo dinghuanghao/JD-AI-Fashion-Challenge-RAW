@@ -21,6 +21,8 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 # model.find_segmented_model()
 
 test_x = model.build_test_datasets()
+
+# output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
 pre_y = model.predict_test(test_x, output_avg=True)
 model.save_submit(pre_y, model.file_name)
 

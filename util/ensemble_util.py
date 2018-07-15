@@ -265,6 +265,7 @@ class EnsembleModel(object):
         return np.load(predict_path)
 
     def build_test_datasets(self):
+        # 输出一个list， 包含val1~5的五份数据
         assert len(self.meta_model_all) == 5
         data_x = []
         labels = [i for i in range(13)]
@@ -598,17 +599,20 @@ class XGBoostModel(EnsembleModel):
         data_pred = bst.predict(data, ntree_limit=ntree_limit)
         return data_pred
 
-    def predict_test(self, data_lst, output_avg=False, mode='vote'):
+    def predict_test(self, data_list, output_avg=False, mode='vote'):
         predicts = []
-        for data in data_lst:
+        # 针对多个输入的数据分别做预测
+        for data in data_list:
             pred = copy.deepcopy(self.predict_all_label(data))
             predicts.append(pred)
 
         xgb_result = [[] for i in range(5)]
-        result = np.zeros((13, len(data_lst[0])))
+        result = np.zeros((13, len(data_list[0])))
 
         if mode == 'vote':
             if output_avg:
+                # 针对多个输入对应的输出做平均
+
                 xgb_pred_avg = predicts[0]
 
                 for predict in predicts[1:]:
@@ -636,6 +640,7 @@ class XGBoostModel(EnsembleModel):
                     for label in range(13):
                         result[label] += xgb_result[val_index][label]
             else:
+                #不对多个输入对应的输出做平均，而是全部一起进行投票
                 for xgb_pred in predicts:
                     for val_index in range(5):
                         for label in range(13):
