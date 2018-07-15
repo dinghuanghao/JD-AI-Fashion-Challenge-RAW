@@ -163,6 +163,7 @@ def model_coor(model_statis: list, label, thresholds, val_index):
 def model_corr_heapmap(model_statis: list, label, thresholds, val_index, save_dir, save_file):
     corr = model_coor(model_statis, label, thresholds, val_index)
     heap_map(corr, save_dir, save_file)
+    return corr
 
 
 def heap_map(corr, save_dir, save_file):
@@ -172,7 +173,6 @@ def heap_map(corr, save_dir, save_file):
     ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
     ax.set_yticklabels(ax.get_yticklabels(), rotation=0)
     ax.get_figure().savefig(os.path.join(save_dir, save_file), dpi=200, bbox_inches='tight')
-    return corr
 
 
 def shord_board_statistics(label_statis_all, save_dir):
