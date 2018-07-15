@@ -1,3 +1,4 @@
+import pandas as pd
 import shutil
 import re
 import copy
@@ -719,6 +720,19 @@ class XGBoostModel(EnsembleModel):
         from util import submit_util
         submit_util.save_submit(predicts, name=name)
 
+    def coor(self, file_names:list, image_name):
+        df = pd.DataFrame()
+        for file_name in file_names:
+            model_path = os.path.join(path.XGB_RESULT_PATH, file_name)
+            predict = np.load(model_path)
+            df[file_name] = predict.flatten()
+
+        corr = df.corr()
+
+        statis_path = os.path.join(path.XGB_RESULT_PATH, "statistics")
+        pathlib.Path(statis_path).mkdir(parents=True, exist_ok=True)
+
+        statis.heap_map(corr, statis_path, image_name)
 
 if __name__ == '__main__':
     pass

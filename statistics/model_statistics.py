@@ -162,6 +162,10 @@ def model_coor(model_statis: list, label, thresholds, val_index):
 
 def model_corr_heapmap(model_statis: list, label, thresholds, val_index, save_dir, save_file):
     corr = model_coor(model_statis, label, thresholds, val_index)
+    heap_map(corr, save_dir, save_file)
+
+
+def heap_map(corr, save_dir, save_file):
     plt.gcf().clear()
     sns.set(font_scale=0.6)
     ax = sns.heatmap(corr, annot=True, annot_kws={"size": 5}, cmap='YlGnBu')
