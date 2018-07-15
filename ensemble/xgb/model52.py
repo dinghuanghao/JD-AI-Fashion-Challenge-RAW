@@ -1,5 +1,8 @@
+import numpy as np
+
 import os
 
+from util import path
 from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
@@ -15,5 +18,11 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.train_all_label()
+# model.train_all_label()
 
+test_x = model.build_test_datasets()
+
+# output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
+pre_y = model.predict_test(test_x, output_avg=True)
+np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_52_avg.npy"), pre_y)
+model.save_submit(pre_y, "xgb_52_avg.txt")

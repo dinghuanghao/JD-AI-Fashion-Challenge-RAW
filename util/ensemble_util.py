@@ -658,6 +658,7 @@ class XGBoostModel(EnsembleModel):
                             result[label] += xgb_result[val_index][label]
 
             result = np.where(result > 0, 1, 0)
+
             return result.transpose()
 
 
