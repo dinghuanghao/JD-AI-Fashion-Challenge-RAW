@@ -20,10 +20,11 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 
 # model.model_merge(["model51", "model52", "model53", "model54"])
 
-# model.build_and_predict_test()
+model.build_and_predict_test()
 
-model.coor(["xgb_model51.npy", "xgb_model51_avg.npy",
-            "xgb_model52.npy", "xgb_model52_avg.npy",
-            "xgb_model53.npy", "xgb_model53_avg.npy",
-            "xgb_model54.npy", "xgb_model54_avg.npy",
-            "xgb_model55.npy", "xgb_model55_avg.npy"], "xgb_model55.png")
+model.statistics(["xgb_model51.npy", "xgb_model51_avg.npy",
+                  "xgb_model52.npy", "xgb_model52_avg.npy",
+                  "xgb_model53.npy", "xgb_model53_avg.npy",
+                  "xgb_model54.npy", "xgb_model54_avg.npy",
+                  "xgb_model55.npy", "xgb_model55_avg[cnn].npy",
+                  "xgb_model55_avg[xgb].npy"], "xgb_model55_statistics")

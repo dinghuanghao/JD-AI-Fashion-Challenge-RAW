@@ -266,7 +266,7 @@ class EnsembleModel(object):
             print(predict_path)
         return np.load(predict_path)
 
-    def build_test_datasets(self):
+    def build_test_datasets(self, cnn_avg=False):
         # 输出一个list， 包含val1~5的五份数据
         assert len(self.meta_model_all) == 5
         data_x = []
@@ -288,6 +288,15 @@ class EnsembleModel(object):
                         predict_val = np.hstack((predict_val, predict_label))
             data_x.append(predict_val)
             assert predict_val.shape[1] == len(labels) * self.top_n
+
+        if cnn_avg:
+            data_x_avg = data_x[0]
+            for i in data_x[1:]:
+                data_x_avg += i
+            data_x_avg /= len(data_x)
+            self.save_log("use cnn avg")
+            return [data_x_avg]
+
         return data_x
 
     def build_all_datasets(self):
@@ -473,7 +482,7 @@ class XGBoostModel(EnsembleModel):
     def get_model_name(self, val_index, label):
         return "ensemble_val%d_label%d.xgb" % (val_index, label)
 
-    def model_merge(self, model_names:list):
+    def model_merge(self, model_names: list):
         xgb_models = []
         for model_name in model_names:
             package = __import__(".".join(["ensemble", "xgb", model_name]))
@@ -489,15 +498,11 @@ class XGBoostModel(EnsembleModel):
                     target_evaluate[booster_name] = copy.deepcopy(evaluate[booster_name])
                     best_xgb_model = xgb_model
             src = os.path.join(best_xgb_model.model_dir, booster_name)
-            dst =  os.path.join(self.model_dir, booster_name)
+            dst = os.path.join(self.model_dir, booster_name)
             self.save_log("copy model, %s -> %s" % (src, dst))
             shutil.copy(src, dst)
 
         self.save_evaluate_json(target_evaluate)
-
-
-
-
 
     def train_all_label(self):
         for val_index in range(1, 6):
@@ -604,19 +609,25 @@ class XGBoostModel(EnsembleModel):
         return data_pred
 
     def build_and_predict_test(self):
-        test_x = self.build_test_datasets()
+        test_x = self.build_test_datasets(cnn_avg=True)
+        # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
+        pre_y = self.predict_test(test_x, xgb_avg=False)
+        np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg[cnn].npy" % self.file_name), pre_y)
+        submit_util.save_submit(pre_y, "xgb_%s_avg[cnn].txt" % self.file_name)
+
+
+        test_x = self.build_test_datasets(cnn_avg=False)
+        # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
+        pre_y = self.predict_test(test_x, xgb_avg=True)
+        np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg[xgb].npy" % self.file_name), pre_y)
+        submit_util.save_submit(pre_y, "xgb_%s_avg[xgb].txt" % self.file_name)
 
         # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
-        pre_y = self.predict_test(test_x, output_avg=True)
-        np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg.npy" % self.file_name), pre_y)
-        submit_util.save_submit(pre_y, "xgb_%s_avg.txt" % self.file_name)
-
-        # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
-        pre_y = self.predict_test(test_x, output_avg=False)
+        pre_y = self.predict_test(test_x, xgb_avg=False)
         np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s.npy" % self.file_name), pre_y)
         submit_util.save_submit(pre_y, "xgb_%s.txt" % self.file_name)
 
-    def predict_test(self, data_list, output_avg=False, mode='vote'):
+    def predict_test(self, data_list, xgb_avg=False, mode='vote'):
         predicts = []
         # 针对多个输入的数据分别做预测
         for data in data_list:
@@ -627,9 +638,9 @@ class XGBoostModel(EnsembleModel):
         result = np.zeros((13, len(data_list[0])))
 
         if mode == 'vote':
-            if output_avg:
+            if xgb_avg:
                 # 针对多个输入对应的输出做平均
-
+                self.save_log("use xgb avg")
                 xgb_pred_avg = predicts[0]
 
                 for predict in predicts[1:]:
@@ -640,7 +651,6 @@ class XGBoostModel(EnsembleModel):
                 for val_index in range(5):
                     for label in range(13):
                         xgb_pred_avg[label][val_index] /= 5
-
 
                 for val_index in range(5):
                     for label in range(13):
@@ -657,7 +667,7 @@ class XGBoostModel(EnsembleModel):
                     for label in range(13):
                         result[label] += xgb_result[val_index][label]
             else:
-                #不对多个输入对应的输出做平均，而是全部一起进行投票
+                # 不对多个输入对应的输出做平均，而是全部一起进行投票
                 for xgb_pred in predicts:
                     for val_index in range(5):
                         for label in range(13):
@@ -677,7 +687,6 @@ class XGBoostModel(EnsembleModel):
             result = np.where(result > 0, 1, 0)
 
             return result.transpose()
-
 
     def predict_real(self, data, mode='vote'):
         xgb_pred = copy.deepcopy(self.predict_all_label(data))
@@ -720,19 +729,24 @@ class XGBoostModel(EnsembleModel):
         from util import submit_util
         submit_util.save_submit(predicts, name=name)
 
-    def coor(self, file_names:list, image_name):
+    def statistics(self, file_names: list, save_file):
         df = pd.DataFrame()
-        for file_name in file_names:
-            model_path = os.path.join(path.XGB_RESULT_PATH, file_name)
-            predict = np.load(model_path)
-            df[file_name] = predict.flatten()
-
-        corr = df.corr()
-
         statis_path = os.path.join(path.XGB_RESULT_PATH, "statistics")
         pathlib.Path(statis_path).mkdir(parents=True, exist_ok=True)
+        with open(os.path.join(statis_path, save_file + ".txt"), "w+") as f:
+            for file_name in file_names:
+                model_path = os.path.join(path.XGB_RESULT_PATH, file_name)
+                predict = np.load(model_path)
+                df[file_name] = predict.flatten()
+                f.write("=========%s=========\n" % file_name)
 
-        statis.heap_map(corr, statis_path, image_name)
+                for i in range(13):
+                    pred_label = predict[:, i]
+                    f.write("label %d positive number: %d\n" % (i, pred_label[pred_label > 0].size))
+
+        corr = df.corr()
+        statis.heap_map(corr, statis_path, save_file + ".png")
+
 
 if __name__ == '__main__':
     pass
