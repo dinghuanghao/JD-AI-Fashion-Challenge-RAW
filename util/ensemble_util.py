@@ -45,6 +45,7 @@ class EnsembleModel(object):
         self.corr_threshold = corr_threshold
         self.search = search
         self.top_n = top_n
+        self.file_name = file_name.split(".")[0]
         self.record_dir = os.path.join(os.path.join(model_dir, "record"), file_name.split(".")[0])
         self.meta_model_dir = meta_model_dir
         self.statistics_dir = os.path.join(self.record_dir, "statistics")
@@ -284,7 +285,7 @@ class EnsembleModel(object):
                         predict_val = np.hstack((predict_val, predict_label))
             data_x.append(predict_val)
             assert predict_val.shape[1] == len(labels) * self.top_n
-        return data_x.astype(np.float32)
+        return data_x
 
     def build_all_datasets(self):
         assert len(self.meta_model_all) == 5
@@ -597,6 +598,64 @@ class XGBoostModel(EnsembleModel):
         data_pred = bst.predict(data, ntree_limit=ntree_limit)
         return data_pred
 
+    def predict_test(self, data_lst, output_avg=False, mode='vote'):
+        predicts = []
+        for data in data_lst:
+            pred = copy.deepcopy(self.predict_all_label(data))
+            predicts.append(pred)
+
+        xgb_result = [[] for i in range(5)]
+        result = np.zeros((13, len(data_lst[0])))
+
+        if mode == 'vote':
+            if output_avg:
+                xgb_pred_avg = predicts[0]
+
+                for predict in predicts[1:]:
+                    for val_index in range(5):
+                        for label in range(13):
+                            xgb_pred_avg[label][val_index] += predict[label][val_index]
+
+                for val_index in range(5):
+                    for label in range(13):
+                        xgb_pred_avg[label][val_index] /= 5
+
+
+                for val_index in range(5):
+                    for label in range(13):
+                        model_name = self.get_model_name(val_index + 1, label)
+                        model_param = self.get_model_param(model_name)
+                        xgb_pred_avg[label][val_index] = np.where(
+                            xgb_pred_avg[label][val_index] > model_param['greedy_threshold'], 1, -1).reshape((1, -1))
+                        if len(xgb_result[val_index]) == 0:
+                            xgb_result[val_index] = np.copy(xgb_pred_avg[label][val_index])
+                        else:
+                            xgb_result[val_index] = np.vstack((xgb_result[val_index], xgb_pred_avg[label][val_index]))
+
+                for val_index in range(5):
+                    for label in range(13):
+                        result[label] += xgb_result[val_index][label]
+            else:
+                for xgb_pred in predicts:
+                    for val_index in range(5):
+                        for label in range(13):
+                            model_name = self.get_model_name(val_index + 1, label)
+                            model_param = self.get_model_param(model_name)
+                            xgb_pred[label][val_index] = np.where(
+                                xgb_pred[label][val_index] > model_param['greedy_threshold'], 1, -1).reshape((1, -1))
+                            if len(xgb_result[val_index]) == 0:
+                                xgb_result[val_index] = np.copy(xgb_pred[label][val_index])
+                            else:
+                                xgb_result[val_index] = np.vstack((xgb_result[val_index], xgb_pred[label][val_index]))
+
+                    for val_index in range(5):
+                        for label in range(13):
+                            result[label] += xgb_result[val_index][label]
+
+            result = np.where(result > 0, 1, 0)
+            return result.transpose()
+
+
     def predict_real(self, data, mode='vote'):
         xgb_pred = copy.deepcopy(self.predict_all_label(data))
         xgb_result = [[] for i in range(5)]
@@ -633,6 +692,11 @@ class XGBoostModel(EnsembleModel):
             f.write("Total f2_score: %s\n" % str(sum(f2_score) / 13))
         print("==========predict_real_f2 SUCCESS==========")
         return pre_y
+
+    def save_submit(self, predicts, name):
+        from util import submit_util
+        submit_util.save_submit(predicts, name=name)
+
 
 if __name__ == '__main__':
     pass

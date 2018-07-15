@@ -21,8 +21,8 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 # model.find_segmented_model()
 
 test_x = model.build_test_datasets()
-pre_y = model.predict_real(test_x)
-
+pre_y = model.predict_test(test_x, output_avg=True)
+model.save_submit(pre_y, model.file_name)
 
 # data_x, data_y = model.build_all_datasets()
 # print(data_x.shape)

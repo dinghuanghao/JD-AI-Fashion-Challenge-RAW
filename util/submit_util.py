@@ -2,8 +2,19 @@ import os
 import numpy as np
 from util import path
 
+def save_submit(predict, name="submit.txt"):
+    images = []
+    with open(path.TEST_DATA_TXT, "r") as f:
+        for i in f.readlines():
+            images.append(i.split(",")[0])
 
-def build_test_submit(predict_file):
+    predict = predict.astype(np.int8)
+    with open(os.path.join(path.SUBMIT_RESULT_PATH, name), "w+") as f:
+        for i in range(len(images)):
+            s = ",".join([str(j) for j in predict[i]])
+            f.write("%s,%s\n" % (images[i], s))
+
+def build_test_submit(predict_file, threshold=None):
     images = []
     with open(path.TEST_DATA_TXT, "r") as f:
         for i in f.readlines():
