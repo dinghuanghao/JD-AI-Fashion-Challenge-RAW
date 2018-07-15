@@ -48,14 +48,15 @@ from model.densenet169 import model5_val3
 # model31_val3.train()
 # model34_val3.train()
 
-from model.inceptionresnetv2 import model9_val3, model16_val3
-model9_val3.train()
+# from model.inceptionresnetv2 import model9_val3, model16_val3
+# model16_val3.train()
 
 from model.inceptionv3 import model21_val3, model22_val3, model23_val3
-model22_val3.train()
+model21_val3.train()
+model23_val3.train()
 
-from model.resnet50 import model17_val3
-model17_val3.train()
+from model.resnet50 import model16_val3
+model16_val3.train()
 
 # from model.densenet201 import model34_val4
 # from model.densenet201 import model7_val4
