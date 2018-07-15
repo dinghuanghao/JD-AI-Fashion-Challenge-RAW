@@ -598,6 +598,7 @@ class XGBoostModel(EnsembleModel):
             f.write('\n')
             f.write("Total f2_score: %s\n" % str(sum(f2_score) / 13))
         print("==========predict_real_f2 SUCCESS==========")
+        return pre_y
 
 if __name__ == '__main__':
     pass

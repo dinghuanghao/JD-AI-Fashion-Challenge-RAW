@@ -1,0 +1,37 @@
+2018-07-15:06:55:23: add 356 color augmentation file
+2018-07-15:06:55:23: train files is 44283 before up sampling
+2018-07-15:06:55:24: up sampling times: ['1360', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130'], totaol: 10930
+2018-07-15:06:55:24: train files is 55213 after up sampling
+2018-07-15:06:55:26: train file: 37040, val file: 10981
+2018-07-15:07:00:03: on epoch 1 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-15:07:01:26: start predict with tta
+2018-07-15:07:01:26: start predict with tta index is 0, data type is original
+2018-07-15:07:02:24: start predict with tta index is 1, data type is original
+2018-07-15:07:10:36: on epoch 2 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-15:07:12:09: start predict with tta
+2018-07-15:07:12:09: start predict with tta index is 0, data type is original
+2018-07-15:07:13:07: start predict with tta index is 1, data type is original
+2018-07-15:07:20:36: on epoch 3 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-15:07:20:38: start predict with tta
+2018-07-15:07:20:38: start predict with tta index is 0, data type is original
+2018-07-15:07:21:30: start predict with tta index is 1, data type is original
+2018-07-15:07:29:01: on epoch 4 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-15:07:29:03: start predict with tta
+2018-07-15:07:29:03: start predict with tta index is 0, data type is original
+2018-07-15:07:29:55: start predict with tta index is 1, data type is original
+2018-07-15:07:38:17: on epoch 5 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-15:07:39:58: start predict with tta
+2018-07-15:07:39:58: start predict with tta index is 0, data type is original
+2018-07-15:07:40:57: start predict with tta index is 1, data type is original
+2018-07-15:07:48:32: on epoch 6 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-15:07:48:33: start predict with tta
+2018-07-15:07:48:33: start predict with tta index is 0, data type is original
+2018-07-15:07:49:27: start predict with tta index is 1, data type is original
+2018-07-15:07:57:01: on epoch 7 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-07-15:07:57:02: start predict with tta
+2018-07-15:07:57:02: start predict with tta index is 0, data type is original
+2018-07-15:07:57:55: start predict with tta index is 1, data type is original
+2018-07-15:08:05:28: on epoch 8 end, save weight:D:\github\JDC\competition\model\resnet50\record\model17\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-07-15:08:05:30: start predict with tta
+2018-07-15:08:05:30: start predict with tta index is 0, data type is original
+2018-07-15:08:06:23: start predict with tta index is 1, data type is original
