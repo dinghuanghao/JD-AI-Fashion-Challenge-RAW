@@ -1,0 +1,200 @@
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.423264
+F2-Score with threshold 0.1: 0.592221
+F2-Score with threshold 0.2: 0.593556
+Greedy F2-Score is: 0.617797
+[label 0]	smooth-f2=0.205701   greedy-f2=0.360825[0.270000]
+[label 1]	smooth-f2=0.449161   greedy-f2=0.654601[0.200000]
+[label 2]	smooth-f2=0.919683   greedy-f2=0.981656[0.160000]
+[label 3]	smooth-f2=0.217107   greedy-f2=0.491071[0.190000]
+[label 4]	smooth-f2=0.547430   greedy-f2=0.821310[0.140000]
+[label 5]	smooth-f2=0.559699   greedy-f2=0.753891[0.170000]
+[label 6]	smooth-f2=0.095734   greedy-f2=0.326087[0.130000]
+[label 7]	smooth-f2=0.185797   greedy-f2=0.461881[0.140000]
+[label 8]	smooth-f2=0.921631   greedy-f2=0.979970[0.140000]
+[label 9]	smooth-f2=0.471849   greedy-f2=0.620717[0.260000]
+[label 10]	smooth-f2=0.587532   greedy-f2=0.752554[0.240000]
+[label 11]	smooth-f2=0.221261   greedy-f2=0.482204[0.130000]
+[label 12]	smooth-f2=0.119846   greedy-f2=0.344595[0.090000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.453095
+F2-Score with threshold 0.1: 0.600818
+F2-Score with threshold 0.2: 0.607151
+Greedy F2-Score is: 0.632629
+[label 0]	smooth-f2=0.250171   greedy-f2=0.405405[0.100000]
+[label 1]	smooth-f2=0.473557   greedy-f2=0.661307[0.250000]
+[label 2]	smooth-f2=0.917916   greedy-f2=0.981447[0.150000]
+[label 3]	smooth-f2=0.287687   greedy-f2=0.500000[0.510000]
+[label 4]	smooth-f2=0.614725   greedy-f2=0.821538[0.200000]
+[label 5]	smooth-f2=0.624281   greedy-f2=0.754652[0.300000]
+[label 6]	smooth-f2=0.171143   greedy-f2=0.372807[0.100000]
+[label 7]	smooth-f2=0.265774   greedy-f2=0.500000[0.140000]
+[label 8]	smooth-f2=0.923470   greedy-f2=0.980071[0.150000]
+[label 9]	smooth-f2=0.374636   greedy-f2=0.639150[0.170000]
+[label 10]	smooth-f2=0.615747   greedy-f2=0.758706[0.250000]
+[label 11]	smooth-f2=0.227137   greedy-f2=0.489556[0.160000]
+[label 12]	smooth-f2=0.143992   greedy-f2=0.359532[0.060000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.476222
+F2-Score with threshold 0.1: 0.612011
+F2-Score with threshold 0.2: 0.619341
+Greedy F2-Score is: 0.639622
+[label 0]	smooth-f2=0.163699   greedy-f2=0.354610[0.020000]
+[label 1]	smooth-f2=0.539836   greedy-f2=0.675548[0.150000]
+[label 2]	smooth-f2=0.928038   greedy-f2=0.982139[0.090000]
+[label 3]	smooth-f2=0.288981   greedy-f2=0.469484[0.480000]
+[label 4]	smooth-f2=0.580667   greedy-f2=0.830321[0.150000]
+[label 5]	smooth-f2=0.599270   greedy-f2=0.760179[0.280000]
+[label 6]	smooth-f2=0.226868   greedy-f2=0.387755[0.130000]
+[label 7]	smooth-f2=0.295243   greedy-f2=0.500556[0.170000]
+[label 8]	smooth-f2=0.930872   greedy-f2=0.980649[0.100000]
+[label 9]	smooth-f2=0.470455   greedy-f2=0.648899[0.230000]
+[label 10]	smooth-f2=0.614574   greedy-f2=0.767144[0.230000]
+[label 11]	smooth-f2=0.289982   greedy-f2=0.502528[0.190000]
+[label 12]	smooth-f2=0.262402   greedy-f2=0.455272[0.070000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.486486
+F2-Score with threshold 0.1: 0.618358
+F2-Score with threshold 0.2: 0.619274
+Greedy F2-Score is: 0.644415
+[label 0]	smooth-f2=0.124023   greedy-f2=0.321429[0.010000]
+[label 1]	smooth-f2=0.532593   greedy-f2=0.677681[0.140000]
+[label 2]	smooth-f2=0.935804   greedy-f2=0.982004[0.060000]
+[label 3]	smooth-f2=0.321419   greedy-f2=0.482456[0.360000]
+[label 4]	smooth-f2=0.605119   greedy-f2=0.831682[0.150000]
+[label 5]	smooth-f2=0.595035   greedy-f2=0.768155[0.250000]
+[label 6]	smooth-f2=0.259884   greedy-f2=0.398230[0.220000]
+[label 7]	smooth-f2=0.298245   greedy-f2=0.499754[0.090000]
+[label 8]	smooth-f2=0.937134   greedy-f2=0.980478[0.070000]
+[label 9]	smooth-f2=0.480441   greedy-f2=0.654298[0.230000]
+[label 10]	smooth-f2=0.620737   greedy-f2=0.771681[0.200000]
+[label 11]	smooth-f2=0.306244   greedy-f2=0.527744[0.130000]
+[label 12]	smooth-f2=0.307645   greedy-f2=0.481799[0.150000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.498480
+F2-Score with threshold 0.1: 0.612841
+F2-Score with threshold 0.2: 0.626210
+Greedy F2-Score is: 0.636056
+[label 0]	smooth-f2=0.149135   greedy-f2=0.227273[0.270000]
+[label 1]	smooth-f2=0.553760   greedy-f2=0.689141[0.140000]
+[label 2]	smooth-f2=0.936656   greedy-f2=0.982090[0.040000]
+[label 3]	smooth-f2=0.345433   greedy-f2=0.482456[0.370000]
+[label 4]	smooth-f2=0.613686   greedy-f2=0.832863[0.150000]
+[label 5]	smooth-f2=0.594519   greedy-f2=0.764242[0.250000]
+[label 6]	smooth-f2=0.224474   greedy-f2=0.353535[0.410000]
+[label 7]	smooth-f2=0.326350   greedy-f2=0.509424[0.110000]
+[label 8]	smooth-f2=0.938624   greedy-f2=0.980490[0.060000]
+[label 9]	smooth-f2=0.466244   greedy-f2=0.651123[0.190000]
+[label 10]	smooth-f2=0.650434   greedy-f2=0.776442[0.190000]
+[label 11]	smooth-f2=0.329513   greedy-f2=0.537996[0.200000]
+[label 12]	smooth-f2=0.351407   greedy-f2=0.481651[0.280000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.498233
+F2-Score with threshold 0.1: 0.600724
+F2-Score with threshold 0.2: 0.607419
+Greedy F2-Score is: 0.629250
+[label 0]	smooth-f2=0.102270   greedy-f2=0.210526[0.030000]
+[label 1]	smooth-f2=0.546055   greedy-f2=0.667902[0.090000]
+[label 2]	smooth-f2=0.939029   greedy-f2=0.981976[0.030000]
+[label 3]	smooth-f2=0.367492   greedy-f2=0.504202[0.430000]
+[label 4]	smooth-f2=0.605811   greedy-f2=0.828317[0.160000]
+[label 5]	smooth-f2=0.603563   greedy-f2=0.761097[0.250000]
+[label 6]	smooth-f2=0.253415   greedy-f2=0.367893[0.070000]
+[label 7]	smooth-f2=0.327272   greedy-f2=0.504484[0.140000]
+[label 8]	smooth-f2=0.940810   greedy-f2=0.980326[0.030000]
+[label 9]	smooth-f2=0.471223   greedy-f2=0.646034[0.230000]
+[label 10]	smooth-f2=0.659811   greedy-f2=0.774950[0.320000]
+[label 11]	smooth-f2=0.326366   greedy-f2=0.520966[0.140000]
+[label 12]	smooth-f2=0.333911   greedy-f2=0.431579[0.160000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Smooth F2-Score: 0.498719
+F2-Score with threshold 0.1: 0.614602
+F2-Score with threshold 0.2: 0.615732
+Greedy F2-Score is: 0.628789
+[label 0]	smooth-f2=0.131659   greedy-f2=0.176471[0.230000]
+[label 1]	smooth-f2=0.544829   greedy-f2=0.668061[0.110000]
+[label 2]	smooth-f2=0.939708   greedy-f2=0.981535[0.020000]
+[label 3]	smooth-f2=0.349475   greedy-f2=0.522088[0.200000]
+[label 4]	smooth-f2=0.629555   greedy-f2=0.829102[0.110000]
+[label 5]	smooth-f2=0.611460   greedy-f2=0.760762[0.250000]
+[label 6]	smooth-f2=0.243769   greedy-f2=0.341727[0.100000]
+[label 7]	smooth-f2=0.288535   greedy-f2=0.479935[0.090000]
+[label 8]	smooth-f2=0.939757   greedy-f2=0.979626[0.020000]
+[label 9]	smooth-f2=0.497081   greedy-f2=0.645632[0.240000]
+[label 10]	smooth-f2=0.643789   greedy-f2=0.771270[0.160000]
+[label 11]	smooth-f2=0.321175   greedy-f2=0.537599[0.130000]
+[label 12]	smooth-f2=0.342557   greedy-f2=0.480456[0.050000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Smooth F2-Score: 0.508565
+F2-Score with threshold 0.1: 0.609186
+F2-Score with threshold 0.2: 0.614455
+Greedy F2-Score is: 0.636523
+[label 0]	smooth-f2=0.118863   greedy-f2=0.263158[0.040000]
+[label 1]	smooth-f2=0.572987   greedy-f2=0.663216[0.070000]
+[label 2]	smooth-f2=0.935932   greedy-f2=0.981255[0.010000]
+[label 3]	smooth-f2=0.390876   greedy-f2=0.523256[0.260000]
+[label 4]	smooth-f2=0.629596   greedy-f2=0.823527[0.110000]
+[label 5]	smooth-f2=0.600966   greedy-f2=0.754422[0.190000]
+[label 6]	smooth-f2=0.272421   greedy-f2=0.372549[0.190000]
+[label 7]	smooth-f2=0.306867   greedy-f2=0.498778[0.060000]
+[label 8]	smooth-f2=0.938854   greedy-f2=0.979407[0.020000]
+[label 9]	smooth-f2=0.492053   greedy-f2=0.647365[0.170000]
+[label 10]	smooth-f2=0.662367   greedy-f2=0.769619[0.300000]
+[label 11]	smooth-f2=0.329350   greedy-f2=0.521528[0.090000]
+[label 12]	smooth-f2=0.360219   greedy-f2=0.476718[0.180000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Smooth F2-Score: 0.508380
+F2-Score with threshold 0.1: 0.608389
+F2-Score with threshold 0.2: 0.609693
+Greedy F2-Score is: 0.631343
+[label 0]	smooth-f2=0.114593   greedy-f2=0.229885[0.080000]
+[label 1]	smooth-f2=0.571378   greedy-f2=0.658391[0.100000]
+[label 2]	smooth-f2=0.938803   greedy-f2=0.981056[0.010000]
+[label 3]	smooth-f2=0.404584   greedy-f2=0.515873[0.310000]
+[label 4]	smooth-f2=0.619782   greedy-f2=0.826185[0.090000]
+[label 5]	smooth-f2=0.618387   greedy-f2=0.754641[0.250000]
+[label 6]	smooth-f2=0.260036   greedy-f2=0.360360[0.300000]
+[label 7]	smooth-f2=0.293242   greedy-f2=0.487277[0.060000]
+[label 8]	smooth-f2=0.937472   greedy-f2=0.979377[0.020000]
+[label 9]	smooth-f2=0.495698   greedy-f2=0.640402[0.160000]
+[label 10]	smooth-f2=0.674126   greedy-f2=0.766179[0.260000]
+[label 11]	smooth-f2=0.342008   greedy-f2=0.518471[0.140000]
+[label 12]	smooth-f2=0.338836   greedy-f2=0.489362[0.090000]
+
+
+Weight: D:\github\JDC\competition\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+Smooth F2-Score: 0.514639
+F2-Score with threshold 0.1: 0.606916
+F2-Score with threshold 0.2: 0.602354
+Greedy F2-Score is: 0.627227
+[label 0]	smooth-f2=0.122331   greedy-f2=0.229885[0.140000]
+[label 1]	smooth-f2=0.567611   greedy-f2=0.650000[0.130000]
+[label 2]	smooth-f2=0.934477   greedy-f2=0.980877[0.010000]
+[label 3]	smooth-f2=0.404529   greedy-f2=0.520000[0.400000]
+[label 4]	smooth-f2=0.598390   greedy-f2=0.818977[0.050000]
+[label 5]	smooth-f2=0.620102   greedy-f2=0.749801[0.240000]
+[label 6]	smooth-f2=0.270711   greedy-f2=0.381818[0.120000]
+[label 7]	smooth-f2=0.321202   greedy-f2=0.466733[0.060000]
+[label 8]	smooth-f2=0.936653   greedy-f2=0.979478[0.010000]
+[label 9]	smooth-f2=0.499154   greedy-f2=0.626561[0.160000]
+[label 10]	smooth-f2=0.702989   greedy-f2=0.773795[0.250000]
+[label 11]	smooth-f2=0.352295   greedy-f2=0.502451[0.100000]
+[label 12]	smooth-f2=0.359856   greedy-f2=0.473568[0.150000]
