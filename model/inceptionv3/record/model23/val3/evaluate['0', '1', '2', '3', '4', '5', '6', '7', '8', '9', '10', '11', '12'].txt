@@ -1,6 +1,6 @@
 
 
-Weight: D:\github\JDC\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 Smooth F2-Score: 0.121486
 F2-Score with threshold 0.1: 0.203099
 F2-Score with threshold 0.2: 0.170409
@@ -20,7 +20,7 @@ Greedy F2-Score is: 0.345603
 [label 12]	smooth-f2=0.000382   greedy-f2=0.035145[0.000000]
 
 
-Weight: D:\github\JDC\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 Smooth F2-Score: 0.436886
 F2-Score with threshold 0.1: 0.557511
 F2-Score with threshold 0.2: 0.560441
@@ -40,7 +40,7 @@ Greedy F2-Score is: 0.601856
 [label 12]	smooth-f2=0.296860   greedy-f2=0.405702[0.510000]
 
 
-Weight: D:\github\JDC\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 Smooth F2-Score: 0.456811
 F2-Score with threshold 0.1: 0.564185
 F2-Score with threshold 0.2: 0.585699
@@ -60,7 +60,7 @@ Greedy F2-Score is: 0.607283
 [label 12]	smooth-f2=0.335741   greedy-f2=0.415842[0.490000]
 
 
-Weight: D:\github\JDC\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 Smooth F2-Score: 0.486223
 F2-Score with threshold 0.1: 0.595648
 F2-Score with threshold 0.2: 0.608155
@@ -80,7 +80,7 @@ Greedy F2-Score is: 0.622869
 [label 12]	smooth-f2=0.359395   greedy-f2=0.447316[0.220000]
 
 
-Weight: D:\github\JDC\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 Smooth F2-Score: 0.490638
 F2-Score with threshold 0.1: 0.597084
 F2-Score with threshold 0.2: 0.600127
