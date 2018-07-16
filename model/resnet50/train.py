@@ -1,3 +1,3 @@
-from model.resnet50 import model20_val1
+from model.resnet50 import model21_val4
 
-model20_val1.train()
+model21_val4.train()

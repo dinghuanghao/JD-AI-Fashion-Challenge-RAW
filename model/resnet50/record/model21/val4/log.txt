@@ -1,0 +1,6 @@
+2018-07-16:14:52:56: add 7449 color augmentation file
+2018-07-16:14:52:57: train file: 51375, val file: 10982
+2018-07-16:14:56:22: on epoch 1 end, save weight:F:\Projects\competition\model\resnet50\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-16:14:56:29: start predict with tta
+2018-07-16:14:56:29: start predict with tta index is 0, data type is original
+2018-07-16:14:57:04: start predict with tta index is 1, data type is original
