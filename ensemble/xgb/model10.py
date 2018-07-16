@@ -3,7 +3,7 @@ import os
 from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
-                                   corr_threshold=0.9, search=15, top_n=5,
+                                   corr_threshold=0.9, search=20, top_n=10,
                                    meta_model_dir="H:\\backup",
                                    xgb_param={
                                        'eta': [0.15],
