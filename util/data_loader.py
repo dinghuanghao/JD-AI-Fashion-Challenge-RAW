@@ -445,6 +445,7 @@ def get_k_fold_labels(val_index, target_label):
 
     return train_y, val_y
 
+
 def get_k_fold_all_labels():
     val_y = None
     for val in range(1, 6):
@@ -460,6 +461,7 @@ def get_k_fold_all_labels():
         else:
             val_y = np.vstack((val_y, labels))
     return val_y
+
 
 def get_k_fold_files(k_fold_file, val_index, data_type: [], shuffle=True):
     train_names = []
@@ -570,6 +572,7 @@ def image_repair():
         img = cv2.imread(name)
         cv2.imwrite(name, img)
 
+
 def weight_name_repair():
     repair_dict = {}
     for root, dirs, files in os.walk(path.MODEL_PATH):
@@ -582,6 +585,7 @@ def weight_name_repair():
 
     for item in repair_dict.items():
         os.rename(item[0], item[1])
+
 
 def image_copy():
     import shutil
@@ -600,6 +604,7 @@ def image_copy():
                 pathlib.Path(os.path.join(path.IMAGES_PATH, str(label))).mkdir(parents=True, exist_ok=True)
                 shutil.copy(os.path.join(path.ORIGINAL_TRAIN_IMAGES_PATH, files[i]),
                             os.path.join(path.IMAGES_PATH, str(label), files[i]))
+
 
 if __name__ == '__main__':
     # weight_name_repair()
