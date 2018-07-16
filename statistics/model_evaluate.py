@@ -85,7 +85,7 @@ def predict_models(path, val_index=1):
                 if keras_util.get_prediction_path(weights_file) not in predict_files:
                     model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
                     model.load_weights(weights_file)
-                    y_pred = keras_util.predict(model, attr_model_config, verbose=1)
+                    y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
                     keras_util.save_prediction_file(y_pred, weights_file)
 
             predict_files = [os.path.join(root_dir, predict_f) for root_dir, _, predict_fs in os.walk(root) for
@@ -105,18 +105,22 @@ def predict_models(path, val_index=1):
                 package = __import__(".".join([root_dir, type_dir, name]))
                 attr_model_config = getattr(getattr(getattr(package, type_dir), name), "model_config")
                 attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", predict_file).group(1))
-                dv.show_label_calss_bar_per_epoch(attr_model_config.train_files, attr_model_config.record_dir)
+                # dv.show_label_calss_bar_per_epoch(attr_model_config.train_files, attr_model_config.record_dir)
                 y_pred = np.load(predict_file)
+
+                print(f"predict {predict_file}")
                 keras_util.evaluate(y_val[val_index], y_pred, keras_util.get_weight_path(predict_file),
                                     attr_model_config)
 
 
-# predict_models(os.path.join(path.MODEL_PATH), 1)
-# predict_models(os.path.join(path.MODEL_PATH), 2)
-# predict_models(os.path.join(path.MODEL_PATH), 3)
-# predict_models(os.path.join(path.MODEL_PATH), 4)
-# predict_models(os.path.join(path.MODEL_PATH), 5)
 
-if __name__ == '__main__':
+
+predict_models(os.path.join(path.MODEL_PATH), 1)
+predict_models(os.path.join(path.MODEL_PATH), 2)
+predict_models(os.path.join(path.MODEL_PATH), 3)
+predict_models(os.path.join(path.MODEL_PATH), 4)
+predict_models(os.path.join(path.MODEL_PATH), 5)
+
+# if __name__ == '__main__':
     # predict_tta_all(path.MODEL_PATH)
-    check_invalid_model(path.MODEL_PATH)
+    # check_invalid_model(path.MODEL_PATH)

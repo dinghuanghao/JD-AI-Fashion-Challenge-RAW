@@ -1,6 +1,6 @@
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 Smooth F2-Score: 0.248421
 F2-Score with threshold 0.1: 0.347024
 F2-Score with threshold 0.2: 0.308426
@@ -20,7 +20,7 @@ Greedy F2-Score is: 0.435580
 [label 12]	smooth-f2=0.116882   greedy-f2=0.146199[0.850000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 Smooth F2-Score: 0.484313
 F2-Score with threshold 0.1: 0.576326
 F2-Score with threshold 0.2: 0.601351
@@ -40,7 +40,7 @@ Greedy F2-Score is: 0.619854
 [label 12]	smooth-f2=0.411766   greedy-f2=0.536842[0.300000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 Smooth F2-Score: 0.473678
 F2-Score with threshold 0.1: 0.585940
 F2-Score with threshold 0.2: 0.603705
@@ -60,7 +60,7 @@ Greedy F2-Score is: 0.617902
 [label 12]	smooth-f2=0.332093   greedy-f2=0.461373[0.170000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 Smooth F2-Score: 0.487566
 F2-Score with threshold 0.1: 0.595345
 F2-Score with threshold 0.2: 0.602654
@@ -80,7 +80,7 @@ Greedy F2-Score is: 0.614296
 [label 12]	smooth-f2=0.351410   greedy-f2=0.432489[0.130000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 Smooth F2-Score: 0.490814
 F2-Score with threshold 0.1: 0.604305
 F2-Score with threshold 0.2: 0.602162
@@ -100,7 +100,7 @@ Greedy F2-Score is: 0.621600
 [label 12]	smooth-f2=0.292782   greedy-f2=0.450902[0.030000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 Smooth F2-Score: 0.494819
 F2-Score with threshold 0.1: 0.603379
 F2-Score with threshold 0.2: 0.595499
@@ -120,7 +120,7 @@ Greedy F2-Score is: 0.617972
 [label 12]	smooth-f2=0.305508   greedy-f2=0.461894[0.070000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 Smooth F2-Score: 0.492929
 F2-Score with threshold 0.1: 0.604275
 F2-Score with threshold 0.2: 0.588971
@@ -140,7 +140,7 @@ Greedy F2-Score is: 0.615501
 [label 12]	smooth-f2=0.297427   greedy-f2=0.473441[0.050000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 Smooth F2-Score: 0.495353
 F2-Score with threshold 0.1: 0.598122
 F2-Score with threshold 0.2: 0.582516
@@ -160,7 +160,7 @@ Greedy F2-Score is: 0.611532
 [label 12]	smooth-f2=0.305224   greedy-f2=0.460526[0.040000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 Smooth F2-Score: 0.494796
 F2-Score with threshold 0.1: 0.593645
 F2-Score with threshold 0.2: 0.580971
@@ -180,7 +180,7 @@ Greedy F2-Score is: 0.608248
 [label 12]	smooth-f2=0.315043   greedy-f2=0.452323[0.090000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+Weight: F:\Projects\competition\model\densenet201\record\model23\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 Smooth F2-Score: 0.493210
 F2-Score with threshold 0.1: 0.583477
 F2-Score with threshold 0.2: 0.568868

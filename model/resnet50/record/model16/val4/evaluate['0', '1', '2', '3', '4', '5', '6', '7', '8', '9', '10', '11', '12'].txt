@@ -1,6 +1,6 @@
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 Smooth F2-Score: 0.289681
 F2-Score with threshold 0.1: 0.406563
 F2-Score with threshold 0.2: 0.364961
@@ -20,7 +20,7 @@ Greedy F2-Score is: 0.491484
 [label 12]	smooth-f2=0.052663   greedy-f2=0.229277[0.010000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 Smooth F2-Score: 0.445978
 F2-Score with threshold 0.1: 0.561374
 F2-Score with threshold 0.2: 0.565778
@@ -40,7 +40,7 @@ Greedy F2-Score is: 0.599859
 [label 12]	smooth-f2=0.274685   greedy-f2=0.363985[0.160000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 Smooth F2-Score: 0.456411
 F2-Score with threshold 0.1: 0.570874
 F2-Score with threshold 0.2: 0.583369
@@ -60,7 +60,7 @@ Greedy F2-Score is: 0.608925
 [label 12]	smooth-f2=0.255096   greedy-f2=0.349206[0.450000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 Smooth F2-Score: 0.479748
 F2-Score with threshold 0.1: 0.585476
 F2-Score with threshold 0.2: 0.599942
@@ -80,7 +80,7 @@ Greedy F2-Score is: 0.616359
 [label 12]	smooth-f2=0.250931   greedy-f2=0.337500[0.180000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 Smooth F2-Score: 0.493463
 F2-Score with threshold 0.1: 0.604570
 F2-Score with threshold 0.2: 0.605244
@@ -100,7 +100,7 @@ Greedy F2-Score is: 0.617859
 [label 12]	smooth-f2=0.270555   greedy-f2=0.324324[0.280000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 Smooth F2-Score: 0.501055
 F2-Score with threshold 0.1: 0.603069
 F2-Score with threshold 0.2: 0.604761
@@ -120,7 +120,7 @@ Greedy F2-Score is: 0.620883
 [label 12]	smooth-f2=0.263475   greedy-f2=0.343407[0.240000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 Smooth F2-Score: 0.500279
 F2-Score with threshold 0.1: 0.606798
 F2-Score with threshold 0.2: 0.607928
@@ -140,7 +140,7 @@ Greedy F2-Score is: 0.624052
 [label 12]	smooth-f2=0.268700   greedy-f2=0.329815[0.210000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Weight: F:\Projects\competition\model\resnet50\record\model16\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 Smooth F2-Score: 0.496569
 F2-Score with threshold 0.1: 0.604403
 F2-Score with threshold 0.2: 0.599453

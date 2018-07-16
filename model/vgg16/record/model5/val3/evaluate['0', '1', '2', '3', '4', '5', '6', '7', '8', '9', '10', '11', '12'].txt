@@ -1,6 +1,6 @@
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 Smooth F2-Score: 0.100645
 F2-Score with threshold 0.1: 0.113032
 F2-Score with threshold 0.2: 0.110367
@@ -20,7 +20,7 @@ Greedy F2-Score is: 0.332641
 [label 12]	smooth-f2=0.000000   greedy-f2=0.041790[0.000000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 Smooth F2-Score: 0.486969
 F2-Score with threshold 0.1: 0.559919
 F2-Score with threshold 0.2: 0.577298
@@ -40,7 +40,7 @@ Greedy F2-Score is: 0.600804
 [label 12]	smooth-f2=0.285470   greedy-f2=0.357143[0.110000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 Smooth F2-Score: 0.496920
 F2-Score with threshold 0.1: 0.578589
 F2-Score with threshold 0.2: 0.589743
@@ -60,7 +60,7 @@ Greedy F2-Score is: 0.604632
 [label 12]	smooth-f2=0.333601   greedy-f2=0.435203[0.140000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 Smooth F2-Score: 0.490654
 F2-Score with threshold 0.1: 0.580307
 F2-Score with threshold 0.2: 0.578422
@@ -80,7 +80,7 @@ Greedy F2-Score is: 0.599719
 [label 12]	smooth-f2=0.286960   greedy-f2=0.370370[0.080000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 Smooth F2-Score: 0.493665
 F2-Score with threshold 0.1: 0.588211
 F2-Score with threshold 0.2: 0.568125
@@ -100,7 +100,7 @@ Greedy F2-Score is: 0.601626
 [label 12]	smooth-f2=0.300149   greedy-f2=0.375723[0.030000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 Smooth F2-Score: 0.491727
 F2-Score with threshold 0.1: 0.575427
 F2-Score with threshold 0.2: 0.567968
@@ -120,7 +120,7 @@ Greedy F2-Score is: 0.596677
 [label 12]	smooth-f2=0.294960   greedy-f2=0.372751[0.210000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 Smooth F2-Score: 0.486889
 F2-Score with threshold 0.1: 0.572572
 F2-Score with threshold 0.2: 0.562713
@@ -140,7 +140,7 @@ Greedy F2-Score is: 0.592728
 [label 12]	smooth-f2=0.284827   greedy-f2=0.360963[0.290000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 Smooth F2-Score: 0.484179
 F2-Score with threshold 0.1: 0.565729
 F2-Score with threshold 0.2: 0.553663
@@ -160,7 +160,7 @@ Greedy F2-Score is: 0.582242
 [label 12]	smooth-f2=0.262709   greedy-f2=0.370844[0.100000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 Smooth F2-Score: 0.485734
 F2-Score with threshold 0.1: 0.562701
 F2-Score with threshold 0.2: 0.556160
@@ -180,7 +180,7 @@ Greedy F2-Score is: 0.580273
 [label 12]	smooth-f2=0.276282   greedy-f2=0.373303[0.040000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 Smooth F2-Score: 0.483445
 F2-Score with threshold 0.1: 0.562765
 F2-Score with threshold 0.2: 0.552669
@@ -200,7 +200,7 @@ Greedy F2-Score is: 0.579970
 [label 12]	smooth-f2=0.279239   greedy-f2=0.378440[0.050000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.011.hdf5
 Smooth F2-Score: 0.481610
 F2-Score with threshold 0.1: 0.562796
 F2-Score with threshold 0.2: 0.549372
@@ -220,7 +220,7 @@ Greedy F2-Score is: 0.580068
 [label 12]	smooth-f2=0.271701   greedy-f2=0.365566[0.050000]
 
 
-Weight: /home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
+Weight: F:\Projects\competition\model\vgg16\record\model5\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5
 Smooth F2-Score: 0.482797
 F2-Score with threshold 0.1: 0.564605
 F2-Score with threshold 0.2: 0.550407

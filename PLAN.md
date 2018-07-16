@@ -4,47 +4,14 @@
 
 ##提交阶段计划
 
-+ 数据预测
-  +  把测试集放大对应的两个目录下images/original/test 以及 segmented/original/test
-  + 参考ensenmble model 2，对top_n相关的模型进行预测（要新建一个model，不要拷贝我这边的文件，因为我这边的统计并没有包括你哪边新训练的模型）
-  + meta_model_dir="E:\\backup\\jdfc" ， 这个参数表示权重存储的位置，我这边权重是单独存储在一个位置的。如果权重就放在工程里面的就不需要加这个参数
-  + model.get_meta_predict([1, 2], False)   （对val1， val2进行预测）
-+ 去掉segmented模型，并重新训练对应的original。 以下是top_20统计
-  + F:\Projects\competition\model\inceptionv3\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-    F:\Projects\competition\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-    F:\Projects\competition\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model5\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\xception\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-    F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
-    F:\Projects\competition\model\densenet121\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-    F:\Projects\competition\model\xception\record\model2\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-    F:\Projects\competition\model\xception\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-    F:\Projects\competition\model\densenet121\record\model4\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-    F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\vgg16\record\model1\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-    F:\Projects\competition\model\densenet201\record\model36\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
-    F:\Projects\competition\model\inceptionv3\record\model14\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
++ 每天提交一个， top_5, top_10, top_15, top_20
 
 
 
 ## 架构优化思考
 
++ bug修复
+  + 最后一个epoch的时候，没有做evaluate动作
 + 自动备份
   + 使用【user：备份路径】的方式进行配置。并在运行的时候自动对模型以及权重文件、预测文件进行备份。
 + 将model_config初始化放在一个方法中，不要每次import的时候都做一大堆操作
@@ -58,11 +25,16 @@
   + 宁慢，也不要做无用功。例如使用segmented数据来进行训练。前期没有对其进行认真的考虑，只看了少量样本觉得OK就用了。没想到其中有很多残缺的样本。
   + catch到OOM等异常后，根据当前的训练情况，进行恢复（防止晚上睡觉的时候OOM浪费大量时间）
   + 对每个模型、权重、预测都进行唯一标识。例如创建了一个文件名不符合规则，那么报错。规范了之后，可以高效的进行交互（现在的标识就很不明确，将文件夹、模型类型、模型编号、val编号、epoch，且保存的字符串也不尽相同，如result中保存的和evaluate中保存的就不相同，这种编号应该全局唯一）
+  + predict、weight、可视化、log、model.py，分开存储，但可通过通用的标识进行全局搜索。比较便于共享。
 + 速度
   + tensorflow加载很慢，尽量保证底层工具类不要以来tensorflow，否则执行一个小功能都要等很久
   + 多人协同训练XGBOOST，只要基模型相同，可将参数分散给不同的人，训练之后选最优
 + 迁移学习
   + 通过全局唯一的标识，直接指明从哪个snapshot进行迁移。
++ 可视化
+  + 更多维的可视化
+  + 可以在不用重新评估的情况下，进行重新生成可视化文件
+  + 训练过程中的日志的保存，train error等，并动态绘制train过程中的曲线。（这些操作均要求异步）。
 
 ## 训练阶段遗留问题
 
