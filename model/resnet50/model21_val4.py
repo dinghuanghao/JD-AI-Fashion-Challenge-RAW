@@ -16,14 +16,15 @@ from util.keras_util import KerasModelConfig
 
 model_config = KerasModelConfig(k_fold_file="1.txt",
                                 model_path=os.path.abspath(__file__),
-                                image_resolution=224,
+                                image_resolution=400,
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                                 label_color_augment=[0, 1, 3, 5, 6, 7, 9, 10, 11, 12],
                                 train_batch_size=[16, 16, 16],
                                 val_batch_size=128,
+                                initial_epoch=8,
                                 predict_batch_size=128,
-                                epoch=[1, 4, 8],
+                                epoch=[1, 4, 10],
                                 lr=[0.001, 0.0001, 0.00001],
                                 freeze_layers=[-1, 0.6, 5],
                                 input_norm=False)
