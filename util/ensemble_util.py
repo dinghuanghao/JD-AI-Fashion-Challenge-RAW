@@ -733,19 +733,21 @@ class XGBoostModel(EnsembleModel):
         df = pd.DataFrame()
         statis_path = os.path.join(path.XGB_RESULT_PATH, "statistics")
         pathlib.Path(statis_path).mkdir(parents=True, exist_ok=True)
+
         with open(os.path.join(statis_path, save_file + ".txt"), "w+") as f:
-            for file_name in file_names:
-                model_path = os.path.join(path.XGB_RESULT_PATH, file_name)
-                predict = np.load(model_path)
-                df[file_name] = predict.flatten()
-                f.write("=========%s=========\n" % file_name)
+            for label in range(13):
+                for file_name in file_names:
+                    model_path = os.path.join(path.XGB_RESULT_PATH, file_name)
+                    predict = np.load(model_path)
+                    predict = predict[:, [label]]
+                    df[file_name] = predict.flatten()
+                    f.write("=========%s=========\n" % file_name)
 
-                for i in range(13):
-                    pred_label = predict[:, i]
-                    f.write("label %d positive number: %d\n" % (i, pred_label[pred_label > 0].size))
+                    pred_label = predict[:, 0]
+                    f.write("label %d positive number: %d\n" % (label, pred_label[pred_label > 0].size))
 
-        corr = df.corr()
-        statis.heap_map(corr, statis_path, save_file + ".png")
+                corr = df.corr()
+                statis.heap_map(corr, statis_path, save_file + f"label_{label}" +".png")
 
 
 if __name__ == '__main__':

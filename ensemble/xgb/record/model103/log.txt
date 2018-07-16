@@ -11840,3 +11840,6 @@
 
 2018-07-16:06:27:46: save best model for val[5] label[12], f2[0.684755] eta[0.150000] max_depth[3]  best_min_child_weight[4.000000] best_ntree[15] best_iter[14]
 2018-07-16:21:56:18: load meta model info
+2018-07-16:22:07:22: load meta model info
+2018-07-16:22:07:24: use cnn avg
+2018-07-16:22:07:28: use xgb avg

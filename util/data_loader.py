@@ -583,10 +583,27 @@ def weight_name_repair():
     for item in repair_dict.items():
         os.rename(item[0], item[1])
 
+def image_copy():
+    import shutil
+    files = []
+    with open(os.path.join(path.K_FOLD_TXT_PATH, "1.txt"), 'r') as f:
+        for l in f.readlines():
+            files.append(l.split(",")[1].strip())
 
+    labels = get_labels(files)
+
+    import pathlib
+
+    for label in range(13):
+        for i in range(len(labels)):
+            if labels[i][label] == 1:
+                pathlib.Path(os.path.join(path.IMAGES_PATH, str(label))).mkdir(parents=True, exist_ok=True)
+                shutil.copy(os.path.join(path.ORIGINAL_TRAIN_IMAGES_PATH, files[i]),
+                            os.path.join(path.IMAGES_PATH, str(label), files[i]))
 
 if __name__ == '__main__':
-    weight_name_repair()
+    # weight_name_repair()
+    image_copy()
     # image_repair()
     # remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
     # remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
