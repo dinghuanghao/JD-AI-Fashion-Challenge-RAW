@@ -66,3 +66,23 @@
 2018-07-14:16:57:11: start predict with tta index is 1, data type is original
 2018-07-16:19:52:33: start predict with tta index is 0, data type is original
 2018-07-16:19:54:13: start predict with tta index is 1, data type is original
+2018-07-17:13:04:52: add 7334 color augmentation file
+2018-07-17:13:04:52: train files is 51260 before up sampling
+2018-07-17:13:04:52: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600'], totaol: 20600
+2018-07-17:13:04:52: train files is 71860 after up sampling
+2018-07-17:13:04:53: train file: 66691, val file: 10982
+2018-07-17:13:05:17: start predict with tta index is 0, data type is original
+2018-07-17:13:33:12: add 7334 color augmentation file
+2018-07-17:13:33:12: train files is 51260 before up sampling
+2018-07-17:13:33:13: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600'], totaol: 20600
+2018-07-17:13:33:13: train files is 71860 after up sampling
+2018-07-17:13:33:13: train file: 66643, val file: 10982
+2018-07-17:13:33:20: start predict with tta index is 0, data type is original
+2018-07-17:13:35:42: start predict with tta index is 1, data type is original
+2018-07-17:14:32:29: start predict with tta index is 0, data type is original
+2018-07-17:14:33:31: add 7334 color augmentation file
+2018-07-17:14:33:31: train files is 51260 before up sampling
+2018-07-17:14:33:31: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '20600'], totaol: 20600
+2018-07-17:14:33:31: train files is 71860 after up sampling
+2018-07-17:14:33:32: train file: 66636, val file: 10982
+2018-07-17:14:33:38: start predict with tta index is 0, data type is original
