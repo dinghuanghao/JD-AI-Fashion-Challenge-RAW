@@ -6,12 +6,14 @@ import json
 import os
 import pathlib
 import time
+import sys
+
 
 import numpy as np
 import xgboost as xgb
 from sklearn.metrics import fbeta_score
 
-from statistics import model_statistics as statis
+from util import model_statistics as statis
 from util import data_loader
 from util import keras_util
 from util import submit_util
@@ -534,7 +536,7 @@ class XGBoostModel(EnsembleModel):
                         'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
                         'max_depth': max_depth,  # depth of the trees in the boosting process
                         'min_child_weight': min_child_weight,
-                        'nthread': 8
+                        'nthread': 4
                     }
 
                     bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
