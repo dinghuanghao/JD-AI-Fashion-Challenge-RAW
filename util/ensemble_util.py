@@ -168,7 +168,7 @@ class EnsembleModel(object):
                     if path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
                         print(meta_model_path)
 
-    def get_meta_predict(self, val_index, get_segmented=False):
+    def get_meta_predict(self, val_index, sep="\\", get_segmented=False, debug=False):
         original_test_file = []
         segmented_test_file = []
         with open(path.TEST_DATA_TXT, 'r') as f:
@@ -183,7 +183,7 @@ class EnsembleModel(object):
                 for top_n in label:
                     meta_model_path = top_n[0]
                     unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
-                    identifier = "-".join(unique_path.split("\\"))
+                    identifier = "-".join(unique_path.split(sep))
                     cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
                     if os.path.exists(keras_util.get_prediction_path(cnn_result_path)):
                         # self.save_log("file existed %s" % keras_util.get_prediction_path(cnn_result_path))
@@ -193,6 +193,10 @@ class EnsembleModel(object):
                     real_weight_file = os.path.join(self.meta_model_dir, pathlib.Path(unique_path))
                     if not os.path.exists(real_weight_file):
                         self.save_log("weight not existed, %s " % real_weight_file)
+                        continue
+
+                    if debug:
+                        print(f"{weight_file}")
                         continue
 
                     # self.save_log("weight file %s, real weight file %s" % (weight_file, real_weight_file))
