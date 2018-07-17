@@ -1,5 +1,6 @@
 import os
-
+import sys
+sys.path.append(os.path.abspath("../"))
 from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
