@@ -168,7 +168,7 @@ class EnsembleModel(object):
                     if path.DATA_TYPE_SEGMENTED in attr_model_config.data_type:
                         print(meta_model_path)
 
-    def get_meta_predict(self, val_index, sep="\\", get_segmented=False, debug=False):
+    def get_meta_predict(self, val_index, get_segmented=False, debug=False):
         original_test_file = []
         segmented_test_file = []
         with open(path.TEST_DATA_TXT, 'r') as f:
@@ -177,11 +177,16 @@ class EnsembleModel(object):
                 original_test_file.append(os.path.join(path.ORIGINAL_TEST_IMAGES_PATH, image_name))
                 segmented_test_file.append(os.path.join(path.SEGMENTED_TEST_IMAGES_PATH, image_name))
 
+
         for val in val_index:
             val_model = self.meta_model_all[val - 1]
             for label in val_model:
                 for top_n in label:
                     meta_model_path = top_n[0]
+                    if "ubuntu" in meta_model_path:
+                        sep = "/"
+                    else:
+                        sep = "\\"
                     unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
                     identifier = "-".join(unique_path.split(sep))
                     cnn_result_path = os.path.join(path.CNN_RESULT_PATH, identifier)
