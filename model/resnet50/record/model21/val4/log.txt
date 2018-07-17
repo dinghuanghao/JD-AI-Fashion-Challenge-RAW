@@ -48,3 +48,7 @@
 2018-07-17:17:17:00: start predict with tta index is 1, data type is original
 2018-07-17:23:08:13: start predict with tta index is 0, data type is original
 2018-07-17:23:09:47: start predict with tta index is 1, data type is original
+2018-07-17:23:47:10: on epoch 3 end, save weight:D:\github\JDC\competition\model\resnet50\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-17:23:47:11: start predict with tta
+2018-07-17:23:47:11: start predict with tta index is 0, data type is original
+2018-07-17:23:49:37: start predict with tta index is 1, data type is original

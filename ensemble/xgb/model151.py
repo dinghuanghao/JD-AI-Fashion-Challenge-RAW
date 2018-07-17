@@ -7,7 +7,7 @@ from util import ensemble_util
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    corr_threshold=0.9, search=20, top_n=15,
                                    eval_func=ensemble_util.xgb_sparse_greedy_f2_metric,
-                                    meta_model_dir="E:\\backup\\jdfc",
+                                    meta_model_dir="H:\\backup",
                                    xgb_param={
                                        'eta': [0.05],
                                        'silent': True,  # option for logging
@@ -20,5 +20,5 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 
 # model.train_all_label()
 # model.build_and_predict_test()
-model.get_meta_predict([1, 2, 3, 4, 5], sep="/", get_segmented=False)
+model.get_meta_predict([3, 5], sep="/", get_segmented=False)
 # model.build_and_predict_test()
