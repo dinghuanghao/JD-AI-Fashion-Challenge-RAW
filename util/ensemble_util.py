@@ -262,8 +262,11 @@ class EnsembleModel(object):
             np.float32)
 
     def get_meta_model_test_predict(self, meta_model_path):
+        sep = "\\"
+        if "ubuntu" in meta_model_path:
+            sep = "/"
         unique_path = re.match(r".*competition[\\/]*(.*)", meta_model_path).group(1)
-        identifier = "-".join(unique_path.split("\\"))
+        identifier = "-".join(unique_path.split(sep))
         model_path = os.path.join(path.CNN_RESULT_PATH, identifier)
         predict_path = keras_util.get_prediction_path(model_path)
         try:
