@@ -1,81 +1,77 @@
-2018-07-16:19:09:35: start search val 1
-2018-07-16:19:09:35: start search label 0
-2018-07-16:19:09:35: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-16:19:09:35: start search label 1
-2018-07-16:19:09:35: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-2018-07-16:19:09:35: start search label 2
-2018-07-16:19:09:35: start search label 3
-2018-07-16:19:09:35: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-2018-07-16:19:09:35: start search label 4
-2018-07-16:19:09:35: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
-2018-07-16:19:09:35: start search label 5
-2018-07-16:19:09:35: start search label 6
-2018-07-16:19:09:35: start search label 7
-2018-07-16:19:09:35: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-16:19:09:35: start search label 8
-2018-07-16:19:09:35: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-16:19:09:35: start search label 9
-2018-07-16:19:09:35: start search label 10
-2018-07-16:19:09:35: start search label 11
-2018-07-16:19:09:35: start search label 12
-2018-07-16:19:09:35: start search val 2
-2018-07-16:19:09:35: start search label 0
-2018-07-16:19:09:35: start search label 1
-2018-07-16:19:09:35: start search label 2
-2018-07-16:19:09:35: start search label 3
-2018-07-16:19:09:35: start search label 4
-2018-07-16:19:09:35: start search label 5
-2018-07-16:19:09:35: start search label 6
-2018-07-16:19:09:35: start search label 7
-2018-07-16:19:09:35: start search label 8
-2018-07-16:19:09:35: start search label 9
-2018-07-16:19:09:35: start search label 10
-2018-07-16:19:09:35: start search label 11
-2018-07-16:19:09:35: start search label 12
-2018-07-16:19:09:35: start search val 3
-2018-07-16:19:09:35: start search label 0
-2018-07-16:19:09:35: start search label 1
-2018-07-16:19:09:35: start search label 2
-2018-07-16:19:09:35: start search label 3
-2018-07-16:19:09:35: start search label 4
-2018-07-16:19:09:35: start search label 5
-2018-07-16:19:09:35: start search label 6
-2018-07-16:19:09:35: start search label 7
-2018-07-16:19:09:35: start search label 8
-2018-07-16:19:09:35: start search label 9
-2018-07-16:19:09:35: start search label 10
-2018-07-16:19:09:35: start search label 11
-2018-07-16:19:09:35: start search label 12
-2018-07-16:19:09:35: start search val 4
-2018-07-16:19:09:35: start search label 0
-2018-07-16:19:09:35: start search label 1
-2018-07-16:19:09:35: start search label 2
-2018-07-16:19:09:35: start search label 3
-2018-07-16:19:09:35: start search label 4
-2018-07-16:19:09:35: start search label 5
-2018-07-16:19:09:35: start search label 6
-2018-07-16:19:09:35: start search label 7
-2018-07-16:19:09:35: start search label 8
-2018-07-16:19:09:35: start search label 9
-2018-07-16:19:09:35: start search label 10
-2018-07-16:19:09:35: start search label 11
-2018-07-16:19:09:35: start search label 12
-2018-07-16:19:09:35: start search val 5
-2018-07-16:19:09:35: start search label 0
-2018-07-16:19:09:35: start search label 1
-2018-07-16:19:09:35: start search label 2
-2018-07-16:19:09:35: start search label 3
-2018-07-16:19:09:35: start search label 4
-2018-07-16:19:09:35: start search label 5
-2018-07-16:19:09:35: start search label 6
-2018-07-16:19:09:35: start search label 7
-2018-07-16:19:09:35: start search label 8
-2018-07-16:19:09:35: start search label 9
-2018-07-16:19:09:35: start search label 10
-2018-07-16:19:09:35: start search label 11
-2018-07-16:19:09:35: start search label 12
-2018-07-16:19:38:00: weight not existed, H:\backup\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5 
-2018-07-16:20:55:55: load meta model info
-2018-07-16:20:55:57: weight not existed, H:\backup\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5 
-2018-07-16:22:00:13: load meta model info
-2018-07-16:22:00:13: weight not existed, H:\backup\model\inceptionresnetv2\record\model16\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5 
+2018-07-17:12:45:58: start search val 1
+2018-07-17:12:45:58: start search label 0
+2018-07-17:12:45:58: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-17:12:45:58: start search label 1
+2018-07-17:12:45:58: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-17:12:45:58: start search label 2
+2018-07-17:12:45:58: start search label 3
+2018-07-17:12:45:58: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-17:12:45:58: start search label 4
+2018-07-17:12:45:58: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-17:12:45:58: start search label 5
+2018-07-17:12:45:58: start search label 6
+2018-07-17:12:45:58: start search label 7
+2018-07-17:12:45:58: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-17:12:45:58: start search label 8
+2018-07-17:12:45:58: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-17:12:45:58: start search label 9
+2018-07-17:12:45:58: start search label 10
+2018-07-17:12:45:58: start search label 11
+2018-07-17:12:45:58: start search label 12
+2018-07-17:12:45:58: start search val 2
+2018-07-17:12:45:58: start search label 0
+2018-07-17:12:45:58: start search label 1
+2018-07-17:12:45:58: start search label 2
+2018-07-17:12:45:58: start search label 3
+2018-07-17:12:45:58: start search label 4
+2018-07-17:12:45:58: start search label 5
+2018-07-17:12:45:58: start search label 6
+2018-07-17:12:45:58: start search label 7
+2018-07-17:12:45:58: start search label 8
+2018-07-17:12:45:58: start search label 9
+2018-07-17:12:45:58: start search label 10
+2018-07-17:12:45:58: start search label 11
+2018-07-17:12:45:58: start search label 12
+2018-07-17:12:45:58: start search val 3
+2018-07-17:12:45:58: start search label 0
+2018-07-17:12:45:58: start search label 1
+2018-07-17:12:45:58: start search label 2
+2018-07-17:12:45:58: start search label 3
+2018-07-17:12:45:58: start search label 4
+2018-07-17:12:45:58: start search label 5
+2018-07-17:12:45:58: start search label 6
+2018-07-17:12:45:58: start search label 7
+2018-07-17:12:45:58: start search label 8
+2018-07-17:12:45:58: start search label 9
+2018-07-17:12:45:58: start search label 10
+2018-07-17:12:45:58: start search label 11
+2018-07-17:12:45:58: start search label 12
+2018-07-17:12:45:58: start search val 4
+2018-07-17:12:45:58: start search label 0
+2018-07-17:12:45:58: start search label 1
+2018-07-17:12:45:58: start search label 2
+2018-07-17:12:45:58: start search label 3
+2018-07-17:12:45:58: start search label 4
+2018-07-17:12:45:58: start search label 5
+2018-07-17:12:45:58: start search label 6
+2018-07-17:12:45:58: start search label 7
+2018-07-17:12:45:58: start search label 8
+2018-07-17:12:45:58: start search label 9
+2018-07-17:12:45:58: start search label 10
+2018-07-17:12:45:58: start search label 11
+2018-07-17:12:45:58: start search label 12
+2018-07-17:12:45:58: start search val 5
+2018-07-17:12:45:58: start search label 0
+2018-07-17:12:45:58: start search label 1
+2018-07-17:12:45:58: start search label 2
+2018-07-17:12:45:58: start search label 3
+2018-07-17:12:45:58: start search label 4
+2018-07-17:12:45:58: start search label 5
+2018-07-17:12:45:58: start search label 6
+2018-07-17:12:45:58: start search label 7
+2018-07-17:12:45:58: start search label 8
+2018-07-17:12:45:58: start search label 9
+2018-07-17:12:45:58: start search label 10
+2018-07-17:12:45:58: start search label 11
+2018-07-17:12:45:58: start search label 12
+2018-07-17:12:51:09: weight not existed, H:\backup\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5 
