@@ -18,5 +18,5 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 
 model.train_all_label()
 # model.build_and_predict_test()
-# model.get_meta_predict([1, 2, 3,  4, 5], False)
+# model.get_meta_predict([1, 4], False)
 # model.build_and_predict_test()
