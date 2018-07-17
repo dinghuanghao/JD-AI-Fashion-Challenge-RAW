@@ -536,7 +536,7 @@ class XGBoostModel(EnsembleModel):
                         'objective': self.xgb_param['objective'],  # error evaluation for multiclass tasks
                         'max_depth': max_depth,  # depth of the trees in the boosting process
                         'min_child_weight': min_child_weight,
-                        'nthread': 4
+                        'nthread': 30
                     }
 
                     bst = xgb.train(xgb_param, data_train, self.number_round, evals=evals,
