@@ -1,0 +1,46 @@
+2018-07-17:10:11:42: add 7316 color augmentation file
+2018-07-17:10:11:42: train files is 51242 before up sampling
+2018-07-17:10:11:43: up sampling times: ['0', '0', '0', '3130', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3130
+2018-07-17:10:11:43: train files is 54372 after up sampling
+2018-07-17:10:11:44: train file: 49111, val file: 10982
+2018-07-17:10:11:44: ####### start train model
+2018-07-17:10:11:44: ####### init stage is 0
+2018-07-17:10:11:44: ####### lr=0.000100, freeze layers=0.000000 epoch=2
+2018-07-17:10:11:44: ####### initial epoch is 0, end epoch is 2
+2018-07-17:10:12:53: add 7316 color augmentation file
+2018-07-17:10:12:53: train files is 51242 before up sampling
+2018-07-17:10:12:54: up sampling times: ['0', '0', '0', '3130', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3130
+2018-07-17:10:12:54: train files is 54372 after up sampling
+2018-07-17:10:12:55: train file: 49122, val file: 10982
+2018-07-17:10:12:55: ####### start train model
+2018-07-17:10:12:55: ####### init stage is 0
+2018-07-17:10:12:55: ####### lr=0.000100, freeze layers=5.000000 epoch=2
+2018-07-17:10:12:55: ####### initial epoch is 0, end epoch is 2
+2018-07-17:10:14:33: add 7316 color augmentation file
+2018-07-17:10:14:33: train files is 51242 before up sampling
+2018-07-17:10:14:34: up sampling times: ['0', '0', '0', '3130', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3130
+2018-07-17:10:14:34: train files is 54372 after up sampling
+2018-07-17:10:14:35: train file: 49154, val file: 10982
+2018-07-17:10:14:35: ####### start train model
+2018-07-17:10:14:35: ####### init stage is 0
+2018-07-17:10:14:35: ####### lr=0.000100, freeze layers=5.000000 epoch=2
+2018-07-17:10:14:35: ####### initial epoch is 0, end epoch is 2
+2018-07-17:10:43:50: on epoch 1 end, save weight:F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-17:10:43:58: start predict with tta
+2018-07-17:10:43:58: start predict with tta index is 0, data type is original
+2018-07-17:10:45:35: start predict with tta index is 1, data type is original
+2018-07-17:11:15:47: on epoch 2 end, save weight:F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-17:11:15:47: start predict with tta
+2018-07-17:11:15:47: start predict with tta index is 0, data type is original
+2018-07-17:11:17:20: start predict with tta index is 1, data type is original
+2018-07-17:11:18:57: ####### lr=0.000010, freeze layers=5.000000 epoch=10
+2018-07-17:11:19:13: ####### load weight file: F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-17:11:19:17: ####### initial epoch is 2, end epoch is 10
+2018-07-17:11:49:43: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-17:11:49:57: start predict with tta
+2018-07-17:11:49:57: start predict with tta index is 0, data type is original
+2018-07-17:11:51:32: start predict with tta index is 1, data type is original
+2018-07-17:12:23:17: on epoch 4 end, save weight:F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-17:12:23:17: start predict with tta
+2018-07-17:12:23:17: start predict with tta index is 0, data type is original
+2018-07-17:12:24:50: start predict with tta index is 1, data type is original

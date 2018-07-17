@@ -1,0 +1,80 @@
+
+
+Weight: F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.450875
+F2-Score with threshold 0.1: 0.574323
+F2-Score with threshold 0.2: 0.569254
+Greedy F2-Score is: 0.613113
+[label 0]	smooth-f2=0.049792   greedy-f2=0.297398[0.020000]
+[label 1]	smooth-f2=0.487640   greedy-f2=0.671058[0.250000]
+[label 2]	smooth-f2=0.910814   greedy-f2=0.981022[0.040000]
+[label 3]	smooth-f2=0.333942   greedy-f2=0.412186[0.310000]
+[label 4]	smooth-f2=0.597636   greedy-f2=0.817125[0.200000]
+[label 5]	smooth-f2=0.552459   greedy-f2=0.750788[0.250000]
+[label 6]	smooth-f2=0.063725   greedy-f2=0.273973[0.040000]
+[label 7]	smooth-f2=0.260854   greedy-f2=0.435855[0.130000]
+[label 8]	smooth-f2=0.917037   greedy-f2=0.979639[0.070000]
+[label 9]	smooth-f2=0.458054   greedy-f2=0.629690[0.200000]
+[label 10]	smooth-f2=0.666427   greedy-f2=0.774895[0.250000]
+[label 11]	smooth-f2=0.283485   greedy-f2=0.473866[0.130000]
+[label 12]	smooth-f2=0.279514   greedy-f2=0.472973[0.310000]
+
+
+Weight: F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.466127
+F2-Score with threshold 0.1: 0.626888
+F2-Score with threshold 0.2: 0.610643
+Greedy F2-Score is: 0.637778
+[label 0]	smooth-f2=0.117743   greedy-f2=0.390625[0.080000]
+[label 1]	smooth-f2=0.496121   greedy-f2=0.657947[0.130000]
+[label 2]	smooth-f2=0.940713   greedy-f2=0.981491[0.070000]
+[label 3]	smooth-f2=0.338037   greedy-f2=0.449640[0.150000]
+[label 4]	smooth-f2=0.603202   greedy-f2=0.824126[0.160000]
+[label 5]	smooth-f2=0.572087   greedy-f2=0.755786[0.260000]
+[label 6]	smooth-f2=0.233110   greedy-f2=0.339806[0.190000]
+[label 7]	smooth-f2=0.260142   greedy-f2=0.456053[0.080000]
+[label 8]	smooth-f2=0.940754   greedy-f2=0.979915[0.080000]
+[label 9]	smooth-f2=0.448673   greedy-f2=0.634103[0.190000]
+[label 10]	smooth-f2=0.604572   greedy-f2=0.792769[0.100000]
+[label 11]	smooth-f2=0.244593   greedy-f2=0.500000[0.060000]
+[label 12]	smooth-f2=0.259907   greedy-f2=0.528846[0.080000]
+
+
+Weight: F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.500308
+F2-Score with threshold 0.1: 0.635948
+F2-Score with threshold 0.2: 0.619430
+Greedy F2-Score is: 0.649894
+[label 0]	smooth-f2=0.150424   greedy-f2=0.387597[0.110000]
+[label 1]	smooth-f2=0.537783   greedy-f2=0.679807[0.120000]
+[label 2]	smooth-f2=0.940849   greedy-f2=0.982050[0.030000]
+[label 3]	smooth-f2=0.333005   greedy-f2=0.427046[0.060000]
+[label 4]	smooth-f2=0.636302   greedy-f2=0.827969[0.150000]
+[label 5]	smooth-f2=0.585630   greedy-f2=0.759096[0.160000]
+[label 6]	smooth-f2=0.255311   greedy-f2=0.404762[0.150000]
+[label 7]	smooth-f2=0.287809   greedy-f2=0.468498[0.060000]
+[label 8]	smooth-f2=0.939986   greedy-f2=0.980316[0.040000]
+[label 9]	smooth-f2=0.470925   greedy-f2=0.638455[0.180000]
+[label 10]	smooth-f2=0.661218   greedy-f2=0.804062[0.110000]
+[label 11]	smooth-f2=0.305468   greedy-f2=0.511140[0.110000]
+[label 12]	smooth-f2=0.399288   greedy-f2=0.577830[0.170000]
+
+
+Weight: F:\Projects\competition\model\xception\record\model27\val5\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.501769
+F2-Score with threshold 0.1: 0.634678
+F2-Score with threshold 0.2: 0.612074
+Greedy F2-Score is: 0.644208
+[label 0]	smooth-f2=0.167431   greedy-f2=0.371901[0.170000]
+[label 1]	smooth-f2=0.536459   greedy-f2=0.664809[0.100000]
+[label 2]	smooth-f2=0.940670   greedy-f2=0.981432[0.010000]
+[label 3]	smooth-f2=0.312125   greedy-f2=0.447020[0.020000]
+[label 4]	smooth-f2=0.640361   greedy-f2=0.825536[0.110000]
+[label 5]	smooth-f2=0.599733   greedy-f2=0.757339[0.120000]
+[label 6]	smooth-f2=0.272235   greedy-f2=0.398230[0.090000]
+[label 7]	smooth-f2=0.298199   greedy-f2=0.456840[0.040000]
+[label 8]	smooth-f2=0.940631   greedy-f2=0.979612[0.020000]
+[label 9]	smooth-f2=0.467490   greedy-f2=0.637628[0.120000]
+[label 10]	smooth-f2=0.670378   greedy-f2=0.795781[0.110000]
+[label 11]	smooth-f2=0.290071   greedy-f2=0.503018[0.100000]
+[label 12]	smooth-f2=0.387215   greedy-f2=0.555556[0.090000]

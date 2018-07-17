@@ -19,5 +19,7 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 # model.train_all_label()
 # model.build_and_predict_test()
 
-model.statistics(["xgb_model55_avg[xgb].npy", "xgb_model55_avg[cnn].npy", "xgb_model105.npy", "xgb_model105_avg[cnn].npy", "xgb_model105_avg[xgb].npy",],
-                 "xgb_model105_statistics")
+model.model_rank(10)
+#
+# model.statistics(["xgb_model55_avg[xgb].npy", "xgb_model55_avg[cnn].npy", "xgb_model105.npy", "xgb_model105_avg[cnn].npy", "xgb_model105_avg[xgb].npy",],
+#                  "xgb_model105_statistics")
