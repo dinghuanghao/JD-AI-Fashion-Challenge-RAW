@@ -5,6 +5,7 @@
 0.637785: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.633841: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.633270: D:\github\JDC\competition\model\xception\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.629628: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.629423: D:\github\JDC\competition\model\xception\record\model24\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.629071: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.629061: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -20,7 +21,6 @@
 0.619852: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.619644: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.619609: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.619413: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.617684: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.617294: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.617158: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -37,6 +37,7 @@
 ==========================One label: 0==========================
 0.521472: D:\github\JDC\competition\model\xception\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.459770: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.457143: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.454545: D:\github\JDC\competition\model\xception\record\model28\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.451807: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.443038: D:\github\JDC\competition\model\xception\record\model10\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -47,21 +48,20 @@
 0.430108: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.426136: D:\github\JDC\competition\model\xception\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.418994: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.418605: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.414013: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.406977: D:\github\JDC\competition\model\xception\record\model21\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.391061: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.390071: D:\github\JDC\competition\model\xception\record\model24\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.388128: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.387324: D:\github\JDC\competition\model\xception\record\model24\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.387097: D:\github\JDC\competition\model\xception\record\model27\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.371429: D:\github\JDC\competition\model\inceptionresnetv2\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.368098: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.359281: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.348837: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.346821: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.343348: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.343137: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.335366: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.331754: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.327869: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.326797: D:\github\JDC\competition\model\vgg19\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.312500: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -88,16 +88,16 @@
 0.673807: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.673653: D:\github\JDC\competition\model\xception\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.673650: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.672352: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 0.672038: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.671549: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.671429: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.670965: D:\github\JDC\competition\model\xception\record\model10\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.670483: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.669694: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+0.669804: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.668864: D:\github\JDC\competition\model\xception\record\model9\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.667586: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.667473: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-0.665005: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.661486: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.660326: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.658745: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -122,9 +122,9 @@
 0.982067: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.982009: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.981893: D:\github\JDC\competition\model\inceptionresnetv2\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.981822: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.981808: D:\github\JDC\competition\model\xception\record\model24\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.981765: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
-0.981756: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.981719: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.981690: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.981665: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -133,10 +133,10 @@
 0.981554: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981500: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.981401: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+0.981399: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.981380: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.981324: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.981136: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.980945: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 
 
 
@@ -147,12 +147,12 @@
 0.421456: D:\github\JDC\competition\model\xception\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.419847: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.415020: D:\github\JDC\competition\model\xception\record\model24\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.410156: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.407407: D:\github\JDC\competition\model\inceptionresnetv2\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
-0.405904: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.404930: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.403846: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.394737: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
-0.393443: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.394265: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.392562: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.392562: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.387755: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -171,7 +171,7 @@
 0.370370: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.369650: D:\github\JDC\competition\model\xception\record\model9\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.366379: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
-0.360169: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+0.364807: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.358423: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 
 
@@ -201,14 +201,14 @@
 0.822758: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.822706: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.822627: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.821883: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.821773: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.821704: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.821514: D:\github\JDC\competition\model\inceptionresnetv2\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.820534: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-0.820309: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.820189: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.820012: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.817729: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.818476: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 
 
 
@@ -229,6 +229,7 @@
 0.752191: D:\github\JDC\competition\model\xception\record\model28\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.752078: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.752060: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.751047: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.750975: D:\github\JDC\competition\model\xception\record\model10\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.750925: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.750566: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -241,7 +242,6 @@
 0.748548: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.747631: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.747396: D:\github\JDC\competition\model\xception\record\model21\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
-0.746150: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.746147: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.745610: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.741795: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -256,17 +256,17 @@
 0.336538: D:\github\JDC\competition\model\xception\record\model28\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.322581: D:\github\JDC\competition\model\xception\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.318627: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.301724: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.297872: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.295858: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.294118: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.289474: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.288462: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.286344: D:\github\JDC\competition\model\xception\record\model9\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
-0.285714: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.284974: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.280612: D:\github\JDC\competition\model\xception\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
-0.273438: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.273632: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.270270: D:\github\JDC\competition\model\xception\record\model10\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
-0.269058: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.267857: D:\github\JDC\competition\model\inceptionresnetv2\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.265018: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.264317: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
@@ -274,10 +274,10 @@
 0.259067: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.250000: D:\github\JDC\competition\model\xception\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.248756: D:\github\JDC\competition\model\vgg19\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.243902: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 0.240000: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.238095: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.232558: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
-0.222772: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.215517: D:\github\JDC\competition\model\xception\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.214592: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.207101: D:\github\JDC\competition\model\xception\record\model21\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
@@ -361,7 +361,7 @@
 ==========================One label: 9==========================
 0.642934: D:\github\JDC\competition\model\xception\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.641224: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.638800: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.639485: D:\github\JDC\competition\model\densenet201\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.637651: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.636086: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.636066: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
@@ -387,8 +387,8 @@
 0.627501: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.626744: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.624639: D:\github\JDC\competition\model\xception\record\model21\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.622472: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
-0.621017: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+0.624140: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+0.623651: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 
 
 
@@ -403,13 +403,14 @@
 0.782609: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.780581: D:\github\JDC\competition\model\vgg19\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.777908: D:\github\JDC\competition\model\xception\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+0.776022: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.775667: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.772537: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-0.771455: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.770023: D:\github\JDC\competition\model\xception\record\model21\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.769057: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.768610: D:\github\JDC\competition\model\xception\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.766644: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.765513: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.765306: D:\github\JDC\competition\model\xception\record\model10\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.765084: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.764733: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -419,7 +420,6 @@
 0.763921: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
 0.762486: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.761604: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-0.761194: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.758072: D:\github\JDC\competition\model\xception\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.755273: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.754507: D:\github\JDC\competition\model\resnet50\record\model19\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
@@ -441,6 +441,7 @@
 0.533797: D:\github\JDC\competition\model\xception\record\model27\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.533723: D:\github\JDC\competition\model\xception\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.527913: D:\github\JDC\competition\model\xception\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+0.525836: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.525000: D:\github\JDC\competition\model\vgg19\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.524656: D:\github\JDC\competition\model\resnet50\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 0.524619: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
@@ -459,7 +460,6 @@
 0.508880: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.508425: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.505936: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-0.495575: D:\github\JDC\competition\model\inceptionresnetv2\record\model14\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 0.494748: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
 
 
@@ -472,8 +472,8 @@
 0.606407: D:\github\JDC\competition\model\resnet50\record\model18\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.595238: D:\github\JDC\competition\model\xception\record\model28\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 0.582418: D:\github\JDC\competition\model\xception\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+0.561674: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.553279: D:\github\JDC\competition\model\xception\record\model27\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
-0.552083: D:\github\JDC\competition\model\vgg19\record\model16\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 0.549199: D:\github\JDC\competition\model\xception\record\model24\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.536105: D:\github\JDC\competition\model\densenet201\record\model25\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 0.535390: D:\github\JDC\competition\model\densenet169\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
@@ -483,11 +483,11 @@
 0.513834: D:\github\JDC\competition\model\vgg19\record\model17\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.504032: D:\github\JDC\competition\model\densenet201\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
 0.502049: D:\github\JDC\competition\model\xception\record\model20\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
-0.493097: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.495690: D:\github\JDC\competition\model\inceptionresnetv2\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.485437: D:\github\JDC\competition\model\inceptionresnetv2\record\model5\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+0.482042: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.478261: D:\github\JDC\competition\model\densenet169\record\model6\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.472689: D:\github\JDC\competition\model\xception\record\model9\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
-0.467391: D:\github\JDC\competition\model\vgg19\record\model15\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
 0.467091: D:\github\JDC\competition\model\xception\record\model23\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.466179: D:\github\JDC\competition\model\xception\record\model11\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.461538: D:\github\JDC\competition\model\xception\record\model8\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
@@ -495,5 +495,5 @@
 0.455342: D:\github\JDC\competition\model\xception\record\model7\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.446429: D:\github\JDC\competition\model\vgg19\record\model4\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.444840: D:\github\JDC\competition\model\xception\record\model22\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+0.438449: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
 0.428832: D:\github\JDC\competition\model\xception\record\model10\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
-0.415058: D:\github\JDC\competition\model\densenet201\record\model12\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
