@@ -1,3 +1,3 @@
-from model.xception import model27_val5
+from model.xception import model32_val3
 
-model27_val5.train()
+model32_val3.train()
