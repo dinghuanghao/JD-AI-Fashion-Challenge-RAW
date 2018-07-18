@@ -2214,14 +2214,26 @@
         0.336134
       ],
       [
-        "/home/ubuntu/workspace/mount/github/competition/model/nasmobile/record/model7/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
-        0.330189
+        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.330579
       ]
     ],
     [
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.689141
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.686294
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.685435
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.684604
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
@@ -2272,6 +2284,10 @@
         0.665228
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.66377
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.663246
       ],
@@ -2282,22 +2298,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.661838
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.661751
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model9/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.661096
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.660797
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
-        0.660637
       ]
     ],
     [
@@ -2312,6 +2312,10 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.982322
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.982233
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -2332,6 +2336,14 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.982041
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.982006
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.981994
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -2368,18 +2380,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.9817
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.981628
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model31/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.98162
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.981598
       ]
     ],
     [
@@ -2448,20 +2448,20 @@
         0.506912
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.505415
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.504202
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
         0.504202
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
         0.504032
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.5
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
-        0.496183
       ]
     ],
     [
@@ -2474,8 +2474,20 @@
         0.836321
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5",
+        0.835171
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.834154
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.83349
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5",
+        0.833255
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -2532,24 +2544,24 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.823401
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model18/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
-        0.823263
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.822932
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
-        0.821304
       ]
     ],
     [
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.77079
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.768155
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.76589
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.765836
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
@@ -2596,6 +2608,10 @@
         0.756932
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.756816
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model18/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.755953
       ],
@@ -2610,22 +2626,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.754661
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.754206
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.751927
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.750774
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
-        0.749528
       ]
     ],
     [
@@ -2636,6 +2636,14 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model29/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5",
         0.418327
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.414847
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
+        0.411255
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
@@ -2654,8 +2662,16 @@
         0.39823
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.391705
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
         0.386364
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.382883
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
@@ -2692,22 +2708,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.337621
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.328947
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.328125
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
-        0.327869
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.326923
       ]
     ],
     [
@@ -2724,8 +2724,16 @@
         0.509424
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.508256
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model31/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.506051
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.504132
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -2750,6 +2758,10 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.496395
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.49591
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
@@ -2778,18 +2790,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
         0.481786
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model25/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.481481
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.480877
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.480106
       ]
     ],
     [
@@ -2826,12 +2826,20 @@
         0.980345
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.980273
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
         0.980256
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model9/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.980237
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.980217
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
@@ -2864,17 +2872,17 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.979976
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.979925
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
-        0.979826
       ]
     ],
     [
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.663037
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.656706
+      ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.654298
@@ -2888,12 +2896,20 @@
         0.650342
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.650074
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model31/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.648274
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
         0.64718
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.645922
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
@@ -2938,25 +2954,21 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
         0.633211
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.63143
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.630737
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
-        0.630097
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model18/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.629917
       ]
     ],
     [
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.798289
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.793532
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.791941
+      ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.776759
@@ -3024,18 +3036,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model9/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.760156
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model25/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
-        0.757838
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.757358
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model5/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.756522
       ]
     ],
     [
@@ -3044,12 +3044,24 @@
         0.542636
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.542306
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.53851
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model29/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.538462
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.537996
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.533123
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model4/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
@@ -3106,24 +3118,16 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
         0.509383
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.507572
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model31/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
-        0.507246
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.505549
       ]
     ],
     [
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model30/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
         0.560641
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.544872
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
@@ -3134,12 +3138,24 @@
         0.530973
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.519912
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5",
+        0.506757
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.498812
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5",
         0.489362
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model32/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
+        0.487805
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -3184,22 +3200,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model21/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
         0.456432
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.454545
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model22/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.45045
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model23/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
-        0.449791
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model31/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.447598
       ]
     ]
   ],
@@ -3258,6 +3258,10 @@
         0.327103
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
+        0.318182
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model12/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.012.hdf5",
         0.308642
       ],
@@ -3280,13 +3284,13 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model21/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
         0.277778
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model5/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5",
-        0.267857
       ]
     ],
     [
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.681489
+      ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model12/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5",
         0.677589
@@ -3362,10 +3366,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet121/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
         0.65489
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.654577
       ]
     ],
     [
@@ -3414,6 +3414,10 @@
         0.982345
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
+        0.982264
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model32/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
         0.982241
       ],
@@ -3444,10 +3448,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.981815
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model19/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.981797
       ]
     ],
     [
@@ -3516,6 +3516,10 @@
         0.477707
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
+        0.471125
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet121/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5",
         0.464072
       ],
@@ -3526,10 +3530,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model5/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.459016
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5",
-        0.451807
       ]
     ],
     [
@@ -3544,6 +3544,10 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
         0.829004
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.828797
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model12/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
@@ -3608,16 +3612,16 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
         0.818178
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.817769
       ]
     ],
     [
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model12/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
         0.762506
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.760067
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model25/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5",
@@ -3690,16 +3694,16 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.746311
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet121/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.746254
       ]
     ],
     [
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.488889
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
+        0.483092
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -3772,10 +3776,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.38
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5",
-        0.373832
       ]
     ],
     [
@@ -3790,6 +3790,10 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model3/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
         0.488889
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.487735
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
@@ -3854,10 +3858,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
         0.453225
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
-        0.453181
       ]
     ],
     [
@@ -3918,6 +3918,10 @@
         0.979652
       ],
       [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.979564
+      ],
+      [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model5/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.979548
       ],
@@ -3936,13 +3940,13 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.979478
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model21/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.979401
       ]
     ],
     [
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.648347
+      ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
         0.644984
@@ -4018,13 +4022,13 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5",
         0.626407
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet121/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
-        0.623023
       ]
     ],
     [
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.804972
+      ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
         0.800048
@@ -4100,10 +4104,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/densenet201/record/model34/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.759229
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
-        0.757717
       ]
     ],
     [
@@ -4118,6 +4118,10 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model11/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
         0.538421
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
+        0.536168
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/inceptionv3/record/model14/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
@@ -4182,10 +4186,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5",
         0.495868
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/inceptionresnetv2/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
-        0.492958
       ]
     ],
     [
@@ -4208,6 +4208,10 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg16/record/model4/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5",
         0.494012
+      ],
+      [
+        "/home/ubuntu/workspace/mount/github/competition/model/xception/record/model27/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5",
+        0.485075
       ],
       [
         "/home/ubuntu/workspace/mount/github/competition/model/vgg19/record/model17/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5",
@@ -4264,10 +4268,6 @@
       [
         "/home/ubuntu/workspace/mount/github/competition/model/resnet50/record/model16/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
         0.369393
-      ],
-      [
-        "/home/ubuntu/workspace/mount/github/competition/model/densenet169/record/model7/val4/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5",
-        0.364807
       ]
     ]
   ],
