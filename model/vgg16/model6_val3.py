@@ -1,5 +1,5 @@
 """
-以model 4为基础，新增real crop
+以model 2为基础，新增real crop
 """
 import math
 import os
@@ -24,12 +24,11 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 label_up_sampling=[10, 0, 0, 10, 0, 0, 10, 0, 0, 0, 0, 0, 10],
                                 data_visualization=True,
                                 downsampling=0.5,
-                                val_batch_size=256,
-                                predict_batch_size=256,
+                                val_batch_size=128,
+                                predict_batch_size=128,
                                 epoch=[1, 2, 5],
                                 lr=[0.001, 0.0001, 0.00001],
                                 freeze_layers=[-1, 5, 0],
-                                tta_crop=True,
                                 tta_flip=True,
                                 input_norm=False)
 
@@ -72,13 +71,13 @@ def train():
     checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
 
     start = time.time()
-    model_config.save_log("####### start train model")
+    print("####### start train model")
 
     init_stage = model_config.get_init_stage()
-    model_config.save_log("####### init stage is %d" % init_stage)
+    print("####### init stage is %d" % init_stage)
 
     for i in range(init_stage, len(model_config.epoch)):
-        model_config.save_log("####### lr=%f, freeze layers=%2f epoch=%d" % (
+        print("####### lr=%f, freeze layers=%2f epoch=%d" % (
             model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
         clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
                                           step_size=model_config.get_steps_per_epoch(i) / 2)
@@ -98,7 +97,7 @@ def train():
                                                                                   label_position=model_config.label_position)
 
         if i == 0:
-            model_config.save_log("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
+            print("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
             model = get_model(freeze_layers=model_config.freeze_layers[i], lr=model_config.lr[i],
                               output_dim=len(model_config.label_position))
             model.fit_generator(generator=train_flow,
@@ -112,11 +111,10 @@ def train():
                               lr=model_config.lr[i], weights=None)
 
             if i == init_stage:
-                model_config.save_log(
-                    "####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
+                print("####### load weight file: %s" % model_config.get_weights_path(model_config.initial_epoch))
                 model.load_weights(model_config.get_weights_path(model_config.initial_epoch))
 
-                model_config.save_log("####### initial epoch is %d, end epoch is %d" % (
+                print("####### initial epoch is %d, end epoch is %d" % (
                     model_config.initial_epoch, model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
@@ -126,11 +124,10 @@ def train():
                                     verbose=1,
                                     callbacks=[checkpoint, clr])
             else:
-                model_config.save_log(
-                    "####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
+                print("####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
                 model.load_weights(model_config.get_weights_path(model_config.epoch[i - 1]))
 
-                model_config.save_log(
+                print(
                     "####### initial epoch is %d, end epoch is %d" % (model_config.epoch[i - 1], model_config.epoch[i]))
                 model.fit_generator(generator=train_flow,
                                     steps_per_epoch=model_config.get_steps_per_epoch(i),
@@ -140,6 +137,5 @@ def train():
                                     verbose=1,
                                     callbacks=[checkpoint, clr])
 
-    model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
-    model_config.save_log(
-        "####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
+    print("####### train model spend %d seconds" % (time.time() - start))
+    print("####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))

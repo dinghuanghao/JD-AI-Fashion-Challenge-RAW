@@ -1,0 +1,19 @@
+2018-07-18:22:01:21: add 7453 color augmentation file
+2018-07-18:22:01:21: train files is 51380 before up sampling
+2018-07-18:22:01:22: up sampling times: ['1360', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130'], totaol: 10930
+2018-07-18:22:01:22: train files is 62310 after up sampling
+2018-07-18:22:01:22: train file: 49327, val file: 10981
+2018-07-18:22:01:23: add 7453 color augmentation file
+2018-07-18:22:01:23: train files is 51380 before up sampling
+2018-07-18:22:01:24: up sampling times: ['1360', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130'], totaol: 10930
+2018-07-18:22:01:24: train files is 62310 after up sampling
+2018-07-18:22:01:25: train file: 49203, val file: 10981
+2018-07-18:22:02:35: add 7453 color augmentation file
+2018-07-18:22:02:35: train files is 51380 before up sampling
+2018-07-18:22:02:36: up sampling times: ['1360', '0', '0', '3100', '0', '0', '2340', '0', '0', '0', '0', '0', '4130'], totaol: 10930
+2018-07-18:22:02:36: train files is 62310 after up sampling
+2018-07-18:22:02:36: train file: 49202, val file: 10981
+2018-07-18:22:10:31: on epoch 1 end, save weight:D:\github\JDC\competition\model\vgg16\record\model6\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-18:22:10:50: start predict with tta
+2018-07-18:22:10:50: start predict with tta index is 0, data type is original
+2018-07-18:22:13:01: start predict with tta index is 1, data type is original
