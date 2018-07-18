@@ -29,3 +29,9 @@
 2018-07-18:17:15:00: start predict with tta
 2018-07-18:17:15:00: start predict with tta index is 0, data type is original
 2018-07-18:17:17:10: start predict with tta index is 1, data type is original
+2018-07-18:17:42:43: on epoch 5 end, save weight:D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-18:17:42:45: start predict with tta
+2018-07-18:17:42:45: start predict with tta index is 0, data type is original
+2018-07-18:17:44:56: start predict with tta index is 1, data type is original
+2018-07-18:17:47:15: ####### train model spend 7760 seconds
+2018-07-18:17:47:15: ####### train model spend 1552 seconds average
