@@ -1,3 +1,3 @@
-from model.vgg19 import model17_val2
+from model.vgg19 import model22_val4
 
-model17_val2.train()
+model22_val4.train()
