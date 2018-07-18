@@ -4,3 +4,11 @@
 2018-07-18:17:59:28: train file: 51380, val file: 10981
 2018-07-18:18:33:07: add 7453 color augmentation file
 2018-07-18:18:33:08: train file: 51380, val file: 10981
+2018-07-18:19:01:10: on epoch 1 end, save weight:F:\Projects\competition\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-18:19:02:54: start predict with tta
+2018-07-18:19:02:54: start predict with tta index is 0, data type is original
+2018-07-18:19:04:32: start predict with tta index is 1, data type is original
+2018-07-18:19:29:24: on epoch 2 end, save weight:F:\Projects\competition\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-18:19:29:25: start predict with tta
+2018-07-18:19:29:25: start predict with tta index is 0, data type is original
+2018-07-18:19:30:54: start predict with tta index is 1, data type is original
