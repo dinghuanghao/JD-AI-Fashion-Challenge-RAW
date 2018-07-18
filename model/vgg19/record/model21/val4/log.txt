@@ -1,0 +1,31 @@
+2018-07-18:15:37:54: add 7449 color augmentation file
+2018-07-18:15:37:54: train files is 51375 before up sampling
+2018-07-18:15:37:54: up sampling times: ['1580', '0', '0', '2840', '0', '0', '2280', '0', '0', '0', '0', '0', '4600'], totaol: 11300
+2018-07-18:15:37:54: train files is 62675 after up sampling
+2018-07-18:15:37:54: train file: 49630, val file: 10982
+2018-07-18:15:37:54: ####### start train model
+2018-07-18:15:37:54: ####### init stage is 0
+2018-07-18:15:37:54: ####### lr=0.001000, freeze layers=-1.000000 epoch=1
+2018-07-18:15:37:55: ####### initial epoch is 0, end epoch is 1
+2018-07-18:15:45:59: on epoch 1 end, save weight:D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-18:15:46:18: start predict with tta
+2018-07-18:15:46:18: start predict with tta index is 0, data type is original
+2018-07-18:15:48:38: start predict with tta index is 1, data type is original
+2018-07-18:15:51:04: ####### lr=0.000100, freeze layers=5.000000 epoch=2
+2018-07-18:15:51:17: ####### load weight file: D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-18:15:51:22: ####### initial epoch is 1, end epoch is 2
+2018-07-18:16:15:35: on epoch 2 end, save weight:D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-18:16:16:40: start predict with tta
+2018-07-18:16:16:40: start predict with tta index is 0, data type is original
+2018-07-18:16:19:01: start predict with tta index is 1, data type is original
+2018-07-18:16:21:29: ####### lr=0.000010, freeze layers=0.000000 epoch=5
+2018-07-18:16:21:42: ####### load weight file: D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-18:16:21:49: ####### initial epoch is 2, end epoch is 5
+2018-07-18:16:45:15: on epoch 3 end, save weight:D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-18:16:47:11: start predict with tta
+2018-07-18:16:47:11: start predict with tta index is 0, data type is original
+2018-07-18:16:49:25: start predict with tta index is 1, data type is original
+2018-07-18:17:14:58: on epoch 4 end, save weight:D:\github\JDC\competition\model\vgg19\record\model21\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-18:17:15:00: start predict with tta
+2018-07-18:17:15:00: start predict with tta index is 0, data type is original
+2018-07-18:17:17:10: start predict with tta index is 1, data type is original
