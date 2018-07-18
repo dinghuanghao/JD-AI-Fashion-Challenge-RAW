@@ -1,13 +1,4 @@
-from model.inceptionv3 import model21_val3
-from model.inceptionv3 import model21_val4
-from model.inceptionv3 import model22_val3
-from model.inceptionv3 import model23_val3
-from time import sleep
+from model.inceptionv3 import model24_val3, model24_val4
 
-model21_val3.train()
-sleep(300)
-model21_val4.train()
-sleep(300)
-model22_val3.train()
-sleep(300)
-model23_val3.train()
+model24_val3.train()
+model24_val4.train()
