@@ -1,0 +1,41 @@
+2018-07-17:17:30:17: add 7453 color augmentation file
+2018-07-17:17:30:17: train files is 51380 before up sampling
+2018-07-17:17:30:17: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '33040'], totaol: 33040
+2018-07-17:17:30:17: train files is 84420 after up sampling
+2018-07-17:17:30:19: train file: 79280, val file: 10981
+2018-07-18:01:43:12: add 7453 color augmentation file
+2018-07-18:01:43:12: train files is 51380 before up sampling
+2018-07-18:01:43:12: up sampling times: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '33040'], totaol: 33040
+2018-07-18:01:43:12: train files is 84420 after up sampling
+2018-07-18:01:43:13: train file: 79263, val file: 10981
+2018-07-18:03:39:29: ####### start train model
+2018-07-18:03:39:29: ####### init stage is 0
+2018-07-18:03:39:29: ####### lr=0.000100, freeze layers=10.000000 epoch=2
+2018-07-18:03:39:30: ####### initial epoch is 0, end epoch is 2
+2018-07-18:04:05:50: on epoch 1 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-07-18:04:06:07: start predict with tta
+2018-07-18:04:06:07: start predict with tta index is 0, data type is original
+2018-07-18:04:07:46: start predict with tta index is 1, data type is original
+2018-07-18:04:35:06: on epoch 2 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-18:04:35:06: start predict with tta
+2018-07-18:04:35:06: start predict with tta index is 0, data type is original
+2018-07-18:04:36:43: start predict with tta index is 1, data type is original
+2018-07-18:04:38:24: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-07-18:04:38:36: ####### load weight file: /home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-07-18:04:38:41: ####### initial epoch is 2, end epoch is 6
+2018-07-18:05:04:46: on epoch 3 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-07-18:05:05:09: start predict with tta
+2018-07-18:05:05:09: start predict with tta index is 0, data type is original
+2018-07-18:05:06:48: start predict with tta index is 1, data type is original
+2018-07-18:05:34:09: on epoch 4 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-18:05:34:10: start predict with tta
+2018-07-18:05:34:10: start predict with tta index is 0, data type is original
+2018-07-18:05:35:47: start predict with tta index is 1, data type is original
+2018-07-18:06:03:12: on epoch 5 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-18:06:03:12: start predict with tta
+2018-07-18:06:03:12: start predict with tta index is 0, data type is original
+2018-07-18:06:04:49: start predict with tta index is 1, data type is original
+2018-07-18:06:32:18: on epoch 6 end, save weight:/home/ubuntu/workspace/mount/github/competition/model/xception/record/model28/val3/['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-18:06:32:18: start predict with tta
+2018-07-18:06:32:18: start predict with tta index is 0, data type is original
+2018-07-18:06:33:55: start predict with tta index is 1, data type is original

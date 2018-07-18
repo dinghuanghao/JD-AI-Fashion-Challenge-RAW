@@ -19,4 +19,4 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.get_meta_predict([2, 3, 5], get_segmented=False)
+model.train_all_label()

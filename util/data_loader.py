@@ -607,8 +607,8 @@ def image_copy():
 
 
 if __name__ == '__main__':
-    # weight_name_repair()
-    image_copy()
+    weight_name_repair()
+    # image_copy()
     # image_repair()
     # remove_image_name_header(path.ORIGINAL_TRAIN_IMAGES_PATH)
     # remove_image_name_header(path.SEGMENTED_TRAIN_IMAGES_PATH)
