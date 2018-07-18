@@ -12,6 +12,5 @@ sys.path.append(os.path.abspath("../"))
 # model30_val5.train()
 # model30_val2.train()
 
-from model.densenet201 import model37_val3
-
-model37_val3.train()
+from model.inceptionresnetv2 import  model17_val3
+model17_val3.train()
