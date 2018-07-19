@@ -1,102 +1,95 @@
-2018-07-18:14:42:28: start search val 1
-2018-07-18:14:42:28: start search label 0
-2018-07-18:14:42:28: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-18:14:42:28: start search label 1
-2018-07-18:14:42:28: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-2018-07-18:14:42:28: start search label 2
-2018-07-18:14:42:28: start search label 3
-2018-07-18:14:42:28: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-2018-07-18:14:42:28: start search label 4
-2018-07-18:14:42:28: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
-2018-07-18:14:42:28: start search label 5
-2018-07-18:14:42:28: start search label 6
-2018-07-18:14:42:28: start search label 7
-2018-07-18:14:42:28: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-18:14:42:28: start search label 8
-2018-07-18:14:42:28: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-18:14:42:28: start search label 9
-2018-07-18:14:42:28: start search label 10
-2018-07-18:14:42:28: start search label 11
-2018-07-18:14:42:28: start search label 12
-2018-07-18:14:42:28: start search val 2
-2018-07-18:14:42:28: start search label 0
-2018-07-18:14:42:28: start search label 1
-2018-07-18:14:42:28: start search label 2
-2018-07-18:14:42:28: start search label 3
-2018-07-18:14:42:28: start search label 4
-2018-07-18:14:42:28: start search label 5
-2018-07-18:14:42:28: start search label 6
-2018-07-18:14:42:28: start search label 7
-2018-07-18:14:42:28: start search label 8
-2018-07-18:14:42:28: start search label 9
-2018-07-18:14:42:28: start search label 10
-2018-07-18:14:42:28: start search label 11
-2018-07-18:14:42:28: start search label 12
-2018-07-18:14:42:28: start search val 3
-2018-07-18:14:42:28: start search label 0
-2018-07-18:14:42:28: start search label 1
-2018-07-18:14:42:28: start search label 2
-2018-07-18:14:42:28: start search label 3
-2018-07-18:14:42:28: start search label 4
-2018-07-18:14:42:28: start search label 5
-2018-07-18:14:42:28: start search label 6
-2018-07-18:14:42:28: start search label 7
-2018-07-18:14:42:28: start search label 8
-2018-07-18:14:42:28: start search label 9
-2018-07-18:14:42:28: start search label 10
-2018-07-18:14:42:28: start search label 11
-2018-07-18:14:42:28: start search label 12
-2018-07-18:14:42:28: start search val 4
-2018-07-18:14:42:28: start search label 0
-2018-07-18:14:42:28: start search label 1
-2018-07-18:14:42:28: start search label 2
-2018-07-18:14:42:28: start search label 3
-2018-07-18:14:42:28: start search label 4
-2018-07-18:14:42:28: start search label 5
-2018-07-18:14:42:28: start search label 6
-2018-07-18:14:42:28: start search label 7
-2018-07-18:14:42:28: start search label 8
-2018-07-18:14:42:28: start search label 9
-2018-07-18:14:42:28: start search label 10
-2018-07-18:14:42:28: start search label 11
-2018-07-18:14:42:28: start search label 12
-2018-07-18:14:42:28: start search val 5
-2018-07-18:14:42:28: start search label 0
-2018-07-18:14:42:28: start search label 1
-2018-07-18:14:42:28: start search label 2
-2018-07-18:14:42:28: start search label 3
-2018-07-18:14:42:28: start search label 4
-2018-07-18:14:42:28: start search label 5
-2018-07-18:14:42:28: start search label 6
-2018-07-18:14:42:28: start search label 7
-2018-07-18:14:42:28: start search label 8
-2018-07-18:14:42:28: start search label 9
-2018-07-18:14:42:28: start search label 10
-2018-07-18:14:42:28: start search label 11
-2018-07-18:14:42:28: start search label 12
-2018-07-18:15:02:08: load meta model info
-2018-07-18:15:06:54: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:11:45: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
-2018-07-18:15:11:45: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
-2018-07-18:15:11:45: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5 
-2018-07-18:15:11:45: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:11:45: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
-2018-07-18:15:16:35: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:16:35: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:16:35: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
-2018-07-18:15:16:35: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
-2018-07-18:15:16:35: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
-2018-07-18:15:16:35: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
-2018-07-18:15:19:01: load meta model info
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5 
-2018-07-18:15:19:01: weight not existed, H:\backup\model\xception\record\model32\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
+2018-07-19:08:40:07: start search val 1
+2018-07-19:08:40:07: start search label 0
+2018-07-19:08:40:07: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-19:08:40:07: start search label 1
+2018-07-19:08:40:07: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-19:08:40:07: start search label 2
+2018-07-19:08:40:07: start search label 3
+2018-07-19:08:40:07: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-07-19:08:40:07: start search label 4
+2018-07-19:08:40:07: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-07-19:08:40:07: start search label 5
+2018-07-19:08:40:07: start search label 6
+2018-07-19:08:40:07: start search label 7
+2018-07-19:08:40:07: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-19:08:40:07: start search label 8
+2018-07-19:08:40:07: ignore[corr 1.000000] D:\github\JDC\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-07-19:08:40:07: start search label 9
+2018-07-19:08:40:07: start search label 10
+2018-07-19:08:40:07: start search label 11
+2018-07-19:08:40:07: start search label 12
+2018-07-19:08:40:07: start search val 2
+2018-07-19:08:40:07: start search label 0
+2018-07-19:08:40:07: start search label 1
+2018-07-19:08:40:07: start search label 2
+2018-07-19:08:40:07: start search label 3
+2018-07-19:08:40:07: start search label 4
+2018-07-19:08:40:07: start search label 5
+2018-07-19:08:40:07: start search label 6
+2018-07-19:08:40:07: start search label 7
+2018-07-19:08:40:07: start search label 8
+2018-07-19:08:40:07: start search label 9
+2018-07-19:08:40:07: start search label 10
+2018-07-19:08:40:07: start search label 11
+2018-07-19:08:40:07: start search label 12
+2018-07-19:08:40:07: start search val 3
+2018-07-19:08:40:07: start search label 0
+2018-07-19:08:40:07: start search label 1
+2018-07-19:08:40:07: start search label 2
+2018-07-19:08:40:07: start search label 3
+2018-07-19:08:40:07: start search label 4
+2018-07-19:08:40:07: start search label 5
+2018-07-19:08:40:07: start search label 6
+2018-07-19:08:40:07: start search label 7
+2018-07-19:08:40:07: start search label 8
+2018-07-19:08:40:07: start search label 9
+2018-07-19:08:40:07: start search label 10
+2018-07-19:08:40:07: start search label 11
+2018-07-19:08:40:07: start search label 12
+2018-07-19:08:40:07: start search val 4
+2018-07-19:08:40:07: start search label 0
+2018-07-19:08:40:07: start search label 1
+2018-07-19:08:40:07: start search label 2
+2018-07-19:08:40:07: start search label 3
+2018-07-19:08:40:07: start search label 4
+2018-07-19:08:40:07: start search label 5
+2018-07-19:08:40:07: start search label 6
+2018-07-19:08:40:07: start search label 7
+2018-07-19:08:40:07: start search label 8
+2018-07-19:08:40:07: start search label 9
+2018-07-19:08:40:07: start search label 10
+2018-07-19:08:40:07: start search label 11
+2018-07-19:08:40:07: start search label 12
+2018-07-19:08:40:07: start search val 5
+2018-07-19:08:40:07: start search label 0
+2018-07-19:08:40:07: start search label 1
+2018-07-19:08:40:07: start search label 2
+2018-07-19:08:40:07: start search label 3
+2018-07-19:08:40:07: start search label 4
+2018-07-19:08:40:07: start search label 5
+2018-07-19:08:40:07: start search label 6
+2018-07-19:08:40:07: start search label 7
+2018-07-19:08:40:07: start search label 8
+2018-07-19:08:40:07: start search label 9
+2018-07-19:08:40:07: start search label 10
+2018-07-19:08:40:07: start search label 11
+2018-07-19:08:40:07: start search label 12
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5 
+2018-07-19:08:40:07: weight not existed, H:\backup\model\xception\record\model29\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
+2018-07-19:09:01:52: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
+2018-07-19:09:08:34: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
+2018-07-19:09:08:34: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
+2018-07-19:09:12:54: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5 
+2018-07-19:09:12:54: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5 
+2018-07-19:09:12:54: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
+2018-07-19:09:12:54: weight not existed, H:\backup\model\densenet169\record\model7\val3\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5 
