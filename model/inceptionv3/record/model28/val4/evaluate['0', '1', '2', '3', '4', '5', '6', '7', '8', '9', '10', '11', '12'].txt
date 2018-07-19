@@ -1,6 +1,6 @@
 
 
-Weight: F:\Projects\competition\model\inceptionv3\record\model24\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model28\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
 Smooth F2-Score: 0.410338
 F2-Score with threshold 0.1: 0.550092
 F2-Score with threshold 0.2: 0.529485
@@ -20,7 +20,7 @@ Greedy F2-Score is: 0.598030
 [label 12]	smooth-f2=0.413397   greedy-f2=0.501193[0.330000]
 
 
-Weight: F:\Projects\competition\model\inceptionv3\record\model24\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model28\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
 Smooth F2-Score: 0.421905
 F2-Score with threshold 0.1: 0.583247
 F2-Score with threshold 0.2: 0.561992
@@ -40,7 +40,7 @@ Greedy F2-Score is: 0.599750
 [label 12]	smooth-f2=0.344701   greedy-f2=0.414201[0.430000]
 
 
-Weight: F:\Projects\competition\model\inceptionv3\record\model24\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model28\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
 Smooth F2-Score: 0.456839
 F2-Score with threshold 0.1: 0.602048
 F2-Score with threshold 0.2: 0.581092
@@ -60,7 +60,7 @@ Greedy F2-Score is: 0.614377
 [label 12]	smooth-f2=0.327769   greedy-f2=0.459610[0.050000]
 
 
-Weight: F:\Projects\competition\model\inceptionv3\record\model24\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model28\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
 Smooth F2-Score: 0.460176
 F2-Score with threshold 0.1: 0.597164
 F2-Score with threshold 0.2: 0.588591
@@ -80,7 +80,7 @@ Greedy F2-Score is: 0.611711
 [label 12]	smooth-f2=0.291160   greedy-f2=0.410448[0.010000]
 
 
-Weight: F:\Projects\competition\model\inceptionv3\record\model24\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Weight: F:\Projects\competition\model\inceptionv3\record\model28\val4\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
 Smooth F2-Score: 0.475437
 F2-Score with threshold 0.1: 0.599445
 F2-Score with threshold 0.2: 0.591186
