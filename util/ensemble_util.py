@@ -8,7 +8,6 @@ import pathlib
 import time
 import sys
 
-
 import numpy as np
 import xgboost as xgb
 from sklearn.metrics import fbeta_score
@@ -171,12 +170,12 @@ class EnsembleModel(object):
     def get_meta_predict(self, val_index, get_segmented=False, debug=False):
         original_test_file = []
         segmented_test_file = []
+        cnt = 0
         with open(path.TEST_DATA_TXT, 'r') as f:
             for i in f.readlines():
                 image_name = i.split(",")[0] + ".jpg"
                 original_test_file.append(os.path.join(path.ORIGINAL_TEST_IMAGES_PATH, image_name))
                 segmented_test_file.append(os.path.join(path.SEGMENTED_TEST_IMAGES_PATH, image_name))
-
 
         for val in val_index:
             val_model = self.meta_model_all[val - 1]
@@ -202,6 +201,7 @@ class EnsembleModel(object):
 
                     if debug:
                         print(f"{weight_file}")
+                        cnt += 1
                         continue
 
                     # self.save_log("weight file %s, real weight file %s" % (weight_file, real_weight_file))
@@ -224,6 +224,8 @@ class EnsembleModel(object):
 
                     y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
                     keras_util.save_prediction_file(y_pred, cnn_result_path)
+
+        print(f"need predict {cnt} model")
 
     def build_datasets(self, val_index, target_label, train_label=None):
         assert len(self.meta_model_all) == 5
@@ -629,7 +631,6 @@ class XGBoostModel(EnsembleModel):
         np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg[cnn].npy" % self.file_name), pre_y)
         submit_util.save_submit(pre_y, "xgb_%s_avg[cnn].txt" % self.file_name)
 
-
         test_x = self.build_test_datasets(cnn_avg=False)
         # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
         pre_y = self.predict_test(test_x, xgb_avg=True)
@@ -761,7 +762,7 @@ class XGBoostModel(EnsembleModel):
                     f.write("label %d positive number: %d\n" % (label, pred_label[pred_label > 0].size))
 
                 corr = df.corr()
-                statis.heap_map(corr, statis_path, save_file + f"label_{label}" +".png")
+                statis.heap_map(corr, statis_path, save_file + f"label_{label}" + ".png")
 
 
 if __name__ == '__main__':
