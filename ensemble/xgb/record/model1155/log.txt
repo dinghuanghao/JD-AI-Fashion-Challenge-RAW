@@ -1,76 +1,68 @@
-2018-07-19:13:08:56: start search val 1
-2018-07-19:13:08:56: start search label 0
-2018-07-19:13:08:56: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-19:13:08:56: start search label 1
-2018-07-19:13:08:56: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-2018-07-19:13:08:56: start search label 2
-2018-07-19:13:08:56: start search label 3
-2018-07-19:13:08:56: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
-2018-07-19:13:08:56: start search label 4
-2018-07-19:13:08:56: start search label 5
-2018-07-19:13:08:56: start search label 6
-2018-07-19:13:08:56: start search label 7
-2018-07-19:13:08:56: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-19:13:08:56: start search label 8
-2018-07-19:13:08:56: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
-2018-07-19:13:08:56: start search label 9
-2018-07-19:13:08:56: start search label 10
-2018-07-19:13:08:56: start search label 11
-2018-07-19:13:08:56: start search label 12
-2018-07-19:13:08:56: start search val 2
-2018-07-19:13:08:56: start search label 0
-2018-07-19:13:08:56: start search label 1
-2018-07-19:13:08:56: start search label 2
-2018-07-19:13:08:56: start search label 3
-2018-07-19:13:08:56: start search label 4
-2018-07-19:13:08:56: start search label 5
-2018-07-19:13:08:56: start search label 6
-2018-07-19:13:08:56: start search label 7
-2018-07-19:13:08:56: start search label 8
-2018-07-19:13:08:56: start search label 9
-2018-07-19:13:08:56: start search label 10
-2018-07-19:13:08:56: start search label 11
-2018-07-19:13:08:56: start search label 12
-2018-07-19:13:08:56: start search val 3
-2018-07-19:13:08:56: start search label 0
-2018-07-19:13:08:56: start search label 1
-2018-07-19:13:08:56: start search label 2
-2018-07-19:13:08:56: start search label 3
-2018-07-19:13:08:56: start search label 4
-2018-07-19:13:08:56: start search label 5
-2018-07-19:13:08:56: start search label 6
-2018-07-19:13:08:56: start search label 7
-2018-07-19:13:08:56: start search label 8
-2018-07-19:13:08:56: start search label 9
-2018-07-19:13:08:56: start search label 10
-2018-07-19:13:08:56: start search label 11
-2018-07-19:13:08:56: start search label 12
-2018-07-19:13:08:56: start search val 4
-2018-07-19:13:08:56: start search label 0
-2018-07-19:13:08:56: start search label 1
-2018-07-19:13:08:56: start search label 2
-2018-07-19:13:08:56: start search label 3
-2018-07-19:13:08:56: start search label 4
-2018-07-19:13:08:56: start search label 5
-2018-07-19:13:08:56: start search label 6
-2018-07-19:13:08:56: start search label 7
-2018-07-19:13:08:56: start search label 8
-2018-07-19:13:08:56: start search label 9
-2018-07-19:13:08:56: start search label 10
-2018-07-19:13:08:56: start search label 11
-2018-07-19:13:08:56: start search label 12
-2018-07-19:13:08:56: start search val 5
-2018-07-19:13:08:56: start search label 0
-2018-07-19:13:08:56: start search label 1
-2018-07-19:13:08:56: start search label 2
-2018-07-19:13:08:56: start search label 3
-2018-07-19:13:08:56: start search label 4
-2018-07-19:13:08:56: start search label 5
-2018-07-19:13:08:56: start search label 6
-2018-07-19:13:08:56: start search label 7
-2018-07-19:13:08:56: start search label 8
-2018-07-19:13:08:56: start search label 9
-2018-07-19:13:08:56: start search label 10
-2018-07-19:13:08:56: start search label 11
-2018-07-19:13:08:56: start search label 12
-2018-07-19:16:47:52: load meta model info
+2018-07-19:19:45:56: load meta model info
+2018-07-19:19:45:56: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val1_label0.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label0.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val1_label1.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label1.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val1_label2.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label2.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val1_label3.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label3.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val1_label4.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label4.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val1_label5.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label5.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val1_label6.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label6.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val1_label7.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label7.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val1_label8.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label8.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val1_label9.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label9.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val1_label10.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label10.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1151\booster\ensemble_val1_label11.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label11.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val1_label12.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val1_label12.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val2_label0.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label0.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val2_label1.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label1.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val2_label2.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label2.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val2_label3.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label3.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val2_label4.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label4.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val2_label5.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label5.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val2_label6.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label6.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val2_label7.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label7.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1151\booster\ensemble_val2_label8.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label8.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val2_label9.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label9.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val2_label10.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label10.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val2_label11.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label11.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val2_label12.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val2_label12.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val3_label0.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label0.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val3_label1.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label1.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val3_label2.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label2.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val3_label3.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label3.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val3_label4.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label4.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val3_label5.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label5.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val3_label6.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label6.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val3_label7.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label7.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val3_label8.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label8.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val3_label9.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label9.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val3_label10.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label10.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val3_label11.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label11.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val3_label12.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val3_label12.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val4_label0.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label0.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val4_label1.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label1.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val4_label2.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label2.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val4_label3.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label3.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val4_label4.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label4.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val4_label5.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label5.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val4_label6.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label6.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val4_label7.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label7.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val4_label8.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label8.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val4_label9.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label9.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val4_label10.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label10.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1151\booster\ensemble_val4_label11.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label11.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val4_label12.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val4_label12.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val5_label0.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label0.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val5_label1.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label1.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val5_label2.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label2.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val5_label3.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label3.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val5_label4.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label4.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val5_label5.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label5.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val5_label6.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label6.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val5_label7.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label7.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1153\booster\ensemble_val5_label8.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label8.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val5_label9.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label9.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1152\booster\ensemble_val5_label10.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label10.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1151\booster\ensemble_val5_label11.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label11.xgb
+2018-07-19:19:45:57: copy model, F:\Projects\competition\ensemble\xgb\record\model1154\booster\ensemble_val5_label12.xgb -> F:\Projects\competition\ensemble\xgb\record\model1155\booster\ensemble_val5_label12.xgb
+2018-07-19:19:46:00: use cnn avg
+2018-07-19:19:46:05: use xgb avg

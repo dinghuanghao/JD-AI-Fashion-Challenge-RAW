@@ -6,11 +6,11 @@ sys.path.append(os.path.abspath("../../"))
 from util import ensemble_util
 
 model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
-                                   corr_threshold=0.9, search=25, top_n=20,
+                                   corr_threshold=0.9, search=20, top_n=15,
                                    eval_func=ensemble_util.xgb_sparse_greedy_f2_metric,
                                    meta_model_dir="E:\\backup\\jdfc",
                                    xgb_param={
-                                       'eta': [0.05],
+                                       'eta': [0.2],
                                        'silent': True,  # option for logging
                                        'objective': 'binary:logistic',  # error evaluation for multiclass tasks
                                        'max_depth': range(2, 11),  # depth of the trees in the boosting process
@@ -20,4 +20,6 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    )
 
 # model.train_all_label()
-model.get_meta_predict([1, 2, 3, 4, 5], False)
+# model.get_meta_predict([1, 2, 3, 4, 5], False)
+model.model_merge(["model1151", "model1152", "model1153", "model1154"])
+model.build_and_predict_test()

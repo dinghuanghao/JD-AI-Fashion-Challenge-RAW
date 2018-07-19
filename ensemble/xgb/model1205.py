@@ -19,6 +19,6 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.get_meta_predict([1, 2, 3, 4, 5], False)
-# model.model_merge(["model201", "model202", "model203", "model204"])
-# model.build_and_predict_test()
+# model.get_meta_predict([1, 2, 3, 4, 5], False)
+model.model_merge(["model1201", "model1202", "model1203", "model1204"])
+model.build_and_predict_test()
