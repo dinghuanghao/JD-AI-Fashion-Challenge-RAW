@@ -35,3 +35,14 @@
 2018-07-18:17:44:56: start predict with tta index is 1, data type is original
 2018-07-18:17:47:15: ####### train model spend 7760 seconds
 2018-07-18:17:47:15: ####### train model spend 1552 seconds average
+2018-07-19:11:59:55: add 7449 color augmentation file
+2018-07-19:11:59:55: train files is 51375 before up sampling
+2018-07-19:11:59:55: up sampling times: ['1580', '0', '0', '2840', '0', '0', '2280', '0', '0', '0', '0', '0', '4600'], totaol: 11300
+2018-07-19:11:59:55: train files is 62675 after up sampling
+2018-07-19:11:59:56: train file: 49501, val file: 10982
+2018-07-19:12:00:12: start predict with tta index is 0, data type is original
+2018-07-19:12:02:16: start predict with tta index is 1, data type is original
+2018-07-19:12:04:53: start predict with tta index is 0, data type is original
+2018-07-19:12:06:57: start predict with tta index is 1, data type is original
+2018-07-19:12:20:50: start predict with tta index is 0, data type is original
+2018-07-19:12:22:56: start predict with tta index is 1, data type is original
