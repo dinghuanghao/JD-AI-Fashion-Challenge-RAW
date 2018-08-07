@@ -82,17 +82,14 @@ def train():
                                               step_size=model_config.get_steps_per_epoch(i) / 2)
             cb.append(clr)
 
-        train_flow = data_loader.KerasGenerator(model_config=model_config,
-                                                width_shift_range=0.15,
-                                                height_shift_range=0.1,
-                                                horizontal_flip=True,
-                                                real_transform=True).flow_from_files(model_config.train_files,
-                                                                                     mode="fit",
-                                                                                     target_size=model_config.image_size,
-                                                                                     batch_size=
-                                                                                     model_config.train_batch_size[i],
-                                                                                     shuffle=True,
-                                                                                     label_position=model_config.label_position)
+        train_flow = data_loader.KerasGenerator(model_config=model_config) \
+            .flow_from_files(model_config.train_files,
+                             mode="fit",
+                             target_size=model_config.image_size,
+                             batch_size=
+                             model_config.train_batch_size[i],
+                             shuffle=True,
+                             label_position=model_config.label_position)
 
         if i == 0:
             model_config.save_log("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
@@ -141,5 +138,5 @@ def train():
     model_config.save_log(
         "####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
 
-    #等待最后一次预测结束
+    # 等待最后一次预测结束
     time.sleep(60)
