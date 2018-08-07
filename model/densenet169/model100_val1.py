@@ -25,6 +25,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 predict_batch_size=256,
                                 epoch=[2, 6],
                                 lr=[0.0001, 0.00001],
+                                clr=False,
                                 freeze_layers=[0, 0],
                                 input_norm=False)
 
@@ -60,12 +61,13 @@ def get_model(freeze_layers=-1, lr=0.01, output_dim=1, weights="imagenet"):
 
 
 def train():
+    cb = []
     evaluate_queue = queue.Queue()
     evaluate_task = keras_util.EvaluateTask(evaluate_queue)
     evaluate_task.setDaemon(True)
     evaluate_task.start()
     checkpoint = keras_util.EvaluateCallback(model_config, evaluate_queue)
-
+    cb.append(checkpoint)
     start = time.time()
     model_config.save_log("####### start train model")
 
@@ -75,8 +77,10 @@ def train():
     for i in range(init_stage, len(model_config.epoch)):
         model_config.save_log("####### lr=%f, freeze layers=%2f epoch=%d" % (
             model_config.lr[i], model_config.freeze_layers[i], model_config.epoch[i]))
-        clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
-                                          step_size=model_config.get_steps_per_epoch(i) / 2)
+        if model_config.clr:
+            clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
+                                              step_size=model_config.get_steps_per_epoch(i) / 2)
+            cb.append(clr)
 
         train_flow = data_loader.KerasGenerator(model_config=model_config,
                                                 width_shift_range=0.15,
@@ -99,7 +103,7 @@ def train():
                                 epochs=model_config.epoch[i],
                                 workers=16,
                                 verbose=1,
-                                callbacks=[checkpoint, clr])
+                                callbacks=cb)
         else:
             model = get_model(freeze_layers=model_config.freeze_layers[i], output_dim=len(model_config.label_position),
                               lr=model_config.lr[i], weights=None)
@@ -117,7 +121,7 @@ def train():
                                     initial_epoch=model_config.initial_epoch,
                                     workers=16,
                                     verbose=1,
-                                    callbacks=[checkpoint, clr])
+                                    callbacks=cb)
             else:
                 model_config.save_log(
                     "####### load weight file: %s" % model_config.get_weights_path(model_config.epoch[i - 1]))
@@ -131,8 +135,11 @@ def train():
                                     initial_epoch=model_config.epoch[i - 1],
                                     workers=16,
                                     verbose=1,
-                                    callbacks=[checkpoint, clr])
+                                    callbacks=cb)
 
     model_config.save_log("####### train model spend %d seconds" % (time.time() - start))
     model_config.save_log(
         "####### train model spend %d seconds average" % ((time.time() - start) / model_config.epoch[-1]))
+
+    # 等待最后一次预测结束
+    time.sleep(60)

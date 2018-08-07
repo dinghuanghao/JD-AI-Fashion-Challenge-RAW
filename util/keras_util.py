@@ -40,6 +40,7 @@ class KerasModelConfig(object):
                  epoch=(1,),
                  initial_epoch=0,
                  lr=(0.01,),
+                 clr=False,
                  freeze_layers=(0,),
                  tta_flip=False,
                  tta_crop=False,
@@ -69,6 +70,7 @@ class KerasModelConfig(object):
         self.epoch = epoch
         self.initial_epoch = initial_epoch
         self.lr = lr
+        self.clr = clr
         self.freeze_layers = freeze_layers
         self.writer = tf.summary.FileWriter(self.record_dir)
         self.current_epoch = initial_epoch
