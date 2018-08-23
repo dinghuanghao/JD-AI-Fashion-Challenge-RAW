@@ -1,0 +1,31 @@
+2018-08-09:10:50:53: train files is 43927 before up sampling
+2018-08-09:10:50:53: up sampling times: ['850', '0', '0', '2060', '0', '0', '1630', '0', '0', '0', '0', '0', '2950'], totaol: 7490
+2018-08-09:10:50:53: train files is 51417 after up sampling
+2018-08-09:10:50:53: train file: 51417, val file: 10981
+2018-08-09:10:50:53: ####### start train model
+2018-08-09:10:50:53: ####### init stage is 0
+2018-08-09:10:50:53: ####### lr=0.000100, freeze layers=0.000000 epoch=2
+2018-08-09:10:50:53: ####### initial epoch is 0, end epoch is 2
+2018-08-09:11:03:45: on epoch 1 end, save weight:D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-08-09:11:04:20: start predict
+2018-08-09:11:04:20: start predict data type original
+2018-08-09:11:17:47: on epoch 2 end, save weight:D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-09:11:17:48: start predict
+2018-08-09:11:17:48: start predict data type original
+2018-08-09:11:18:41: ####### lr=0.000010, freeze layers=0.000000 epoch=6
+2018-08-09:11:18:49: ####### load weight file: D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-09:11:18:57: ####### initial epoch is 2, end epoch is 6
+2018-08-09:11:31:30: on epoch 3 end, save weight:D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-08-09:11:32:09: start predict
+2018-08-09:11:32:09: start predict data type original
+2018-08-09:11:45:39: on epoch 4 end, save weight:D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-08-09:11:45:40: start predict
+2018-08-09:11:45:40: start predict data type original
+2018-08-09:11:59:08: on epoch 5 end, save weight:D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-08-09:11:59:08: start predict
+2018-08-09:11:59:08: start predict data type original
+2018-08-09:12:12:36: on epoch 6 end, save weight:D:\github\JDC\competition\model\xception\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-08-09:12:12:37: start predict
+2018-08-09:12:12:37: start predict data type original
+2018-08-09:12:13:30: ####### train model spend 4956 seconds
+2018-08-09:12:13:30: ####### train model spend 826 seconds average
