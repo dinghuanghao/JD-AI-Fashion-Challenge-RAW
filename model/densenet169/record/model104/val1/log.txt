@@ -1,0 +1,31 @@
+2018-08-08:23:25:17: train files is 43927 before up sampling
+2018-08-08:23:25:17: up sampling times: ['4250', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 4250
+2018-08-08:23:25:17: train files is 48177 after up sampling
+2018-08-08:23:25:17: train file: 48177, val file: 10981
+2018-08-08:23:25:17: ####### start train model
+2018-08-08:23:25:17: ####### init stage is 0
+2018-08-08:23:25:17: ####### lr=0.000100, freeze layers=0.000000 epoch=2
+2018-08-08:23:25:17: ####### initial epoch is 0, end epoch is 2
+2018-08-08:23:36:30: on epoch 1 end, save weight:D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-08-08:23:37:09: start predict
+2018-08-08:23:37:09: start predict data type original
+2018-08-08:23:49:05: on epoch 2 end, save weight:D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-08:23:49:06: start predict
+2018-08-08:23:49:06: start predict data type original
+2018-08-08:23:50:10: ####### lr=0.000010, freeze layers=0.000000 epoch=6
+2018-08-08:23:50:20: ####### load weight file: D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-08:23:50:25: ####### initial epoch is 2, end epoch is 6
+2018-08-09:00:01:36: on epoch 3 end, save weight:D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-08-09:00:03:01: start predict
+2018-08-09:00:03:01: start predict data type original
+2018-08-09:00:15:03: on epoch 4 end, save weight:D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-08-09:00:15:04: start predict
+2018-08-09:00:15:04: start predict data type original
+2018-08-09:00:27:07: on epoch 5 end, save weight:D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-08-09:00:27:09: start predict
+2018-08-09:00:27:09: start predict data type original
+2018-08-09:00:39:09: on epoch 6 end, save weight:D:\github\JDC\competition\model\densenet169\record\model104\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-08-09:00:39:10: start predict
+2018-08-09:00:39:10: start predict data type original
+2018-08-09:00:40:15: ####### train model spend 4497 seconds
+2018-08-09:00:40:15: ####### train model spend 749 seconds average

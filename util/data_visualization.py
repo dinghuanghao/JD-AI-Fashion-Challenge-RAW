@@ -96,6 +96,6 @@ def show_label_calss_bar_per_epoch(train_file, record_dir):
 
 
 if __name__ == "__main__":
-    # show_label_class_bar()
+    show_label_class_bar()
     # show_label_class_type_bar()
-    get_label_dic()
+

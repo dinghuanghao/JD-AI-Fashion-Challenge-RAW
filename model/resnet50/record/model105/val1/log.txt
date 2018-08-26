@@ -1,0 +1,31 @@
+2018-08-09:09:56:36: train files is 43927 before up sampling
+2018-08-09:09:56:37: up sampling times: ['850', '0', '0', '2060', '0', '0', '1630', '0', '0', '0', '0', '0', '2950'], totaol: 7490
+2018-08-09:09:56:37: train files is 51417 after up sampling
+2018-08-09:09:56:37: train file: 51417, val file: 10981
+2018-08-09:09:56:37: ####### start train model
+2018-08-09:09:56:37: ####### init stage is 0
+2018-08-09:09:56:37: ####### lr=0.000100, freeze layers=0.000000 epoch=2
+2018-08-09:09:56:37: ####### initial epoch is 0, end epoch is 2
+2018-08-09:10:04:41: on epoch 1 end, save weight:D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-08-09:10:05:15: start predict
+2018-08-09:10:05:15: start predict data type original
+2018-08-09:10:13:50: on epoch 2 end, save weight:D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-09:10:13:50: start predict
+2018-08-09:10:13:50: start predict data type original
+2018-08-09:10:14:37: ####### lr=0.000010, freeze layers=0.000000 epoch=6
+2018-08-09:10:14:44: ####### load weight file: D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-09:10:14:51: ####### initial epoch is 2, end epoch is 6
+2018-08-09:10:22:33: on epoch 3 end, save weight:D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-08-09:10:23:15: start predict
+2018-08-09:10:23:15: start predict data type original
+2018-08-09:10:31:52: on epoch 4 end, save weight:D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-08-09:10:31:53: start predict
+2018-08-09:10:31:53: start predict data type original
+2018-08-09:10:40:28: on epoch 5 end, save weight:D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-08-09:10:40:29: start predict
+2018-08-09:10:40:29: start predict data type original
+2018-08-09:10:49:04: on epoch 6 end, save weight:D:\github\JDC\competition\model\resnet50\record\model105\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-08-09:10:49:05: start predict
+2018-08-09:10:49:05: start predict data type original
+2018-08-09:10:49:52: ####### train model spend 3195 seconds
+2018-08-09:10:49:52: ####### train model spend 532 seconds average
