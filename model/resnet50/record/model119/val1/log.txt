@@ -1,0 +1,17 @@
+2018-08-12:18:03:37: train file: 43927, val file: 10981
+2018-08-12:18:03:37: ####### start train model
+2018-08-12:18:03:37: ####### init stage is 0
+2018-08-12:18:03:37: ####### lr=0.000100, freeze layers=0.000000 epoch=2
+2018-08-12:18:03:38: ####### initial epoch is 0, end epoch is 2
+2018-08-12:18:18:56: on epoch 1 end, save weight:F:\Projects\competition\model\resnet50\record\model119\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-08-12:18:19:08: start predict
+2018-08-12:18:19:08: start predict data type original
+2018-08-12:18:35:02: on epoch 2 end, save weight:F:\Projects\competition\model\resnet50\record\model119\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-12:18:35:03: start predict
+2018-08-12:18:35:03: start predict data type original
+2018-08-12:18:36:17: ####### lr=0.000010, freeze layers=0.000000 epoch=6
+2018-08-12:18:36:37: ####### load weight file: F:\Projects\competition\model\resnet50\record\model119\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-08-12:18:36:42: ####### initial epoch is 2, end epoch is 6
+2018-08-12:18:51:44: on epoch 3 end, save weight:F:\Projects\competition\model\resnet50\record\model119\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-08-12:18:52:07: start predict
+2018-08-12:18:52:07: start predict data type original

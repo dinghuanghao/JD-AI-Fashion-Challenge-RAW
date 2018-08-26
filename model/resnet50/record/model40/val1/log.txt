@@ -1,0 +1,24 @@
+2018-08-11:00:32:20: add 7392 color augmentation file
+2018-08-11:00:32:20: train files is 51319 before up sampling
+2018-08-11:00:32:21: up sampling times: ['1500', '0', '0', '2820', '0', '0', '2440', '0', '0', '0', '0', '0', '4370'], totaol: 11130
+2018-08-11:00:32:21: train files is 62449 after up sampling
+2018-08-11:00:32:22: train file: 49349, val file: 10981
+2018-08-11:00:34:00: add 7392 color augmentation file
+2018-08-11:00:34:00: train files is 51319 before up sampling
+2018-08-11:00:34:00: up sampling times: ['1500', '0', '0', '2820', '0', '0', '2440', '0', '0', '0', '0', '0', '4370'], totaol: 11130
+2018-08-11:00:34:00: train files is 62449 after up sampling
+2018-08-11:00:34:01: train file: 49186, val file: 10981
+2018-08-13:08:44:39: add 7392 color augmentation file
+2018-08-13:08:44:39: train files is 51319 before up sampling
+2018-08-13:08:44:40: up sampling times: ['1500', '0', '0', '2820', '0', '0', '2440', '0', '0', '0', '0', '0', '4370'], totaol: 11130
+2018-08-13:08:44:40: train files is 62449 after up sampling
+2018-08-13:08:44:41: train file: 49408, val file: 10981
+2018-08-13:23:20:33: add 7392 color augmentation file
+2018-08-13:23:20:33: train files is 51319 before up sampling
+2018-08-13:23:20:34: up sampling times: ['1500', '0', '0', '2820', '0', '0', '2440', '0', '0', '0', '0', '0', '4370'], totaol: 11130
+2018-08-13:23:20:34: train files is 62449 after up sampling
+2018-08-13:23:20:35: train file: 49350, val file: 10981
+2018-08-14:04:47:23: on epoch 1 end, save weight:F:\Projects\competition\model\resnet50\record\model40\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-08-14:04:48:47: start predict with tta
+2018-08-14:04:48:47: start predict with tta index is 0, data type is original
+2018-08-14:04:50:26: start predict with tta index is 1, data type is original

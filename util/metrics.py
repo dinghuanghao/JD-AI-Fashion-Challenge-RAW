@@ -160,6 +160,13 @@ def smooth_f2_score(y_true, y_pred):
     return tf.reduce_mean(f_score)
 
 
+def bce_and_01_f2score(p_true, p_pred):
+    return tf.keras.losses.binary_crossentropy(p_true, p_pred) + 0.1 * f2_score_loss(p_true, p_pred)
+
+def bce_and_03_f2score(p_true, p_pred):
+    return tf.keras.losses.binary_crossentropy(p_true, p_pred) + 0.3 * f2_score_loss(p_true, p_pred)
+
+
 def bce_and_f2score(p_true, p_pred):
     return tf.keras.losses.binary_crossentropy(p_true, p_pred) + 0.2 * f2_score_loss(p_true, p_pred)
 

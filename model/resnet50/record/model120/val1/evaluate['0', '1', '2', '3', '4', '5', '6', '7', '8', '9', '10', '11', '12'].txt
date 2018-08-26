@@ -1,0 +1,120 @@
+
+
+Weight: F:\Projects\competition\model\resnet50\record\model120\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+Smooth F2-Score: 0.335587
+F2-Score with threshold 0.1: 0.492915
+F2-Score with threshold 0.2: 0.455339
+Greedy F2-Score is: 0.522227
+[label 0]	smooth-f2=0.011163   greedy-f2=0.075075[0.030000]
+[label 1]	smooth-f2=0.259888   greedy-f2=0.595788[0.070000]
+[label 2]	smooth-f2=0.931009   greedy-f2=0.979958[0.220000]
+[label 3]	smooth-f2=0.053989   greedy-f2=0.215232[0.070000]
+[label 4]	smooth-f2=0.562247   greedy-f2=0.802038[0.170000]
+[label 5]	smooth-f2=0.455693   greedy-f2=0.695681[0.150000]
+[label 6]	smooth-f2=0.013195   greedy-f2=0.057915[0.030000]
+[label 7]	smooth-f2=0.111144   greedy-f2=0.436064[0.080000]
+[label 8]	smooth-f2=0.936152   greedy-f2=0.978203[0.300000]
+[label 9]	smooth-f2=0.369123   greedy-f2=0.588333[0.150000]
+[label 10]	smooth-f2=0.477965   greedy-f2=0.709848[0.210000]
+[label 11]	smooth-f2=0.134534   greedy-f2=0.457706[0.080000]
+[label 12]	smooth-f2=0.046532   greedy-f2=0.197109[0.060000]
+
+
+Weight: F:\Projects\competition\model\resnet50\record\model120\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+Smooth F2-Score: 0.359084
+F2-Score with threshold 0.1: 0.514212
+F2-Score with threshold 0.2: 0.492881
+Greedy F2-Score is: 0.552361
+[label 0]	smooth-f2=0.025739   greedy-f2=0.255102[0.050000]
+[label 1]	smooth-f2=0.411112   greedy-f2=0.614864[0.130000]
+[label 2]	smooth-f2=0.909023   greedy-f2=0.980595[0.110000]
+[label 3]	smooth-f2=0.090042   greedy-f2=0.241935[0.180000]
+[label 4]	smooth-f2=0.563419   greedy-f2=0.803530[0.120000]
+[label 5]	smooth-f2=0.507674   greedy-f2=0.704281[0.280000]
+[label 6]	smooth-f2=0.014865   greedy-f2=0.119565[0.020000]
+[label 7]	smooth-f2=0.196967   greedy-f2=0.419083[0.110000]
+[label 8]	smooth-f2=0.924194   greedy-f2=0.978883[0.100000]
+[label 9]	smooth-f2=0.322383   greedy-f2=0.599321[0.100000]
+[label 10]	smooth-f2=0.411237   greedy-f2=0.722523[0.150000]
+[label 11]	smooth-f2=0.232597   greedy-f2=0.473568[0.140000]
+[label 12]	smooth-f2=0.058845   greedy-f2=0.267442[0.080000]
+
+
+Weight: F:\Projects\competition\model\resnet50\record\model120\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+Smooth F2-Score: 0.408281
+F2-Score with threshold 0.1: 0.563068
+F2-Score with threshold 0.2: 0.520812
+Greedy F2-Score is: 0.583645
+[label 0]	smooth-f2=0.058883   greedy-f2=0.331754[0.030000]
+[label 1]	smooth-f2=0.463252   greedy-f2=0.654197[0.100000]
+[label 2]	smooth-f2=0.939655   greedy-f2=0.981216[0.070000]
+[label 3]	smooth-f2=0.175920   greedy-f2=0.278810[0.110000]
+[label 4]	smooth-f2=0.616239   greedy-f2=0.818356[0.130000]
+[label 5]	smooth-f2=0.526044   greedy-f2=0.735066[0.130000]
+[label 6]	smooth-f2=0.029861   greedy-f2=0.204082[0.050000]
+[label 7]	smooth-f2=0.252595   greedy-f2=0.443499[0.130000]
+[label 8]	smooth-f2=0.936590   greedy-f2=0.979778[0.130000]
+[label 9]	smooth-f2=0.396665   greedy-f2=0.616601[0.120000]
+[label 10]	smooth-f2=0.567517   greedy-f2=0.749041[0.130000]
+[label 11]	smooth-f2=0.260719   greedy-f2=0.522260[0.080000]
+[label 12]	smooth-f2=0.083712   greedy-f2=0.272727[0.090000]
+
+
+Weight: F:\Projects\competition\model\resnet50\record\model120\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+Smooth F2-Score: 0.409955
+F2-Score with threshold 0.1: 0.556518
+F2-Score with threshold 0.2: 0.519471
+Greedy F2-Score is: 0.578765
+[label 0]	smooth-f2=0.078047   greedy-f2=0.363636[0.060000]
+[label 1]	smooth-f2=0.410806   greedy-f2=0.641246[0.050000]
+[label 2]	smooth-f2=0.951573   greedy-f2=0.981123[0.050000]
+[label 3]	smooth-f2=0.198176   greedy-f2=0.294118[0.130000]
+[label 4]	smooth-f2=0.633815   greedy-f2=0.810437[0.090000]
+[label 5]	smooth-f2=0.544730   greedy-f2=0.729691[0.110000]
+[label 6]	smooth-f2=0.039233   greedy-f2=0.188285[0.030000]
+[label 7]	smooth-f2=0.209690   greedy-f2=0.428349[0.040000]
+[label 8]	smooth-f2=0.949924   greedy-f2=0.979615[0.110000]
+[label 9]	smooth-f2=0.428790   greedy-f2=0.610518[0.120000]
+[label 10]	smooth-f2=0.582096   greedy-f2=0.746922[0.130000]
+[label 11]	smooth-f2=0.210986   greedy-f2=0.477468[0.030000]
+[label 12]	smooth-f2=0.091549   greedy-f2=0.272537[0.070000]
+
+
+Weight: F:\Projects\competition\model\resnet50\record\model120\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+Smooth F2-Score: 0.420638
+F2-Score with threshold 0.1: 0.537508
+F2-Score with threshold 0.2: 0.515974
+Greedy F2-Score is: 0.568219
+[label 0]	smooth-f2=0.053455   greedy-f2=0.304569[0.020000]
+[label 1]	smooth-f2=0.442269   greedy-f2=0.618896[0.040000]
+[label 2]	smooth-f2=0.948080   greedy-f2=0.980758[0.020000]
+[label 3]	smooth-f2=0.189716   greedy-f2=0.286260[0.170000]
+[label 4]	smooth-f2=0.653787   greedy-f2=0.805442[0.090000]
+[label 5]	smooth-f2=0.547452   greedy-f2=0.722455[0.090000]
+[label 6]	smooth-f2=0.055618   greedy-f2=0.194444[0.060000]
+[label 7]	smooth-f2=0.252924   greedy-f2=0.420223[0.120000]
+[label 8]	smooth-f2=0.945056   greedy-f2=0.979077[0.050000]
+[label 9]	smooth-f2=0.411439   greedy-f2=0.597969[0.090000]
+[label 10]	smooth-f2=0.603077   greedy-f2=0.742132[0.100000]
+[label 11]	smooth-f2=0.259780   greedy-f2=0.472350[0.050000]
+[label 12]	smooth-f2=0.105643   greedy-f2=0.262267[0.040000]
+
+
+Weight: F:\Projects\competition\model\resnet50\record\model120\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+Smooth F2-Score: 0.418178
+F2-Score with threshold 0.1: 0.544383
+F2-Score with threshold 0.2: 0.503110
+Greedy F2-Score is: 0.568961
+[label 0]	smooth-f2=0.086667   greedy-f2=0.376712[0.040000]
+[label 1]	smooth-f2=0.422233   greedy-f2=0.606838[0.030000]
+[label 2]	smooth-f2=0.954398   greedy-f2=0.980696[0.030000]
+[label 3]	smooth-f2=0.197181   greedy-f2=0.280899[0.160000]
+[label 4]	smooth-f2=0.640239   greedy-f2=0.797233[0.080000]
+[label 5]	smooth-f2=0.519264   greedy-f2=0.713402[0.060000]
+[label 6]	smooth-f2=0.079967   greedy-f2=0.210280[0.050000]
+[label 7]	smooth-f2=0.225406   greedy-f2=0.408284[0.050000]
+[label 8]	smooth-f2=0.948740   greedy-f2=0.978965[0.050000]
+[label 9]	smooth-f2=0.442791   greedy-f2=0.585735[0.120000]
+[label 10]	smooth-f2=0.569247   greedy-f2=0.737288[0.100000]
+[label 11]	smooth-f2=0.230543   greedy-f2=0.454298[0.020000]
+[label 12]	smooth-f2=0.119633   greedy-f2=0.265866[0.050000]
