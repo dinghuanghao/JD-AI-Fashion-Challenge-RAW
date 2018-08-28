@@ -71,6 +71,7 @@ TXT_PATH = os.path.join(DATA_PATH, "txt")
 K_FOLD_TXT_PATH = os.path.join(TXT_PATH, "k-fold")
 TRAIN_DATA_TXT = os.path.join(TXT_PATH, "train.txt")
 TEST_DATA_TXT = os.path.join(TXT_PATH, "test.txt")
+TEST_RESULT_TXT = os.path.join(TXT_PATH, "test-result.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")

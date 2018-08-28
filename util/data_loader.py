@@ -24,6 +24,8 @@ class TestTimeAugmentation():
                  flip=True,
                  crop=True):
 
+        self.tta_times = 1
+
         if crop and flip:
             # 四个角落 + 中心 + 对称， 10-fold tta
             print("use crop and flip tta")
