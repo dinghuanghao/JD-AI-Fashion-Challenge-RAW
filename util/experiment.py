@@ -48,6 +48,7 @@ def get_meta_predict(mode_path):
         cnn_result_path = os.path.join(weight_file + "(test)")
         print(f"result {cnn_result_path}")
         if not os.path.exists(keras_util.get_prediction_path(cnn_result_path)):
+            print(cnn_result_path)
             attr_get_model, attr_model_config = keras_util.dynamic_model_import(weight_file)
             model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
             model.load_weights(weight_file)
