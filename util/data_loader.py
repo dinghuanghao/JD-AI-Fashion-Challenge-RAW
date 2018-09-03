@@ -202,6 +202,7 @@ class KerasIterator(Iterator):
         if label_position is None:
             self.labels = np.array(get_labels(img_files), dtype=np.int8)
         else:
+            print(np.array(get_labels(img_files), dtype=np.int8).shape)
             self.labels = np.array(get_labels(img_files), dtype=np.int8)[:, label_position]
 
         self.tta_index = tta_index
