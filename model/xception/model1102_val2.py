@@ -19,8 +19,7 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 image_resolution=224,
                                 data_type=[config.DATA_TYPE_ORIGINAL],
                                 label_position=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                                label_color_augment=[0, 1, 3, 5, 6, 7, 9, 10, 11, 12],
-                                label_up_sampling=[30, 0, 0, 30, 0, 0, 30, 0, 0, 0, 0, 0, 30],
+                                label_up_sampling=[10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                                 train_batch_size=[32, 32],
                                 data_visualization=True,
                                 val_batch_size=256,
@@ -84,7 +83,6 @@ def train():
             clr = keras_util.CyclicLrCallback(base_lr=model_config.lr[i], max_lr=model_config.lr[i] * 5,
                                               step_size=model_config.get_steps_per_epoch(i) / 2)
             cb.append(clr)
-
         train_flow = data_loader.KerasGenerator(model_config=model_config,
                                                 width_shift_range=0.15,
                                                 height_shift_range=0.1,
@@ -95,6 +93,7 @@ def train():
                                                                                   model_config.train_batch_size[i],
                                                                                   shuffle=True,
                                                                                   label_position=model_config.label_position)
+
 
         if i == 0:
             model_config.save_log("####### initial epoch is 0, end epoch is %d" % model_config.epoch[i])
