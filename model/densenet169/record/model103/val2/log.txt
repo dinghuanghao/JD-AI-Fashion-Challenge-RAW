@@ -1,0 +1,37 @@
+2018-09-04:11:47:21: train files is 43926 before up sampling
+2018-09-04:11:47:21: up sampling times: ['2310', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 2310
+2018-09-04:11:47:21: train files is 46236 after up sampling
+2018-09-04:11:47:21: train file: 46236, val file: 10982
+2018-09-04:15:56:56: ####### start train model
+2018-09-04:15:56:56: ####### init stage is 0
+2018-09-04:15:56:56: ####### lr=0.000100, freeze layers=10.000000 epoch=2
+2018-09-04:15:56:56: ####### initial epoch is 0, end epoch is 2
+2018-09-04:16:08:08: on epoch 1 end, save weight:D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-09-04:16:13:52: start predict with tta
+2018-09-04:16:13:52: start predict with tta index is 0, data type is original
+2018-09-04:16:15:02: start predict with tta index is 1, data type is original
+2018-09-04:16:26:35: on epoch 2 end, save weight:D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:16:26:38: start predict with tta
+2018-09-04:16:26:38: start predict with tta index is 0, data type is original
+2018-09-04:16:27:42: start predict with tta index is 1, data type is original
+2018-09-04:16:28:51: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-09-04:16:29:06: ####### load weight file: D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:16:29:25: ####### initial epoch is 2, end epoch is 6
+2018-09-04:16:40:23: on epoch 3 end, save weight:D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-09-04:16:46:58: start predict with tta
+2018-09-04:16:46:58: start predict with tta index is 0, data type is original
+2018-09-04:16:48:10: start predict with tta index is 1, data type is original
+2018-09-04:16:59:54: on epoch 4 end, save weight:D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-09-04:16:59:58: start predict with tta
+2018-09-04:16:59:58: start predict with tta index is 0, data type is original
+2018-09-04:17:01:02: start predict with tta index is 1, data type is original
+2018-09-04:17:12:45: on epoch 5 end, save weight:D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-09-04:17:12:49: start predict with tta
+2018-09-04:17:12:49: start predict with tta index is 0, data type is original
+2018-09-04:17:13:54: start predict with tta index is 1, data type is original
+2018-09-04:17:25:36: on epoch 6 end, save weight:D:\github\JDC\competition\model\densenet169\record\model103\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-04:17:25:40: start predict with tta
+2018-09-04:17:25:40: start predict with tta index is 0, data type is original
+2018-09-04:17:26:44: start predict with tta index is 1, data type is original
+2018-09-04:17:27:55: ####### train model spend 5459 seconds
+2018-09-04:17:27:55: ####### train model spend 909 seconds average
