@@ -22,3 +22,52 @@
 2018-09-04:09:28:05: up sampling times: ['770', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 770
 2018-09-04:09:28:05: train files is 44696 after up sampling
 2018-09-04:09:28:06: train file: 44696, val file: 10982
+2018-09-04:11:53:58: ####### start train model
+2018-09-04:11:53:58: ####### init stage is 0
+2018-09-04:11:53:58: ####### lr=0.000100, freeze layers=10.000000 epoch=2
+2018-09-04:11:53:59: ####### initial epoch is 0, end epoch is 2
+2018-09-04:12:04:04: on epoch 1 end, save weight:F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-09-04:12:04:37: start predict with tta
+2018-09-04:12:04:37: start predict with tta index is 0, data type is original
+2018-09-04:12:05:17: start predict with tta index is 1, data type is original
+2018-09-04:12:15:26: on epoch 2 end, save weight:F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:12:15:26: start predict with tta
+2018-09-04:12:15:26: start predict with tta index is 0, data type is original
+2018-09-04:12:16:05: start predict with tta index is 1, data type is original
+2018-09-04:12:16:49: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-09-04:12:17:12: ####### load weight file: F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:12:17:20: ####### initial epoch is 2, end epoch is 6
+2018-09-04:12:27:20: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-09-04:12:27:58: start predict with tta
+2018-09-04:12:27:58: start predict with tta index is 0, data type is original
+2018-09-04:12:28:39: start predict with tta index is 1, data type is original
+2018-09-04:12:38:48: on epoch 4 end, save weight:F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-09-04:12:38:49: start predict with tta
+2018-09-04:12:38:49: start predict with tta index is 0, data type is original
+2018-09-04:12:39:26: start predict with tta index is 1, data type is original
+2018-09-04:12:49:36: on epoch 5 end, save weight:F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-09-04:12:49:37: start predict with tta
+2018-09-04:12:49:37: start predict with tta index is 0, data type is original
+2018-09-04:12:50:15: start predict with tta index is 1, data type is original
+2018-09-04:13:00:24: on epoch 6 end, save weight:F:\Projects\competition\model\xception\record\model1102\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-04:13:00:24: start predict with tta
+2018-09-04:13:00:24: start predict with tta index is 0, data type is original
+2018-09-04:13:01:02: start predict with tta index is 1, data type is original
+2018-09-04:13:01:46: ####### train model spend 4067 seconds
+2018-09-04:13:01:46: ####### train model spend 677 seconds average
+2018-09-04:15:15:29: train files is 43926 before up sampling
+2018-09-04:15:15:29: up sampling times: ['770', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 770
+2018-09-04:15:15:29: train files is 44696 after up sampling
+2018-09-04:15:15:30: train file: 44696, val file: 10982
+2018-09-04:23:12:52: train files is 43926 before up sampling
+2018-09-04:23:12:52: up sampling times: ['770', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 770
+2018-09-04:23:12:52: train files is 44696 after up sampling
+2018-09-04:23:12:53: train file: 44696, val file: 10982
+2018-09-04:23:28:28: train files is 43926 before up sampling
+2018-09-04:23:28:29: up sampling times: ['770', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 770
+2018-09-04:23:28:29: train files is 44696 after up sampling
+2018-09-04:23:28:29: train file: 44696, val file: 10982
+2018-09-05:07:51:38: train files is 43926 before up sampling
+2018-09-05:07:51:38: up sampling times: ['770', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 770
+2018-09-05:07:51:38: train files is 44696 after up sampling
+2018-09-05:07:51:39: train file: 44696, val file: 10982

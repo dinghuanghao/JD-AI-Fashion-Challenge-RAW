@@ -104,7 +104,7 @@ def calc_xgb_f2_score():
             one_label_greedy_f2_all.append(fbeta_score(y_true[:, i], y_pred[:, i], beta=2))
 
         f.write("\n\n")
-        f.write("Greedy F2-Score is: %f\n" % fbeta_score(y_true, y_pred, average="samples", beta=2))
+        f.write("Greedy F2-Score is: %f\n" % np.average(one_label_greedy_f2_all))
         for i in range(13):
             f.write("[label %d] greedy-f2=%4f\n" % (i, one_label_greedy_f2_all[i]))
 
@@ -189,5 +189,5 @@ def get_existed_cnn_f2_score(val, mode_path):
 
 if __name__ == "__main__":
     # get_meta_predict(path.MODEL_PATH)
-    # calc_xgb_f2_score()
-    get_existed_cnn_f2_score(1, path.MODEL_PATH)
+    calc_xgb_f2_score()
+    # get_existed_cnn_f2_score(1, path.MODEL_PATH)

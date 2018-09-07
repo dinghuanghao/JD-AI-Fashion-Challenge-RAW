@@ -22,3 +22,66 @@
 2018-09-04:09:28:10: up sampling times: ['3850', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3850
 2018-09-04:09:28:10: train files is 47776 after up sampling
 2018-09-04:09:28:11: train file: 47776, val file: 10982
+2018-09-04:14:14:47: ####### start train model
+2018-09-04:14:14:47: ####### init stage is 0
+2018-09-04:14:14:47: ####### lr=0.000100, freeze layers=10.000000 epoch=2
+2018-09-04:14:14:47: ####### initial epoch is 0, end epoch is 2
+2018-09-04:14:25:52: on epoch 1 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-09-04:14:26:49: start predict with tta
+2018-09-04:14:26:49: start predict with tta index is 0, data type is original
+2018-09-04:14:27:33: start predict with tta index is 1, data type is original
+2018-09-04:14:38:27: on epoch 2 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:14:38:28: start predict with tta
+2018-09-04:14:38:28: start predict with tta index is 0, data type is original
+2018-09-04:14:39:06: start predict with tta index is 1, data type is original
+2018-09-04:14:39:50: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-09-04:14:40:18: ####### load weight file: F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:14:40:30: ####### initial epoch is 2, end epoch is 6
+2018-09-04:15:15:34: train files is 43926 before up sampling
+2018-09-04:15:15:34: up sampling times: ['3850', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3850
+2018-09-04:15:15:34: train files is 47776 after up sampling
+2018-09-04:15:15:35: train file: 47776, val file: 10982
+2018-09-04:15:15:57: ####### start train model
+2018-09-04:15:15:57: ####### init stage is 1
+2018-09-04:15:15:57: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-09-04:15:16:07: ####### load weight file: F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:15:16:10: ####### initial epoch is 2, end epoch is 6
+2018-09-04:15:27:04: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-09-04:15:27:12: start predict with tta
+2018-09-04:15:27:12: start predict with tta index is 0, data type is original
+2018-09-04:15:27:53: start predict with tta index is 1, data type is original
+2018-09-04:15:39:05: on epoch 4 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-09-04:15:39:05: start predict with tta
+2018-09-04:15:39:05: start predict with tta index is 0, data type is original
+2018-09-04:15:39:43: start predict with tta index is 1, data type is original
+2018-09-04:15:50:56: on epoch 5 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-09-04:15:50:57: start predict with tta
+2018-09-04:15:50:57: start predict with tta index is 0, data type is original
+2018-09-04:15:51:35: start predict with tta index is 1, data type is original
+2018-09-04:16:02:48: on epoch 6 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-04:16:02:48: start predict with tta
+2018-09-04:16:02:48: start predict with tta index is 0, data type is original
+2018-09-04:16:03:26: start predict with tta index is 1, data type is original
+2018-09-04:16:04:10: ####### train model spend 2893 seconds
+2018-09-04:16:04:10: ####### train model spend 482 seconds average
+2018-09-04:23:12:57: train files is 43926 before up sampling
+2018-09-04:23:12:57: up sampling times: ['3850', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3850
+2018-09-04:23:12:57: train files is 47776 after up sampling
+2018-09-04:23:12:58: train file: 47776, val file: 10982
+2018-09-04:23:13:19: ####### start train model
+2018-09-04:23:13:19: ####### init stage is 1
+2018-09-04:23:13:19: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-09-04:23:13:30: ####### load weight file: F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-04:23:13:34: ####### initial epoch is 2, end epoch is 6
+2018-09-04:23:24:15: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model1104\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-09-04:23:24:22: start predict with tta
+2018-09-04:23:24:22: start predict with tta index is 0, data type is original
+2018-09-04:23:25:03: start predict with tta index is 1, data type is original
+2018-09-04:23:28:33: train files is 43926 before up sampling
+2018-09-04:23:28:33: up sampling times: ['3850', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3850
+2018-09-04:23:28:33: train files is 47776 after up sampling
+2018-09-04:23:28:34: train file: 47776, val file: 10982
+2018-09-05:07:51:42: train files is 43926 before up sampling
+2018-09-05:07:51:42: up sampling times: ['3850', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'], totaol: 3850
+2018-09-05:07:51:42: train files is 47776 after up sampling
+2018-09-05:07:51:43: train file: 47776, val file: 10982

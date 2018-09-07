@@ -1,0 +1,39 @@
+2018-09-05:11:02:24: train file: 38660, val file: 10982
+2018-09-05:11:02:26: ####### start train model
+2018-09-05:11:02:26: ####### init stage is 0
+2018-09-05:11:02:26: ####### lr=0.000100, freeze layers=0.000000 epoch=2
+2018-09-05:11:02:26: ####### initial epoch is 0, end epoch is 2
+2018-09-05:11:03:29: train file: 38751, val file: 10982
+2018-09-05:11:57:17: ####### start train model
+2018-09-05:11:57:17: ####### init stage is 0
+2018-09-05:11:57:17: ####### lr=0.000100, freeze layers=10.000000 epoch=2
+2018-09-05:11:57:18: ####### initial epoch is 0, end epoch is 2
+2018-09-05:12:05:59: on epoch 1 end, save weight:F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-09-05:12:06:19: start predict with tta
+2018-09-05:12:06:19: start predict with tta index is 0, data type is original
+2018-09-05:12:06:58: start predict with tta index is 1, data type is original
+2018-09-05:12:15:49: on epoch 2 end, save weight:F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-05:12:15:49: start predict with tta
+2018-09-05:12:15:49: start predict with tta index is 0, data type is original
+2018-09-05:12:16:27: start predict with tta index is 1, data type is original
+2018-09-05:12:17:10: ####### lr=0.000010, freeze layers=10.000000 epoch=6
+2018-09-05:12:17:29: ####### load weight file: F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-05:12:17:35: ####### initial epoch is 2, end epoch is 6
+2018-09-05:12:26:40: on epoch 3 end, save weight:F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-09-05:12:27:06: start predict with tta
+2018-09-05:12:27:06: start predict with tta index is 0, data type is original
+2018-09-05:12:27:46: start predict with tta index is 1, data type is original
+2018-09-05:12:37:15: on epoch 4 end, save weight:F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-09-05:12:37:16: start predict with tta
+2018-09-05:12:37:16: start predict with tta index is 0, data type is original
+2018-09-05:12:37:54: start predict with tta index is 1, data type is original
+2018-09-05:12:47:23: on epoch 5 end, save weight:F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-09-05:12:47:24: start predict with tta
+2018-09-05:12:47:24: start predict with tta index is 0, data type is original
+2018-09-05:12:48:01: start predict with tta index is 1, data type is original
+2018-09-05:12:57:30: on epoch 6 end, save weight:F:\Projects\competition\model\xception\record\model113\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-05:12:57:31: start predict with tta
+2018-09-05:12:57:31: start predict with tta index is 0, data type is original
+2018-09-05:12:58:09: start predict with tta index is 1, data type is original
+2018-09-05:12:58:52: ####### train model spend 3694 seconds
+2018-09-05:12:58:52: ####### train model spend 615 seconds average
