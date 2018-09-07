@@ -27,7 +27,8 @@ model_config = KerasModelConfig(k_fold_file="1.txt",
                                 epoch=[2, 6],
                                 lr=[0.0001, 0.00001],
                                 clr=False,
-                                freeze_layers=[0, 0],
+                                freeze_layers=[10, 10],
+                                tta_flip=True,
                                 input_norm=False)
 
 
@@ -83,8 +84,11 @@ def train():
                                               step_size=model_config.get_steps_per_epoch(i) / 2)
             cb.append(clr)
 
-        train_flow = data_loader.KerasGenerator(model_config=model_config) \
-            .flow_from_files(model_config.train_files,
+        train_flow = data_loader.KerasGenerator(model_config=model_config,
+                                                width_shift_range=0.15,
+                                                height_shift_range=0.1,
+                                                horizontal_flip=True,
+                                                real_transform=True) .flow_from_files(model_config.train_files,
                              mode="fit",
                              target_size=model_config.image_size,
                              batch_size=
