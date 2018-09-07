@@ -92,103 +92,103 @@ class KerasModelConfig(object):
         self.color_augment_cnt = 0
         self.down_sampling_cnt = 0
 
-        for i in self.data_type:
-            train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, [i])
-            self.val_files.append(val_files)
-            self.val_file_cnt += len(val_files)
-            self.train_files += train_files
-
-        if label_color_augment is not None and config.DATA_TYPE_ORIGINAL in data_type:
-
-            # 将当前用于train的所有图片名称构成一个dict
-            train_file_dict = {}
-            for train_file in self.train_files:
-                train_file_dict.setdefault(os.path.split(train_file)[-1], None)
-
-            from preprocess.augment import color
-            augment_image_dirs = color.get_augment_image_dirs()
-            labels = data_loader.get_labels(augment_image_dirs)
-
-            augment_files = []
-            for i in range(len(augment_image_dirs)):
-                # 如果augment的数据名称不在当前train集中，说明是val数据，跳过
-                if os.path.split(augment_image_dirs[i])[-1] not in train_file_dict:
-                    continue
-                label = labels[i]
-                for j in label_color_augment:
-                    if label[j] == 1:
-                        augment_files.append(augment_image_dirs[i])
-                        break
-            self.train_files += augment_files
-            self.color_augment_cnt = len(augment_files)
-            self.save_log("add %d color augmentation file" % self.color_augment_cnt)
-
-        if label_up_sampling is not None:
-            self.save_log("train files is %d before up sampling" % len(self.train_files))
-            sampling_files = []
-            labels = data_loader.get_labels(self.train_files)
-            for i in range(len(labels)):
-                for j in range(len(label_up_sampling)):
-                    label = labels[i]
-                    if label[j] > 0 and label_up_sampling[j] > 0:
-                        sampling_files += [self.train_files[i]] * label_up_sampling[j]
-                        self.up_sampling_cnt[j] += label_up_sampling[j]
-
-            self.train_files += sampling_files
-            self.save_log(
-                "up sampling times: %s, totaol: %d" % (
-                    str([str(i) for i in self.up_sampling_cnt]), sum(self.up_sampling_cnt)))
-            self.save_log("train files is %d after up sampling" % len(self.train_files))
-
-        self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
-        if downsampling is not None:
-            new_train_files = []
-            for _ in self.train_files:
-                _label = data_loader.get_label(_.split(os.sep)[-1])
-                _labels = [
-                    ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'],
-                    ['0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-                    ['0', '0', '1', '0', '1', '0', '0', '0', '1', '0', '0', '0', '0'],
-                    ['0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
-                ]
-                if _label in _labels and random.random() > downsampling:
-                    self.down_sampling_cnt += 1
-                    continue
-                else:
-                    new_train_files.append(_)
-            self.train_files = new_train_files
-
-        random.shuffle(self.train_files)
-        self.train_file_cnt = len(self.train_files)
-        self.train_files = np.array(self.train_files)
-
-        if self.data_visualization:
-            dv.show_label_calss_bar_per_epoch(self.train_files, self.record_dir)
-
-        if debug:
-            self.train_files = self.train_files[:64]
-            for i in range(len(self.val_files)):
-                self.val_files[i] = self.val_files[i][:64]
-            self.val_y = self.val_y[:64]
-
+        # for i in self.data_type:
+        #     train_files, val_files = data_loader.get_k_fold_files(self.k_fold_file, self.val_index, [i])
+        #     self.val_files.append(val_files)
+        #     self.val_file_cnt += len(val_files)
+        #     self.train_files += train_files
+        #
+        # if label_color_augment is not None and config.DATA_TYPE_ORIGINAL in data_type:
+        #
+        #     # 将当前用于train的所有图片名称构成一个dict
+        #     train_file_dict = {}
+        #     for train_file in self.train_files:
+        #         train_file_dict.setdefault(os.path.split(train_file)[-1], None)
+        #
+        #     from preprocess.augment import color
+        #     augment_image_dirs = color.get_augment_image_dirs()
+        #     labels = data_loader.get_labels(augment_image_dirs)
+        #
+        #     augment_files = []
+        #     for i in range(len(augment_image_dirs)):
+        #         # 如果augment的数据名称不在当前train集中，说明是val数据，跳过
+        #         if os.path.split(augment_image_dirs[i])[-1] not in train_file_dict:
+        #             continue
+        #         label = labels[i]
+        #         for j in label_color_augment:
+        #             if label[j] == 1:
+        #                 augment_files.append(augment_image_dirs[i])
+        #                 break
+        #     self.train_files += augment_files
+        #     self.color_augment_cnt = len(augment_files)
+        #     self.save_log("add %d color augmentation file" % self.color_augment_cnt)
+        #
+        # if label_up_sampling is not None:
+        #     self.save_log("train files is %d before up sampling" % len(self.train_files))
+        #     sampling_files = []
+        #     labels = data_loader.get_labels(self.train_files)
+        #     for i in range(len(labels)):
+        #         for j in range(len(label_up_sampling)):
+        #             label = labels[i]
+        #             if label[j] > 0 and label_up_sampling[j] > 0:
+        #                 sampling_files += [self.train_files[i]] * label_up_sampling[j]
+        #                 self.up_sampling_cnt[j] += label_up_sampling[j]
+        #
+        #     self.train_files += sampling_files
+        #     self.save_log(
+        #         "up sampling times: %s, totaol: %d" % (
+        #             str([str(i) for i in self.up_sampling_cnt]), sum(self.up_sampling_cnt)))
+        #     self.save_log("train files is %d after up sampling" % len(self.train_files))
+        #
+        # self.val_y = np.array(data_loader.get_labels(self.val_files[0]), np.bool)[:, self.label_position]
+        # if downsampling is not None:
+        #     new_train_files = []
+        #     for _ in self.train_files:
+        #         _label = data_loader.get_label(_.split(os.sep)[-1])
+        #         _labels = [
+        #             ['0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'],
+        #             ['0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+        #             ['0', '0', '1', '0', '1', '0', '0', '0', '1', '0', '0', '0', '0'],
+        #             ['0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
+        #         ]
+        #         if _label in _labels and random.random() > downsampling:
+        #             self.down_sampling_cnt += 1
+        #             continue
+        #         else:
+        #             new_train_files.append(_)
+        #     self.train_files = new_train_files
+        #
+        # random.shuffle(self.train_files)
+        # self.train_file_cnt = len(self.train_files)
+        # self.train_files = np.array(self.train_files)
+        #
+        # if self.data_visualization:
+        #     dv.show_label_calss_bar_per_epoch(self.train_files, self.record_dir)
+        #
+        # if debug:
+        #     self.train_files = self.train_files[:64]
+        #     for i in range(len(self.val_files)):
+        #         self.val_files[i] = self.val_files[i][:64]
+        #     self.val_y = self.val_y[:64]
+        #
         self.image_mean_file = path.get_image_mean_file(self.k_fold_file, self.val_index,
                                                         data_type=self.data_type)
         self.image_std_file = path.get_image_std_file(self.k_fold_file, self.val_index,
                                                       data_type=self.data_type)
-
-        self.save_model_format = os.path.join(self.record_dir,
-                                              "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
-        self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
-        pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
-        pathlib.Path(self.fit_img_record_dir).mkdir(parents=True, exist_ok=True)
-        pathlib.Path(self.predict_img_record_dir).mkdir(parents=True, exist_ok=True)
-
-        print("##########load model config")
-        print("##########file name is: %s" % file_name)
-        print("##########val index is: %d" % self.val_index)
-        print("##########model dir is: %s" % model_dir)
-        print("##########record dir is: %s" % self.record_dir)
-        self.save_log("train file: %d, val file: %d" % (len(self.train_files), len(self.val_y)))
+        #
+        # self.save_model_format = os.path.join(self.record_dir,
+        #                                       "%sweights.{epoch:03d}.hdf5" % str([str(i) for i in self.label_position]))
+        # self.tem_model_file = os.path.join(self.record_dir, 'weights.hdf5')
+        # pathlib.Path(self.record_dir).mkdir(parents=True, exist_ok=True)
+        # pathlib.Path(self.fit_img_record_dir).mkdir(parents=True, exist_ok=True)
+        # pathlib.Path(self.predict_img_record_dir).mkdir(parents=True, exist_ok=True)
+        #
+        # print("##########load model config")
+        # print("##########file name is: %s" % file_name)
+        # print("##########val index is: %d" % self.val_index)
+        # print("##########model dir is: %s" % model_dir)
+        # print("##########record dir is: %s" % self.record_dir)
+        # self.save_log("train file: %d, val file: %d" % (len(self.train_files), len(self.val_y)))
 
     def save_log(self, log):
         log = time.strftime("%Y-%m-%d:%H:%M:%S") + ": " + log
@@ -345,7 +345,7 @@ def summary_val_value(name, value, model_config):
     model_config.writer.flush()
 
 
-def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
+def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig, search_times=100):
     if len(model_config.label_position) > 1:
         thread_f2_01 = fbeta_score(y, (np.array(y_pred) > 0.1).astype(np.int8), beta=2, average='macro')
         thread_f2_02 = fbeta_score(y, (np.array(y_pred) > 0.2).astype(np.int8), beta=2, average='macro')
@@ -383,8 +383,7 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig):
         summary_val_value("val-label-%d/greedy-f2" % model_config.label_position[i], one_label_greedy_f2_all[i],
                           model_config)
 
-    with open(os.path.join(model_config.record_dir,
-                           "evaluate%s.txt" % str([str(i) for i in model_config.label_position])), "a") as f:
+    with open(os.path.join(model_config.record_dir, f"evaluate(search-{search_times}).txt"), "a") as f:
         f.write("\n\n")
         f.write("Weight: %s\n" % weight_name)
         f.write("Smooth F2-Score: %f\n" % np.mean(one_label_smooth_f2_all))

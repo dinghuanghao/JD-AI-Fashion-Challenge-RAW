@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import numpy as np
@@ -6,6 +7,14 @@ from util import keras_util
 from util import path
 from util import model_statistics
 from util import metrics
+
+def get_single_model_cv_f2():
+    with open(path.SINGLE_MODEL_CV_F2, "r") as f:
+        return json.load(f)
+
+def save_single_model_cv_f2(dic):
+    with open(path.SINGLE_MODEL_CV_F2, "w+") as f:
+        json.dump(dic, f)
 
 def get_xgb_result():
     labels = []
@@ -28,7 +37,7 @@ def get_test_labels():
     return  np.array(labels, np.int8)
 
 
-def get_meta_predict(mode_path):
+def get_ablation_experiment_predict(mode_path, val):
     y_true = get_test_labels()
 
     original_test_file = []
@@ -39,15 +48,18 @@ def get_meta_predict(mode_path):
             original_test_file.append(os.path.join(path.ORIGINAL_TEST_IMAGES_PATH, image_name))
 
     weight_files = []
-    _, _, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, 1)
+    _, _, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, val)
 
     for root, dirs, files in os.walk(mode_path):
         for file in files:
             if not file.split(".")[-1] == "hdf5":
                 continue
+            if f"val{val}" not in file:
+                continue
             model_num = re.match(r".*model([0-9]*).*", root).group(1)
             if int(model_num) < 100:
                 continue
+
             weight_files.append(os.path.join(root, file))
 
     for weight_file in weight_files:
@@ -78,12 +90,24 @@ def get_meta_predict(mode_path):
         else:
             y_pred = np.load(keras_util.get_prediction_path(cnn_result_path))
 
+
+
+        one_label_greedy_f2_all = []
+
+        for i in range(13):
+            one_label_greedy_f2_all.append(fbeta_score(y_true[:, i], y_pred[:, i], beta=2))
+
+        all_f2 = get_single_model_cv_f2()
+
+        f2 = {"avg": np.mean(one_label_greedy_f2_all)}
+        for i in range(13):
+            f2[f"{i}"] = one_label_greedy_f2_all[i]
+
+        all_f2[weight_file] = f2
+        save_single_model_cv_f2(all_f2)
+
         with open(os.path.join(path.RESULT_PATH, "test.txt"), "a+") as f:
-            one_label_greedy_f2_all = []
 
-
-            for i in range(13):
-                one_label_greedy_f2_all.append(fbeta_score(y_true[:, i], y_pred[:, i], beta=2))
 
             f.write("\n\n")
             f.write("Weight: %s\n" % weight_file)
@@ -188,6 +212,6 @@ def get_existed_cnn_f2_score(val, mode_path):
 
 
 if __name__ == "__main__":
-    # get_meta_predict(path.MODEL_PATH)
-    calc_xgb_f2_score()
+    get_ablation_experiment_predict(path.MODEL_PATH, 2)
+    # calc_xgb_f2_score()
     # get_existed_cnn_f2_score(1, path.MODEL_PATH)

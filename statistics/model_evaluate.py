@@ -77,16 +77,16 @@ def predict_models(path, val_index=1):
                 weights_file_sorted[int(index) - 1] = weights_file
             weights_file_sorted = [weights_file_sorted[k] for k in sorted(weights_file_sorted.keys())]
 
-            for weights_file in weights_file_sorted:
-                attr_get_model, attr_model_config = keras_util.dynamic_model_import(weights_file)
-                attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1))
-
-                print("evaluate :%s" % weights_file)
-                if keras_util.get_prediction_path(weights_file) not in predict_files:
-                    model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
-                    model.load_weights(weights_file)
-                    y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
-                    keras_util.save_prediction_file(y_pred, weights_file)
+            # for weights_file in weights_file_sorted:
+            #     attr_get_model, attr_model_config = keras_util.dynamic_model_import(weights_file)
+            #     attr_model_config.current_epoch = int(re.match(r".*weights\.0*(.*)\.hdf5", weights_file).group(1))
+            #
+            #     print("evaluate :%s" % weights_file)
+            #     if keras_util.get_prediction_path(weights_file) not in predict_files:
+            #         model = attr_get_model(output_dim=len(attr_model_config.label_position), weights=None)
+            #         model.load_weights(weights_file)
+            #         y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
+            #         keras_util.save_prediction_file(y_pred, weights_file)
 
             predict_files = [os.path.join(root_dir, predict_f) for root_dir, _, predict_fs in os.walk(root) for
                              predict_f in predict_fs if "predict" in predict_f]
@@ -122,5 +122,5 @@ predict_models(os.path.join(path.MODEL_PATH), 4)
 predict_models(os.path.join(path.MODEL_PATH), 5)
 
 # if __name__ == '__main__':
-    # predict_tta_all(path.MODEL_PATH)
+#     predict_tta_all(path.MODEL_PATH)
     # check_invalid_model(path.MODEL_PATH)

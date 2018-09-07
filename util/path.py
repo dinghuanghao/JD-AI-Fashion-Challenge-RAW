@@ -75,6 +75,7 @@ TEST_RESULT_TXT = os.path.join(TXT_PATH, "test-result.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
+SINGLE_MODEL_CV_F2 = os.path.join(IMAGE_STATISTICS_PATH, "single_model_cv_f2.json")
 
 
 def get_image_mean_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
