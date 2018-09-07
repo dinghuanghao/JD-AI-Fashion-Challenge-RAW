@@ -259,6 +259,7 @@ def dynamic_model_import(weights_file=None, model_path_in=None):
 
 def predict_tta(model: keras.Model, model_config: KerasModelConfig, verbose=1):
     if model_config.input_norm:
+        model_config.save_log("use image norm during predict tta")
         pre_datagen = data_loader.KerasGenerator(featurewise_center=True,
                                                  featurewise_std_normalization=True,
                                                  rescale=1. / 256,

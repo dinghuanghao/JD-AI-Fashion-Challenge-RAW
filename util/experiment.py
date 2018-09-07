@@ -9,11 +9,11 @@ from util import model_statistics
 from util import metrics
 
 def get_single_model_cv_f2():
-    with open(path.SINGLE_MODEL_CV_F2, "r") as f:
+    with open(path.EPOCH_CV_GREEDY_100, "r") as f:
         return json.load(f)
 
 def save_single_model_cv_f2(dic):
-    with open(path.SINGLE_MODEL_CV_F2, "w+") as f:
+    with open(path.EPOCH_CV_GREEDY_100, "w+") as f:
         json.dump(dic, f)
 
 def get_xgb_result():
@@ -54,7 +54,7 @@ def get_ablation_experiment_predict(mode_path, val):
         for file in files:
             if not file.split(".")[-1] == "hdf5":
                 continue
-            if f"val{val}" not in file:
+            if f"val{val}" not in root:
                 continue
             model_num = re.match(r".*model([0-9]*).*", root).group(1)
             if int(model_num) < 100:
@@ -79,7 +79,9 @@ def get_ablation_experiment_predict(mode_path, val):
                 if data_type == path.DATA_TYPE_ORIGINAL:
                     attr_model_config.val_files.append(original_test_file)
 
-            y_pred = keras_util.predict(model, attr_model_config, verbose=1)
+            attr_model_config.tta_flip = True
+            y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
+
 
             for i in range(13):
                 y_pred[:, i] = y_pred[:, i] > thresholds[i][weight_file]
