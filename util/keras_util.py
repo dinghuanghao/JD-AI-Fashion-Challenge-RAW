@@ -359,7 +359,7 @@ def evaluate(y, y_pred, weight_name, model_config: KerasModelConfig, search_time
     one_label_smooth_f2_all = []
     for i in range(y.shape[-1]):
         one_label_smooth_f2 = metrics.smooth_f2_score_np(y[:, i], y_pred[:, i])
-        one_label_greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1)
+        one_label_greedy_f2, greedy_threshold = metrics.greedy_f2_score(y[:, i], y_pred[:, i], 1, step=search_times)
         one_label_smooth_f2_all.append(one_label_smooth_f2)
         one_label_greedy_f2_all.append(one_label_greedy_f2)
         one_label_greedy_threshold_all.append(greedy_threshold[0])
