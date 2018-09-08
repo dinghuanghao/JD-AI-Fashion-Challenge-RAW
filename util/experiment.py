@@ -22,6 +22,10 @@ def get_model_cv():
     with open(path.MODEL_CV, "r") as f:
         return json.load(f)
 
+def get_global_cv():
+    with open(path.GLOBAL_CV, "r") as f:
+        return json.load(f)
+
 def save_epoch_cv(dic):
     with open(path.EPOCH_CV, "w+") as f:
         json.dump(dic, f)
@@ -32,6 +36,10 @@ def save_epcoh_test(dic):
 
 def save_model_cv(dic):
     with open(path.MODEL_CV, "w+") as f:
+        json.dump(dic, f)
+
+def save_global_cv(dic):
+    with open(path.GLOBAL_CV, "w+") as f:
         json.dump(dic, f)
 
 def evaluate_test_predictions(y_true, y_pred, weight_file):
@@ -241,6 +249,23 @@ def get_existed_cnn_f2_score(val, mode_path):
             for item in dic:
                 f.write("%4f: %s \n" % (item[1], item[0]))
 
+def build_epoch_cv(val):
+    all_label, one_label, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, val)
+    all_f2 = get_epoch_cv()
+
+    for all in all_label:
+        f2 = {}
+        f2["avg"] = all[1]
+        all_f2[get_epoch_identifier(all[0])] = f2
+
+    for label in range(13):
+        for one in one_label[label]:
+            identifier = get_epoch_identifier(one[0])
+            all_f2[identifier][f"{label}"] = one[1]
+
+    save_epoch_cv(all_f2)
+
+
 def build_model_cv(val):
     all_label, one_label, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, val)
     all_f2 = get_model_cv()
@@ -269,7 +294,8 @@ def build_model_cv(val):
 
 
 if __name__ == "__main__":
-    build_model_cv(2)
+    # build_model_cv(2)
+    build_epoch_cv(2)
     # get_ablation_experiment_predict(path.MODEL_PATH, 2)
     # calc_xgb_f2_score()
     # get_existed_cnn_f2_score(1, path.MODEL_PATH)
