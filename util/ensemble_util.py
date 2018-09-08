@@ -221,7 +221,7 @@ class EnsembleModel(object):
                         if data_type == path.DATA_TYPE_SEGMENTED:
                             self.save_log("model %s use segmented data" % unique_path)
                             attr_model_config.val_files.append(segmented_test_file)
-
+                    attr_model_config.tta_flip = True
                     y_pred = keras_util.predict_tta(model, attr_model_config, verbose=1)
                     keras_util.save_prediction_file(y_pred, cnn_result_path)
 
