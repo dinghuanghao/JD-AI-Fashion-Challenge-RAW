@@ -75,8 +75,8 @@ TEST_RESULT_TXT = os.path.join(TXT_PATH, "test-result.txt")
 SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
-EPOCH_CV_GREEDY_100 = os.path.join(IMAGE_STATISTICS_PATH, "epoch_cv_greedy_100.json")
-
+EPOCH_TEST = os.path.join(IMAGE_STATISTICS_PATH, "epoch_test.json")
+EPOCH_CV = os.path.join(IMAGE_STATISTICS_PATH, "epoch_cv.json")
 
 def get_image_mean_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
