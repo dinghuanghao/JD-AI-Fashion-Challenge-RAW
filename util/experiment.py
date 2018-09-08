@@ -10,14 +10,33 @@ from util import model_statistics
 from util import path
 
 
-def get_single_model_cv_f2():
-    with open(path.EPOCH_CV_GREEDY_100, "r") as f:
+def get_epoch_cv():
+    with open(path.EPOCH_CV, "r") as f:
         return json.load(f)
 
+def get_epoch_test():
+    with open(path.EPOCH_TEST, "r") as f:
+        return json.load(f)
+
+def get_model_cv():
+    with open(path.MODEL_CV, "r") as f:
+        return json.load(f)
+
+def save_epoch_cv(dic):
+    with open(path.EPOCH_CV, "w+") as f:
+        json.dump(dic, f)
+
+def save_epcoh_test(dic):
+    with open(path.EPOCH_TEST, "w+") as f:
+        json.dump(dic, f)
+
+def save_model_cv(dic):
+    with open(path.MODEL_CV, "w+") as f:
+        json.dump(dic, f)
 
 def evaluate_test_predictions(y_true, y_pred, weight_file):
-    all_f2 = get_single_model_cv_f2()
-    identifier = get_identifier(weight_file)
+    all_f2 = get_epoch_test()
+    identifier = get_epoch_identifier(weight_file)
 
     if all_f2.get(identifier):
         print(f"prediction is evaluated, {identifier}")
@@ -31,15 +50,14 @@ def evaluate_test_predictions(y_true, y_pred, weight_file):
         f2[f"{i}"] = one_label_greedy_f2_all[i]
 
     all_f2[identifier] = f2
-    save_single_model_cv_f2(all_f2)
+    save_epcoh_test(all_f2)
 
 
-def save_single_model_cv_f2(dic):
-    with open(path.EPOCH_CV_GREEDY_100, "w+") as f:
-        json.dump(dic, f)
+def get_epoch_identifier(weight_path):
+    return re.search(r".*competition(.*)", weight_path).group(1)
 
-
-def get_identifier(weight_path):
+def get_model_identifier(weight_path):
+    weight_path = weight_path.split(".")[0]
     return re.search(r".*competition(.*)", weight_path).group(1)
 
 
@@ -223,8 +241,35 @@ def get_existed_cnn_f2_score(val, mode_path):
             for item in dic:
                 f.write("%4f: %s \n" % (item[1], item[0]))
 
+def build_model_cv(val):
+    all_label, one_label, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, val)
+    all_f2 = get_model_cv()
+
+    for all in all_label:
+        f2 = {}
+        f2["avg"] = all[1]
+        for i in range(13):
+            f2[f"{i}"] = 0
+        all_f2[get_model_identifier(all[0])] = f2
+
+    for label in range(13):
+        for one in one_label[label]:
+            identifier = get_model_identifier(one[0])
+            all_f2[identifier][f"{label}"] = max(all_f2[identifier][f"{label}"], one[1])
+
+    for key in all_f2.keys():
+        avg = 0
+        for i in range(13):
+            avg += all_f2[key][f"{i}"]
+        avg /= 13
+        all_f2[key]["avg"] = avg
+
+    save_model_cv(all_f2)
+
+
 
 if __name__ == "__main__":
-    get_ablation_experiment_predict(path.MODEL_PATH, 2)
+    build_model_cv(2)
+    # get_ablation_experiment_predict(path.MODEL_PATH, 2)
     # calc_xgb_f2_score()
     # get_existed_cnn_f2_score(1, path.MODEL_PATH)
