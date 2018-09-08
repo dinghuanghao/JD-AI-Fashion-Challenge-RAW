@@ -292,10 +292,10 @@ def build_model_cv(val):
     save_model_cv(all_f2)
 
 
-
 if __name__ == "__main__":
+    print("ok")
     # build_model_cv(2)
-    build_epoch_cv(2)
+    # build_epoch_cv(2)
     # get_ablation_experiment_predict(path.MODEL_PATH, 2)
     # calc_xgb_f2_score()
     # get_existed_cnn_f2_score(1, path.MODEL_PATH)
