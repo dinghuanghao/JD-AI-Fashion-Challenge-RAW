@@ -170,7 +170,7 @@ class KerasModelConfig(object):
         #     for i in range(len(self.val_files)):
         #         self.val_files[i] = self.val_files[i][:64]
         #     self.val_y = self.val_y[:64]
-        #
+
         self.image_mean_file = path.get_image_mean_file(self.k_fold_file, self.val_index,
                                                         data_type=self.data_type)
         self.image_std_file = path.get_image_std_file(self.k_fold_file, self.val_index,

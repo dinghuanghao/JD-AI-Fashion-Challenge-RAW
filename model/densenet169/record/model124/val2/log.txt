@@ -1,0 +1,69 @@
+2018-09-08:12:58:00: ####### start train model
+2018-09-08:12:58:00: ####### init stage is 0
+2018-09-08:12:58:00: ####### lr=0.000100, freeze layers=0.100000 epoch=2
+2018-09-08:12:58:00: ####### initial epoch is 0, end epoch is 2
+2018-09-08:13:08:15: on epoch 1 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.001.hdf5
+2018-09-08:13:10:31: start predict with tta
+2018-09-08:13:10:31: start predict with tta index is 0, data type is original
+2018-09-08:13:11:36: start predict with tta index is 1, data type is original
+2018-09-08:13:22:28: on epoch 2 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-08:13:22:30: start predict with tta
+2018-09-08:13:22:30: start predict with tta index is 0, data type is original
+2018-09-08:13:23:32: start predict with tta index is 1, data type is original
+2018-09-08:13:24:41: ####### lr=0.000010, freeze layers=0.100000 epoch=10
+2018-09-08:13:24:54: ####### load weight file: D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.002.hdf5
+2018-09-08:13:25:04: ####### initial epoch is 2, end epoch is 10
+2018-09-08:13:35:28: on epoch 3 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.003.hdf5
+2018-09-08:13:38:32: start predict with tta
+2018-09-08:13:38:32: start predict with tta index is 0, data type is original
+2018-09-08:13:39:38: start predict with tta index is 1, data type is original
+2018-09-08:13:50:50: on epoch 4 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.004.hdf5
+2018-09-08:13:50:52: start predict with tta
+2018-09-08:13:50:52: start predict with tta index is 0, data type is original
+2018-09-08:13:51:55: start predict with tta index is 1, data type is original
+2018-09-08:14:03:06: on epoch 5 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-09-08:14:03:08: start predict with tta
+2018-09-08:14:03:08: start predict with tta index is 0, data type is original
+2018-09-08:14:04:10: start predict with tta index is 1, data type is original
+2018-09-08:14:15:22: on epoch 6 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-08:14:15:25: start predict with tta
+2018-09-08:14:15:25: start predict with tta index is 0, data type is original
+2018-09-08:14:16:27: start predict with tta index is 1, data type is original
+2018-09-08:14:27:43: on epoch 7 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.007.hdf5
+2018-09-08:14:27:46: start predict with tta
+2018-09-08:14:27:46: start predict with tta index is 0, data type is original
+2018-09-08:14:28:49: start predict with tta index is 1, data type is original
+2018-09-08:14:40:10: on epoch 8 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.008.hdf5
+2018-09-08:14:40:12: start predict with tta
+2018-09-08:14:40:12: start predict with tta index is 0, data type is original
+2018-09-08:14:41:16: start predict with tta index is 1, data type is original
+2018-09-08:14:52:36: on epoch 9 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.009.hdf5
+2018-09-08:14:52:38: start predict with tta
+2018-09-08:14:52:38: start predict with tta index is 0, data type is original
+2018-09-08:14:53:41: start predict with tta index is 1, data type is original
+2018-09-08:15:05:00: on epoch 10 end, save weight:D:\github\JDC\competition\model\densenet169\record\model124\val2\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.010.hdf5
+2018-09-08:15:05:02: start predict with tta
+2018-09-08:15:05:02: start predict with tta index is 0, data type is original
+2018-09-08:15:06:05: start predict with tta index is 1, data type is original
+2018-09-08:15:07:15: ####### train model spend 7755 seconds
+2018-09-08:15:07:15: ####### train model spend 775 seconds average
+2018-09-08:15:35:58: start predict with tta index is 0, data type is original
+2018-09-08:15:37:08: start predict with tta index is 1, data type is original
+2018-09-08:15:38:57: start predict with tta index is 0, data type is original
+2018-09-08:15:40:09: start predict with tta index is 1, data type is original
+2018-09-08:15:42:04: start predict with tta index is 0, data type is original
+2018-09-08:15:43:19: start predict with tta index is 1, data type is original
+2018-09-08:15:45:19: start predict with tta index is 0, data type is original
+2018-09-08:15:46:37: start predict with tta index is 1, data type is original
+2018-09-08:15:48:42: start predict with tta index is 0, data type is original
+2018-09-08:15:50:03: start predict with tta index is 1, data type is original
+2018-09-08:15:52:19: start predict with tta index is 0, data type is original
+2018-09-08:15:53:42: start predict with tta index is 1, data type is original
+2018-09-08:15:56:05: start predict with tta index is 0, data type is original
+2018-09-08:15:57:36: start predict with tta index is 1, data type is original
+2018-09-08:16:00:07: start predict with tta index is 0, data type is original
+2018-09-08:16:01:37: start predict with tta index is 1, data type is original
+2018-09-08:16:04:14: start predict with tta index is 0, data type is original
+2018-09-08:16:05:53: start predict with tta index is 1, data type is original
+2018-09-08:16:08:41: start predict with tta index is 0, data type is original
+2018-09-08:16:10:27: start predict with tta index is 1, data type is original
