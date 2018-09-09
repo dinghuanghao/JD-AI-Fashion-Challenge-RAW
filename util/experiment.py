@@ -35,6 +35,11 @@ def get_global_cv():
         return json.load(f)
 
 
+def get_global_test():
+    with open(path.GLOBAL_TEST, "r") as f:
+        return json.load(f)
+
+
 def save_epoch_cv(dic):
     with open(path.EPOCH_CV, "w+") as f:
         json.dump(dic, f)
@@ -57,6 +62,11 @@ def save_model_test(dic):
 
 def save_global_cv(dic):
     with open(path.GLOBAL_CV, "w+") as f:
+        json.dump(dic, f)
+
+
+def save_global_test(dic):
+    with open(path.GLOBAL_TEST, "w+") as f:
         json.dump(dic, f)
 
 
@@ -345,9 +355,44 @@ def build_model_test():
     print("ok")
 
 
+def build_global_cv():
+    epoch_cv = get_epoch_cv()
+    global_cv = {"avg": 0}
+    for i in range(13):
+        global_cv[f"{i}"] = 0
+
+    for id in epoch_cv.keys():
+        model = epoch_cv[id]
+        for label in range(13):
+            if model[f"{label}"] > global_cv[f"{label}"]:
+                global_cv[f"{label}"] = model[f"{label}"]
+                global_cv[f"model{label}"] = id
+
+    avg = 0
+    for i in range(13):
+        avg += global_cv[f"{i}"]
+    global_cv["avg"] = avg / 13
+    save_global_cv(global_cv)
+
+def build_global_test():
+    global_cv = get_global_cv()
+    epoch_test = get_epoch_test()
+    global_test = {"avg":0}
+    for i in range(13):
+        global_test[f"{i}"] = 0
+
+    for label in range(13):
+        cv_model = global_cv[f"model{label}"]
+        #TODO: 补充一下epoch test
+        test_model = epoch_test[cv_model]
+        f2 = test_model[f"{label}"]
+        global_test[f"{label}"] = f2
+
+
 if __name__ == "__main__":
     print("ok")
-    build_model_test()
+    build_global_cv()
+    # build_model_test()
     # build_model_cv(2)
     # build_epoch_cv(2)
     # get_ablation_experiment_predict(path.MODEL_PATH, 2)
