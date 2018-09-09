@@ -34,6 +34,9 @@ def get_global_cv():
     with open(path.GLOBAL_CV, "r") as f:
         return json.load(f)
 
+def get_threshold_cv():
+    with open(path.THRESHOLD_CV, "r") as f:
+        return json.load(f)
 
 def get_global_test():
     with open(path.GLOBAL_TEST, "r") as f:
@@ -69,6 +72,10 @@ def save_global_test(dic):
     with open(path.GLOBAL_TEST, "w+") as f:
         json.dump(dic, f)
 
+def save_threshold_cv(dic):
+    with open(path.THRESHOLD_CV, "w+") as f:
+        json.dump(dic, f)
+
 
 def get_epoch_identifier(weight_path):
     return re.search(r".*competition(.*)", weight_path).group(1)
@@ -101,9 +108,10 @@ def get_test_labels():
     return np.array(labels, np.int8)
 
 
-def build_epoch_test(y_true, y_pred, weight_file):
+def build_epoch_test(y_true, y_pred, weight_file, identifier=None):
     all_f2 = get_epoch_test()
-    identifier = get_epoch_identifier(weight_file)
+    if not identifier:
+        identifier = get_epoch_identifier(weight_file)
 
     if all_f2.get(identifier):
         print(f"prediction is evaluated, {identifier}")
@@ -355,6 +363,20 @@ def build_model_test():
     print("ok")
 
 
+def build_cv_threshold():
+    _, _, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, 2)
+    print("ok")
+    threshold_cv = {}
+
+    for label in range(13):
+        for weight_path in thresholds[label].keys():
+            if not threshold_cv.get(get_epoch_identifier(weight_path)):
+                threshold_cv[get_epoch_identifier(weight_path)] = {}
+            threshold_cv[get_epoch_identifier(weight_path)][f"{label}"] = thresholds[label][weight_path]
+    save_threshold_cv(threshold_cv)
+    print("ok")
+
+
 def build_global_cv():
     epoch_cv = get_epoch_cv()
     global_cv = {"avg": 0}
@@ -374,24 +396,61 @@ def build_global_cv():
     global_cv["avg"] = avg / 13
     save_global_cv(global_cv)
 
+
 def build_global_test():
     global_cv = get_global_cv()
     epoch_test = get_epoch_test()
-    global_test = {"avg":0}
+    global_test = {"avg": 0}
     for i in range(13):
         global_test[f"{i}"] = 0
 
     for label in range(13):
         cv_model = global_cv[f"model{label}"]
-        #TODO: 补充一下epoch test
+        # TODO: 补充一下epoch test
         test_model = epoch_test[cv_model]
         f2 = test_model[f"{label}"]
         global_test[f"{label}"] = f2
 
 
+def cnn_result_name_to_epoch_name(cnn: str):
+    cnn = cnn[:-1]
+    cnn.replace("-", "\\")
+    return "\\" + cnn
+
+
+def build_ensemble_epoch_cv():
+    result_paths = []
+    result_files = {}
+
+    threshold_cv = get_threshold_cv()
+
+    for root, dirs, files in os.walk(path.CNN_RESULT_PATH):
+        for file in files:
+            if file.split(".")[-1] != "npy":
+                continue
+            result_paths.append(os.path.join(root, file)[:-12])
+            result_files[os.path.join(root, file)[:-12]] = file
+
+    for result_path in result_paths:
+        file_name = result_files[result_path]
+        epoch_name = cnn_result_name_to_epoch_name(file_name)
+        y_true = get_test_labels()
+        y_pred = np.load(result_path)
+
+        threshold = threshold_cv[epoch_name]
+
+        for i in range(13):
+            y_pred[:, i] = y_pred[:, i] > threshold[f"{i}"]
+
+        y_pred = y_pred.astype(np.int8)
+
+        build_epoch_test(y_true, y_pred, None, identifier=epoch_name)
+        
+
 if __name__ == "__main__":
     print("ok")
-    build_global_cv()
+    build_cv_threshold()
+    # build_global_cv()
     # build_model_test()
     # build_model_cv(2)
     # build_epoch_cv(2)
