@@ -332,13 +332,14 @@ def build_model_cv(val):
     save_model_cv(all_f2)
 
 
-# 不应该从epoch_test聚合而来，而是先聚合model_cv，然后使用该聚合。
 def build_model_test():
     epoch_test = get_epoch_test()
     model_cv = get_model_cv()
     model_test = {}
     for id in epoch_test.keys():
         model_test[id.split(".")[0]] = {"avg": 0}
+        for i in range(13):
+            model_test[id.split(".")[0]][f"{i}"] = 0
 
     for id in model_cv:
         value = model_cv[id]
@@ -406,15 +407,20 @@ def build_global_test():
 
     for label in range(13):
         cv_model = global_cv[f"model{label}"]
-        # TODO: 补充一下epoch test
         test_model = epoch_test[cv_model]
         f2 = test_model[f"{label}"]
         global_test[f"{label}"] = f2
 
+    avg = 0
+    for i in range(13):
+        avg += global_test[f"{i}"]
+        global_test["avg"] = avg / 13
+
+    save_global_test(global_test)
 
 def cnn_result_name_to_epoch_name(cnn: str):
-    cnn = cnn[:-1]
-    cnn.replace("-", "\\")
+    cnn = cnn[:-12]
+    cnn = cnn.replace("-", "\\")
     return "\\" + cnn
 
 
@@ -426,10 +432,12 @@ def build_ensemble_epoch_cv():
 
     for root, dirs, files in os.walk(path.CNN_RESULT_PATH):
         for file in files:
+            if "val2" not in file:
+                continue
             if file.split(".")[-1] != "npy":
                 continue
-            result_paths.append(os.path.join(root, file)[:-12])
-            result_files[os.path.join(root, file)[:-12]] = file
+            result_paths.append(os.path.join(root, file))
+            result_files[os.path.join(root, file)] = file
 
     for result_path in result_paths:
         file_name = result_files[result_path]
@@ -445,12 +453,14 @@ def build_ensemble_epoch_cv():
         y_pred = y_pred.astype(np.int8)
 
         build_epoch_test(y_true, y_pred, None, identifier=epoch_name)
-        
+
 
 if __name__ == "__main__":
     print("ok")
-    build_cv_threshold()
-    # build_global_cv()
+    # build_ensemble_epoch_cv()
+    # build_cv_threshold()
+    # build_global_test()
+    build_global_cv()
     # build_model_test()
     # build_model_cv(2)
     # build_epoch_cv(2)
