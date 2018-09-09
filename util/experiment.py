@@ -14,55 +14,55 @@ def get_epoch_cv():
     with open(path.EPOCH_CV, "r") as f:
         return json.load(f)
 
+
 def get_epoch_test():
     with open(path.EPOCH_TEST, "r") as f:
         return json.load(f)
+
 
 def get_model_cv():
     with open(path.MODEL_CV, "r") as f:
         return json.load(f)
 
+
+def get_model_test():
+    with open(path.MODEL_TEST, "r") as f:
+        return json.load(f)
+
+
 def get_global_cv():
     with open(path.GLOBAL_CV, "r") as f:
         return json.load(f)
+
 
 def save_epoch_cv(dic):
     with open(path.EPOCH_CV, "w+") as f:
         json.dump(dic, f)
 
+
 def save_epcoh_test(dic):
     with open(path.EPOCH_TEST, "w+") as f:
         json.dump(dic, f)
+
 
 def save_model_cv(dic):
     with open(path.MODEL_CV, "w+") as f:
         json.dump(dic, f)
 
+
+def save_model_test(dic):
+    with open(path.MODEL_TEST, "w+") as f:
+        json.dump(dic, f)
+
+
 def save_global_cv(dic):
     with open(path.GLOBAL_CV, "w+") as f:
         json.dump(dic, f)
 
-def evaluate_test_predictions(y_true, y_pred, weight_file):
-    all_f2 = get_epoch_test()
-    identifier = get_epoch_identifier(weight_file)
-
-    if all_f2.get(identifier):
-        print(f"prediction is evaluated, {identifier}")
-        return
-    one_label_greedy_f2_all = []
-    for i in range(13):
-        one_label_greedy_f2_all.append(fbeta_score(y_true[:, i], y_pred[:, i], beta=2))
-
-    f2 = {"avg": np.mean(one_label_greedy_f2_all)}
-    for i in range(13):
-        f2[f"{i}"] = one_label_greedy_f2_all[i]
-
-    all_f2[identifier] = f2
-    save_epcoh_test(all_f2)
-
 
 def get_epoch_identifier(weight_path):
     return re.search(r".*competition(.*)", weight_path).group(1)
+
 
 def get_model_identifier(weight_path):
     weight_path = weight_path.split(".")[0]
@@ -89,6 +89,25 @@ def get_test_labels():
             labels.append(result)
 
     return np.array(labels, np.int8)
+
+
+def build_epoch_test(y_true, y_pred, weight_file):
+    all_f2 = get_epoch_test()
+    identifier = get_epoch_identifier(weight_file)
+
+    if all_f2.get(identifier):
+        print(f"prediction is evaluated, {identifier}")
+        return
+    one_label_greedy_f2_all = []
+    for i in range(13):
+        one_label_greedy_f2_all.append(fbeta_score(y_true[:, i], y_pred[:, i], beta=2))
+
+    f2 = {"avg": np.mean(one_label_greedy_f2_all)}
+    for i in range(13):
+        f2[f"{i}"] = one_label_greedy_f2_all[i]
+
+    all_f2[identifier] = f2
+    save_epcoh_test(all_f2)
 
 
 def get_ablation_experiment_predict(mode_path, val):
@@ -124,7 +143,7 @@ def get_ablation_experiment_predict(mode_path, val):
         print(f"evaluate {predict_file}")
         weight_file = predict_file.replace("(test).predict.npy", "")
         y_pred = np.load(predict_file)
-        evaluate_test_predictions(y_true, y_pred, weight_file)
+        build_epoch_test(y_true, y_pred, weight_file)
 
     for weight_file in weight_files:
         print(f"evaluate {weight_file}")
@@ -155,7 +174,7 @@ def get_ablation_experiment_predict(mode_path, val):
         else:
             y_pred = np.load(keras_util.get_prediction_path(cnn_result_path))
 
-        evaluate_test_predictions(y_true, y_pred, weight_file)
+        build_epoch_test(y_true, y_pred, weight_file)
 
 
 def calc_xgb_f2_score():
@@ -249,6 +268,7 @@ def get_existed_cnn_f2_score(val, mode_path):
             for item in dic:
                 f.write("%4f: %s \n" % (item[1], item[0]))
 
+
 def build_epoch_cv(val):
     all_label, one_label, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, val)
     all_f2 = get_epoch_cv()
@@ -280,7 +300,9 @@ def build_model_cv(val):
     for label in range(13):
         for one in one_label[label]:
             identifier = get_model_identifier(one[0])
-            all_f2[identifier][f"{label}"] = max(all_f2[identifier][f"{label}"], one[1])
+            if one[1] > all_f2[identifier][f"{label}"]:
+                all_f2[identifier][f"{label}"] = one[1]
+                all_f2[identifier][f"model{label}"] = get_epoch_identifier(one[0])
 
     for key in all_f2.keys():
         avg = 0
@@ -292,8 +314,40 @@ def build_model_cv(val):
     save_model_cv(all_f2)
 
 
+# 不应该从epoch_test聚合而来，而是先聚合model_cv，然后使用该聚合。
+def build_model_test():
+    epoch_test = get_epoch_test()
+    model_cv = get_model_cv()
+    model_test = {}
+    for id in epoch_test.keys():
+        model_test[id.split(".")[0]] = {"avg": 0}
+
+    for id in model_cv:
+        value = model_cv[id]
+        avg = 0
+        for i in range(13):
+            model = value[f"model{i}"]
+            if epoch_test.get(model):
+                test_model = epoch_test[model]
+                test_f2 = test_model[f"{i}"]
+                model_test[id.split(".")[0]][f"{i}"] = test_f2
+                model_test[id.split(".")[0]][f"model{i}"] = model
+                avg += test_f2
+                model_test[id.split(".")[0]]["avg"] = avg / 13
+
+    model_test_sorted = sorted(model_test.items(), key=lambda x: x[1]["avg"], reverse=True)
+    model_test = {}
+    for item in model_test_sorted:
+        model_test[item[0]] = item[1]
+
+    save_model_test(model_test)
+
+    print("ok")
+
+
 if __name__ == "__main__":
     print("ok")
+    build_model_test()
     # build_model_cv(2)
     # build_epoch_cv(2)
     # get_ablation_experiment_predict(path.MODEL_PATH, 2)
