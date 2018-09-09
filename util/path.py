@@ -77,7 +77,9 @@ SUBMIT_DATA_TXT = os.path.join(TXT_PATH, "submit.txt")
 IMAGE_STATISTICS_PATH = os.path.join(DATA_PATH, "statistics")
 EPOCH_TEST = os.path.join(IMAGE_STATISTICS_PATH, "epoch_test.json")
 EPOCH_CV = os.path.join(IMAGE_STATISTICS_PATH, "epoch_cv.json")
+MODEL_TEST = os.path.join(IMAGE_STATISTICS_PATH, "model_test.json")
 MODEL_CV = os.path.join(IMAGE_STATISTICS_PATH, "model_cv.json")
+GLOBAL_TEST = os.path.join(IMAGE_STATISTICS_PATH, "global_test.json")
 GLOBAL_CV = os.path.join(IMAGE_STATISTICS_PATH, "global_cv.json")
 
 def get_image_mean_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
