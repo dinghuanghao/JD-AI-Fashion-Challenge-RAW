@@ -21,6 +21,11 @@ def get_epoch_test():
         return json.load(f)
 
 
+def get_epoch_test_standard():
+    with open(path.EPOCH_TEST_STANDARD, "r") as f:
+        return json.load(f)
+
+
 def get_model_cv():
     with open(path.MODEL_CV, "r") as f:
         return json.load(f)
@@ -58,6 +63,11 @@ def save_epoch_cv(dic):
 
 def save_epcoh_test(dic):
     with open(path.EPOCH_TEST, "w+") as f:
+        json.dump(dic, f)
+
+
+def save_epoch_test_standard(dic):
+    with open(path.EPOCH_TEST_STANDARD, "w+") as f:
         json.dump(dic, f)
 
 
@@ -501,11 +511,53 @@ def build_threshold_test():
 
         save_threshold_test(threshold_test)
 
+
+def build_epoch_test_standard():
+    result_paths = []
+    result_files = {}
+
+    threshold_test = get_threshold_test()
+    epoch_test_standard = {}
+
+    for root, dirs, files in os.walk(path.CNN_RESULT_PATH):
+        for file in files:
+            if "val2" not in file:
+                continue
+            if file.split(".")[-1] != "npy":
+                continue
+            result_paths.append(os.path.join(root, file))
+            result_files[os.path.join(root, file)] = file
+
+    for result_path in result_paths:
+        file_name = result_files[result_path]
+        epoch_name = cnn_result_name_to_epoch_name(file_name)
+        threshold = threshold_test[epoch_name]
+        y_true = get_test_labels()
+        y_pred = np.load(result_path)
+
+        for i in range(13):
+            y_pred[:, i] = y_pred[:, i] > threshold[f"{i}"]
+
+        y_pred = y_pred.astype(np.int8)
+
+        one_label_greedy_f2_all = []
+        for i in range(13):
+            one_label_greedy_f2_all.append(fbeta_score(y_true[:, i], y_pred[:, i], beta=2))
+
+        f2 = {"avg": np.mean(one_label_greedy_f2_all)}
+        for i in range(13):
+            f2[f"{i}"] = one_label_greedy_f2_all[i]
+
+        epoch_test_standard[epoch_name] = f2
+    save_epoch_test_standard(epoch_test_standard)
+
+
 if __name__ == "__main__":
     print("ok")
 
     # build_ensemble_epoch_cv()
-    build_threshold_test()
+    # build_threshold_test()
+    build_epoch_test_standard()
     # build_threshold_cv()
     # build_global_test()
     # build_global_cv()
