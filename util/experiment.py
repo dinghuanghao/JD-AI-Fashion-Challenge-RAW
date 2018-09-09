@@ -5,6 +5,7 @@ import re
 import numpy as np
 from sklearn.metrics import fbeta_score
 
+from util import metrics
 from util import keras_util
 from util import model_statistics
 from util import path
@@ -34,9 +35,16 @@ def get_global_cv():
     with open(path.GLOBAL_CV, "r") as f:
         return json.load(f)
 
+
 def get_threshold_cv():
     with open(path.THRESHOLD_CV, "r") as f:
         return json.load(f)
+
+
+def get_threshold_test():
+    with open(path.THRESHOLD_TEST, "r") as f:
+        return json.load(f)
+
 
 def get_global_test():
     with open(path.GLOBAL_TEST, "r") as f:
@@ -72,8 +80,14 @@ def save_global_test(dic):
     with open(path.GLOBAL_TEST, "w+") as f:
         json.dump(dic, f)
 
+
 def save_threshold_cv(dic):
     with open(path.THRESHOLD_CV, "w+") as f:
+        json.dump(dic, f)
+
+
+def save_threshold_test(dic):
+    with open(path.THRESHOLD_TEST, "w+") as f:
         json.dump(dic, f)
 
 
@@ -364,7 +378,7 @@ def build_model_test():
     print("ok")
 
 
-def build_cv_threshold():
+def build_threshold_cv():
     _, _, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, 2)
     print("ok")
     threshold_cv = {}
@@ -418,6 +432,7 @@ def build_global_test():
 
     save_global_test(global_test)
 
+
 def cnn_result_name_to_epoch_name(cnn: str):
     cnn = cnn[:-12]
     cnn = cnn.replace("-", "\\")
@@ -455,12 +470,45 @@ def build_ensemble_epoch_cv():
         build_epoch_test(y_true, y_pred, None, identifier=epoch_name)
 
 
+def build_threshold_test():
+    result_paths = []
+    result_files = {}
+
+    threshold_test = {}
+
+    for root, dirs, files in os.walk(path.CNN_RESULT_PATH):
+        for file in files:
+            if "val2" not in file:
+                continue
+            if file.split(".")[-1] != "npy":
+                continue
+            result_paths.append(os.path.join(root, file))
+            result_files[os.path.join(root, file)] = file
+
+    for result_path in result_paths:
+        file_name = result_files[result_path]
+        epoch_name = cnn_result_name_to_epoch_name(file_name)
+
+        if threshold_test.get(epoch_name):
+            continue
+        print(f"epoch name {epoch_name}")
+        y_true = get_test_labels()
+        y_pred = np.load(result_path)
+        threshold_test[epoch_name] = {}
+        for i in range(13):
+            score, threshold = metrics.greedy_f2_score(y_true[:, i], y_pred[:, i], 1, step=100)
+            threshold_test[epoch_name][f"{i}"] = threshold[0]
+
+        save_threshold_test(threshold_test)
+
 if __name__ == "__main__":
     print("ok")
+
     # build_ensemble_epoch_cv()
-    # build_cv_threshold()
+    build_threshold_test()
+    # build_threshold_cv()
     # build_global_test()
-    build_global_cv()
+    # build_global_cv()
     # build_model_test()
     # build_model_cv(2)
     # build_epoch_cv(2)
