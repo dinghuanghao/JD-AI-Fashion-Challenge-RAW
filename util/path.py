@@ -81,6 +81,7 @@ MODEL_TEST = os.path.join(IMAGE_STATISTICS_PATH, "model_test.json")
 MODEL_CV = os.path.join(IMAGE_STATISTICS_PATH, "model_cv.json")
 GLOBAL_TEST = os.path.join(IMAGE_STATISTICS_PATH, "global_test.json")
 GLOBAL_CV = os.path.join(IMAGE_STATISTICS_PATH, "global_cv.json")
+THRESHOLD_CV = os.path.join(IMAGE_STATISTICS_PATH, "threshold_cv.json")
 
 def get_image_mean_file(k_fold_file, val_index, data_type=(config.DATA_TYPE_SEGMENTED,)):
     pathlib.Path(os.path.join(os.path.join(IMAGE_STATISTICS_PATH, k_fold_file.split(".")[0]))) \
