@@ -1,0 +1,415 @@
+2018-09-10:11:30:24: start search val 1
+2018-09-10:11:30:24: start search label 0
+2018-09-10:11:30:24: start search label 1
+2018-09-10:11:30:24: start search label 2
+2018-09-10:11:30:24: start search label 3
+2018-09-10:11:30:24: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.005.hdf5
+2018-09-10:11:30:24: start search label 4
+2018-09-10:11:30:24: start search label 5
+2018-09-10:11:30:24: start search label 6
+2018-09-10:11:30:24: start search label 7
+2018-09-10:11:30:24: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-10:11:30:24: start search label 8
+2018-09-10:11:30:24: ignore[corr 1.000000] F:\Projects\competition\model\xception\record\model9\val1\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights.006.hdf5
+2018-09-10:11:30:24: start search label 9
+2018-09-10:11:30:24: start search label 10
+2018-09-10:11:30:24: start search label 11
+2018-09-10:11:30:24: start search label 12
+2018-09-10:11:30:24: start search val 2
+2018-09-10:11:30:24: start search label 0
+2018-09-10:11:30:24: start search label 1
+2018-09-10:11:30:24: start search label 2
+2018-09-10:11:30:24: start search label 3
+2018-09-10:11:30:24: start search label 4
+2018-09-10:11:30:24: start search label 5
+2018-09-10:11:30:24: start search label 6
+2018-09-10:11:30:24: start search label 7
+2018-09-10:11:30:24: start search label 8
+2018-09-10:11:30:24: start search label 9
+2018-09-10:11:30:24: start search label 10
+2018-09-10:11:30:24: start search label 11
+2018-09-10:11:30:24: start search label 12
+2018-09-10:11:30:24: start search val 3
+2018-09-10:11:30:24: start search label 0
+2018-09-10:11:30:24: start search label 1
+2018-09-10:11:30:24: start search label 2
+2018-09-10:11:30:24: start search label 3
+2018-09-10:11:30:24: start search label 4
+2018-09-10:11:30:24: start search label 5
+2018-09-10:11:30:24: start search label 6
+2018-09-10:11:30:24: start search label 7
+2018-09-10:11:30:24: start search label 8
+2018-09-10:11:30:24: start search label 9
+2018-09-10:11:30:24: start search label 10
+2018-09-10:11:30:24: start search label 11
+2018-09-10:11:30:24: start search label 12
+2018-09-10:11:30:24: start search val 4
+2018-09-10:11:30:24: start search label 0
+2018-09-10:11:30:24: start search label 1
+2018-09-10:11:30:24: start search label 2
+2018-09-10:11:30:24: start search label 3
+2018-09-10:11:30:24: start search label 4
+2018-09-10:11:30:24: start search label 5
+2018-09-10:11:30:24: start search label 6
+2018-09-10:11:30:24: start search label 7
+2018-09-10:11:30:24: start search label 8
+2018-09-10:11:30:24: start search label 9
+2018-09-10:11:30:24: start search label 10
+2018-09-10:11:30:24: start search label 11
+2018-09-10:11:30:24: start search label 12
+2018-09-10:11:30:24: start search val 5
+2018-09-10:11:30:24: start search label 0
+2018-09-10:11:30:24: start search label 1
+2018-09-10:11:30:24: start search label 2
+2018-09-10:11:30:24: start search label 3
+2018-09-10:11:30:24: start search label 4
+2018-09-10:11:30:24: start search label 5
+2018-09-10:11:30:24: start search label 6
+2018-09-10:11:30:24: start search label 7
+2018-09-10:11:30:24: start search label 8
+2018-09-10:11:30:24: start search label 9
+2018-09-10:11:30:24: start search label 10
+2018-09-10:11:30:24: start search label 11
+2018-09-10:11:30:24: start search label 12
+2018-09-10:13:49:03: load meta model info
+2018-09-10:13:49:08: eta:0.200000, max_depth:2, f2:0.613208
+2018-09-10:13:49:08: best_iteration:10.000000,  best_score:0.386792, best_ntree_limit=11.000000
+2018-09-10:13:49:08: 
+
+2018-09-10:13:49:11: eta:0.200000, max_depth:2, f2:0.600000
+2018-09-10:13:49:11: best_iteration:4.000000,  best_score:0.400000, best_ntree_limit=5.000000
+2018-09-10:13:49:11: 
+
+2018-09-10:13:49:16: eta:0.200000, max_depth:2, f2:0.625000
+2018-09-10:13:49:16: best_iteration:12.000000,  best_score:0.385246, best_ntree_limit=13.000000
+2018-09-10:13:49:16: 
+
+2018-09-10:13:49:21: eta:0.200000, max_depth:2, f2:0.625000
+2018-09-10:13:49:21: best_iteration:12.000000,  best_score:0.385246, best_ntree_limit=13.000000
+2018-09-10:13:49:21: 
+
+2018-09-10:13:49:26: eta:0.200000, max_depth:2, f2:0.625000
+2018-09-10:13:49:26: best_iteration:12.000000,  best_score:0.385246, best_ntree_limit=13.000000
+2018-09-10:13:49:26: 
+
+2018-09-10:13:49:28: eta:0.200000, max_depth:3, f2:0.598291
+2018-09-10:13:49:28: best_iteration:1.000000,  best_score:0.411765, best_ntree_limit=2.000000
+2018-09-10:13:49:28: 
+
+2018-09-10:13:49:32: eta:0.200000, max_depth:3, f2:0.588235
+2018-09-10:13:49:32: best_iteration:1.000000,  best_score:0.421488, best_ntree_limit=2.000000
+2018-09-10:13:49:32: 
+
+2018-09-10:13:49:36: eta:0.200000, max_depth:3, f2:0.563910
+2018-09-10:13:49:36: best_iteration:8.000000,  best_score:0.436090, best_ntree_limit=9.000000
+2018-09-10:13:49:36: 
+
+2018-09-10:13:49:40: eta:0.200000, max_depth:3, f2:0.513699
+2018-09-10:13:49:40: best_iteration:5.000000,  best_score:0.488189, best_ntree_limit=6.000000
+2018-09-10:13:49:40: 
+
+2018-09-10:13:49:44: eta:0.200000, max_depth:3, f2:0.564516
+2018-09-10:13:49:44: best_iteration:5.000000,  best_score:0.435484, best_ntree_limit=6.000000
+2018-09-10:13:49:44: 
+
+2018-09-10:13:49:47: eta:0.200000, max_depth:4, f2:0.598291
+2018-09-10:13:49:47: best_iteration:1.000000,  best_score:0.401709, best_ntree_limit=2.000000
+2018-09-10:13:49:47: 
+
+2018-09-10:13:49:51: eta:0.200000, max_depth:4, f2:0.593220
+2018-09-10:13:49:51: best_iteration:4.000000,  best_score:0.406780, best_ntree_limit=5.000000
+2018-09-10:13:49:51: 
+
+2018-09-10:13:49:54: eta:0.200000, max_depth:4, f2:0.555556
+2018-09-10:13:49:54: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:49:54: 
+
+2018-09-10:13:49:57: eta:0.200000, max_depth:4, f2:0.543478
+2018-09-10:13:49:57: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:49:57: 
+
+2018-09-10:13:50:02: eta:0.200000, max_depth:4, f2:0.576923
+2018-09-10:13:50:02: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:50:02: 
+
+2018-09-10:13:50:05: eta:0.200000, max_depth:5, f2:0.590551
+2018-09-10:13:50:05: best_iteration:1.000000,  best_score:0.455446, best_ntree_limit=2.000000
+2018-09-10:13:50:05: 
+
+2018-09-10:13:50:10: eta:0.200000, max_depth:5, f2:0.590551
+2018-09-10:13:50:10: best_iteration:8.000000,  best_score:0.409449, best_ntree_limit=9.000000
+2018-09-10:13:50:10: 
+
+2018-09-10:13:50:14: eta:0.200000, max_depth:5, f2:0.555556
+2018-09-10:13:50:14: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:50:14: 
+
+2018-09-10:13:50:17: eta:0.200000, max_depth:5, f2:0.543478
+2018-09-10:13:50:17: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:50:17: 
+
+2018-09-10:13:50:21: eta:0.200000, max_depth:5, f2:0.576923
+2018-09-10:13:50:21: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:50:21: 
+
+2018-09-10:13:50:25: eta:0.200000, max_depth:6, f2:0.630631
+2018-09-10:13:50:25: best_iteration:1.000000,  best_score:0.369369, best_ntree_limit=2.000000
+2018-09-10:13:50:25: 
+
+2018-09-10:13:50:28: eta:0.200000, max_depth:6, f2:0.593220
+2018-09-10:13:50:28: best_iteration:2.000000,  best_score:0.406780, best_ntree_limit=3.000000
+2018-09-10:13:50:28: 
+
+2018-09-10:13:50:32: eta:0.200000, max_depth:6, f2:0.563910
+2018-09-10:13:50:32: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:50:32: 
+
+2018-09-10:13:50:36: eta:0.200000, max_depth:6, f2:0.543478
+2018-09-10:13:50:36: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:50:36: 
+
+2018-09-10:13:50:40: eta:0.200000, max_depth:6, f2:0.576923
+2018-09-10:13:50:40: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:50:40: 
+
+2018-09-10:13:50:44: eta:0.200000, max_depth:7, f2:0.630631
+2018-09-10:13:50:44: best_iteration:1.000000,  best_score:0.369369, best_ntree_limit=2.000000
+2018-09-10:13:50:44: 
+
+2018-09-10:13:50:48: eta:0.200000, max_depth:7, f2:0.593220
+2018-09-10:13:50:48: best_iteration:2.000000,  best_score:0.406780, best_ntree_limit=3.000000
+2018-09-10:13:50:48: 
+
+2018-09-10:13:50:51: eta:0.200000, max_depth:7, f2:0.563910
+2018-09-10:13:50:51: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:50:51: 
+
+2018-09-10:13:50:54: eta:0.200000, max_depth:7, f2:0.543478
+2018-09-10:13:50:54: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:50:54: 
+
+2018-09-10:13:50:59: eta:0.200000, max_depth:7, f2:0.576923
+2018-09-10:13:50:59: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:50:59: 
+
+2018-09-10:13:51:02: eta:0.200000, max_depth:8, f2:0.630631
+2018-09-10:13:51:02: best_iteration:1.000000,  best_score:0.369369, best_ntree_limit=2.000000
+2018-09-10:13:51:02: 
+
+2018-09-10:13:51:06: eta:0.200000, max_depth:8, f2:0.593220
+2018-09-10:13:51:06: best_iteration:2.000000,  best_score:0.406780, best_ntree_limit=3.000000
+2018-09-10:13:51:06: 
+
+2018-09-10:13:51:10: eta:0.200000, max_depth:8, f2:0.563910
+2018-09-10:13:51:10: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:51:10: 
+
+2018-09-10:13:51:13: eta:0.200000, max_depth:8, f2:0.543478
+2018-09-10:13:51:13: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:51:13: 
+
+2018-09-10:13:51:17: eta:0.200000, max_depth:8, f2:0.576923
+2018-09-10:13:51:17: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:51:17: 
+
+2018-09-10:13:51:21: eta:0.200000, max_depth:9, f2:0.630631
+2018-09-10:13:51:21: best_iteration:1.000000,  best_score:0.369369, best_ntree_limit=2.000000
+2018-09-10:13:51:21: 
+
+2018-09-10:13:51:24: eta:0.200000, max_depth:9, f2:0.593220
+2018-09-10:13:51:24: best_iteration:2.000000,  best_score:0.406780, best_ntree_limit=3.000000
+2018-09-10:13:51:24: 
+
+2018-09-10:13:51:28: eta:0.200000, max_depth:9, f2:0.563910
+2018-09-10:13:51:28: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:51:28: 
+
+2018-09-10:13:51:31: eta:0.200000, max_depth:9, f2:0.543478
+2018-09-10:13:51:31: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:51:31: 
+
+2018-09-10:13:51:35: eta:0.200000, max_depth:9, f2:0.576923
+2018-09-10:13:51:36: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:51:36: 
+
+2018-09-10:13:51:39: eta:0.200000, max_depth:10, f2:0.630631
+2018-09-10:13:51:39: best_iteration:1.000000,  best_score:0.369369, best_ntree_limit=2.000000
+2018-09-10:13:51:39: 
+
+2018-09-10:13:51:43: eta:0.200000, max_depth:10, f2:0.593220
+2018-09-10:13:51:43: best_iteration:2.000000,  best_score:0.406780, best_ntree_limit=3.000000
+2018-09-10:13:51:43: 
+
+2018-09-10:13:51:46: eta:0.200000, max_depth:10, f2:0.563910
+2018-09-10:13:51:46: best_iteration:2.000000,  best_score:0.452555, best_ntree_limit=3.000000
+2018-09-10:13:51:46: 
+
+2018-09-10:13:51:49: eta:0.200000, max_depth:10, f2:0.543478
+2018-09-10:13:51:49: best_iteration:2.000000,  best_score:0.456522, best_ntree_limit=3.000000
+2018-09-10:13:51:49: 
+
+2018-09-10:13:51:54: eta:0.200000, max_depth:10, f2:0.576923
+2018-09-10:13:51:54: best_iteration:5.000000,  best_score:0.423077, best_ntree_limit=6.000000
+2018-09-10:13:51:54: 
+
+2018-09-10:13:51:54: save best model for val[1] label[0], f2[0.630631] eta[0.200000] max_depth[6]  best_min_child_weight[1.000000] best_ntree[2] best_iter[1]
+2018-09-10:13:52:02: eta:0.200000, max_depth:2, f2:0.719984
+2018-09-10:13:52:02: best_iteration:21.000000,  best_score:0.280016, best_ntree_limit=22.000000
+2018-09-10:13:52:02: 
+
+2018-09-10:13:52:10: eta:0.200000, max_depth:2, f2:0.719984
+2018-09-10:13:52:10: best_iteration:21.000000,  best_score:0.280016, best_ntree_limit=22.000000
+2018-09-10:13:52:10: 
+
+2018-09-10:13:52:18: eta:0.200000, max_depth:2, f2:0.719984
+2018-09-10:13:52:18: best_iteration:21.000000,  best_score:0.280016, best_ntree_limit=22.000000
+2018-09-10:13:52:18: 
+
+2018-09-10:13:52:25: eta:0.200000, max_depth:2, f2:0.719984
+2018-09-10:13:52:25: best_iteration:21.000000,  best_score:0.280016, best_ntree_limit=22.000000
+2018-09-10:13:52:25: 
+
+2018-09-10:13:52:32: eta:0.200000, max_depth:2, f2:0.719984
+2018-09-10:13:52:32: best_iteration:21.000000,  best_score:0.280016, best_ntree_limit=22.000000
+2018-09-10:13:52:32: 
+
+2018-09-10:13:52:37: eta:0.200000, max_depth:3, f2:0.720356
+2018-09-10:13:52:37: best_iteration:9.000000,  best_score:0.279644, best_ntree_limit=10.000000
+2018-09-10:13:52:37: 
+
+2018-09-10:13:52:43: eta:0.200000, max_depth:3, f2:0.720356
+2018-09-10:13:52:43: best_iteration:9.000000,  best_score:0.279644, best_ntree_limit=10.000000
+2018-09-10:13:52:43: 
+
+2018-09-10:13:52:48: eta:0.200000, max_depth:3, f2:0.720356
+2018-09-10:13:52:48: best_iteration:9.000000,  best_score:0.279644, best_ntree_limit=10.000000
+2018-09-10:13:52:48: 
+
+2018-09-10:13:52:53: eta:0.200000, max_depth:3, f2:0.720356
+2018-09-10:13:52:53: best_iteration:9.000000,  best_score:0.279644, best_ntree_limit=10.000000
+2018-09-10:13:52:53: 
+
+2018-09-10:13:52:58: eta:0.200000, max_depth:3, f2:0.720356
+2018-09-10:13:52:58: best_iteration:9.000000,  best_score:0.279644, best_ntree_limit=10.000000
+2018-09-10:13:52:58: 
+
+2018-09-10:13:53:03: eta:0.200000, max_depth:4, f2:0.719110
+2018-09-10:13:53:03: best_iteration:7.000000,  best_score:0.280890, best_ntree_limit=8.000000
+2018-09-10:13:53:03: 
+
+2018-09-10:13:53:09: eta:0.200000, max_depth:4, f2:0.720347
+2018-09-10:13:53:09: best_iteration:10.000000,  best_score:0.279653, best_ntree_limit=11.000000
+2018-09-10:13:53:09: 
+
+2018-09-10:13:53:15: eta:0.200000, max_depth:4, f2:0.721068
+2018-09-10:13:53:15: best_iteration:10.000000,  best_score:0.278932, best_ntree_limit=11.000000
+2018-09-10:13:53:15: 
+
+2018-09-10:13:53:21: eta:0.200000, max_depth:4, f2:0.721599
+2018-09-10:13:53:21: best_iteration:9.000000,  best_score:0.278401, best_ntree_limit=10.000000
+2018-09-10:13:53:21: 
+
+2018-09-10:13:53:27: eta:0.200000, max_depth:4, f2:0.721743
+2018-09-10:13:53:27: best_iteration:12.000000,  best_score:0.278257, best_ntree_limit=13.000000
+2018-09-10:13:53:27: 
+
+2018-09-10:13:53:33: eta:0.200000, max_depth:5, f2:0.722039
+2018-09-10:13:53:33: best_iteration:10.000000,  best_score:0.277961, best_ntree_limit=11.000000
+2018-09-10:13:53:34: 
+
+2018-09-10:13:53:39: eta:0.200000, max_depth:5, f2:0.723607
+2018-09-10:13:53:39: best_iteration:7.000000,  best_score:0.277457, best_ntree_limit=8.000000
+2018-09-10:13:53:39: 
+
+2018-09-10:13:53:43: eta:0.200000, max_depth:5, f2:0.724239
+2018-09-10:13:53:43: best_iteration:3.000000,  best_score:0.275761, best_ntree_limit=4.000000
+2018-09-10:13:53:43: 
+
+2018-09-10:13:53:48: eta:0.200000, max_depth:5, f2:0.724695
+2018-09-10:13:53:48: best_iteration:3.000000,  best_score:0.275305, best_ntree_limit=4.000000
+2018-09-10:13:53:48: 
+
+2018-09-10:13:53:52: eta:0.200000, max_depth:5, f2:0.724124
+2018-09-10:13:53:52: best_iteration:3.000000,  best_score:0.275876, best_ntree_limit=4.000000
+2018-09-10:13:53:52: 
+
+2018-09-10:13:53:57: eta:0.200000, max_depth:6, f2:0.720597
+2018-09-10:13:53:57: best_iteration:4.000000,  best_score:0.280054, best_ntree_limit=5.000000
+2018-09-10:13:53:57: 
+
+2018-09-10:13:54:04: eta:0.200000, max_depth:6, f2:0.716267
+2018-09-10:13:54:04: best_iteration:11.000000,  best_score:0.283733, best_ntree_limit=12.000000
+2018-09-10:13:54:04: 
+
+2018-09-10:13:54:11: eta:0.200000, max_depth:6, f2:0.717620
+2018-09-10:13:54:11: best_iteration:10.000000,  best_score:0.282380, best_ntree_limit=11.000000
+2018-09-10:13:54:11: 
+
+2018-09-10:13:54:19: eta:0.200000, max_depth:6, f2:0.719727
+2018-09-10:13:54:19: best_iteration:12.000000,  best_score:0.280273, best_ntree_limit=13.000000
+2018-09-10:13:54:19: 
+
+2018-09-10:13:54:26: eta:0.200000, max_depth:6, f2:0.723227
+2018-09-10:13:54:26: best_iteration:10.000000,  best_score:0.276773, best_ntree_limit=11.000000
+2018-09-10:13:54:26: 
+
+2018-09-10:13:54:32: eta:0.200000, max_depth:7, f2:0.715969
+2018-09-10:13:54:32: best_iteration:6.000000,  best_score:0.284464, best_ntree_limit=7.000000
+2018-09-10:13:54:32: 
+
+2018-09-10:13:54:40: eta:0.200000, max_depth:7, f2:0.715822
+2018-09-10:13:54:40: best_iteration:12.000000,  best_score:0.284178, best_ntree_limit=13.000000
+2018-09-10:13:54:40: 
+
+2018-09-10:13:54:46: eta:0.200000, max_depth:7, f2:0.715251
+2018-09-10:13:54:46: best_iteration:6.000000,  best_score:0.285854, best_ntree_limit=7.000000
+2018-09-10:13:54:46: 
+
+2018-09-10:13:54:54: eta:0.200000, max_depth:7, f2:0.713458
+2018-09-10:13:54:54: best_iteration:11.000000,  best_score:0.286542, best_ntree_limit=12.000000
+2018-09-10:13:54:55: 
+
+2018-09-10:13:55:02: eta:0.200000, max_depth:7, f2:0.715407
+2018-09-10:13:55:02: best_iteration:10.000000,  best_score:0.285576, best_ntree_limit=11.000000
+2018-09-10:13:55:02: 
+
+2018-09-10:13:55:09: eta:0.200000, max_depth:8, f2:0.705370
+2018-09-10:13:55:09: best_iteration:7.000000,  best_score:0.294630, best_ntree_limit=8.000000
+2018-09-10:13:55:09: 
+
+2018-09-10:13:55:17: eta:0.200000, max_depth:8, f2:0.722782
+2018-09-10:13:55:17: best_iteration:8.000000,  best_score:0.277218, best_ntree_limit=9.000000
+2018-09-10:13:55:17: 
+
+2018-09-10:13:55:25: eta:0.200000, max_depth:8, f2:0.713154
+2018-09-10:13:55:25: best_iteration:9.000000,  best_score:0.287113, best_ntree_limit=10.000000
+2018-09-10:13:55:25: 
+
+2018-09-10:13:55:32: eta:0.200000, max_depth:8, f2:0.719961
+2018-09-10:13:55:32: best_iteration:8.000000,  best_score:0.280039, best_ntree_limit=9.000000
+2018-09-10:13:55:32: 
+
+2018-09-10:13:55:42: eta:0.200000, max_depth:8, f2:0.713040
+2018-09-10:13:55:42: best_iteration:16.000000,  best_score:0.287905, best_ntree_limit=17.000000
+2018-09-10:13:55:42: 
+
+2018-09-10:13:55:54: eta:0.200000, max_depth:9, f2:0.701992
+2018-09-10:13:55:54: best_iteration:19.000000,  best_score:0.298008, best_ntree_limit=20.000000
+2018-09-10:13:55:54: 
+
+2018-09-10:13:56:01: eta:0.200000, max_depth:9, f2:0.713453
+2018-09-10:13:56:01: best_iteration:5.000000,  best_score:0.286547, best_ntree_limit=6.000000
+2018-09-10:13:56:01: 
+
+2018-09-10:13:56:07: eta:0.200000, max_depth:9, f2:0.704184
+2018-09-10:13:56:07: best_iteration:4.000000,  best_score:0.297233, best_ntree_limit=5.000000
+2018-09-10:13:56:07: 
+
+2018-09-10:13:56:15: eta:0.200000, max_depth:9, f2:0.706511
+2018-09-10:13:56:15: best_iteration:6.000000,  best_score:0.293489, best_ntree_limit=7.000000
+2018-09-10:13:56:15: 
+
+2018-09-10:13:56:24: eta:0.200000, max_depth:9, f2:0.711955
+2018-09-10:13:56:24: best_iteration:13.000000,  best_score:0.288045, best_ntree_limit=14.000000
+2018-09-10:13:56:24: 
+
