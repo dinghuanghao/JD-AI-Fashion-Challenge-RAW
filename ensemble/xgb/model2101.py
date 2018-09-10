@@ -16,7 +16,7 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                        'objective': 'binary:logistic',  # error evaluation for multiclass tasks
                                        'max_depth': range(2, 11),  # depth of the trees in the boosting process
                                        'min_child_weight': [1, 2, 3, 4, 5],
-                                       'nthread': 6
+                                       'nthread': 2
                                    },
                                    number_round=1000,
                                    )
