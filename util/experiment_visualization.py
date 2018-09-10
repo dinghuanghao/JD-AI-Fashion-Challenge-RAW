@@ -115,11 +115,15 @@ def get_epoch_cv_test_info(file_cv=path.EPOCH_CV, file_test=path.EPOCH_TEST):
 
     sns.lmplot(x='num', y='avg', data=diff_frame)
     # sns.distplot(diff_frame['avg'].values, hist=False, rug=True)
+    plt.xlabel('model_avg')
+    plt.ylabel('f2-score_diff')
     plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_avg"))
 
     for i in range(13):
         sns.lmplot(x='num', y=str(i), data=diff_frame)
         # sns.distplot(diff_frame['avg'].values, hist=False, rug=True)
+        plt.xlabel('model_label'+str(i))
+        plt.ylabel('f2-score_diff')
         plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_diff_label" + str(i)))
 
 def get_global_cv_test_info(file_cv=path.GLOBAL_CV, file_test=path.GLOBAL_TEST):
@@ -134,6 +138,7 @@ def get_global_cv_test_info(file_cv=path.GLOBAL_CV, file_test=path.GLOBAL_TEST):
     plt.plot(x_label, list_cv, 'o--')
     plt.plot(x_label, list_test, 'o--')
     plt.legend(['CV', 'TEST'])
+    plt.ylabel('f2-score')
     plt.savefig(os.path.join(FIG_SAVE_FILE, "global_cv_test_info"))
 
 def get_threshold_cv_test_info(file_cv=path.THRESHOLD_CV, file_test=path.THRESHOLD_TEST):
@@ -168,13 +173,53 @@ def get_threshold_cv_test_info(file_cv=path.THRESHOLD_CV, file_test=path.THRESHO
     for i in range(13):
         # sns.lmplot(x='num', y=str(i), data=diff_frame)
         sns.distplot(diff_frame[str(i)].values, hist=False, rug=True)
+        plt.xlabel('label'+str(i))
         plt.savefig(os.path.join(FIG_SAVE_FILE, "threshold_cv_test_info_diff_label" + str(i)))
         plt.clf()
-        
+
+
+def get_epoch_test_standard_info(file_cv=path.EPOCH_TEST, file_test=path.EPOCH_TEST_STANDARD):
+    dic_cv = data_from_json(file_cv)
+    dic_test = data_from_json(file_test)
+    dic_diff = {}
+    dic_list = []
+    for k_cv in dic_cv:
+        if k_cv in dic_test:
+            dic_diff[k_cv] = {}
+            dic_diff[k_cv]["0"] = dic_test[k_cv]["0"] - dic_cv[k_cv]["0"]
+            dic_diff[k_cv]["1"] = dic_test[k_cv]["1"] - dic_cv[k_cv]["1"]
+            dic_diff[k_cv]["2"] = dic_test[k_cv]["2"] - dic_cv[k_cv]["2"]
+            dic_diff[k_cv]["3"] = dic_test[k_cv]["3"] - dic_cv[k_cv]["3"]
+            dic_diff[k_cv]["4"] = dic_test[k_cv]["4"] - dic_cv[k_cv]["4"]
+            dic_diff[k_cv]["5"] = dic_test[k_cv]["5"] - dic_cv[k_cv]["5"]
+            dic_diff[k_cv]["6"] = dic_test[k_cv]["6"] - dic_cv[k_cv]["6"]
+            dic_diff[k_cv]["7"] = dic_test[k_cv]["7"] - dic_cv[k_cv]["7"]
+            dic_diff[k_cv]["8"] = dic_test[k_cv]["8"] - dic_cv[k_cv]["8"]
+            dic_diff[k_cv]["9"] = dic_test[k_cv]["9"] - dic_cv[k_cv]["9"]
+            dic_diff[k_cv]["10"] = dic_test[k_cv]["10"] - dic_cv[k_cv]["10"]
+            dic_diff[k_cv]["11"] = dic_test[k_cv]["11"] - dic_cv[k_cv]["11"]
+            dic_diff[k_cv]["12"] = dic_test[k_cv]["12"] - dic_cv[k_cv]["12"]
+    number = 0
+    for k_diff in dic_diff:
+        number += 1
+        dic_list.append([number])
+        for k, v in dic_diff[k_diff].items():
+            dic_list[-1].append(v)
+    diff_array = np.array(dic_list)
+    diff_frame = pd.DataFrame(diff_array, columns=dic_label[:1] + dic_label[2:])
+    for i in range(13):
+        sns.lmplot(x='num', y=str(i), data=diff_frame)
+        # sns.distplot(diff_frame[str(i)].values, hist=False, rug=True)
+        plt.xlabel('model_label'+str(i))
+        plt.ylabel('f2-score_diff')
+        plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_test_standard_info_diff_label" + str(i)))
+        plt.clf()
+
 if __name__ == "__main__":
     # Test_show_label_class_bar(TEST_FILE)
     # Test_show_label_class_type_bar(TEST_FILE)
     # get_epoch_cv_test_info()
     # get_global_cv_test_info()
-    get_threshold_cv_test_info()
+    # get_threshold_cv_test_info()
+    # get_epoch_test_standard_info()
     pass
