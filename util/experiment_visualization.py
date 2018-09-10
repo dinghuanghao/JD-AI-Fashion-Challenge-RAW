@@ -120,7 +120,7 @@ def get_epoch_cv_test_info(file_cv=path.EPOCH_CV, file_test=path.EPOCH_TEST):
     for i in range(13):
         sns.lmplot(x='num', y=str(i), data=diff_frame)
         # sns.distplot(diff_frame['avg'].values, hist=False, rug=True)
-        plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_label" + str(i)))
+        plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_diff_label" + str(i)))
 
 def get_global_cv_test_info(file_cv=path.GLOBAL_CV, file_test=path.GLOBAL_TEST):
     dic_cv = data_from_json(file_cv)
@@ -166,14 +166,15 @@ def get_threshold_cv_test_info(file_cv=path.THRESHOLD_CV, file_test=path.THRESHO
     diff_array = np.array(dic_list)
     diff_frame = pd.DataFrame(diff_array, columns=dic_label[:1]+dic_label[2:])
     for i in range(13):
-        sns.lmplot(x='num', y=str(i), data=diff_frame)
-        # sns.distplot(diff_frame['avg'].values, hist=False, rug=True)
-        plt.savefig(os.path.join(FIG_SAVE_FILE, "threshold_cv_test_info_label" + str(i)))
-
+        # sns.lmplot(x='num', y=str(i), data=diff_frame)
+        sns.distplot(diff_frame[str(i)].values, hist=False, rug=True)
+        plt.savefig(os.path.join(FIG_SAVE_FILE, "threshold_cv_test_info_diff_label" + str(i)))
+        plt.clf()
+        
 if __name__ == "__main__":
     # Test_show_label_class_bar(TEST_FILE)
     # Test_show_label_class_type_bar(TEST_FILE)
     # get_epoch_cv_test_info()
     # get_global_cv_test_info()
-    # get_threshold_cv_test_info()
+    get_threshold_cv_test_info()
     pass
