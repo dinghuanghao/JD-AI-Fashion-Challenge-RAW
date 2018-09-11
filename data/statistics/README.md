@@ -18,3 +18,9 @@ threshold_cv：cross validation上的阈值
 
 threshold_test：test集上搜索出来的阈值
 
+ensemble_cv：集成模型在cv集上的结果
+
+ensemble_test：集成模型在test集上的结果
++ avg\[cnn\]：对cnn输出进行平均得单个样本，然后再输入xgboost得到五个样本，然后二值化并投票
++ avg\[xgb\]：对xgb的25个输出进行平均，得到五个输出，然后二值化并投票
++ 无后缀：对xgb的25个输出进行二值化并投票

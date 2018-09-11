@@ -6,7 +6,7 @@ import json
 import os
 import pathlib
 import time
-import sys
+import collections
 
 import numpy as np
 import xgboost as xgb
@@ -641,6 +641,22 @@ class XGBoostModel(EnsembleModel):
     def save_statistic_json(self, name, dic):
         with open(name, "w+") as f:
             json.dump(dic, f)
+
+    def build_ensemble_cv(self):
+        evaluate = self.get_evaluate_json()
+        ensemble_cv = self.get_statistic_json(path.ENSEMBLE_CV)
+        f2 = collections.defaultdict(int)
+        f2["avg"] = 0
+        for key in evaluate.keys():
+            label = re.search(r".*label([0-9].*).xgb", key).group(1)
+            f2[label] += evaluate[key]["greedy_f2"]
+        for i in range(13):
+            label = f"{i}"
+            f2[label] /= 5
+            f2["avg"] += f2[label]
+        f2["avg"] /= 13
+        ensemble_cv[f"xgb_{self.file_name}"] = f2
+        self.save_statistic_json(path.ENSEMBLE_CV, ensemble_cv)
 
     def build_and_predict_test(self):
         y_true = self.get_test_labels()

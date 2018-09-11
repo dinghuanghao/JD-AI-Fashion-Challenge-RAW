@@ -22,4 +22,5 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
 
 # model.get_meta_predict([1, 2, 3, 4, 5], True)
 # model.model_merge(["model2201", "model2202", "model2203", "model2204"])
-model.build_and_predict_test()
+# model.build_and_predict_test()
+model.build_ensemble_cv()

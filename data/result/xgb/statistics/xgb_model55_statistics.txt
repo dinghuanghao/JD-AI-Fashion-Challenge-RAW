@@ -1,154 +1,286 @@
 =========xgb_model51.npy=========
 label 0 positive number: 36
-label 1 positive number: 1335
-label 2 positive number: 9802
-label 3 positive number: 48
-label 4 positive number: 5384
-label 5 positive number: 2838
-label 6 positive number: 48
-label 7 positive number: 445
-label 8 positive number: 9742
-label 9 positive number: 2701
-label 10 positive number: 1013
-label 11 positive number: 508
-label 12 positive number: 97
 =========xgb_model51_avg.npy=========
 label 0 positive number: 50
-label 1 positive number: 1359
-label 2 positive number: 9826
-label 3 positive number: 47
-label 4 positive number: 5496
-label 5 positive number: 2919
-label 6 positive number: 55
-label 7 positive number: 463
-label 8 positive number: 9797
-label 9 positive number: 2669
-label 10 positive number: 1048
-label 11 positive number: 505
-label 12 positive number: 96
 =========xgb_model52.npy=========
 label 0 positive number: 23
-label 1 positive number: 1266
-label 2 positive number: 9784
-label 3 positive number: 50
-label 4 positive number: 5411
-label 5 positive number: 2839
-label 6 positive number: 42
-label 7 positive number: 504
-label 8 positive number: 9756
-label 9 positive number: 2665
-label 10 positive number: 1020
-label 11 positive number: 537
-label 12 positive number: 84
 =========xgb_model52_avg.npy=========
 label 0 positive number: 46
-label 1 positive number: 1258
-label 2 positive number: 9816
-label 3 positive number: 54
-label 4 positive number: 5478
-label 5 positive number: 2914
-label 6 positive number: 44
-label 7 positive number: 539
-label 8 positive number: 9794
-label 9 positive number: 2591
-label 10 positive number: 1043
-label 11 positive number: 522
-label 12 positive number: 76
 =========xgb_model53.npy=========
 label 0 positive number: 28
-label 1 positive number: 1291
-label 2 positive number: 9810
-label 3 positive number: 49
-label 4 positive number: 5393
-label 5 positive number: 2830
-label 6 positive number: 37
-label 7 positive number: 456
-label 8 positive number: 9756
-label 9 positive number: 2593
-label 10 positive number: 991
-label 11 positive number: 526
-label 12 positive number: 94
 =========xgb_model53_avg.npy=========
 label 0 positive number: 45
-label 1 positive number: 1274
-label 2 positive number: 9838
-label 3 positive number: 53
-label 4 positive number: 5511
-label 5 positive number: 2853
-label 6 positive number: 44
-label 7 positive number: 497
-label 8 positive number: 9796
-label 9 positive number: 2523
-label 10 positive number: 1041
-label 11 positive number: 502
-label 12 positive number: 99
 =========xgb_model54.npy=========
 label 0 positive number: 26
-label 1 positive number: 1322
-label 2 positive number: 9799
-label 3 positive number: 64
-label 4 positive number: 5369
-label 5 positive number: 2826
-label 6 positive number: 40
-label 7 positive number: 443
-label 8 positive number: 9757
-label 9 positive number: 2728
-label 10 positive number: 1004
-label 11 positive number: 508
-label 12 positive number: 96
 =========xgb_model54_avg.npy=========
 label 0 positive number: 35
-label 1 positive number: 1301
-label 2 positive number: 9822
-label 3 positive number: 82
-label 4 positive number: 5463
-label 5 positive number: 2834
-label 6 positive number: 42
-label 7 positive number: 507
-label 8 positive number: 9793
-label 9 positive number: 2677
-label 10 positive number: 1047
-label 11 positive number: 504
-label 12 positive number: 112
 =========xgb_model55.npy=========
 label 0 positive number: 28
-label 1 positive number: 1320
-label 2 positive number: 9801
-label 3 positive number: 64
-label 4 positive number: 5365
-label 5 positive number: 2792
-label 6 positive number: 37
-label 7 positive number: 457
-label 8 positive number: 9749
-label 9 positive number: 2661
-label 10 positive number: 1001
-label 11 positive number: 516
-label 12 positive number: 97
 =========xgb_model55_avg[cnn].npy=========
 label 0 positive number: 42
-label 1 positive number: 1407
-label 2 positive number: 9818
-label 3 positive number: 63
-label 4 positive number: 5529
-label 5 positive number: 2904
-label 6 positive number: 52
-label 7 positive number: 505
-label 8 positive number: 9784
-label 9 positive number: 2752
-label 10 positive number: 1117
-label 11 positive number: 504
-label 12 positive number: 148
 =========xgb_model55_avg[xgb].npy=========
 label 0 positive number: 45
+=========xgb_model51.npy=========
+label 1 positive number: 1335
+=========xgb_model51_avg.npy=========
+label 1 positive number: 1359
+=========xgb_model52.npy=========
+label 1 positive number: 1266
+=========xgb_model52_avg.npy=========
+label 1 positive number: 1258
+=========xgb_model53.npy=========
+label 1 positive number: 1291
+=========xgb_model53_avg.npy=========
+label 1 positive number: 1274
+=========xgb_model54.npy=========
+label 1 positive number: 1322
+=========xgb_model54_avg.npy=========
+label 1 positive number: 1301
+=========xgb_model55.npy=========
+label 1 positive number: 1320
+=========xgb_model55_avg[cnn].npy=========
+label 1 positive number: 1407
+=========xgb_model55_avg[xgb].npy=========
 label 1 positive number: 1338
+=========xgb_model51.npy=========
+label 2 positive number: 9802
+=========xgb_model51_avg.npy=========
+label 2 positive number: 9826
+=========xgb_model52.npy=========
+label 2 positive number: 9784
+=========xgb_model52_avg.npy=========
+label 2 positive number: 9816
+=========xgb_model53.npy=========
+label 2 positive number: 9810
+=========xgb_model53_avg.npy=========
+label 2 positive number: 9838
+=========xgb_model54.npy=========
+label 2 positive number: 9799
+=========xgb_model54_avg.npy=========
+label 2 positive number: 9822
+=========xgb_model55.npy=========
+label 2 positive number: 9801
+=========xgb_model55_avg[cnn].npy=========
+label 2 positive number: 9818
+=========xgb_model55_avg[xgb].npy=========
 label 2 positive number: 9834
+=========xgb_model51.npy=========
+label 3 positive number: 48
+=========xgb_model51_avg.npy=========
+label 3 positive number: 47
+=========xgb_model52.npy=========
+label 3 positive number: 50
+=========xgb_model52_avg.npy=========
+label 3 positive number: 54
+=========xgb_model53.npy=========
+label 3 positive number: 49
+=========xgb_model53_avg.npy=========
+label 3 positive number: 53
+=========xgb_model54.npy=========
+label 3 positive number: 64
+=========xgb_model54_avg.npy=========
 label 3 positive number: 82
+=========xgb_model55.npy=========
+label 3 positive number: 64
+=========xgb_model55_avg[cnn].npy=========
+label 3 positive number: 63
+=========xgb_model55_avg[xgb].npy=========
+label 3 positive number: 82
+=========xgb_model51.npy=========
+label 4 positive number: 5384
+=========xgb_model51_avg.npy=========
+label 4 positive number: 5496
+=========xgb_model52.npy=========
+label 4 positive number: 5411
+=========xgb_model52_avg.npy=========
+label 4 positive number: 5478
+=========xgb_model53.npy=========
+label 4 positive number: 5393
+=========xgb_model53_avg.npy=========
+label 4 positive number: 5511
+=========xgb_model54.npy=========
+label 4 positive number: 5369
+=========xgb_model54_avg.npy=========
+label 4 positive number: 5463
+=========xgb_model55.npy=========
+label 4 positive number: 5365
+=========xgb_model55_avg[cnn].npy=========
+label 4 positive number: 5529
+=========xgb_model55_avg[xgb].npy=========
 label 4 positive number: 5453
+=========xgb_model51.npy=========
+label 5 positive number: 2838
+=========xgb_model51_avg.npy=========
+label 5 positive number: 2919
+=========xgb_model52.npy=========
+label 5 positive number: 2839
+=========xgb_model52_avg.npy=========
+label 5 positive number: 2914
+=========xgb_model53.npy=========
+label 5 positive number: 2830
+=========xgb_model53_avg.npy=========
+label 5 positive number: 2853
+=========xgb_model54.npy=========
+label 5 positive number: 2826
+=========xgb_model54_avg.npy=========
+label 5 positive number: 2834
+=========xgb_model55.npy=========
+label 5 positive number: 2792
+=========xgb_model55_avg[cnn].npy=========
+label 5 positive number: 2904
+=========xgb_model55_avg[xgb].npy=========
 label 5 positive number: 2831
+=========xgb_model51.npy=========
+label 6 positive number: 48
+=========xgb_model51_avg.npy=========
+label 6 positive number: 55
+=========xgb_model52.npy=========
+label 6 positive number: 42
+=========xgb_model52_avg.npy=========
 label 6 positive number: 44
+=========xgb_model53.npy=========
+label 6 positive number: 37
+=========xgb_model53_avg.npy=========
+label 6 positive number: 44
+=========xgb_model54.npy=========
+label 6 positive number: 40
+=========xgb_model54_avg.npy=========
+label 6 positive number: 42
+=========xgb_model55.npy=========
+label 6 positive number: 37
+=========xgb_model55_avg[cnn].npy=========
+label 6 positive number: 52
+=========xgb_model55_avg[xgb].npy=========
+label 6 positive number: 44
+=========xgb_model51.npy=========
+label 7 positive number: 445
+=========xgb_model51_avg.npy=========
+label 7 positive number: 463
+=========xgb_model52.npy=========
+label 7 positive number: 504
+=========xgb_model52_avg.npy=========
+label 7 positive number: 539
+=========xgb_model53.npy=========
+label 7 positive number: 456
+=========xgb_model53_avg.npy=========
+label 7 positive number: 497
+=========xgb_model54.npy=========
+label 7 positive number: 443
+=========xgb_model54_avg.npy=========
+label 7 positive number: 507
+=========xgb_model55.npy=========
+label 7 positive number: 457
+=========xgb_model55_avg[cnn].npy=========
+label 7 positive number: 505
+=========xgb_model55_avg[xgb].npy=========
 label 7 positive number: 470
+=========xgb_model51.npy=========
+label 8 positive number: 9742
+=========xgb_model51_avg.npy=========
+label 8 positive number: 9797
+=========xgb_model52.npy=========
+label 8 positive number: 9756
+=========xgb_model52_avg.npy=========
+label 8 positive number: 9794
+=========xgb_model53.npy=========
+label 8 positive number: 9756
+=========xgb_model53_avg.npy=========
+label 8 positive number: 9796
+=========xgb_model54.npy=========
+label 8 positive number: 9757
+=========xgb_model54_avg.npy=========
 label 8 positive number: 9793
+=========xgb_model55.npy=========
+label 8 positive number: 9749
+=========xgb_model55_avg[cnn].npy=========
+label 8 positive number: 9784
+=========xgb_model55_avg[xgb].npy=========
+label 8 positive number: 9793
+=========xgb_model51.npy=========
+label 9 positive number: 2701
+=========xgb_model51_avg.npy=========
+label 9 positive number: 2669
+=========xgb_model52.npy=========
+label 9 positive number: 2665
+=========xgb_model52_avg.npy=========
+label 9 positive number: 2591
+=========xgb_model53.npy=========
+label 9 positive number: 2593
+=========xgb_model53_avg.npy=========
+label 9 positive number: 2523
+=========xgb_model54.npy=========
+label 9 positive number: 2728
+=========xgb_model54_avg.npy=========
+label 9 positive number: 2677
+=========xgb_model55.npy=========
+label 9 positive number: 2661
+=========xgb_model55_avg[cnn].npy=========
+label 9 positive number: 2752
+=========xgb_model55_avg[xgb].npy=========
 label 9 positive number: 2617
+=========xgb_model51.npy=========
+label 10 positive number: 1013
+=========xgb_model51_avg.npy=========
 label 10 positive number: 1048
+=========xgb_model52.npy=========
+label 10 positive number: 1020
+=========xgb_model52_avg.npy=========
+label 10 positive number: 1043
+=========xgb_model53.npy=========
+label 10 positive number: 991
+=========xgb_model53_avg.npy=========
+label 10 positive number: 1041
+=========xgb_model54.npy=========
+label 10 positive number: 1004
+=========xgb_model54_avg.npy=========
+label 10 positive number: 1047
+=========xgb_model55.npy=========
+label 10 positive number: 1001
+=========xgb_model55_avg[cnn].npy=========
+label 10 positive number: 1117
+=========xgb_model55_avg[xgb].npy=========
+label 10 positive number: 1048
+=========xgb_model51.npy=========
+label 11 positive number: 508
+=========xgb_model51_avg.npy=========
+label 11 positive number: 505
+=========xgb_model52.npy=========
+label 11 positive number: 537
+=========xgb_model52_avg.npy=========
+label 11 positive number: 522
+=========xgb_model53.npy=========
+label 11 positive number: 526
+=========xgb_model53_avg.npy=========
+label 11 positive number: 502
+=========xgb_model54.npy=========
+label 11 positive number: 508
+=========xgb_model54_avg.npy=========
+label 11 positive number: 504
+=========xgb_model55.npy=========
+label 11 positive number: 516
+=========xgb_model55_avg[cnn].npy=========
+label 11 positive number: 504
+=========xgb_model55_avg[xgb].npy=========
 label 11 positive number: 511
+=========xgb_model51.npy=========
+label 12 positive number: 97
+=========xgb_model51_avg.npy=========
+label 12 positive number: 96
+=========xgb_model52.npy=========
+label 12 positive number: 84
+=========xgb_model52_avg.npy=========
+label 12 positive number: 76
+=========xgb_model53.npy=========
+label 12 positive number: 94
+=========xgb_model53_avg.npy=========
+label 12 positive number: 99
+=========xgb_model54.npy=========
+label 12 positive number: 96
+=========xgb_model54_avg.npy=========
+label 12 positive number: 112
+=========xgb_model55.npy=========
+label 12 positive number: 97
+=========xgb_model55_avg[cnn].npy=========
+label 12 positive number: 148
+=========xgb_model55_avg[xgb].npy=========
 label 12 positive number: 113

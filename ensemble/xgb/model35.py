@@ -15,6 +15,7 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.model_merge(["model31", "model32", "model33", "model34"])
+# model.model_merge(["model31", "model32", "model33", "model34"])
 
-model.build_and_predict_test()
+# model.build_and_predict_test()
+model.build_ensemble_cv()
