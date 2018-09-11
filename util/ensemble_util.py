@@ -624,23 +624,70 @@ class XGBoostModel(EnsembleModel):
         data_pred = bst.predict(data, ntree_limit=ntree_limit)
         return data_pred
 
+    def get_test_labels(self):
+        labels = []
+        with open(path.TEST_RESULT_TXT, "r") as f:
+            for i in f.readlines():
+                result = i.strip().split(",")[1:]
+                result = [int(c) for c in result]
+                labels.append(result)
+
+        return np.array(labels, np.int8)
+
+    def get_statistic_json(self, name):
+        with open(name, "r") as f:
+            return json.load(f)
+
+    def save_statistic_json(self, name, dic):
+        with open(name, "w+") as f:
+            json.dump(dic, f)
+
     def build_and_predict_test(self):
+        y_true = self.get_test_labels()
+        ensemble_test = self.get_statistic_json(path.ENSEMBLE_TEST)
+
         test_x = self.build_test_datasets(cnn_avg=True)
         # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
         pre_y = self.predict_test(test_x, xgb_avg=False)
         np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg[cnn].npy" % self.file_name), pre_y)
         submit_util.save_submit(pre_y, "xgb_%s_avg[cnn].txt" % self.file_name)
+        f2 = {"avg": 0}
+        for i in range(13):
+            f2[f"{i}"] = fbeta_score(y_true[:, i], pre_y[:, i], beta=2)
+            f2["avg"] += f2[f"{i}"]
+            self.save_log(f"label {i}: %f" % f2[f"{i}"])
+        f2["avg"] /= 13
+        self.save_log(f"average: %f" % f2["avg"])
+        ensemble_test[f"xgb_{self.file_name}_avg[cnn].txt"] = f2
 
         test_x = self.build_test_datasets(cnn_avg=False)
         # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
         pre_y = self.predict_test(test_x, xgb_avg=True)
         np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s_avg[xgb].npy" % self.file_name), pre_y)
         submit_util.save_submit(pre_y, "xgb_%s_avg[xgb].txt" % self.file_name)
+        f2 = {"avg": 0}
+        for i in range(13):
+            f2[f"{i}"] = fbeta_score(y_true[:, i], pre_y[:, i], beta=2)
+            f2["avg"] += f2[f"{i}"]
+            self.save_log(f"label {i}: %f" % f2[f"{i}"])
+        f2["avg"] /= 13
+        self.save_log(f"average: %f" % f2["avg"])
+        ensemble_test[f"xgb_{self.file_name}_avg[xgb].txt"] = f2
 
         # output_avg表示是是否对xgboost同一个模型输出的多个数据进行平均
         pre_y = self.predict_test(test_x, xgb_avg=False)
         np.save(os.path.join(path.XGB_RESULT_PATH, "xgb_%s.npy" % self.file_name), pre_y)
         submit_util.save_submit(pre_y, "xgb_%s.txt" % self.file_name)
+        f2 = {"avg": 0}
+        for i in range(13):
+            f2[f"{i}"] = fbeta_score(y_true[:, i], pre_y[:, i], beta=2)
+            f2["avg"] += f2[f"{i}"]
+            self.save_log(f"label {i}: %f" % f2[f"{i}"])
+        f2["avg"] /= 13
+        self.save_log(f"average: %f" % f2["avg"])
+        ensemble_test[f"xgb_{self.file_name}.txt"] = f2
+
+        self.save_statistic_json(path.ENSEMBLE_TEST, ensemble_test)
 
     def predict_test(self, data_list, xgb_avg=False, mode='vote'):
         predicts = []

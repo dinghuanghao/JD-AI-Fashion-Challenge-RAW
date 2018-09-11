@@ -84,6 +84,8 @@ GLOBAL_TEST = os.path.join(IMAGE_STATISTICS_PATH, "global_test.json")
 GLOBAL_CV = os.path.join(IMAGE_STATISTICS_PATH, "global_cv.json")
 THRESHOLD_CV = os.path.join(IMAGE_STATISTICS_PATH, "threshold_cv.json")
 THRESHOLD_TEST = os.path.join(IMAGE_STATISTICS_PATH, "threshold_test.json")
+ENSEMBLE_CV = os.path.join(IMAGE_STATISTICS_PATH, "ensemble_cv.json")
+ENSEMBLE_TEST = os.path.join(IMAGE_STATISTICS_PATH, "ensemble_test.json")
 
 
 
