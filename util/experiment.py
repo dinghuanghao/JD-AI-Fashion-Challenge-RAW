@@ -389,19 +389,20 @@ def build_model_test():
 
 
 def build_threshold_cv():
+    threshold_cv = {}
+
     for val in range(1, 6):
-        _, _, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, 1)
+        _, _, thresholds = model_statistics.model_f2_statistics(path.MODEL_PATH, val)
         print("ok")
-        threshold_cv = {}
 
         for label in range(13):
             for weight_path in thresholds[label].keys():
                 if not threshold_cv.get(get_epoch_identifier(weight_path)):
                     threshold_cv[get_epoch_identifier(weight_path)] = {}
                 threshold_cv[get_epoch_identifier(weight_path)][f"{label}"] = thresholds[label][weight_path]
-        save_threshold_cv(threshold_cv)
         print("ok")
 
+    save_threshold_cv(threshold_cv)
 
 def build_global_cv():
     epoch_cv = get_epoch_cv()

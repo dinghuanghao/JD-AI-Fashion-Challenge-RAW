@@ -660,13 +660,20 @@ class XGBoostModel(EnsembleModel):
         self.save_statistic_json(path.ENSEMBLE_CV, ensemble_cv)
 
     def build_cnn_ensemble(self):
-        y_true = experiment.get_test_labels()
-        y_pred_test_vote = None
-        y_pred_cv_vote = None
-        model_num = 0
+        y_true_test = experiment.get_test_labels()
+
+        f2_cv = {"avg": 0}
+        f2_test = {"avg": 0}
+        for i in range(13):
+            f2_cv[f"{i}"] = 0
+            f2_test[f"{i}"] = 0
 
         meta_model = self.get_meta_model()
-        for model_val in meta_model:
+        for val in range(5):
+            model_val = meta_model[val]
+            model_num = 0
+            y_pred_test_vote = None
+            y_pred_cv_vote = None
             for model_label in model_val:
                 for single_model in model_label:
                     weight_path = single_model[0]
@@ -679,8 +686,8 @@ class XGBoostModel(EnsembleModel):
                         y_pred_test[:, i] = y_pred_test[:, i] > thresholds[f"{i}"]
                         y_pred_cv[:, i] = y_pred_cv[:, i] > thresholds[f"{i}"]
 
-                    y_pred_test = y_pred_test.astype(np.int8)
-                    y_pred_cv = y_pred_cv.astype(np.int8)
+                    y_pred_test = y_pred_test.astype(np.int16)
+                    y_pred_cv = y_pred_cv.astype(np.int16)
                     model_num += 1
                     if y_pred_cv_vote is None:
                         y_pred_cv_vote = y_pred_cv
@@ -692,32 +699,37 @@ class XGBoostModel(EnsembleModel):
                     else:
                         y_pred_test_vote += y_pred_test
 
-        y_pred_test_vote = y_pred_test_vote > model_num / 2
-        y_pred_test_vote = y_pred_test_vote.astype(np.int8)
+            print(f"val {val} model_num is {model_num}")
 
-        y_pred_cv_vote = y_pred_cv_vote > model_num / 2
-        y_pred_cv_vote = y_pred_cv_vote.astype(np.int8)
+            y_pred_test_vote = y_pred_test_vote > model_num / 2
+            y_pred_test_vote = y_pred_test_vote.astype(np.int8)
+
+            y_pred_cv_vote = y_pred_cv_vote > model_num / 2
+            y_pred_cv_vote = y_pred_cv_vote.astype(np.int8)
+            _, y_true_cv = data_loader.get_k_fold_labels(val + 1)
+
+            for i in range(13):
+                f2_cv[f"{i}"] += fbeta_score(np.array(y_true_cv[:, i]), y_pred_cv_vote[:, i], beta=2)
+
+            for i in range(13):
+                f2_test[f"{i}"] += fbeta_score(y_true_test[:, i], y_pred_test_vote[:, i], beta=2)
 
         ensemble_test = self.get_statistic_json(path.ENSEMBLE_TEST)
-        f2 = {"avg": 0}
-        for i in range(13):
-            f2[f"{i}"] = fbeta_score(y_true[:, i], y_pred_test_vote[:, i], beta=2)
-            f2["avg"] += f2[f"{i}"]
-            self.save_log(f"label {i}: %f" % f2[f"{i}"])
-        f2["avg"] /= 13
-        self.save_log(f"average: %f" % f2["avg"])
-        ensemble_test[f"cnn_{self.file_name}.txt"] = f2
-        self.save_statistic_json(path.ENSEMBLE_TEST, ensemble_test)
-
         ensemble_cv = self.get_statistic_json(path.ENSEMBLE_CV)
-        f2 = {"avg": 0}
+
         for i in range(13):
-            f2[f"{i}"] = fbeta_score(y_true[:, i], y_pred_cv_vote[:, i], beta=2)
-            f2["avg"] += f2[f"{i}"]
-            self.save_log(f"label {i}: %f" % f2[f"{i}"])
-        f2["avg"] /= 13
-        self.save_log(f"average: %f" % f2["avg"])
-        ensemble_cv[f"cnn_{self.file_name}.txt"] = f2
+            f2_cv[f"{i}"] /= 5
+            f2_cv['avg'] += f2_cv[f"{i}"]
+            f2_test[f"{i}"] /= 5
+            f2_test['avg'] += f2_test[f"{i}"]
+
+        f2_cv['avg'] /=13
+        f2_test['avg'] /=13
+
+        ensemble_test[f"cnn_{self.file_name}.txt"] = f2_cv
+        ensemble_cv[f"cnn_{self.file_name}.txt"] = f2_test
+
+        self.save_statistic_json(path.ENSEMBLE_TEST, ensemble_test)
         self.save_statistic_json(path.ENSEMBLE_CV, ensemble_cv)
 
     def build_and_predict_test(self):

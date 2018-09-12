@@ -423,7 +423,7 @@ def get_label(filename):
     return label
 
 
-def get_k_fold_labels(val_index, target_label):
+def get_k_fold_labels(val_index, target_label=None):
     val_y = None
     train_y = None
     for val in range(1, 6):
@@ -436,7 +436,8 @@ def get_k_fold_labels(val_index, target_label):
             labels = np.array(labels)
             np.save(predict_path, labels)
 
-        labels = labels[:, target_label].reshape((-1, 1))
+        if target_label is not None:
+            labels = labels[:, target_label].reshape((-1, 1))
 
         if val == val_index:
             val_y = labels

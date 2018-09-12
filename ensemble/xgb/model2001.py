@@ -21,4 +21,5 @@ model = ensemble_util.XGBoostModel(model_path=os.path.abspath(__file__),
                                    number_round=1000,
                                    )
 
-model.train_all_label()
+# model.train_all_label()
+model.build_cnn_ensemble()
