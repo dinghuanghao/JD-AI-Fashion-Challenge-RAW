@@ -396,14 +396,106 @@ def get_ensemble_cv_test_info(file_cv=path.ENSEMBLE_CV, file_test=path.ENSEMBLE_
     plt.ylabel('f2-score_diff')
     plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_bestSingleModel_vs_bestMultiEnsemble"))
 
+ablation_experiment_model = ['densenet169', 'xception']
+def get_ablation_experiment_down_sampling(file=path.MODEL_TEST):
+    dic_file = data_from_json(file)
+    ablation_experiment__list = ['model100', 'model111', 'model112', 'model113']
+    ablation_experiment__label = ['base_model', 'down_sampling 0.4', 'down_sampling 0.6', 'down_sampling 0.8']
+    model_dic = {}
+    xlabel = dic_label[1:]
+    for model in ablation_experiment_model:
+        model_dic[model] = {}
+        for mod in ablation_experiment__list:
+            model_dic[model][mod] = []
+            dic_name = "\\model\\" + model + "\\record\\" + mod + \
+                       "\\val2\\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights"
+            for x in xlabel:
+                model_dic[model][mod].append(dic_file[dic_name][x])
+    plt.figure(figsize=(15, 8))
+
+    plt.subplot(121)
+    plt.title(ablation_experiment_model[0])
+    for mod in ablation_experiment__list:
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o--')
+    plt.legend(ablation_experiment__label)
+    plt.subplot(122)
+    plt.title(ablation_experiment_model[1])
+    for mod in ablation_experiment__list:
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o--')
+    plt.legend(ablation_experiment__label)
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_down_sampling"))
+
+def get_ablation_experiment_up_sampling(file=path.MODEL_TEST):
+    dic_file = data_from_json(file)
+    ablation_experiment__list = ['model100', 'model101', 'model102', 'model103', 'model104', 'model105',
+                                              'model106', 'model107', 'model108', 'model109', 'model110']
+    ablation_experiment__label = ['base_model', 'color changing', '[0]x10', '[0]x30', '[0]x50',
+                                               '[0,3,6,12]x10', '[0,3,6,12]x30', '[0,3,6,12]x50',
+                                               'color[0,3,6,12]x10', 'color[0,3,6,12]x30', 'color[0,3,6,12]x50']
+    model_dic = {}
+    xlabel = dic_label[1:]
+    for model in ablation_experiment_model:
+        model_dic[model] = {}
+        for mod in ablation_experiment__list:
+            model_dic[model][mod] = []
+            dic_name = "\\model\\" + model + "\\record\\" + mod + \
+                       "\\val2\\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights"
+            for x in xlabel:
+                model_dic[model][mod].append(dic_file[dic_name][x])
+    plt.figure(figsize=(15, 8))
+
+    plt.subplot(121)
+    plt.title(ablation_experiment_model[0])
+    for mod in [ablation_experiment__list[i] for i in [0, 1, 2, 6, 8]]:
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o--')
+    plt.legend([ablation_experiment__label[i] for i in [0, 1, 2, 6, 8]])
+    plt.subplot(122)
+    plt.title(ablation_experiment_model[1])
+    for mod in [ablation_experiment__list[i] for i in [0, 1, 2, 6, 8]]:
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o--')
+    plt.legend([ablation_experiment__label[i] for i in [0, 1, 2, 6, 8]])
+    # plt.show()
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_up_sampling"))
+
+def get_ablation_experiment_loss_func(file=path.MODEL_TEST):
+    dic_file = data_from_json(file)
+    ablation_experiment__list = ['model100', 'model124']
+    ablation_experiment__label = ['binary_crossentropy', 'focal loss']
+    model_dic = {}
+    xlabel = dic_label[1:]
+    for model in ablation_experiment_model:
+        model_dic[model] = {}
+        for mod in ablation_experiment__list:
+            model_dic[model][mod] = []
+            dic_name = "\\model\\" + model + "\\record\\" + mod + \
+                       "\\val2\\['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']weights"
+            for x in xlabel:
+                model_dic[model][mod].append(dic_file[dic_name][x])
+    plt.figure(figsize=(15, 8))
+
+    plt.subplot(121)
+    plt.title(ablation_experiment_model[0])
+    for mod in ablation_experiment__list:
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o--')
+    plt.legend(ablation_experiment__label)
+    plt.subplot(122)
+    plt.title(ablation_experiment_model[1])
+    for mod in ablation_experiment__list:
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o--')
+    plt.legend(ablation_experiment__label)
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_loss_func"))
+
+
 if __name__ == "__main__":
     # Test_show_label_class_bar(TEST_FILE)
     # Test_show_label_class_type_bar(TEST_FILE)
     # get_epoch_cv_test_info()
     # get_global_cv_test_info()
-    get_threshold_cv_test_info()
+    # get_threshold_cv_test_info()
     # get_epoch_test_standard_info()
-    get_epoch_cv_test_info_each_CNNS()
+    # get_epoch_cv_test_info_each_CNNS()
     # get_ensemble_cv_test_info()
     # get_epoch_cv_test_info_each_CNNS()
+    # get_ablation_experiment_down_sampling()
+    get_ablation_experiment_up_sampling()
     pass
