@@ -67,7 +67,7 @@ def Test_show_label_class_bar(file):
     sns.barplot(y=_y, x=_x, orient='h')
     # plt.show()
     savePath = os.path.join(FIG_SAVE_FILE, 'Test_label_class_bar')
-    plt.savefig(savePath)
+    plt.savefig(savePath, dpi=300)
 
 def Test_show_label_class_type_bar(file):
     plt.figure(figsize=(8, 6))
@@ -78,7 +78,7 @@ def Test_show_label_class_type_bar(file):
     sns.barplot(x=_x, y=_y)
     # plt.show()
     savePath = os.path.join(FIG_SAVE_FILE, 'Test_label_class_style_bar')
-    plt.savefig(savePath)
+    plt.savefig(savePath, dpi=300)
 
 def data_from_json(file):
     with open(file) as f:
@@ -134,7 +134,7 @@ def get_epoch_cv_test_info(file_cv=path.EPOCH_CV, file_test=path.EPOCH_TEST):
     plt.title('avg')
 
     # plt.show()
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_diff"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_diff"), dpi=300)
 
 def get_epoch_cv_test_info_each_CNNS(file_cv=path.EPOCH_CV, file_test=path.EPOCH_TEST):
     dic_cv = data_from_json(file_cv)
@@ -190,7 +190,7 @@ def get_epoch_cv_test_info_each_CNNS(file_cv=path.EPOCH_CV, file_test=path.EPOCH
     # plt.scatter(x=diff_frame['num'].values, y=diff_frame['avg'].values, marker='.')
     for mod in model_list: sns.distplot(model_dic[mod]['avg'].values, hist=False, rug=False, ax=ax, label=mod)
     # plt.show()
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_diff_model"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_cv_test_info_diff_model"), dpi=300)
 
 def get_global_cv_test_info(file_cv=path.GLOBAL_CV, file_test=path.GLOBAL_TEST):
     dic_cv = data_from_json(file_cv)
@@ -201,11 +201,11 @@ def get_global_cv_test_info(file_cv=path.GLOBAL_CV, file_test=path.GLOBAL_TEST):
     for x in x_label:
         list_cv.append(dic_cv[x])
         list_test.append(dic_test[x])
-    plt.plot(x_label, list_cv, 'o--')
-    plt.plot(x_label, list_test, 'o--')
+    plt.plot(x_label, list_cv, 'o-')
+    plt.plot(x_label, list_test, 'o-')
     plt.legend(['CV', 'TEST'])
     plt.ylabel('f2-score')
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "global_cv_test_info"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "global_cv_test_info"), dpi=300)
 
 def get_threshold_cv_test_info(file_cv=path.THRESHOLD_CV, file_test=path.THRESHOLD_TEST):
     dic_cv = data_from_json(file_cv)
@@ -246,7 +246,7 @@ def get_threshold_cv_test_info(file_cv=path.THRESHOLD_CV, file_test=path.THRESHO
     #     # plt.xlabel('label'+str(i))
     #     # plt.savefig(os.path.join(FIG_SAVE_FILE, "threshold_cv_test_info_diff_label" + str(i)))
     # # plt.show()
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "threshold_cv_test_info_diff"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "threshold_cv_test_info_diff"), dpi=300)
 
 def get_epoch_test_standard_info(file_cv=path.EPOCH_TEST, file_test=path.EPOCH_TEST_STANDARD):
     dic_cv = data_from_json(file_cv)
@@ -288,7 +288,7 @@ def get_epoch_test_standard_info(file_cv=path.EPOCH_TEST, file_test=path.EPOCH_T
         # plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_test_standard_info_diff_label" + str(i)))
         # plt.clf()
     # plt.subplots_adjust(hspace=0.3)
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_test_standard_info_diff"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "epoch_test_standard_info_diff"), dpi=300)
 
 ensemble_list = ['2005', '2055', '2105', '2155', '2205']
 ensemble_label_list = ['top-1', 'top-5', 'top-10', 'top-15', 'top-20']
@@ -325,23 +325,23 @@ def get_ensemble_cv_test_info(file_cv=path.ENSEMBLE_CV, file_test=path.ENSEMBLE_
             ensemble_test_avg_cnn_dic[xgb].append(dic_test['xgb_model' + xgb + '_avg[cnn].txt'][x])
     plt.subplot(221)
     for xgb in ensemble_list:
-        plt.plot(x_label, ensemble_cv_dic[xgb], 'o--')
-    plt.plot(x_label, best_single_model_cv_list, 'o--')
+        plt.plot(x_label, ensemble_cv_dic[xgb], 'o-', linewidth=0.8)
+    plt.plot(x_label, best_single_model_cv_list, 'o-', linewidth=0.8)
     plt.legend(ensemble_label_list+['SINGLE_MODEL'])
     plt.title('CV')
     plt.ylabel('f2-score')
 
     plt.subplot(222)
     for xgb in ensemble_list:
-        plt.plot(x_label, ensemble_test_dic[xgb], 'o--')
-    plt.plot(x_label, best_single_model_test_list, 'o--')
+        plt.plot(x_label, ensemble_test_dic[xgb], 'o-', linewidth=0.8)
+    plt.plot(x_label, best_single_model_test_list, 'o-', linewidth=0.8)
     plt.legend(ensemble_label_list + ['SINGLE_MODEL'])
     plt.title('TEST')
     plt.ylabel('f2-score')
 
     plt.subplot(223)
     for xgb in ensemble_list:
-        plt.plot(x_label, ensemble_cv_test_diff_dic[xgb], 'o--')
+        plt.plot(x_label, ensemble_cv_test_diff_dic[xgb], 'o-', linewidth=0.8)
     plt.legend(ensemble_label_list)
     plt.title('TEST - CV')
     plt.ylabel('f2-score_diff')
@@ -349,13 +349,13 @@ def get_ensemble_cv_test_info(file_cv=path.ENSEMBLE_CV, file_test=path.ENSEMBLE_
     plt.subplot(224)
     # for xgb in ensemble_list:
     for xgb in ['2055']:
-        plt.plot(x_label, ensemble_test_dic[xgb], 'o--')
-        plt.plot(x_label, ensemble_test_avg_xgb_dic[xgb], 'o--')
-        plt.plot(x_label, ensemble_test_avg_cnn_dic[xgb], 'o--')
+        plt.plot(x_label, ensemble_test_dic[xgb], 'o-', linewidth=0.8)
+        plt.plot(x_label, ensemble_test_avg_xgb_dic[xgb], 'o-', linewidth=0.8)
+        plt.plot(x_label, ensemble_test_avg_cnn_dic[xgb], 'o-', linewidth=0.8)
     plt.legend(['vote', 'avg[xgb]', 'avg[cnn]'])
     plt.title('multi-level ensemble')
     plt.ylabel('f2-score')
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_top"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_top"), dpi=300)
 
 #研究多级集成与top的关系
     vote_label0 = []
@@ -368,9 +368,9 @@ def get_ensemble_cv_test_info(file_cv=path.ENSEMBLE_CV, file_test=path.ENSEMBLE_
         avg_cnn_label0.append(ensemble_test_avg_cnn_dic[xgb][1])
         n = ensemble_list.index(xgb)
         plt.subplot(2, 3, n+1)
-        plt.plot(x_label, ensemble_test_dic[xgb], 'o--')
-        plt.plot(x_label, ensemble_test_avg_xgb_dic[xgb], 'o--')
-        plt.plot(x_label, ensemble_test_avg_cnn_dic[xgb], 'o--')
+        plt.plot(x_label, ensemble_test_dic[xgb], 'o-', linewidth=0.8)
+        plt.plot(x_label, ensemble_test_avg_xgb_dic[xgb], 'o-', linewidth=0.8)
+        plt.plot(x_label, ensemble_test_avg_cnn_dic[xgb], 'o-', linewidth=0.8)
         plt.legend(['vote', 'avg[xgb]', 'avg[cnn]'])
         plt.title(ensemble_label_list[n])
         plt.ylabel('f2-score')
@@ -382,19 +382,19 @@ def get_ensemble_cv_test_info(file_cv=path.ENSEMBLE_CV, file_test=path.ENSEMBLE_
     plt.legend(['vote', 'avg[xgb]', 'avg[cnn]'])
     plt.ylabel('f2-score')
     plt.title('multi-ensemble label0')
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_top_multi_ensemble"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_top_multi_ensemble"), dpi=300)
 
 #最好单模型标签和最好集成标签比较
     plt.figure(figsize=(15, 8))
     plt.subplot(121)
-    plt.plot(x_label, best_single_model_test_list, 'o--')
-    plt.plot(x_label, ensemble_test_avg_cnn_dic['2155'], 'o--')
+    plt.plot(x_label, best_single_model_test_list, 'o-')
+    plt.plot(x_label, ensemble_test_avg_cnn_dic['2155'], 'o-')
     plt.legend(['BEST_SINGLE_MODEL', 'BEST_MULTI_ENSEMBLE'])
     plt.ylabel('f2-score')
     plt.subplot(122)
     plt.plot(x_label, [i - j for i, j in zip(ensemble_test_avg_cnn_dic['2155'], best_single_model_test_list)], 'o--')
     plt.ylabel('f2-score_diff')
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_bestSingleModel_vs_bestMultiEnsemble"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ensemble_cv_test_info_bestSingleModel_vs_bestMultiEnsemble"), dpi=300)
 
 ablation_experiment_model = ['densenet169', 'xception']
 def get_ablation_experiment_down_sampling(file=path.MODEL_TEST):
@@ -416,14 +416,14 @@ def get_ablation_experiment_down_sampling(file=path.MODEL_TEST):
     plt.subplot(121)
     plt.title(ablation_experiment_model[0])
     for mod in ablation_experiment__list:
-        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o--')
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o-', linewidth=0.8)
     plt.legend(ablation_experiment__label)
     plt.subplot(122)
     plt.title(ablation_experiment_model[1])
     for mod in ablation_experiment__list:
-        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o--')
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o-', linewidth=0.8)
     plt.legend(ablation_experiment__label)
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_down_sampling"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_down_sampling"), dpi=300)
 
 def get_ablation_experiment_up_sampling(file=path.MODEL_TEST):
     dic_file = data_from_json(file)
@@ -447,15 +447,15 @@ def get_ablation_experiment_up_sampling(file=path.MODEL_TEST):
     plt.subplot(121)
     plt.title(ablation_experiment_model[0])
     for mod in [ablation_experiment__list[i] for i in [0, 1, 2, 6, 8]]:
-        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o--')
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o-', linewidth=0.8)
     plt.legend([ablation_experiment__label[i] for i in [0, 1, 2, 6, 8]])
     plt.subplot(122)
     plt.title(ablation_experiment_model[1])
     for mod in [ablation_experiment__list[i] for i in [0, 1, 2, 6, 8]]:
-        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o--')
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o-', linewidth=0.8)
     plt.legend([ablation_experiment__label[i] for i in [0, 1, 2, 6, 8]])
     # plt.show()
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_up_sampling"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_up_sampling"), dpi=300)
 
 def get_ablation_experiment_loss_func(file=path.MODEL_TEST):
     dic_file = data_from_json(file)
@@ -476,14 +476,14 @@ def get_ablation_experiment_loss_func(file=path.MODEL_TEST):
     plt.subplot(121)
     plt.title(ablation_experiment_model[0])
     for mod in ablation_experiment__list:
-        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o--')
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[0]][mod], 'o-')
     plt.legend(ablation_experiment__label)
     plt.subplot(122)
     plt.title(ablation_experiment_model[1])
     for mod in ablation_experiment__list:
-        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o--')
+        plt.plot(dic_label[1:], model_dic[ablation_experiment_model[1]][mod], 'o-')
     plt.legend(ablation_experiment__label)
-    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_loss_func"))
+    plt.savefig(os.path.join(FIG_SAVE_FILE, "ablation_experiment_loss_func"), dpi=300)
 
 
 if __name__ == "__main__":
@@ -493,9 +493,9 @@ if __name__ == "__main__":
     # get_global_cv_test_info()
     # get_threshold_cv_test_info()
     # get_epoch_test_standard_info()
-    # get_epoch_cv_test_info_each_CNNS()
     # get_ensemble_cv_test_info()
     # get_epoch_cv_test_info_each_CNNS()
     # get_ablation_experiment_down_sampling()
-    get_ablation_experiment_up_sampling()
+    # get_ablation_experiment_up_sampling()
+    # get_ablation_experiment_loss_func()
     pass
